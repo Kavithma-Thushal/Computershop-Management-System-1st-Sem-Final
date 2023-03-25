@@ -40,17 +40,17 @@
             <Font name="Calibri" size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="270.0" layoutY="98.0" promptText="Full Name">
+      <TextField layoutX="270.0" layoutY="98.0" promptText="E - Mail">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="270.0" layoutY="155.0" promptText="Address">
+      <TextField layoutX="270.0" layoutY="155.0" promptText="Username">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="270.0" layoutY="214.0" promptText="Address">
+      <TextField layoutX="270.0" layoutY="214.0" promptText="Password">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>

@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <ImageView fitHeight="653.0" fitWidth="1207.0" layoutX="-3.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../img/b.jpg" />
-            </image>
-        </ImageView>
-    </children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.CashierdashboardFormController">
+   <children>
+      <ImageView fx:id="root" fitHeight="653.0" fitWidth="1207.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/b.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="51.0" layoutY="149.0" mnemonicParsing="false" onAction="#managecustomersOnAction" prefHeight="42.0" prefWidth="187.0" text="Manage Customers">
+         <font>
+            <Font name="Bernard MT Condensed" size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="51.0" layoutY="274.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="187.0" text="Manage Store">
+         <font>
+            <Font name="Bernard MT Condensed" size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="51.0" layoutY="403.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="187.0" text="Manage Orders">
+         <font>
+            <Font name="Bernard MT Condensed" size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="51.0" layoutY="532.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="187.0" text="Reports">
+         <font>
+            <Font name="Bernard MT Condensed" size="22.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>
