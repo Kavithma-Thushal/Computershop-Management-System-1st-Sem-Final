@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-public class ManagecustomersFormController implements Initializable {
+public class ManagestoreFormController implements Initializable {
 
     @FXML
     private Label lbldateandtime;

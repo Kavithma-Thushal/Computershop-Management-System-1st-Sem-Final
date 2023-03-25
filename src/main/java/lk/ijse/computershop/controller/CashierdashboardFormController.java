@@ -23,6 +23,13 @@ public class CashierdashboardFormController implements Initializable {
     @FXML
     private Label lbldateandtime;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd      hh:mm");
+        Date date = new Date();
+        lbldateandtime.setText(simpleDateFormat.format(date));
+    }
+
     public void managecustomersOnAction(ActionEvent event) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("/view/managecustomers_form.fxml"));
         Stage stage = new Stage();
@@ -33,10 +40,29 @@ public class CashierdashboardFormController implements Initializable {
         stage.show();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd      hh:mm");
-        Date date = new Date();
-        lbldateandtime.setText(simpleDateFormat.format(date));
+    public void managestoreOnAction(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("/view/managestore_form.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("Manage Store");
+        stage.show();
+    }
+
+    public void manageordersOnAction(ActionEvent event) {
+
+    }
+
+    public void custombuildOnAction(ActionEvent event) {
+
+    }
+
+    public void warrantyOnAction(ActionEvent event) {
+
+    }
+
+    public void repairOnAction(ActionEvent event) {
+
     }
 }

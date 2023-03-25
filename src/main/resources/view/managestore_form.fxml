@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.ManagecustomersFormController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.ManagestoreFormController">
    <children>
       <ImageView fitHeight="633.0" fitWidth="1207.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -22,7 +22,7 @@
             <Image url="@../img/b.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="52.0" layoutY="44.0" text="Customer Management" textFill="WHITE">
+      <Label layoutX="52.0" layoutY="44.0" text="Store Management" textFill="WHITE">
          <font>
             <Font name="Bernard MT Condensed" size="43.0" />
          </font>
@@ -32,32 +32,22 @@
             <Font name="Bernard MT Condensed" size="43.0" />
          </font>
       </Label>
-      <TextField layoutX="52.0" layoutY="159.0" prefHeight="25.0" prefWidth="187.0" promptText="Customer ID">
+      <TextField layoutX="52.0" layoutY="207.0" prefHeight="25.0" prefWidth="187.0" promptText="Item Code">
          <font>
             <Font name="Bernard MT Condensed" size="17.0" />
          </font>
       </TextField>
-      <TextField layoutX="52.0" layoutY="213.0" prefHeight="7.0" prefWidth="187.0" promptText="Customer Name">
+      <TextField layoutX="52.0" layoutY="280.0" prefHeight="7.0" prefWidth="187.0" promptText="Description">
          <font>
             <Font name="Bernard MT Condensed" size="17.0" />
          </font>
       </TextField>
-      <TextField layoutX="52.0" layoutY="381.0" prefHeight="25.0" prefWidth="187.0" promptText="Customer Contact">
+      <TextField layoutX="52.0" layoutY="429.0" prefHeight="25.0" prefWidth="187.0" promptText="Quantity On Hand">
          <font>
             <Font name="Bernard MT Condensed" size="17.0" />
          </font>
       </TextField>
-      <TextField layoutX="52.0" layoutY="323.0" prefHeight="25.0" prefWidth="187.0" promptText="Customer Address">
-         <font>
-            <Font name="Bernard MT Condensed" size="17.0" />
-         </font>
-      </TextField>
-      <TextField layoutX="52.0" layoutY="436.0" prefHeight="25.0" prefWidth="187.0" promptText="Customer Email">
-         <font>
-            <Font name="Bernard MT Condensed" size="17.0" />
-         </font>
-      </TextField>
-      <TextField layoutX="52.0" layoutY="268.0" prefHeight="25.0" prefWidth="187.0" promptText="Customer NIC">
+      <TextField layoutX="52.0" layoutY="353.0" prefHeight="25.0" prefWidth="187.0" promptText="Unit Price">
          <font>
             <Font name="Bernard MT Condensed" size="17.0" />
          </font>
@@ -83,14 +73,12 @@
          </font>
       </Button>
       <TableView layoutX="289.0" layoutY="160.0" prefHeight="443.0" prefWidth="878.0">
-        <columns>
-          <TableColumn prefWidth="146.0" text="ID" />
-          <TableColumn prefWidth="146.0" text="Name" />
-            <TableColumn prefWidth="146.0" text="NIC" />
-            <TableColumn prefWidth="146.0" text="Address" />
-            <TableColumn prefWidth="146.0" text="Contact" />
-            <TableColumn prefWidth="151.0" text="Email" />
-        </columns>
+         <columns>
+            <TableColumn prefWidth="219.0" text="Code" />
+            <TableColumn prefWidth="219.0" text="Description" />
+            <TableColumn prefWidth="219.0" text="Unit Price" />
+            <TableColumn prefWidth="220.0" text="Quantity On Hand" />
+         </columns>
       </TableView>
    </children>
 </AnchorPane>
