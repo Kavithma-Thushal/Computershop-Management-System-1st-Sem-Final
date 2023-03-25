@@ -20,21 +20,21 @@
                 <Font name="Bernard MT Condensed" size="31.0" />
             </font>
         </Label>
-        <TextField layoutX="48.0" layoutY="112.0" promptText="Username">
+        <TextField layoutX="48.0" layoutY="98.0" promptText="Username">
             <font>
                 <Font name="Calibri" size="15.0" />
             </font>
         </TextField>
-        <TextField layoutX="48.0" layoutY="158.0" promptText="Password">
+        <TextField layoutX="48.0" layoutY="149.0" promptText="Password">
             <font>
                 <Font name="Calibri" size="15.0" />
             </font>
         </TextField>
-        <Button layoutX="279.0" layoutY="157.0" mnemonicParsing="false" onAction="#cashierloginOnAction" text="login">
+        <Button layoutX="276.0" layoutY="148.0" mnemonicParsing="false" onAction="#cashierloginOnAction" text="login">
             <font>
                 <Font name="Bernard MT Condensed" size="15.0" />
             </font>
         </Button>
-        <Button layoutX="48.0" layoutY="207.0" mnemonicParsing="false" onAction="#createnewaccountOnAction" prefHeight="25.0" prefWidth="134.0" text="Create a new account" />
+        <Button layoutX="48.0" layoutY="200.0" mnemonicParsing="false" onAction="#createnewaccountOnAction" prefHeight="25.0" prefWidth="134.0" text="Create a new account" />
     </children>
 </AnchorPane>
