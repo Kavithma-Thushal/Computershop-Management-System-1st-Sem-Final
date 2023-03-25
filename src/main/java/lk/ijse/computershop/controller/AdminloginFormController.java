@@ -22,7 +22,6 @@ public class AdminloginFormController {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Admin Dashboard");
-        stage.show();
     }
 
     public void createnewaccountOnAction(ActionEvent event) {

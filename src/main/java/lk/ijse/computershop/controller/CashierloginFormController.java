@@ -22,7 +22,6 @@ public class CashierloginFormController {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Cashier Dashboard");
-        stage.show();
     }
 
     public void createnewaccountOnAction(ActionEvent event) throws IOException {

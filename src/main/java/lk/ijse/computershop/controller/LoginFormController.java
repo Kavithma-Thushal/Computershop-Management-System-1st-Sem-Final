@@ -22,7 +22,6 @@ public class LoginFormController {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Cashier login");
-        stage.show();
     }
 
     public void adminOnAction(ActionEvent event) throws IOException {
@@ -32,6 +31,5 @@ public class LoginFormController {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Admin login");
-        stage.show();
     }
 }
