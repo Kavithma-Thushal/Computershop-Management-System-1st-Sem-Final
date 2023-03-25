@@ -25,7 +25,13 @@ public class CashierloginFormController {
         stage.show();
     }
 
-    public void createnewaccountOnAction(ActionEvent event) {
-
+    public void createnewaccountOnAction(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource(""));
+        Stage stage = new Stage();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("Create a new account");
+        stage.show();
     }
 }
