@@ -8,49 +8,49 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="326.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.CreatenewaccountFormController">
+<AnchorPane prefHeight="328.0" prefWidth="491.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.CreatenewaccountFormController">
    <children>
-      <ImageView fitHeight="326.0" fitWidth="526.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="328.0" fitWidth="492.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/a.jpeg" />
          </image>
       </ImageView>
-      <Label layoutX="113.0" layoutY="30.0" prefHeight="39.0" prefWidth="255.0" text="Create a new account" textFill="WHITE">
+      <Label layoutX="117.0" layoutY="30.0" prefHeight="39.0" prefWidth="258.0" text="Create a new account" textFill="WHITE">
          <font>
             <Font name="Bernard MT Condensed" size="31.0" />
          </font>
       </Label>
-      <TextField layoutX="37.0" layoutY="99.0" promptText="Full Name">
+      <TextField layoutX="44.0" layoutY="98.0" promptText="Full Name">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="37.0" layoutY="154.0" promptText="Address">
+      <TextField layoutX="44.0" layoutY="155.0" promptText="Address">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="37.0" layoutY="213.0" promptText="Contact">
-         <font>
-            <Font name="Calibri" size="15.0" />
-         </font>
-      </TextField>
-      <Button layoutX="389.0" layoutY="266.0" mnemonicParsing="false" onAction="#cashierloginOnAction" text="Create">
+      <Button layoutX="392.0" layoutY="269.0" mnemonicParsing="false" text="Create">
          <font>
             <Font name="Bernard MT Condensed" size="15.0" />
          </font>
       </Button>
-      <TextField layoutX="267.0" layoutY="99.0" promptText="E-Mail">
+      <TextField layoutX="44.0" layoutY="214.0" promptText="Contact">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="267.0" layoutY="154.0" promptText="Username">
+      <TextField layoutX="270.0" layoutY="98.0" promptText="Full Name">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>
       </TextField>
-      <TextField layoutX="267.0" layoutY="213.0" promptText="Password">
+      <TextField layoutX="270.0" layoutY="155.0" promptText="Address">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="270.0" layoutY="214.0" promptText="Address">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>

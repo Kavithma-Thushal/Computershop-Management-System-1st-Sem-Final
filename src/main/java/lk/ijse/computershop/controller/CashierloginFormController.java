@@ -26,7 +26,7 @@ public class CashierloginFormController {
     }
 
     public void createnewaccountOnAction(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource(""));
+        Parent parent = FXMLLoader.load(getClass().getResource("/view/createnewaccount_form.fxml"));
         Stage stage = new Stage();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
