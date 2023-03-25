@@ -14,47 +14,42 @@
             <Image url="@../img/b.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="36.0" layoutY="144.0" mnemonicParsing="false" onAction="#managecustomersOnAction" prefHeight="42.0" prefWidth="187.0" text="Manage Customers">
+      <Button layoutX="52.0" layoutY="142.0" mnemonicParsing="false" onAction="#managecustomersOnAction" prefHeight="42.0" prefWidth="187.0" text="Manage Customers">
          <font>
             <Font name="Bernard MT Condensed" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="36.0" layoutY="210.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="187.0" text="Manage Store">
+      <Button layoutX="52.0" layoutY="223.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="187.0" text="Manage Store">
          <font>
             <Font name="Bernard MT Condensed" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="36.0" layoutY="281.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="187.0" text="Manage Orders">
+      <Button layoutX="52.0" layoutY="307.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="187.0" text="Manage Orders">
          <font>
             <Font name="Bernard MT Condensed" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="36.0" layoutY="559.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="187.0" text="Reports">
+      <Button layoutX="52.0" layoutY="471.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="187.0" text="Warranty">
          <font>
             <Font name="Bernard MT Condensed" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="36.0" layoutY="420.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="187.0" text="Warranty">
+      <Button layoutX="52.0" layoutY="553.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="187.0" text="Repair">
          <font>
             <Font name="Bernard MT Condensed" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="36.0" layoutY="490.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="187.0" text="Repair">
+      <Button layoutX="52.0" layoutY="388.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="187.0" text="Custom Build">
          <font>
             <Font name="Bernard MT Condensed" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="36.0" layoutY="350.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="187.0" text="Custom Build">
-         <font>
-            <Font name="Bernard MT Condensed" size="22.0" />
-         </font>
-      </Button>
-      <Label layoutX="36.0" layoutY="44.0" text="Hello : Sadun" textFill="WHITE">
+      <Label layoutX="52.0" layoutY="44.0" text="Hello : Sadun" textFill="WHITE">
          <font>
             <Font name="Bernard MT Condensed" size="43.0" />
          </font>
       </Label>
-      <Label fx:id="lbldateandtime" layoutX="791.0" layoutY="44.0" prefHeight="54.0" prefWidth="382.0" textFill="WHITE">
+      <Label fx:id="lbldateandtime" layoutX="785.0" layoutY="44.0" prefHeight="54.0" prefWidth="382.0" textFill="WHITE">
          <font>
             <Font name="Bernard MT Condensed" size="43.0" />
          </font>

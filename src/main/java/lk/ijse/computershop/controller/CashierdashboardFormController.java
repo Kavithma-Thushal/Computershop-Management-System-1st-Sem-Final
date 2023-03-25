@@ -35,8 +35,8 @@ public class CashierdashboardFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy/MM/dd      hh:mm");
-        Date date=new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd      hh:mm");
+        Date date = new Date();
         lbldateandtime.setText(simpleDateFormat.format(date));
     }
 }
