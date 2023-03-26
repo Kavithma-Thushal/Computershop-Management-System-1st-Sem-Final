@@ -8,33 +8,36 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="252.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.CashierloginFormController">
+<AnchorPane fx:id="root" prefHeight="300.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.CashierloginFormController">
     <children>
-        <ImageView fitHeight="252.0" fitWidth="453.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="300.0" fitWidth="450.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../img/a.jpeg" />
             </image>
         </ImageView>
-        <Label layoutX="77.0" layoutY="32.0" prefHeight="39.0" prefWidth="224.0" text="Welocome Cashier " textFill="WHITE">
+        <Label layoutX="80.0" layoutY="38.0" prefHeight="50.0" prefWidth="290.0" text="Welocome Cashier " textFill="WHITE">
             <font>
-                <Font name="Bernard MT Condensed" size="31.0" />
+                <Font name="Bernard MT Condensed" size="40.0" />
             </font>
         </Label>
-        <TextField layoutX="48.0" layoutY="98.0" promptText="Username">
+        <TextField layoutX="75.0" layoutY="120.0" promptText="Username">
             <font>
-                <Font name="Calibri" size="15.0" />
+                <Font name="Calibri" size="17.0" />
             </font>
         </TextField>
-        <TextField layoutX="48.0" layoutY="149.0" promptText="Password">
+        <TextField layoutX="75.0" layoutY="180.0" promptText="Password">
             <font>
-                <Font name="Calibri" size="15.0" />
+                <Font name="Calibri" size="17.0" />
             </font>
         </TextField>
-        <Button layoutX="276.0" layoutY="148.0" mnemonicParsing="false" onAction="#cashierloginOnAction" text="login">
+        <Button layoutX="332.0" layoutY="180.0" mnemonicParsing="false" onAction="#cashierloginOnAction" text="login">
             <font>
-                <Font name="Bernard MT Condensed" size="15.0" />
+                <Font name="Bernard MT Condensed" size="17.0" />
             </font>
         </Button>
-        <Button layoutX="48.0" layoutY="200.0" mnemonicParsing="false" onAction="#createnewaccountOnAction" prefHeight="25.0" prefWidth="134.0" text="Create a new account" />
+        <Button layoutX="75.0" layoutY="241.0" mnemonicParsing="false" onAction="#createnewaccountOnAction" prefHeight="0.0" prefWidth="134.0" text="Create a new account">
+         <font>
+            <Font name="Calibri" size="13.0" />
+         </font></Button>
     </children>
 </AnchorPane>

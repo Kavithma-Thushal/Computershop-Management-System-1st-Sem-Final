@@ -8,33 +8,31 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="251.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="lk.ijse.computershop.controller.AdminloginFormController">
+<AnchorPane fx:id="root" prefHeight="300.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.AdminloginFormController">
     <children>
-        <ImageView fitHeight="252.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="300.0" fitWidth="450.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/a.jpeg"/>
+                <Image url="@../img/a.jpeg" />
             </image>
         </ImageView>
-        <Label layoutX="82.0" layoutY="31.0" prefHeight="39.0" prefWidth="217.0" text="Welocome Admin" textFill="WHITE">
+        <Label layoutX="79.0" layoutY="32.0" prefHeight="50.0" prefWidth="270.0" text="Welocome Admin" textFill="WHITE">
             <font>
-                <Font name="Bernard MT Condensed" size="31.0"/>
+                <Font name="Bernard MT Condensed" size="40.0" />
             </font>
         </Label>
-        <TextField layoutX="49.0" layoutY="120.0" promptText="Username">
+        <TextField layoutX="59.0" layoutY="143.0" promptText="Username">
             <font>
-                <Font name="Calibri" size="15.0"/>
+                <Font name="Calibri" size="17.0" />
             </font>
         </TextField>
-        <TextField layoutX="49.0" layoutY="173.0" promptText="Password">
+        <TextField layoutX="59.0" layoutY="216.0" promptText="Password">
             <font>
-                <Font name="Calibri" size="15.0"/>
+                <Font name="Calibri" size="17.0" />
             </font>
         </TextField>
-        <Button layoutX="274.0" layoutY="172.0" mnemonicParsing="false" onAction="#adminloginOnAction" text="login">
+        <Button layoutX="321.0" layoutY="216.0" mnemonicParsing="false" onAction="#adminloginOnAction" text="login">
             <font>
-                <Font name="Bernard MT Condensed" size="15.0"/>
+                <Font name="Bernard MT Condensed" size="17.0" />
             </font>
         </Button>
     </children>
