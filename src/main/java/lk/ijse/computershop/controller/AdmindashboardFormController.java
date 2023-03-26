@@ -34,6 +34,7 @@ public class AdmindashboardFormController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Manage Employees");
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -44,6 +45,7 @@ public class AdmindashboardFormController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Manage Suppliers");
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -54,6 +56,7 @@ public class AdmindashboardFormController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Manage Customers");
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -64,6 +67,7 @@ public class AdmindashboardFormController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Manage Store");
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -74,6 +78,7 @@ public class AdmindashboardFormController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Manage Orders");
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -84,6 +89,7 @@ public class AdmindashboardFormController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Manage Salary");
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -94,6 +100,7 @@ public class AdmindashboardFormController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Reports");
+        stage.setResizable(false);
         stage.show();
     }
 }

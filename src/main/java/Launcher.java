@@ -19,6 +19,7 @@ public class Launcher extends Application {
         primaryStage.setScene(scene);
         primaryStage.centerOnScreen();
         primaryStage.setTitle("login");
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }

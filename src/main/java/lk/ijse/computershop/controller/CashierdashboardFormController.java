@@ -34,6 +34,7 @@ public class CashierdashboardFormController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Manage Customers");
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -44,6 +45,7 @@ public class CashierdashboardFormController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Manage Store");
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -54,6 +56,7 @@ public class CashierdashboardFormController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Manage Orders");
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -64,6 +67,7 @@ public class CashierdashboardFormController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Delivery");
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -74,6 +78,7 @@ public class CashierdashboardFormController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Custom Build");
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -84,6 +89,7 @@ public class CashierdashboardFormController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Repair");
+        stage.setResizable(false);
         stage.show();
     }
 }

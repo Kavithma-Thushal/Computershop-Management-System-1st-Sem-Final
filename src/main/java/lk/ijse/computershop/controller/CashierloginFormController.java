@@ -31,6 +31,7 @@ public class CashierloginFormController {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Create a new account");
+        stage.setResizable(false);
         stage.show();
     }
 }
