@@ -15,22 +15,22 @@
                 <Image url="@../img/a.jpeg" />
             </image>
         </ImageView>
-        <Label layoutX="79.0" layoutY="32.0" prefHeight="50.0" prefWidth="270.0" text="Welocome Admin" textFill="WHITE">
+        <Label layoutX="102.0" layoutY="33.0" prefHeight="50.0" prefWidth="247.0" text="Welcome Admin" textFill="WHITE">
             <font>
                 <Font name="Bernard MT Condensed" size="40.0" />
             </font>
         </Label>
-        <TextField layoutX="59.0" layoutY="143.0" promptText="Username">
+        <TextField layoutX="102.0" layoutY="134.0" prefHeight="33.0" prefWidth="247.0" promptText="Username">
             <font>
                 <Font name="Calibri" size="17.0" />
             </font>
         </TextField>
-        <TextField layoutX="59.0" layoutY="216.0" promptText="Password">
+        <TextField layoutX="102.0" layoutY="188.0" prefHeight="33.0" prefWidth="247.0" promptText="Password">
             <font>
                 <Font name="Calibri" size="17.0" />
             </font>
         </TextField>
-        <Button layoutX="321.0" layoutY="216.0" mnemonicParsing="false" onAction="#adminloginOnAction" text="login">
+        <Button layoutX="293.0" layoutY="244.0" mnemonicParsing="false" onAction="#adminloginOnAction" style="-fx-background-color: lightblue;" text="login">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0" />
             </font>

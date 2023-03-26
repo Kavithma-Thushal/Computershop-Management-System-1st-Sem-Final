@@ -50,19 +50,43 @@ public class CashierdashboardFormController implements Initializable {
         stage.show();
     }
 
-    public void manageordersOnAction(ActionEvent event) {
-
+    public void manageordersOnAction(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("/view/manageorders_form.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("Manage Orders");
+        stage.show();
     }
 
-    public void custombuildOnAction(ActionEvent event) {
-
+    public void deliveryOnAction(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("/view/delivery_form.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("Delivery");
+        stage.show();
     }
 
-    public void warrantyOnAction(ActionEvent event) {
-
+    public void custombuildOnAction(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("/view/custombuild_form.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("Custom Build");
+        stage.show();
     }
 
-    public void repairOnAction(ActionEvent event) {
-
+    public void repairOnAction(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("/view/repair_form.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("Repair");
+        stage.show();
     }
 }

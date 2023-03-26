@@ -24,7 +24,7 @@
                 <Font name="Bernard MT Condensed" size="23.0" />
             </font>
         </Button>
-        <Label layoutX="19.0" layoutY="45.0" prefHeight="39.0" prefWidth="413.0" text="Welocome to Bashi Computer Shop" textFill="WHITE">
+        <Label layoutX="19.0" layoutY="47.0" prefHeight="39.0" prefWidth="413.0" text="Welcome to Bashi Computer Shop" textFill="WHITE">
             <font>
                 <Font name="Bernard MT Condensed" size="31.0" />
             </font>

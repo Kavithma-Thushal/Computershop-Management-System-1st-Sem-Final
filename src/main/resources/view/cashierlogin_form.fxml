@@ -15,27 +15,27 @@
                 <Image url="@../img/a.jpeg" />
             </image>
         </ImageView>
-        <Label layoutX="80.0" layoutY="38.0" prefHeight="50.0" prefWidth="290.0" text="Welocome Cashier " textFill="WHITE">
+        <Label layoutX="86.0" layoutY="34.0" prefHeight="50.0" prefWidth="269.0" text="Welcome Cashier " textFill="WHITE">
             <font>
                 <Font name="Bernard MT Condensed" size="40.0" />
             </font>
         </Label>
-        <TextField layoutX="75.0" layoutY="120.0" promptText="Username">
+        <TextField layoutX="87.0" layoutY="117.0" prefHeight="33.0" prefWidth="269.0" promptText="Username">
             <font>
                 <Font name="Calibri" size="17.0" />
             </font>
         </TextField>
-        <TextField layoutX="75.0" layoutY="180.0" promptText="Password">
+        <TextField layoutX="86.0" layoutY="176.0" prefHeight="33.0" prefWidth="269.0" promptText="Password">
             <font>
                 <Font name="Calibri" size="17.0" />
             </font>
         </TextField>
-        <Button layoutX="332.0" layoutY="180.0" mnemonicParsing="false" onAction="#cashierloginOnAction" text="login">
+        <Button layoutX="299.0" layoutY="237.0" mnemonicParsing="false" onAction="#cashierloginOnAction" style="-fx-background-color: lightblue;" text="login">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0" />
             </font>
         </Button>
-        <Button layoutX="75.0" layoutY="241.0" mnemonicParsing="false" onAction="#createnewaccountOnAction" prefHeight="0.0" prefWidth="134.0" text="Create a new account">
+        <Button layoutX="87.0" layoutY="246.0" mnemonicParsing="false" onAction="#createnewaccountOnAction" prefHeight="0.0" prefWidth="134.0" text="Create a new account">
          <font>
             <Font name="Calibri" size="13.0" />
          </font></Button>

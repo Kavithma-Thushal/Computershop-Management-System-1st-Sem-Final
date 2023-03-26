@@ -10,14 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.ManagecustomersFormController">
+<AnchorPane prefHeight="615.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.ManagecustomersFormController">
    <children>
-      <ImageView fitHeight="633.0" fitWidth="1207.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/b.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="633.0" fitWidth="1207.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="630.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/b.jpg" />
          </image>
@@ -47,12 +42,12 @@
             <Font name="Bernard MT Condensed" size="17.0" />
          </font>
       </TextField>
-      <TextField layoutX="52.0" layoutY="323.0" prefHeight="25.0" prefWidth="187.0" promptText="Customer Address">
+      <TextField layoutX="52.0" layoutY="323.0" prefHeight="25.0" prefWidth="187.0" promptText="Customer Email">
          <font>
             <Font name="Bernard MT Condensed" size="17.0" />
          </font>
       </TextField>
-      <TextField layoutX="52.0" layoutY="436.0" prefHeight="25.0" prefWidth="187.0" promptText="Customer Email">
+      <TextField layoutX="52.0" layoutY="436.0" prefHeight="25.0" prefWidth="187.0" promptText="Customer Address">
          <font>
             <Font name="Bernard MT Condensed" size="17.0" />
          </font>
@@ -87,9 +82,9 @@
           <TableColumn prefWidth="146.0" text="ID" />
           <TableColumn prefWidth="146.0" text="Name" />
             <TableColumn prefWidth="146.0" text="NIC" />
-            <TableColumn prefWidth="146.0" text="Address" />
+            <TableColumn prefWidth="146.0" text="Email" />
             <TableColumn prefWidth="146.0" text="Contact" />
-            <TableColumn prefWidth="151.0" text="Email" />
+            <TableColumn prefWidth="151.0" text="Address" />
         </columns>
       </TableView>
    </children>

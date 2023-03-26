@@ -29,7 +29,7 @@
                 <Font name="Bernard MT Condensed" size="22.0" />
             </font>
         </Button>
-        <Button layoutX="52.0" layoutY="471.0" mnemonicParsing="false" onAction="#warrantyOnAction" prefHeight="42.0" prefWidth="187.0" text="Warranty">
+        <Button layoutX="52.0" layoutY="389.0" mnemonicParsing="false" onAction="#deliveryOnAction" prefHeight="42.0" prefWidth="187.0" text="Delivery">
             <font>
                 <Font name="Bernard MT Condensed" size="22.0" />
             </font>
@@ -39,7 +39,7 @@
                 <Font name="Bernard MT Condensed" size="22.0" />
             </font>
         </Button>
-        <Button layoutX="52.0" layoutY="388.0" mnemonicParsing="false" onAction="#custombuildOnAction" prefHeight="42.0" prefWidth="187.0" text="Custom Build">
+        <Button layoutX="52.0" layoutY="470.0" mnemonicParsing="false" onAction="#custombuildOnAction" prefHeight="42.0" prefWidth="187.0" text="Custom Build">
             <font>
                 <Font name="Bernard MT Condensed" size="22.0" />
             </font>
