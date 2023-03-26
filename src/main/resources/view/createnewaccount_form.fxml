@@ -8,52 +8,55 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.CreatenewaccountFormController">
-   <children>
-      <ImageView fitHeight="350.0" fitWidth="505.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/a.jpeg" />
-         </image>
-      </ImageView>
-      <Label layoutX="124.0" layoutY="37.0" prefHeight="39.0" prefWidth="258.0" text="Create a new account" textFill="WHITE">
-         <font>
-            <Font name="Bernard MT Condensed" size="31.0" />
-         </font>
-      </Label>
-      <TextField layoutX="44.0" layoutY="112.0" promptText="Full Name">
-         <font>
-            <Font name="Calibri" size="15.0" />
-         </font>
-      </TextField>
-      <TextField layoutX="44.0" layoutY="169.0" promptText="Address">
-         <font>
-            <Font name="Calibri" size="15.0" />
-         </font>
-      </TextField>
-      <Button layoutX="395.0" layoutY="279.0" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="Create">
-         <font>
-            <Font name="Bernard MT Condensed" size="15.0" />
-         </font>
-      </Button>
-      <TextField layoutX="44.0" layoutY="228.0" promptText="Contact">
-         <font>
-            <Font name="Calibri" size="15.0" />
-         </font>
-      </TextField>
-      <TextField layoutX="273.0" layoutY="112.0" promptText="Email">
-         <font>
-            <Font name="Calibri" size="15.0" />
-         </font>
-      </TextField>
-      <TextField layoutX="273.0" layoutY="169.0" promptText="Username">
-         <font>
-            <Font name="Calibri" size="15.0" />
-         </font>
-      </TextField>
-      <TextField layoutX="273.0" layoutY="228.0" promptText="Password">
-         <font>
-            <Font name="Calibri" size="15.0" />
-         </font>
-      </TextField>
-   </children>
+<AnchorPane prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.computershop.controller.CreatenewaccountFormController">
+    <children>
+        <ImageView fitHeight="350.0" fitWidth="505.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/a.jpeg"/>
+            </image>
+        </ImageView>
+        <Label layoutX="124.0" layoutY="37.0" prefHeight="39.0" prefWidth="258.0" text="Create a new account"
+               textFill="WHITE">
+            <font>
+                <Font name="Bernard MT Condensed" size="31.0"/>
+            </font>
+        </Label>
+        <TextField layoutX="44.0" layoutY="112.0" promptText="Full Name">
+            <font>
+                <Font name="Calibri" size="15.0"/>
+            </font>
+        </TextField>
+        <TextField layoutX="44.0" layoutY="169.0" promptText="Address">
+            <font>
+                <Font name="Calibri" size="15.0"/>
+            </font>
+        </TextField>
+        <Button layoutX="395.0" layoutY="279.0" mnemonicParsing="false" style="-fx-background-color: lightblue;"
+                text="Create">
+            <font>
+                <Font name="Bernard MT Condensed" size="15.0"/>
+            </font>
+        </Button>
+        <TextField layoutX="44.0" layoutY="228.0" promptText="Contact">
+            <font>
+                <Font name="Calibri" size="15.0"/>
+            </font>
+        </TextField>
+        <TextField layoutX="273.0" layoutY="112.0" promptText="Email">
+            <font>
+                <Font name="Calibri" size="15.0"/>
+            </font>
+        </TextField>
+        <TextField layoutX="273.0" layoutY="169.0" promptText="Username">
+            <font>
+                <Font name="Calibri" size="15.0"/>
+            </font>
+        </TextField>
+        <TextField layoutX="273.0" layoutY="228.0" promptText="Password">
+            <font>
+                <Font name="Calibri" size="15.0"/>
+            </font>
+        </TextField>
+    </children>
 </AnchorPane>

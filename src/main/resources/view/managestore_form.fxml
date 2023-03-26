@@ -10,70 +10,77 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="615.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.ManagestoreFormController">
-   <children>
-      <ImageView fitHeight="630.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/b.jpg" />
-         </image>
-      </ImageView>
-      <Label layoutX="52.0" layoutY="44.0" text="Store Management" textFill="WHITE">
-         <font>
-            <Font name="Bernard MT Condensed" size="43.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbldateandtime" layoutX="785.0" layoutY="44.0" prefHeight="54.0" prefWidth="382.0" textFill="WHITE">
-         <font>
-            <Font name="Bernard MT Condensed" size="43.0" />
-         </font>
-      </Label>
-      <TextField layoutX="52.0" layoutY="207.0" prefHeight="25.0" prefWidth="187.0" promptText="Item Code">
-         <font>
-            <Font name="Bernard MT Condensed" size="17.0" />
-         </font>
-      </TextField>
-      <TextField layoutX="52.0" layoutY="280.0" prefHeight="7.0" prefWidth="187.0" promptText="Description">
-         <font>
-            <Font name="Bernard MT Condensed" size="17.0" />
-         </font>
-      </TextField>
-      <TextField layoutX="52.0" layoutY="429.0" prefHeight="25.0" prefWidth="187.0" promptText="Quantity On Hand">
-         <font>
-            <Font name="Bernard MT Condensed" size="17.0" />
-         </font>
-      </TextField>
-      <TextField layoutX="52.0" layoutY="353.0" prefHeight="25.0" prefWidth="187.0" promptText="Unit Price">
-         <font>
-            <Font name="Bernard MT Condensed" size="17.0" />
-         </font>
-      </TextField>
-      <Button layoutX="52.0" layoutY="508.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: lightblue;" text="Save">
-         <font>
-            <Font name="Bernard MT Condensed" size="17.0" />
-         </font>
-      </Button>
-      <Button layoutX="160.0" layoutY="508.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: lightblue;" text="Search">
-         <font>
-            <Font name="Bernard MT Condensed" size="17.0" />
-         </font>
-      </Button>
-      <Button layoutX="52.0" layoutY="566.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: lightblue;" text="Update">
-         <font>
-            <Font name="Bernard MT Condensed" size="17.0" />
-         </font>
-      </Button>
-      <Button layoutX="160.0" layoutY="566.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: lightblue;" text="Delete">
-         <font>
-            <Font name="Bernard MT Condensed" size="17.0" />
-         </font>
-      </Button>
-      <TableView layoutX="289.0" layoutY="160.0" prefHeight="443.0" prefWidth="878.0">
-         <columns>
-            <TableColumn prefWidth="219.0" text="Code" />
-            <TableColumn prefWidth="219.0" text="Description" />
-            <TableColumn prefWidth="219.0" text="Unit Price" />
-            <TableColumn prefWidth="220.0" text="Quantity On Hand" />
-         </columns>
-      </TableView>
-   </children>
+<AnchorPane prefHeight="615.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.computershop.controller.ManagestoreFormController">
+    <children>
+        <ImageView fitHeight="630.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/b.jpg"/>
+            </image>
+        </ImageView>
+        <Label layoutX="52.0" layoutY="44.0" text="Store Management" textFill="WHITE">
+            <font>
+                <Font name="Bernard MT Condensed" size="43.0"/>
+            </font>
+        </Label>
+        <Label fx:id="lbldateandtime" layoutX="785.0" layoutY="44.0" prefHeight="54.0" prefWidth="382.0"
+               textFill="WHITE">
+            <font>
+                <Font name="Bernard MT Condensed" size="43.0"/>
+            </font>
+        </Label>
+        <TextField layoutX="52.0" layoutY="207.0" prefHeight="25.0" prefWidth="187.0" promptText="Item Code">
+            <font>
+                <Font name="Bernard MT Condensed" size="17.0"/>
+            </font>
+        </TextField>
+        <TextField layoutX="52.0" layoutY="280.0" prefHeight="7.0" prefWidth="187.0" promptText="Description">
+            <font>
+                <Font name="Bernard MT Condensed" size="17.0"/>
+            </font>
+        </TextField>
+        <TextField layoutX="52.0" layoutY="429.0" prefHeight="25.0" prefWidth="187.0" promptText="Quantity On Hand">
+            <font>
+                <Font name="Bernard MT Condensed" size="17.0"/>
+            </font>
+        </TextField>
+        <TextField layoutX="52.0" layoutY="353.0" prefHeight="25.0" prefWidth="187.0" promptText="Unit Price">
+            <font>
+                <Font name="Bernard MT Condensed" size="17.0"/>
+            </font>
+        </TextField>
+        <Button layoutX="52.0" layoutY="508.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0"
+                style="-fx-background-color: lightblue;" text="Save">
+            <font>
+                <Font name="Bernard MT Condensed" size="17.0"/>
+            </font>
+        </Button>
+        <Button layoutX="160.0" layoutY="508.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0"
+                style="-fx-background-color: lightblue;" text="Search">
+            <font>
+                <Font name="Bernard MT Condensed" size="17.0"/>
+            </font>
+        </Button>
+        <Button layoutX="52.0" layoutY="566.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0"
+                style="-fx-background-color: lightblue;" text="Update">
+            <font>
+                <Font name="Bernard MT Condensed" size="17.0"/>
+            </font>
+        </Button>
+        <Button layoutX="160.0" layoutY="566.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0"
+                style="-fx-background-color: lightblue;" text="Delete">
+            <font>
+                <Font name="Bernard MT Condensed" size="17.0"/>
+            </font>
+        </Button>
+        <TableView layoutX="289.0" layoutY="160.0" prefHeight="443.0" prefWidth="878.0">
+            <columns>
+                <TableColumn prefWidth="219.0" text="Code"/>
+                <TableColumn prefWidth="219.0" text="Description"/>
+                <TableColumn prefWidth="219.0" text="Unit Price"/>
+                <TableColumn prefWidth="220.0" text="Quantity On Hand"/>
+            </columns>
+        </TableView>
+    </children>
 </AnchorPane>
