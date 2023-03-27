@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="615.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.ManageordersFormController">
     <children>
-        <ImageView fitHeight="630.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="640.0" fitWidth="1207.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../img/b.jpg" />
             </image>

@@ -7,28 +7,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="300.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.LoginFormController">
+<AnchorPane fx:id="root" prefHeight="300.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.LoginFormController">
     <children>
-        <ImageView fitHeight="300.0" fitWidth="450.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="304.0" fitWidth="460.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/a.jpeg"/>
+                <Image url="@../img/a.jpeg" />
             </image>
         </ImageView>
         <Button layoutX="81.0" layoutY="180.0" mnemonicParsing="false" onAction="#cashierOnAction" text="Cashier">
             <font>
-                <Font name="Bernard MT Condensed" size="23.0"/>
+                <Font name="Bernard MT Condensed" size="23.0" />
             </font>
         </Button>
-        <Button layoutX="267.0" layoutY="180.0" mnemonicParsing="false" onAction="#adminOnAction" text="Admin">
+        <Button layoutX="273.0" layoutY="180.0" mnemonicParsing="false" onAction="#adminOnAction" text="Admin">
             <font>
-                <Font name="Bernard MT Condensed" size="23.0"/>
+                <Font name="Bernard MT Condensed" size="23.0" />
             </font>
         </Button>
-        <Label layoutX="19.0" layoutY="47.0" prefHeight="39.0" prefWidth="413.0" text="Welcome to Bashi Computer Shop"
-               textFill="WHITE">
+        <Label layoutX="28.0" layoutY="49.0" prefHeight="39.0" prefWidth="397.0" text="Welcome to Bashi Computer Shop" textFill="WHITE">
             <font>
-                <Font name="Bernard MT Condensed" size="31.0"/>
+                <Font name="Bernard MT Condensed" size="31.0" />
             </font>
         </Label>
     </children>
