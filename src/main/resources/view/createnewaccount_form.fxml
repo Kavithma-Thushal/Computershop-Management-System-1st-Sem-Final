@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.CreatenewaccountFormController">
+<AnchorPane fx:id="root" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.CreatenewaccountFormController">
     <children>
         <ImageView fitHeight="352.0" fitWidth="562.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -30,7 +30,7 @@
                 <Font name="Calibri" size="15.0" />
             </font>
         </TextField>
-        <Button layoutX="407.0" layoutY="287.0" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="Create">
+        <Button layoutX="407.0" layoutY="287.0" mnemonicParsing="false" onAction="#createOnAction" style="-fx-background-color: lightblue;" text="Create">
             <font>
                 <Font name="Bernard MT Condensed" size="15.0" />
             </font>
