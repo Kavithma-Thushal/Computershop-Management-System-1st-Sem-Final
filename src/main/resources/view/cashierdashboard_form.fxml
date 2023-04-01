@@ -54,5 +54,10 @@
                 <Font name="Bernard MT Condensed" size="43.0" />
             </font>
         </Label>
+      <Button layoutX="1088.0" layoutY="557.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: grey;" text="Log Out">
+         <font>
+            <Font name="Bernard MT Condensed" size="17.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

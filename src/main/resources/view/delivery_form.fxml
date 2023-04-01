@@ -67,7 +67,7 @@
                 <Font name="Bernard MT Condensed" size="17.0" />
             </font>
         </Button>
-        <TableView layoutX="289.0" layoutY="160.0" prefHeight="443.0" prefWidth="878.0">
+        <TableView layoutX="289.0" layoutY="160.0" prefHeight="400.0" prefWidth="878.0">
             <columns>
                 <TableColumn prefWidth="146.0" text="Delivery Code" />
                 <TableColumn prefWidth="146.0" text="Employee ID" />
@@ -87,5 +87,10 @@
             <Font name="Bernard MT Condensed" size="17.0" />
          </font>
       </TextField>
+      <Button layoutX="1088.0" layoutY="579.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: grey;" text="Back">
+         <font>
+            <Font name="Bernard MT Condensed" size="17.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

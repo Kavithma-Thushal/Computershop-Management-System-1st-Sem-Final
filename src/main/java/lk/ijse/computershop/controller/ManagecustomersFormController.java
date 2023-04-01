@@ -1,8 +1,12 @@
 package lk.ijse.computershop.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
