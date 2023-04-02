@@ -5,6 +5,8 @@ import lk.ijse.computershop.util.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerModel {
 
@@ -61,5 +63,25 @@ public class CustomerModel {
     public static int delete(String id) throws SQLException {
         String sql = "DELETE FROM customers WHERE id=?";
         return CrudUtil.execute(sql, id);
+    }
+
+    public static List<Customer> getAll() throws SQLException {
+
+        List<Customer> customerList = new ArrayList<>();
+        String sql = "SELECT * FROM customers";
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        while (resultSet.next()) {
+            Customer customer = new Customer(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5),
+                    resultSet.getString(6)
+            );
+            customerList.add(customer);
+        }
+        return customerList;
     }
 }

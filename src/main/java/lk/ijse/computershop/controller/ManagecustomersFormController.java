@@ -1,5 +1,7 @@
 package lk.ijse.computershop.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,15 +9,20 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.computershop.dto.Customer;
+import lk.ijse.computershop.dto.tm.CustomerTM;
 import lk.ijse.computershop.model.CustomerModel;
+import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ManagecustomersFormController implements Initializable {
@@ -51,11 +58,46 @@ public class ManagecustomersFormController implements Initializable {
     @FXML
     private Label lbldateandtime;
 
+    @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd      hh:mm");
         Date date = new Date();
         lbldateandtime.setText(simpleDateFormat.format(date));
+
+        getAll();
+        setCellValueFactory();
+    }
+
+    private void setCellValueFactory() {
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colNic.setCellValueFactory(new PropertyValueFactory<>("nic"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+    }
+
+    private void getAll() throws SQLException {
+        try {
+            ObservableList<CustomerTM> observableList = FXCollections.observableArrayList();
+            List<Customer> customerList = CustomerModel.getAll();
+
+            for (Customer customer : customerList) {
+                observableList.add(new CustomerTM(
+                        customer.getId(),
+                        customer.getName(),
+                        customer.getNic(),
+                        customer.getEmail(),
+                        customer.getContact(),
+                        customer.getAddress()
+                ));
+            }
+            tblCustomer.setItems(observableList);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+        }
     }
 
     @FXML
@@ -85,7 +127,7 @@ public class ManagecustomersFormController implements Initializable {
     private void searchOnAction(ActionEvent event) {
 
         try {
-            Customer customer= CustomerModel.search(txtId.getText());
+            Customer customer = CustomerModel.search(txtId.getText());
             if (customer != null) {
                 txtName.setText(customer.getName());
                 txtNic.setText(customer.getNic());
