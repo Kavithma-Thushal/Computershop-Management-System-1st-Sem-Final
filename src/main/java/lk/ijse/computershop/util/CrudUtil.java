@@ -7,7 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class CrudUtil {
+
     public static <T> T execute(String sql, Object... args) throws SQLException {
+
         Connection connection = DBConnection.getInstance().getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
@@ -20,5 +22,6 @@ public class CrudUtil {
         } else {
             return (T) (Integer) preparedStatement.executeUpdate();     //integer
         }
+
     }
 }
