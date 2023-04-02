@@ -84,16 +84,51 @@ public class ManagecustomersFormController implements Initializable {
     @FXML
     private void searchOnAction(ActionEvent event) {
 
+        try {
+            Customer customer= CustomerModel.search(txtId.getText());
+            if (customer != null) {
+                txtName.setText(customer.getName());
+                txtNic.setText(customer.getNic());
+                txtEmail.setText(customer.getEmail());
+                txtContact.setText(customer.getContact());
+                txtAddress.setText(customer.getAddress());
+            }
+
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+        }
     }
 
     @FXML
     private void updateOnAction(ActionEvent event) {
 
+        try {
+            Customer customer = new Customer(
+                    txtId.getText(),
+                    txtName.getText(),
+                    txtNic.getText(),
+                    txtEmail.getText(),
+                    txtContact.getText(),
+                    txtAddress.getText()
+            );
+
+            if (CustomerModel.update(customer) > 0) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Updated Successfully...!").show();
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+        }
     }
 
     @FXML
     private void deleteOnAction(ActionEvent event) {
-
+        try {
+            if (CustomerModel.delete(txtId.getText()) > 0) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Deleted Successfully...!").show();
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+        }
     }
 
     @FXML

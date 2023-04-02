@@ -3,6 +3,7 @@ package lk.ijse.computershop.model;
 import lk.ijse.computershop.dto.Customer;
 import lk.ijse.computershop.util.CrudUtil;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CustomerModel {
@@ -21,5 +22,44 @@ public class CustomerModel {
                 customer.getAddress()
         );
 
+    }
+
+    public static Customer search(String id) throws SQLException {
+
+        String sql = "SELECT * FROM customers WHERE id=?";
+
+        ResultSet resultSet = CrudUtil.execute(sql, id);
+
+        if (resultSet.next()) {
+            return new Customer(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5),
+                    resultSet.getString(6)
+            );
+        }
+        return null;
+    }
+
+    public static int update(Customer customer) throws SQLException {
+
+        String sql = "UPDATE customers SET name=? , nic=? , email=? , contact=? , address=? WHERE id=?";
+
+        return CrudUtil.execute(
+                sql,
+                customer.getName(),
+                customer.getNic(),
+                customer.getEmail(),
+                customer.getContact(),
+                customer.getAddress(),
+                customer.getId()
+        );
+    }
+
+    public static int delete(String id) throws SQLException {
+        String sql = "DELETE FROM customers WHERE id=?";
+        return CrudUtil.execute(sql, id);
     }
 }
