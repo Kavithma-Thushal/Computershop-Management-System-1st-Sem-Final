@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="615.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.AdmindashboardFormController">
+<AnchorPane fx:id="root" prefHeight="615.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.AdmindashboardFormController">
     <children>
         <ImageView fitHeight="640.0" fitWidth="1207.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -39,7 +39,7 @@
                 <Font name="Bernard MT Condensed" size="22.0" />
             </font>
         </Button>
-        <Label layoutX="51.0" layoutY="40.0" text="Hello : Admin" textFill="WHITE">
+        <Label layoutX="51.0" layoutY="40.0" text="Hello Admin ...!" textFill="WHITE">
             <font>
                 <Font name="Bernard MT Condensed" size="43.0" />
             </font>
@@ -59,7 +59,7 @@
                 <Font name="Bernard MT Condensed" size="43.0" />
             </font>
         </Label>
-      <Button layoutX="1088.0" layoutY="557.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: grey;" text="Log Out">
+      <Button layoutX="1103.0" layoutY="572.0" mnemonicParsing="false" onAction="#logoutOnAction" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: grey;" text="Log Out">
          <font>
             <Font name="Bernard MT Condensed" size="17.0" />
          </font>

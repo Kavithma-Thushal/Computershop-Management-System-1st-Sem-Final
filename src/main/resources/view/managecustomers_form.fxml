@@ -10,86 +10,94 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="615.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.ManagecustomersFormController">
+<AnchorPane fx:id="root" prefHeight="615.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.computershop.controller.ManagecustomersFormController">
     <children>
         <ImageView fitHeight="640.0" fitWidth="1207.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/b.jpg" />
+                <Image url="@../img/b.jpg"/>
             </image>
         </ImageView>
         <Label layoutX="52.0" layoutY="44.0" text="Customer Management" textFill="WHITE">
             <font>
-                <Font name="Bernard MT Condensed" size="43.0" />
+                <Font name="Bernard MT Condensed" size="43.0"/>
             </font>
         </Label>
-        <Label fx:id="lbldateandtime" layoutX="785.0" layoutY="44.0" prefHeight="54.0" prefWidth="382.0" textFill="WHITE">
+        <Label fx:id="lbldateandtime" layoutX="785.0" layoutY="44.0" prefHeight="54.0" prefWidth="382.0"
+               textFill="WHITE">
             <font>
-                <Font name="Bernard MT Condensed" size="43.0" />
+                <Font name="Bernard MT Condensed" size="43.0"/>
             </font>
         </Label>
         <TextField layoutX="52.0" layoutY="159.0" prefHeight="25.0" prefWidth="187.0" promptText="Customer ID">
             <font>
-                <Font name="Bernard MT Condensed" size="17.0" />
+                <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </TextField>
         <TextField layoutX="52.0" layoutY="213.0" prefHeight="7.0" prefWidth="187.0" promptText="Customer Name">
             <font>
-                <Font name="Bernard MT Condensed" size="17.0" />
+                <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </TextField>
         <TextField layoutX="52.0" layoutY="381.0" prefHeight="25.0" prefWidth="187.0" promptText="Customer Contact">
             <font>
-                <Font name="Bernard MT Condensed" size="17.0" />
+                <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </TextField>
         <TextField layoutX="52.0" layoutY="323.0" prefHeight="25.0" prefWidth="187.0" promptText="Customer Email">
             <font>
-                <Font name="Bernard MT Condensed" size="17.0" />
+                <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </TextField>
         <TextField layoutX="52.0" layoutY="440.0" prefHeight="25.0" prefWidth="187.0" promptText="Customer Address">
             <font>
-                <Font name="Bernard MT Condensed" size="17.0" />
+                <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </TextField>
         <TextField layoutX="52.0" layoutY="268.0" prefHeight="25.0" prefWidth="187.0" promptText="Customer NIC">
             <font>
-                <Font name="Bernard MT Condensed" size="17.0" />
+                <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </TextField>
-        <Button layoutX="52.0" layoutY="508.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: lightblue;" text="Save">
+        <Button layoutX="52.0" layoutY="508.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0"
+                style="-fx-background-color: lightblue;" text="Save">
             <font>
-                <Font name="Bernard MT Condensed" size="17.0" />
+                <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </Button>
-        <Button layoutX="160.0" layoutY="508.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: lightblue;" text="Search">
+        <Button layoutX="160.0" layoutY="508.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0"
+                style="-fx-background-color: lightblue;" text="Search">
             <font>
-                <Font name="Bernard MT Condensed" size="17.0" />
+                <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </Button>
-        <Button layoutX="52.0" layoutY="566.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: lightblue;" text="Update">
+        <Button layoutX="52.0" layoutY="566.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0"
+                style="-fx-background-color: lightblue;" text="Update">
             <font>
-                <Font name="Bernard MT Condensed" size="17.0" />
+                <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </Button>
-        <Button layoutX="160.0" layoutY="566.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: lightblue;" text="Delete">
+        <Button layoutX="160.0" layoutY="566.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0"
+                style="-fx-background-color: lightblue;" text="Delete">
             <font>
-                <Font name="Bernard MT Condensed" size="17.0" />
+                <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </Button>
         <TableView layoutX="289.0" layoutY="160.0" prefHeight="400.0" prefWidth="878.0">
             <columns>
-                <TableColumn prefWidth="146.0" text="ID" />
-                <TableColumn prefWidth="146.0" text="Name" />
-                <TableColumn prefWidth="146.0" text="NIC" />
-                <TableColumn prefWidth="146.0" text="Email" />
-                <TableColumn prefWidth="146.0" text="Contact" />
-                <TableColumn prefWidth="151.0" text="Address" />
+                <TableColumn prefWidth="146.0" text="ID"/>
+                <TableColumn prefWidth="146.0" text="Name"/>
+                <TableColumn prefWidth="146.0" text="NIC"/>
+                <TableColumn prefWidth="146.0" text="Email"/>
+                <TableColumn prefWidth="146.0" text="Contact"/>
+                <TableColumn prefWidth="151.0" text="Address"/>
             </columns>
         </TableView>
-        <Button layoutX="1088.0" layoutY="580.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: grey;" text="Back">
+        <Button layoutX="1088.0" layoutY="580.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="34.0"
+                prefWidth="78.0" style="-fx-background-color: grey;" text="Back">
             <font>
-                <Font name="Bernard MT Condensed" size="17.0" />
+                <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </Button>
     </children>

@@ -15,21 +15,27 @@ public class LoginFormController {
     @FXML
     private AnchorPane root;
 
-    public void cashierOnAction(ActionEvent event) throws IOException {
+    @FXML
+    private void cashierloginOnAction(ActionEvent event) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("/view/cashierlogin_form.fxml"));
         Stage stage = (Stage) root.getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.centerOnScreen();
-        stage.setTitle("Cashier login");
+        stage.setTitle("Cashier Login");
+        stage.setResizable(false);
+        stage.show();
     }
 
-    public void adminOnAction(ActionEvent event) throws IOException {
+    @FXML
+    private void adminloginOnAction(ActionEvent event) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("/view/adminlogin_form.fxml"));
         Stage stage = (Stage) root.getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.centerOnScreen();
-        stage.setTitle("Admin login");
+        stage.setTitle("Admin Login");
+        stage.setResizable(false);
+        stage.show();
     }
 }

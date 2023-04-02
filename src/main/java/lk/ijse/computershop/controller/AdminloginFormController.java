@@ -15,12 +15,15 @@ public class AdminloginFormController {
     @FXML
     private AnchorPane root;
 
-    public void adminloginOnAction(ActionEvent event) throws IOException {
+    @FXML
+    private void loginOnAction(ActionEvent event) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("/view/admindashboard_form.fxml"));
         Stage stage = (Stage) root.getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setTitle("Admin Dashboard");
+        stage.setResizable(false);
+        stage.show();
     }
 }

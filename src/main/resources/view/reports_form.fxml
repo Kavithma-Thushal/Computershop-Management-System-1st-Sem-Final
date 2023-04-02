@@ -7,27 +7,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="615.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.ReportsFormController">
+<AnchorPane fx:id="root" prefHeight="615.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.ReportsFormController">
     <children>
         <ImageView fitHeight="640.0" fitWidth="1207.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/b.jpg" />
+                <Image url="@../img/b.jpg"/>
             </image>
         </ImageView>
         <Label layoutX="52.0" layoutY="44.0" text="Reports" textFill="WHITE">
             <font>
-                <Font name="Bernard MT Condensed" size="43.0" />
+                <Font name="Bernard MT Condensed" size="43.0"/>
             </font>
         </Label>
-        <Label fx:id="lbldateandtime" layoutX="785.0" layoutY="44.0" prefHeight="54.0" prefWidth="382.0" textFill="WHITE">
+        <Label fx:id="lbldateandtime" layoutX="785.0" layoutY="44.0" prefHeight="54.0" prefWidth="382.0"
+               textFill="WHITE">
             <font>
-                <Font name="Bernard MT Condensed" size="43.0" />
+                <Font name="Bernard MT Condensed" size="43.0"/>
             </font>
         </Label>
-      <Button layoutX="1088.0" layoutY="580.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: grey;" text="Back">
-         <font>
-            <Font name="Bernard MT Condensed" size="17.0" />
-         </font>
-      </Button>
+        <Button layoutX="1088.0" layoutY="580.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="34.0"
+                prefWidth="78.0" style="-fx-background-color: grey;" text="Back">
+            <font>
+                <Font name="Bernard MT Condensed" size="17.0"/>
+            </font>
+        </Button>
     </children>
 </AnchorPane>

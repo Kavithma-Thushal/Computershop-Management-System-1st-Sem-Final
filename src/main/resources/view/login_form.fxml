@@ -7,27 +7,31 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="300.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.LoginFormController">
+<AnchorPane fx:id="root" prefHeight="615.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.LoginFormController">
     <children>
-        <ImageView fitHeight="304.0" fitWidth="460.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="640.0" fitWidth="1207.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/a.jpeg" />
+                <Image url="@../img/b.jpg"/>
             </image>
         </ImageView>
-        <Button layoutX="81.0" layoutY="180.0" mnemonicParsing="false" onAction="#cashierOnAction" text="Cashier">
+        <Label layoutX="281.0" layoutY="95.0" prefHeight="62.0" prefWidth="645.0" text="Welcome to Bashi Computer Shop"
+               textFill="WHITE">
             <font>
-                <Font name="Bernard MT Condensed" size="23.0" />
-            </font>
-        </Button>
-        <Button layoutX="273.0" layoutY="180.0" mnemonicParsing="false" onAction="#adminOnAction" text="Admin">
-            <font>
-                <Font name="Bernard MT Condensed" size="23.0" />
-            </font>
-        </Button>
-        <Label layoutX="28.0" layoutY="49.0" prefHeight="39.0" prefWidth="397.0" text="Welcome to Bashi Computer Shop" textFill="WHITE">
-            <font>
-                <Font name="Bernard MT Condensed" size="31.0" />
+                <Font name="Bernard MT Condensed" size="50.0"/>
             </font>
         </Label>
+        <Button layoutX="345.0" layoutY="348.0" mnemonicParsing="false" onAction="#cashierloginOnAction"
+                prefHeight="66.0" prefWidth="166.0" style="-fx-background-color: lightblue;" text="Cashier">
+            <font>
+                <Font name="Bernard MT Condensed" size="40.0"/>
+            </font>
+        </Button>
+        <Button layoutX="688.0" layoutY="348.0" mnemonicParsing="false" onAction="#adminloginOnAction" prefHeight="66.0"
+                prefWidth="166.0" style="-fx-background-color: lightblue;" text="Admin">
+            <font>
+                <Font name="Bernard MT Condensed" size="40.0"/>
+            </font>
+        </Button>
     </children>
 </AnchorPane>
