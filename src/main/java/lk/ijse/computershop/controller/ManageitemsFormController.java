@@ -24,7 +24,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ManagestoreFormController implements Initializable {
+public class ManageitemsFormController implements Initializable {
 
     @FXML
     private AnchorPane root;
@@ -37,7 +37,7 @@ public class ManagestoreFormController implements Initializable {
     @FXML
     private TextField txtQtyonhand;
     @FXML
-    private TableView tblStore;
+    private TableView tblItem;
     @FXML
     private TableColumn colCode;
     @FXML
@@ -80,7 +80,7 @@ public class ManagestoreFormController implements Initializable {
                         item.getQtyonhand()
                 ));
             }
-            tblStore.setItems(observableList);
+            tblItem.setItems(observableList);
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
