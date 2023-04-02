@@ -30,7 +30,8 @@ public class CashierdashboardFormController implements Initializable {
         lbldateandtime.setText(simpleDateFormat.format(date));
     }
 
-    public void managecustomersOnAction(ActionEvent event) throws IOException {
+    @FXML
+    private void managecustomersOnAction(ActionEvent event) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("/view/managecustomers_form.fxml"));
         Stage stage = (Stage) root.getScene().getWindow();
         Scene scene = new Scene(parent);
@@ -41,7 +42,8 @@ public class CashierdashboardFormController implements Initializable {
         stage.show();
     }
 
-    public void managestoreOnAction(ActionEvent event) throws IOException {
+    @FXML
+    private void managestoreOnAction(ActionEvent event) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("/view/managestore_form.fxml"));
         Stage stage = (Stage) root.getScene().getWindow();
         Scene scene = new Scene(parent);
@@ -52,7 +54,8 @@ public class CashierdashboardFormController implements Initializable {
         stage.show();
     }
 
-    public void manageordersOnAction(ActionEvent event) throws IOException {
+    @FXML
+    private void manageordersOnAction(ActionEvent event) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("/view/manageorders_form.fxml"));
         Stage stage = (Stage) root.getScene().getWindow();
         Scene scene = new Scene(parent);
@@ -63,7 +66,8 @@ public class CashierdashboardFormController implements Initializable {
         stage.show();
     }
 
-    public void deliveryOnAction(ActionEvent event) throws IOException {
+    @FXML
+    private void deliveryOnAction(ActionEvent event) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("/view/delivery_form.fxml"));
         Stage stage = (Stage) root.getScene().getWindow();
         Scene scene = new Scene(parent);
@@ -74,7 +78,8 @@ public class CashierdashboardFormController implements Initializable {
         stage.show();
     }
 
-    public void custombuildOnAction(ActionEvent event) throws IOException {
+    @FXML
+    private void custombuildOnAction(ActionEvent event) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("/view/custombuild_form.fxml"));
         Stage stage = (Stage) root.getScene().getWindow();
         Scene scene = new Scene(parent);
@@ -85,7 +90,8 @@ public class CashierdashboardFormController implements Initializable {
         stage.show();
     }
 
-    public void repairOnAction(ActionEvent event) throws IOException {
+    @FXML
+    private void repairOnAction(ActionEvent event) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("/view/repair_form.fxml"));
         Stage stage = (Stage) root.getScene().getWindow();
         Scene scene = new Scene(parent);
@@ -96,7 +102,8 @@ public class CashierdashboardFormController implements Initializable {
         stage.show();
     }
 
-    public void logoutOnAction(ActionEvent event) {
+    @FXML
+    private void logoutOnAction(ActionEvent event) {
 
     }
 }
