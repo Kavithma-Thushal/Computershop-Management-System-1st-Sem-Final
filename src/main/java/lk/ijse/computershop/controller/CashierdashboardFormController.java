@@ -30,76 +30,45 @@ public class CashierdashboardFormController implements Initializable {
         lbldateandtime.setText(simpleDateFormat.format(date));
     }
 
-    @FXML
-    private void managecustomersOnAction(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/view/managecustomers_form.fxml"));
+    private void setUI(String URL) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("/view/" + URL + ".fxml"));
         Stage stage = (Stage) root.getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.centerOnScreen();
-        stage.setTitle("Manage Customers");
+        stage.setTitle(URL);
         stage.setResizable(false);
         stage.show();
+    }
+
+    @FXML
+    private void managecustomersOnAction(ActionEvent event) throws IOException {
+        setUI("managecustomers_form");
     }
 
     @FXML
     private void managestoreOnAction(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/view/managestore_form.fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
-        Scene scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("Manage Store");
-        stage.setResizable(false);
-        stage.show();
+        setUI("managestore_form");
     }
 
     @FXML
     private void manageordersOnAction(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/view/manageorders_form.fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
-        Scene scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("Manage Orders");
-        stage.setResizable(false);
-        stage.show();
+        setUI("manageorders_form");
     }
 
     @FXML
     private void deliveryOnAction(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/view/delivery_form.fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
-        Scene scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("Delivery");
-        stage.setResizable(false);
-        stage.show();
+        setUI("delivery_form");
     }
 
     @FXML
     private void custombuildOnAction(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/view/custombuild_form.fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
-        Scene scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("Custom Build");
-        stage.setResizable(false);
-        stage.show();
+        setUI("custombuild_form");
     }
 
     @FXML
     private void repairOnAction(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/view/repair_form.fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
-        Scene scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("Repair");
-        stage.setResizable(false);
-        stage.show();
+        setUI("repair_form");
     }
 
     @FXML
