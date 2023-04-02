@@ -30,17 +30,6 @@ public class AdmindashboardFormController implements Initializable {
         lbldateandtime.setText(simpleDateFormat.format(date));
     }
 
-    private void setUI(String URL) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/view/" + URL + ".fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
-        Scene scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle(URL);
-        stage.setResizable(false);
-        stage.show();
-    }
-
     @FXML
     private void manageemployeesOnAction(ActionEvent event) throws IOException {
         setUI("manageemployees_form");
@@ -79,5 +68,16 @@ public class AdmindashboardFormController implements Initializable {
     @FXML
     private void logoutOnAction(ActionEvent event) {
 
+    }
+
+    private void setUI(String URL) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("/view/" + URL + ".fxml"));
+        Stage stage = (Stage) root.getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle(URL);
+        stage.setResizable(false);
+        stage.show();
     }
 }

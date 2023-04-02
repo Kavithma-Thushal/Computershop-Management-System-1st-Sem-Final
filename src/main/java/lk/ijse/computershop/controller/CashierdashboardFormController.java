@@ -30,17 +30,6 @@ public class CashierdashboardFormController implements Initializable {
         lbldateandtime.setText(simpleDateFormat.format(date));
     }
 
-    private void setUI(String URL) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/view/" + URL + ".fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
-        Scene scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle(URL);
-        stage.setResizable(false);
-        stage.show();
-    }
-
     @FXML
     private void managecustomersOnAction(ActionEvent event) throws IOException {
         setUI("managecustomers_form");
@@ -74,5 +63,16 @@ public class CashierdashboardFormController implements Initializable {
     @FXML
     private void logoutOnAction(ActionEvent event) {
 
+    }
+
+    private void setUI(String URL) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("/view/" + URL + ".fxml"));
+        Stage stage = (Stage) root.getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle(URL);
+        stage.setResizable(false);
+        stage.show();
     }
 }
