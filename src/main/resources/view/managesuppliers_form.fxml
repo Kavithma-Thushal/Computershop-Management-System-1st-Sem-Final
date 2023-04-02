@@ -30,56 +30,60 @@
                 <Font name="Bernard MT Condensed" size="43.0"/>
             </font>
         </Label>
-        <TextField layoutX="52.0" layoutY="215.0" prefHeight="25.0" prefWidth="187.0" promptText="Supplier ID">
+        <TextField fx:id="txtId" layoutX="52.0" layoutY="215.0" prefHeight="25.0" prefWidth="187.0"
+                   promptText="Supplier ID">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </TextField>
-        <TextField layoutX="52.0" layoutY="287.0" prefHeight="7.0" prefWidth="187.0" promptText="Supplier Name">
+        <TextField fx:id="txtName" layoutX="52.0" layoutY="287.0" prefHeight="7.0" prefWidth="187.0"
+                   promptText="Supplier Name">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </TextField>
-        <TextField layoutX="52.0" layoutY="357.0" prefHeight="25.0" prefWidth="187.0" promptText="Supplier Contact">
+        <TextField fx:id="txtContact" layoutX="52.0" layoutY="357.0" prefHeight="25.0" prefWidth="187.0"
+                   promptText="Supplier Contact">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </TextField>
-        <TextField layoutX="52.0" layoutY="429.0" prefHeight="25.0" prefWidth="187.0" promptText="Supplier Address">
+        <TextField fx:id="txtAddress" layoutX="52.0" layoutY="429.0" prefHeight="25.0" prefWidth="187.0"
+                   promptText="Supplier Address">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </TextField>
-        <Button layoutX="52.0" layoutY="508.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0"
-                style="-fx-background-color: lightblue;" text="Save">
+        <Button layoutX="52.0" layoutY="508.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="34.0"
+                prefWidth="78.0" style="-fx-background-color: lightblue;" text="Save">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </Button>
-        <Button layoutX="160.0" layoutY="508.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0"
-                style="-fx-background-color: lightblue;" text="Search">
+        <Button layoutX="160.0" layoutY="508.0" mnemonicParsing="false" onAction="#searchOnAction" prefHeight="34.0"
+                prefWidth="78.0" style="-fx-background-color: lightblue;" text="Search">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </Button>
-        <Button layoutX="52.0" layoutY="566.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0"
-                style="-fx-background-color: lightblue;" text="Update">
+        <Button layoutX="52.0" layoutY="566.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="34.0"
+                prefWidth="78.0" style="-fx-background-color: lightblue;" text="Update">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </Button>
-        <Button layoutX="160.0" layoutY="566.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0"
-                style="-fx-background-color: lightblue;" text="Delete">
+        <Button layoutX="160.0" layoutY="566.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="34.0"
+                prefWidth="78.0" style="-fx-background-color: lightblue;" text="Delete">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </Button>
-        <TableView layoutX="289.0" layoutY="160.0" prefHeight="400.0" prefWidth="878.0">
+        <TableView fx:id="tblsupplier" layoutX="289.0" layoutY="160.0" prefHeight="400.0" prefWidth="878.0">
             <columns>
-                <TableColumn prefWidth="219.0" text="ID"/>
-                <TableColumn prefWidth="219.0" text="Name"/>
-                <TableColumn prefWidth="219.0" text="Contact"/>
-                <TableColumn prefWidth="220.0" text="Address"/>
+                <TableColumn fx:id="colId" prefWidth="219.0" text="ID"/>
+                <TableColumn fx:id="colName" prefWidth="219.0" text="Name"/>
+                <TableColumn fx:id="colContact" prefWidth="219.0" text="Contact"/>
+                <TableColumn fx:id="colAddress" prefWidth="220.0" text="Address"/>
             </columns>
         </TableView>
         <Button layoutX="1088.0" layoutY="581.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="34.0"
