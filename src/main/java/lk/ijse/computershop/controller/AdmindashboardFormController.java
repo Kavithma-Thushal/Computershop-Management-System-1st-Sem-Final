@@ -73,7 +73,7 @@ public class AdmindashboardFormController implements Initializable {
 
     @FXML
     private void reportsOnAction(ActionEvent event) throws IOException {
-        setUI("reports_form");
+        setUI("managereports_form");
     }
 
     @FXML

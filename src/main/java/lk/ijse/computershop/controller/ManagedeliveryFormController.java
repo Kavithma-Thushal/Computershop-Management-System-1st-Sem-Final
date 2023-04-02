@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-public class ReportsFormController implements Initializable {
+public class ManagedeliveryFormController implements Initializable {
 
     @FXML
     private AnchorPane root;
@@ -32,12 +32,12 @@ public class ReportsFormController implements Initializable {
 
     @FXML
     private void backOnAction(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/view/admindashboard_form.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/view/cashierdashboard_form.fxml"));
         Stage stage = (Stage) root.getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.centerOnScreen();
-        stage.setTitle("Admin Dashboard");
+        stage.setTitle("Cashier Dashboard");
         stage.setResizable(false);
         stage.show();
     }

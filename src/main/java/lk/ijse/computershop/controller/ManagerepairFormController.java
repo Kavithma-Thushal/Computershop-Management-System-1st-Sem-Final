@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-public class DeliveryFormController implements Initializable {
+public class ManagerepairFormController implements Initializable {
 
     @FXML
     private AnchorPane root;

@@ -58,17 +58,17 @@ public class CashierdashboardFormController implements Initializable {
 
     @FXML
     private void deliveryOnAction(ActionEvent event) throws IOException {
-        setUI("delivery_form");
+        setUI("managedelivery_form");
     }
 
     @FXML
     private void custombuildOnAction(ActionEvent event) throws IOException {
-        setUI("custombuild_form");
+        setUI("managecustombuild_form");
     }
 
     @FXML
     private void repairOnAction(ActionEvent event) throws IOException {
-        setUI("repair_form");
+        setUI("managerepair_form");
     }
 
     @FXML
