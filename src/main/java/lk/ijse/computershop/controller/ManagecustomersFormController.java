@@ -19,7 +19,6 @@ import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -79,7 +78,7 @@ public class ManagecustomersFormController implements Initializable {
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
     }
 
-    private void getAll() throws SQLException {
+    private void getAll() {
         try {
             ObservableList<CustomerTM> observableList = FXCollections.observableArrayList();
             List<Customer> customerList = CustomerModel.getAll();
@@ -114,13 +113,25 @@ public class ManagecustomersFormController implements Initializable {
             );
 
             if (CustomerModel.save(customer) > 0) {
+                //setCellValueFactory();
+
+                /*ObservableList<CustomerTM> observableList = FXCollections.observableArrayList();
+                observableList.add(new CustomerTM(
+                        customer.getId(),
+                        customer.getName(),
+                        customer.getNic(),
+                        customer.getEmail(),
+                        customer.getContact(),
+                        customer.getAddress()
+                ));
+                tblCustomer.setItems(observableList);*/
+
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully...!").show();
             }
 
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
-
     }
 
     @FXML
