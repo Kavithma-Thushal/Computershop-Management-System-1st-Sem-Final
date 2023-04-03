@@ -65,6 +65,7 @@ public class ManagerepairFormController implements Initializable {
         getAll();
         setCellValueFactory();
     }
+
     private void setCellValueFactory() {
         colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
         colEmployeeid.setCellValueFactory(new PropertyValueFactory<>("employeeid"));
@@ -121,10 +122,10 @@ public class ManagerepairFormController implements Initializable {
             Repair repair = RepairModel.search(txtCode.getText());
             if (repair != null) {
                 txtEmployeeid.setText(repair.getEmployeeid());
-                txtCustomerid.setText(String.valueOf(repair.getCustomerid()));
-                txtDetails.setText(String.valueOf(repair.getDetails()));
-                txtGetdatetime.setText(String.valueOf(repair.getGetdatetime()));
-                txtAcceptdatetime.setText(String.valueOf(repair.getAcceptdatetime()));
+                txtCustomerid.setText(repair.getCustomerid());
+                txtDetails.setText(repair.getDetails());
+                txtGetdatetime.setText(repair.getGetdatetime());
+                txtAcceptdatetime.setText(repair.getAcceptdatetime());
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
