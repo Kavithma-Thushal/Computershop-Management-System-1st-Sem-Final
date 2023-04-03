@@ -46,8 +46,8 @@ public class AdmindashboardFormController implements Initializable {
     }
 
     @FXML
-    private void managestoreOnAction(ActionEvent event) throws IOException {
-        setUI("managestore_form");
+    private void manageitemsOnAction(ActionEvent event) throws IOException {
+        setUI("manageitems_form");
     }
 
     @FXML

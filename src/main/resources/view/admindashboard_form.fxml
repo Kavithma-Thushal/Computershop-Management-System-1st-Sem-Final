@@ -7,72 +7,61 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="615.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="lk.ijse.computershop.controller.AdmindashboardFormController">
+<AnchorPane fx:id="root" prefHeight="615.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.AdmindashboardFormController">
     <children>
         <ImageView fitHeight="640.0" fitWidth="1207.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/b.jpg"/>
+                <Image url="@../img/b.jpg" />
             </image>
         </ImageView>
-        <Button layoutX="51.0" layoutY="127.0" mnemonicParsing="false" onAction="#manageemployeesOnAction"
-                prefHeight="42.0" prefWidth="187.0" text="Manage Employee">
+        <Button layoutX="51.0" layoutY="127.0" mnemonicParsing="false" onAction="#manageemployeesOnAction" prefHeight="42.0" prefWidth="187.0" text="Manage Employee">
             <font>
-                <Font name="Bernard MT Condensed" size="22.0"/>
+                <Font name="Bernard MT Condensed" size="22.0" />
             </font>
         </Button>
-        <Button layoutX="51.0" layoutY="343.0" mnemonicParsing="false" onAction="#managestoreOnAction" prefHeight="42.0"
-                prefWidth="187.0" text="Manage Store">
+        <Button layoutX="51.0" layoutY="343.0" mnemonicParsing="false" onAction="#manageitemsOnAction" prefHeight="42.0" prefWidth="187.0" text="Manage Items">
             <font>
-                <Font name="Bernard MT Condensed" size="22.0"/>
+                <Font name="Bernard MT Condensed" size="22.0" />
             </font>
         </Button>
-        <Button layoutX="51.0" layoutY="413.0" mnemonicParsing="false" onAction="#manageordersOnAction"
-                prefHeight="42.0" prefWidth="187.0" text="Manage Orders">
+        <Button layoutX="51.0" layoutY="413.0" mnemonicParsing="false" onAction="#manageordersOnAction" prefHeight="42.0" prefWidth="187.0" text="Manage Orders">
             <font>
-                <Font name="Bernard MT Condensed" size="22.0"/>
+                <Font name="Bernard MT Condensed" size="22.0" />
             </font>
         </Button>
-        <Button layoutX="51.0" layoutY="272.0" mnemonicParsing="false" onAction="#managecustomersOnAction"
-                prefHeight="42.0" prefWidth="187.0" text="Manage Customers">
+        <Button layoutX="51.0" layoutY="272.0" mnemonicParsing="false" onAction="#managecustomersOnAction" prefHeight="42.0" prefWidth="187.0" text="Manage Customers">
             <font>
-                <Font name="Bernard MT Condensed" size="22.0"/>
+                <Font name="Bernard MT Condensed" size="22.0" />
             </font>
         </Button>
-        <Button layoutX="51.0" layoutY="483.0" mnemonicParsing="false" onAction="#managesalaryOnAction"
-                prefHeight="42.0" prefWidth="187.0" text="Manage Salary">
+        <Button layoutX="51.0" layoutY="483.0" mnemonicParsing="false" onAction="#managesalaryOnAction" prefHeight="42.0" prefWidth="187.0" text="Manage Salary">
             <font>
-                <Font name="Bernard MT Condensed" size="22.0"/>
+                <Font name="Bernard MT Condensed" size="22.0" />
             </font>
         </Button>
         <Label layoutX="51.0" layoutY="40.0" text="Hello Admin ...!" textFill="WHITE">
             <font>
-                <Font name="Bernard MT Condensed" size="43.0"/>
+                <Font name="Bernard MT Condensed" size="43.0" />
             </font>
         </Label>
-        <Button layoutX="51.0" layoutY="198.0" mnemonicParsing="false" onAction="#managesuppliersOnAction"
-                prefHeight="42.0" prefWidth="187.0" text="Manage Suppliers">
+        <Button layoutX="51.0" layoutY="198.0" mnemonicParsing="false" onAction="#managesuppliersOnAction" prefHeight="42.0" prefWidth="187.0" text="Manage Suppliers">
             <font>
-                <Font name="Bernard MT Condensed" size="22.0"/>
+                <Font name="Bernard MT Condensed" size="22.0" />
             </font>
         </Button>
-        <Button layoutX="51.0" layoutY="554.0" mnemonicParsing="false" onAction="#reportsOnAction" prefHeight="42.0"
-                prefWidth="187.0" text="Reports">
+        <Button layoutX="51.0" layoutY="554.0" mnemonicParsing="false" onAction="#reportsOnAction" prefHeight="42.0" prefWidth="187.0" text="Reports">
             <font>
-                <Font name="Bernard MT Condensed" size="22.0"/>
+                <Font name="Bernard MT Condensed" size="22.0" />
             </font>
         </Button>
-        <Label fx:id="lbldateandtime" layoutX="774.0" layoutY="40.0" prefHeight="54.0" prefWidth="382.0"
-               textFill="WHITE">
+        <Label fx:id="lbldateandtime" layoutX="774.0" layoutY="40.0" prefHeight="54.0" prefWidth="382.0" textFill="WHITE">
             <font>
-                <Font name="Bernard MT Condensed" size="43.0"/>
+                <Font name="Bernard MT Condensed" size="43.0" />
             </font>
         </Label>
-        <Button layoutX="1103.0" layoutY="572.0" mnemonicParsing="false" onAction="#logoutOnAction" prefHeight="34.0"
-                prefWidth="78.0" style="-fx-background-color: grey;" text="Log Out">
+        <Button layoutX="1103.0" layoutY="572.0" mnemonicParsing="false" onAction="#logoutOnAction" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: grey;" text="Log Out">
             <font>
-                <Font name="Bernard MT Condensed" size="17.0"/>
+                <Font name="Bernard MT Condensed" size="17.0" />
             </font>
         </Button>
     </children>
