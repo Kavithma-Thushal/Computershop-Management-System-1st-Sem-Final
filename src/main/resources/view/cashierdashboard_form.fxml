@@ -44,7 +44,7 @@
                 <Font name="Bernard MT Condensed" size="22.0" />
             </font>
         </Button>
-        <Label layoutX="75.0" layoutY="44.0" text="Hello ...!" textFill="WHITE">
+        <Label layoutX="75.0" layoutY="44.0" text="Hello Cashier ...!" textFill="WHITE">
             <font>
                 <Font name="Bernard MT Condensed" size="43.0" />
             </font>

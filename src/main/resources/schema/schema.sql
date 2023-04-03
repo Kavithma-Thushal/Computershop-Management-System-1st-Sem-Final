@@ -55,7 +55,6 @@ CREATE TABLE orders
 (
     id          VARCHAR(20),
     customerid  VARCHAR(20),
-    description VARCHAR(20),
     qty         INT,
     datetime    DATETIME,
     CONSTRAINT PRIMARY KEY (id),

@@ -8,7 +8,6 @@ import lombok.Data;
 public class Orders {
     private String id;
     private String customerid;
-    private String description;
     private Integer qty;
     private String datetime;
 }
