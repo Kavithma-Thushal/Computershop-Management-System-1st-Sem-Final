@@ -12,11 +12,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.computershop.dto.Item;
 import lk.ijse.computershop.dto.Orders;
-import lk.ijse.computershop.dto.tm.ItemTM;
 import lk.ijse.computershop.dto.tm.OrdersTM;
-import lk.ijse.computershop.model.ItemModel;
 import lk.ijse.computershop.model.OrderModel;
 
 import java.io.IOException;

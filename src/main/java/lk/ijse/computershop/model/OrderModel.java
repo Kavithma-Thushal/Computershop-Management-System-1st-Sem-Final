@@ -1,6 +1,5 @@
 package lk.ijse.computershop.model;
 
-import lk.ijse.computershop.dto.Item;
 import lk.ijse.computershop.dto.Orders;
 import lk.ijse.computershop.util.CrudUtil;
 

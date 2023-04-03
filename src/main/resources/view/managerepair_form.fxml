@@ -11,7 +11,8 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="root" prefHeight="615.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.ManagerepairFormController">
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.computershop.controller.ManagerepairFormController">
     <children>
         <ImageView fitHeight="640.0" fitWidth="1207.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -29,68 +30,72 @@
                 <Font name="Bernard MT Condensed" size="43.0"/>
             </font>
         </Label>
-        <TextField layoutX="52.0" layoutY="160.0" prefHeight="25.0" prefWidth="187.0" promptText="Repair Code">
+        <TextField fx:id="txtCode" layoutX="52.0" layoutY="160.0" prefHeight="25.0" prefWidth="187.0"
+                   promptText="Repair Code">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </TextField>
-        <TextField layoutX="52.0" layoutY="330.0" prefHeight="7.0" prefWidth="187.0" promptText="Details">
+        <TextField fx:id="txtDetails" layoutX="52.0" layoutY="330.0" prefHeight="7.0" prefWidth="187.0"
+                   promptText="Details">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </TextField>
-        <TextField layoutX="52.0" layoutY="449.0" prefHeight="25.0" prefWidth="187.0"
+        <TextField fx:id="txtAcceptdatetime" layoutX="52.0" layoutY="449.0" prefHeight="25.0" prefWidth="187.0"
                    promptText="Accepting Date &amp; Time">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </TextField>
-        <TextField layoutX="52.0" layoutY="389.0" prefHeight="25.0" prefWidth="187.0"
+        <TextField fx:id="txtGetdatetime" layoutX="52.0" layoutY="389.0" prefHeight="25.0" prefWidth="187.0"
                    promptText="Getting Date &amp; Time">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </TextField>
-        <Button layoutX="52.0" layoutY="508.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0"
-                style="-fx-background-color: lightblue;" text="Save">
+        <Button layoutX="52.0" layoutY="508.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="34.0"
+                prefWidth="78.0" style="-fx-background-color: lightblue;" text="Save">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </Button>
-        <Button layoutX="160.0" layoutY="508.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0"
-                style="-fx-background-color: lightblue;" text="Search">
+        <Button layoutX="160.0" layoutY="508.0" mnemonicParsing="false" onAction="#searchOnAction" prefHeight="34.0"
+                prefWidth="78.0" style="-fx-background-color: lightblue;" text="Search">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </Button>
-        <Button layoutX="52.0" layoutY="566.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0"
-                style="-fx-background-color: lightblue;" text="Update">
+        <Button layoutX="52.0" layoutY="566.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="34.0"
+                prefWidth="78.0" style="-fx-background-color: lightblue;" text="Update">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </Button>
-        <Button layoutX="160.0" layoutY="566.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0"
-                style="-fx-background-color: lightblue;" text="Delete">
+        <Button layoutX="160.0" layoutY="566.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="34.0"
+                prefWidth="78.0" style="-fx-background-color: lightblue;" text="Delete">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </Button>
-        <TableView layoutX="289.0" layoutY="160.0" prefHeight="400.0" prefWidth="878.0">
+        <TableView fx:id="tblRepair" layoutX="289.0" layoutY="160.0" prefHeight="400.0" prefWidth="878.0">
             <columns>
-                <TableColumn prefWidth="146.0" text="Repair Code"/>
-                <TableColumn prefWidth="146.0" text="Employee ID"/>
-                <TableColumn prefWidth="146.0" text="Customer ID"/>
-                <TableColumn prefWidth="146.0" text="Details"/>
-                <TableColumn prefWidth="146.0" text="Getting Date &amp; Time"/>
-                <TableColumn prefWidth="146.0" text="Accepting Date &amp; Time"/>
+                <TableColumn fx:id="colCode" prefWidth="146.0" text="Repair Code"/>
+                <TableColumn fx:id="colEmployeeid" prefWidth="146.0" text="Employee ID"/>
+                <TableColumn fx:id="colCustomerid" prefWidth="146.0" text="Customer ID"/>
+                <TableColumn fx:id="colDetails" prefWidth="146.0" text="Details"/>
+                <TableColumn fx:id="colGetdatetime" prefWidth="146.0" text="Getting Date &amp; Time"/>
+                <TableColumn fx:id="colAcceptdatetime" prefWidth="146.0" text="Accepting Date &amp; Time"/>
             </columns>
         </TableView>
-        <TextField layoutX="52.0" layoutY="215.0" prefHeight="25.0" prefWidth="187.0" promptText="Employee ID">
+        <TextField fx:id="txtEmployeeid" layoutX="52.0" layoutY="215.0" prefHeight="25.0" prefWidth="187.0"
+                   promptText="Employee ID">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
         </TextField>
-        <TextField layoutX="52.0" layoutY="273.0" prefHeight="25.0" prefWidth="187.0" promptText="Customer ID">
+        <TextField fx:id="txtCustomerid" layoutX="52.0" layoutY="273.0" prefHeight="25.0" prefWidth="187.0"
+                   promptText="Customer ID">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0"/>
             </font>
