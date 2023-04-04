@@ -33,7 +33,6 @@ public class CashierloginFormController {
             stage.centerOnScreen();
             stage.setTitle("Cashier Dashboard");
             stage.setResizable(false);
-            stage.show();
         } else {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }

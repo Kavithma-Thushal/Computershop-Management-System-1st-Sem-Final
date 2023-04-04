@@ -73,6 +73,5 @@ public class CashierdashboardFormController implements Initializable {
         stage.centerOnScreen();
         stage.setTitle(URL);
         stage.setResizable(false);
-        stage.show();
     }
 }

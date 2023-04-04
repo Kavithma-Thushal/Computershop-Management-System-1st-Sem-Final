@@ -33,7 +33,6 @@ public class AdminloginFormController {
             stage.centerOnScreen();
             stage.setTitle("Admin Dashboard");
             stage.setResizable(false);
-            stage.show();
         } else {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
