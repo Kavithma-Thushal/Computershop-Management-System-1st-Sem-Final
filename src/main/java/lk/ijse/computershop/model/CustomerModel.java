@@ -11,7 +11,6 @@ import java.util.List;
 public class CustomerModel {
 
     public static int save(Customer customer) throws SQLException {
-
         String sql = "INSERT INTO customers VALUES (?,?,?,?,?,?)";
 
         return CrudUtil.execute(
@@ -23,7 +22,6 @@ public class CustomerModel {
                 customer.getContact(),
                 customer.getAddress()
         );
-
     }
 
     public static Customer search(String id) throws SQLException {

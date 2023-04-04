@@ -84,16 +84,18 @@ public class ManagecustomersFormController implements Initializable {
             List<Customer> customerList = CustomerModel.getAll();
 
             for (Customer customer : customerList) {
-                observableList.add(new CustomerTM(
+                CustomerTM customerTM = new CustomerTM(
                         customer.getId(),
                         customer.getName(),
                         customer.getNic(),
                         customer.getEmail(),
                         customer.getContact(),
                         customer.getAddress()
-                ));
+                );
+                observableList.add(customerTM);
             }
             tblCustomer.setItems(observableList);
+
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
@@ -101,7 +103,6 @@ public class ManagecustomersFormController implements Initializable {
 
     @FXML
     private void saveOnAction(ActionEvent event) {
-
         try {
             Customer customer = new Customer(
                     txtId.getText(),
@@ -113,19 +114,6 @@ public class ManagecustomersFormController implements Initializable {
             );
 
             if (CustomerModel.save(customer) > 0) {
-                //setCellValueFactory();
-
-                /*ObservableList<CustomerTM> observableList = FXCollections.observableArrayList();
-                observableList.add(new CustomerTM(
-                        customer.getId(),
-                        customer.getName(),
-                        customer.getNic(),
-                        customer.getEmail(),
-                        customer.getContact(),
-                        customer.getAddress()
-                ));
-                tblCustomer.setItems(observableList);*/
-
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully...!").show();
             }
 

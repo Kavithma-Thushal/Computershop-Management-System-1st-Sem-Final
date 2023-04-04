@@ -1,6 +1,7 @@
 package lk.ijse.computershop.dto.tm;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @Data
 @AllArgsConstructor
