@@ -22,6 +22,7 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ManagecustomersFormController implements Initializable {
@@ -164,11 +165,18 @@ public class ManagecustomersFormController implements Initializable {
     @FXML
     private void deleteOnAction(ActionEvent event) {
         try {
-            if (CustomerModel.delete(txtId.getText()) > 0) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Deleted Successfully...!").show();
+            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+            Optional<ButtonType> buttonType = new Alert(Alert.AlertType.WARNING, "Are you sure...?", yes, no).showAndWait();
+
+            if (buttonType.orElse(yes) == yes) {
+                if (CustomerModel.delete(txtId.getText()) > 0) {
+                    new Alert(Alert.AlertType.INFORMATION, "Deleted Successfully...!").show();
+                }
             }
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 
