@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1550.0" styleClass="dashboard" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.LoginController">
+    <children>
+        <Label prefHeight="98.0" prefWidth="1550.0" styleClass="lblTop" />
+        <Label layoutX="572.0" layoutY="30.0" prefHeight="67.0" prefWidth="406.0" text="Bashi Comuters" textFill="WHITE">
+            <font>
+                <Font name="Times New Roman Bold" size="59.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

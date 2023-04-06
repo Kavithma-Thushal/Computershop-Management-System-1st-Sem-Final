@@ -52,7 +52,7 @@ public class SplashscreenFormController {
                     Stage stage = new Stage();
                     Parent root = null;
                     try {
-                        root = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
+                        root = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
                     } catch (Exception e) {
                         Logger.getLogger(SplashscreenFormController.class.getName()).log(Level.SEVERE, null, e);
                     }

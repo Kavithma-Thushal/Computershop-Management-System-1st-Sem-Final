@@ -1,0 +1,18 @@
+.dashboard{
+    -fx-background-color:linear-gradient(to right,#3168df,rgba(235, 59, 90,1.0));
+}
+
+.lblTop{
+    -fx-background-color:linear-gradient(to right,#808080,#000000);
+}
+
+/*
+#btnClose{
+    -fx-background-color:linear-gradient(to right,rgba(255, 255, 255,1.0),rgba(235, 59, 90,1.0));
+    -fx-font-size: 24;
+    -fx-font-family: "Berlin Sans FB Demi";
+    -fx-background-radius: 20;
+    -fx-border-radius: 25;
+    -fx-fill: #2f3640;
+    -fx-font-weight: bold;
+}*/
