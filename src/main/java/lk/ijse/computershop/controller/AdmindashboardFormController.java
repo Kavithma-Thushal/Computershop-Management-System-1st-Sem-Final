@@ -67,7 +67,7 @@ public class AdmindashboardFormController implements Initializable {
 
     @FXML
     private void logoutOnAction(ActionEvent event) {
-
+        System.exit(0);
     }
 
     private void setUI(String URL) throws IOException {
