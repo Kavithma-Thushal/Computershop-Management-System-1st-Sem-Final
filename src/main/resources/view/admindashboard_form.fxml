@@ -11,7 +11,7 @@
     <children>
         <ImageView fitHeight="640.0" fitWidth="1207.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/b.jpg" />
+                <Image url="@../img/forms.jpg" />
             </image>
         </ImageView>
         <Button layoutX="51.0" layoutY="127.0" mnemonicParsing="false" onAction="#manageemployeesOnAction" prefHeight="42.0" prefWidth="187.0" text="Manage Employee">

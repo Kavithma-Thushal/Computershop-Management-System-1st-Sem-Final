@@ -12,7 +12,7 @@
     <children>
         <ImageView fitHeight="640.0" fitWidth="1207.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/b.jpg"/>
+                <Image url="@../img/forms.jpg"/>
             </image>
         </ImageView>
         <Label layoutX="281.0" layoutY="95.0" prefHeight="62.0" prefWidth="645.0" text="Welcome to Bashi Computer Shop"
