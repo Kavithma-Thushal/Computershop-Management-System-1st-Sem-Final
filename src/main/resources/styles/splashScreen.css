@@ -1,0 +1,31 @@
+.dashboard{
+    -fx-background-color:linear-gradient(to right,#3168df,rgba(235, 59, 90,1.0));
+}
+
+#txtWelcome{
+    -fx-font-family: "Times New Roman";
+    -fx-fill: black;
+    -fx-font-size: 38;
+    -fx-font-weight: bold ;
+}
+
+#progressIndicator{
+    -fx-font-family: "Times New Roman";
+    -fx-fill: black;
+    -fx-font-size: 18;
+    -fx-font-weight: bold ;
+}
+
+#txtVersion{
+    -fx-font-family: "Times New Roman";
+    -fx-fill: black;
+    -fx-font-size: 18;
+    -fx-font-weight: bold ;
+}
+
+#txtCopyRight{
+    -fx-font-family: "Times New Roman";
+    -fx-fill: black;
+    -fx-font-size: 18;
+    -fx-font-weight: bold ;
+}
