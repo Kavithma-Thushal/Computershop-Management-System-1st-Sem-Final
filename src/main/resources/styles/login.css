@@ -11,9 +11,20 @@
 }
 
 .loginCashierAdmin{
-    -fx-background-color:linear-gradient(to right,#808080,#808080);
+    -fx-background-color:#808080;
     -fx-background-radius: 25;
     -fx-border-color: #5c5c5c;
     -fx-border-width: 5;
     -fx-border-radius: 25;
+}
+
+.about{
+    -fx-background-color:#5e88e3;
+    -fx-border-width: 5;
+    -fx-border-color: #4a74cf;
+}
+
+.lblabout{
+    -fx-background-color:#7599e7;
+    -fx-background-radius: 30;
 }

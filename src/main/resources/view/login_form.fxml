@@ -20,7 +20,7 @@
                 <Font name="Times New Roman Bold" size="59.0"/>
             </font>
         </Label>
-        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1506.0" layoutY="38.0" onMouseClicked="#closeOnAction"
+        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="1506.0" layoutY="38.0" onMouseClicked="#closeOnAction"
                    pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../assets/icons/close.jpg"/>
@@ -82,6 +82,15 @@
                         <Font name="Arial Rounded MT Bold" size="28.0"/>
                     </font>
                 </Label>
+                <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="885.0" layoutY="14.0"
+                           onMouseClicked="#infoOnAction" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/icons/info.png"/>
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </ImageView>
             </children>
         </AnchorPane>
         <Label layoutX="24.0" layoutY="867.0" text="Version 2023.0.0.1">
@@ -95,10 +104,30 @@
                 <Font name="Times New Roman Bold" size="18.0"/>
             </font>
         </Label>
-        <Label layoutX="482.0" layoutY="791.0" prefHeight="34.0" prefWidth="586.0"
-               text="The best way to create your future in smart">
+        <Label layoutX="433.0" layoutY="790.0" prefHeight="34.0" prefWidth="663.0"
+               text="The best way to create your future in smart .......!">
             <font>
                 <Font name="Arial Rounded MT Bold" size="28.0"/>
+            </font>
+        </Label>
+        <Label layoutX="24.0" layoutY="143.0" text="Date : ">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="32.0"/>
+            </font>
+        </Label>
+        <Label layoutX="1278.0" layoutY="143.0" text="Time : ">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="32.0"/>
+            </font>
+        </Label>
+        <Label fx:id="lblDate" layoutX="123.0" layoutY="143.0" prefHeight="38.0" prefWidth="214.0">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="32.0"/>
+            </font>
+        </Label>
+        <Label fx:id="lblTime" layoutX="1381.0" layoutY="143.0" prefHeight="38.0" prefWidth="149.0">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="32.0"/>
             </font>
         </Label>
     </children>

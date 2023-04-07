@@ -2,18 +2,24 @@ package lk.ijse.computershop.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import lk.ijse.computershop.util.DateAndTime;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LoginFormController {
+public class LoginFormController implements Initializable {
 
     @FXML
     private AnchorPane root;
@@ -21,10 +27,14 @@ public class LoginFormController {
     private TextField txtUsername;
     @FXML
     private PasswordField txtPassword;
-
     @FXML
-    private void closeOnAction(MouseEvent mouseEvent) {
-        System.exit(0);
+    private Label lblDate;
+    @FXML
+    private Label lblTime;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        DateAndTime.loadDateAndTime(lblDate,lblTime);
     }
 
     @FXML
@@ -55,5 +65,21 @@ public class LoginFormController {
         } else {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
+    }
+
+    @FXML
+    private void infoOnAction(MouseEvent mouseEvent) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("/view/info_form.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.show();
+    }
+
+    @FXML
+    private void closeOnAction(MouseEvent mouseEvent) {
+        System.exit(0);
     }
 }

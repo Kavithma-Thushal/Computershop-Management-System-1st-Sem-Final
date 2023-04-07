@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="499.0" prefWidth="817.0" styleClass="about" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.InfoFormController">
+    <children>
+        <Label layoutX="41.0" layoutY="38.0" prefHeight="423.0" prefWidth="734.0" styleClass="lblabout" />
+        <Label layoutX="153.0" layoutY="70.0" text="About Us" textFill="#b90000">
+            <font>
+                <Font name="Times New Roman Bold" size="43.0" />
+            </font>
+        </Label>
+        <Label layoutX="153.0" layoutY="155.0" prefHeight="222.0" prefWidth="510.0" text="Author &amp; Designed by        :        M.G.D.Kavithma Thushal&#10;&#10;Company                              :        KT Solutions (PVT) Ltd&#10;&#10;Email                                    :        ktsolutions@gmail.com&#10;&#10;Contact                                :         +94 774519007&#10;&#10;Address                                :        Unity Plaza Colombo 7">
+            <font>
+                <Font name="Times New Roman Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="85.0" layoutY="413.0" text="Copyright © 2023 Kavithma Thushal incorporated and its licensors. All Rights Reserved." textFill="#990303">
+            <font>
+                <Font name="Times New Roman Bold" size="17.0" />
+            </font>
+        </Label>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="776.0" layoutY="12.0" onMouseClicked="#closeOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons/close.jpg" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>
