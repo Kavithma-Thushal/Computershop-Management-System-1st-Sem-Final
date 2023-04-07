@@ -92,9 +92,9 @@
                 <Font name="Times New Roman Bold" size="18.0" />
             </font>
         </Label>
-        <Label layoutX="443.0" layoutY="788.0" prefHeight="34.0" prefWidth="663.0" text="The best way to create your future in smart .......!">
+        <Label layoutX="412.0" layoutY="787.0" prefHeight="38.0" prefWidth="734.0" text="The best way to create your future in smart .......!">
             <font>
-                <Font name="Arial Rounded MT Bold" size="28.0" />
+                <Font name="Arial Rounded MT Bold" size="31.0" />
             </font>
         </Label>
         <Label layoutX="24.0" layoutY="143.0" text="Date : ">
@@ -117,5 +117,13 @@
                 <Font name="Arial Rounded MT Bold" size="32.0" />
             </font>
         </Label>
+        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="1465.0" layoutY="38.0" onMouseClicked="#minimizeOnAction" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../assets/icons/minimize.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
     </children>
 </AnchorPane>
