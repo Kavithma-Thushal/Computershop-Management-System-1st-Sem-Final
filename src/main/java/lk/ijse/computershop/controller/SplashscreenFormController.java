@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class SplashscreenFormController {
 
     @FXML
-    private AnchorPane splashScreen;
+    private AnchorPane root;
     @FXML
     private ProgressBar progressBar;
     @FXML
@@ -62,7 +62,7 @@ public class SplashscreenFormController {
                     stage.setScene(scene);
                     stage.initStyle(StageStyle.UNDECORATED);
                     stage.show();
-                    splashScreen.getScene().getWindow().hide();
+                    SplashscreenFormController.this.root.getScene().getWindow().hide();
                 });
             } catch (Exception e) {
                 Logger.getLogger(SplashscreenFormController.class.getName()).log(Level.SEVERE, null, e);

@@ -76,7 +76,5 @@ public class AdmindashboardFormController implements Initializable {
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.centerOnScreen();
-        stage.setTitle(URL);
-        stage.setResizable(false);
     }
 }

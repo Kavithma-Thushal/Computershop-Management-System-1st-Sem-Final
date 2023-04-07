@@ -45,8 +45,6 @@ public class LoginFormController implements Initializable {
             Scene scene = new Scene(parent);
             stage.setScene(scene);
             stage.centerOnScreen();
-            stage.setTitle("Cashier Dashboard");
-            stage.setResizable(false);
         } else {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
@@ -60,8 +58,6 @@ public class LoginFormController implements Initializable {
             Scene scene = new Scene(parent);
             stage.setScene(scene);
             stage.centerOnScreen();
-            stage.setTitle("Admin Dashboard");
-            stage.setResizable(false);
         } else {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
