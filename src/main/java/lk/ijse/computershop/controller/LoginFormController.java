@@ -69,9 +69,11 @@ public class LoginFormController implements Initializable {
         Stage stage = new Stage();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
-        stage.centerOnScreen();
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
+
+        stage.setX(350);
+        stage.setY(215);
     }
 
     @FXML
