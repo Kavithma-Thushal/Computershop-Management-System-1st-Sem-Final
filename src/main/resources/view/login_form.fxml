@@ -1,37 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="615.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.LoginFormController">
+<AnchorPane fx:id="root" prefHeight="900.0" prefWidth="1550.0" styleClass="dashboard" stylesheets="@../styles/login.css"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.computershop.controller.LoginFormController">
     <children>
-        <ImageView fitHeight="640.0" fitWidth="1207.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/img/forms.jpg"/>
-            </image>
-        </ImageView>
-        <Label layoutX="281.0" layoutY="95.0" prefHeight="62.0" prefWidth="645.0" text="Welcome to Bashi Computer Shop"
+        <Label prefHeight="98.0" prefWidth="1550.0" styleClass="lblTop"/>
+        <Label layoutX="555.0" layoutY="28.0" prefHeight="67.0" prefWidth="440.0" text="Bashi Computers"
                textFill="WHITE">
             <font>
-                <Font name="Bernard MT Condensed" size="50.0"/>
+                <Font name="Times New Roman Bold" size="59.0"/>
             </font>
         </Label>
-        <Button layoutX="345.0" layoutY="348.0" mnemonicParsing="false" onAction="#cashierloginOnAction"
-                prefHeight="66.0" prefWidth="166.0" style="-fx-background-color: lightblue;" text="Cashier">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1506.0" layoutY="38.0" onMouseClicked="#closeOnAction"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../assets/icons/close.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <AnchorPane layoutX="298.0" layoutY="228.0" prefHeight="530.0" prefWidth="934.0"
+                    style="-fx-background-radius: 25;" styleClass="loginDashboard">
+            <children>
+                <AnchorPane layoutX="46.0" layoutY="37.0" prefHeight="458.0" prefWidth="450.0"
+                            styleClass="loginCashierAdmin">
+                    <children>
+                        <Label layoutX="135.0" layoutY="46.0" text="Welcome">
+                            <font>
+                                <Font name="Arial Rounded MT Bold" size="40.0"/>
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtUsername" layoutX="113.0" layoutY="213.0" prefHeight="26.0"
+                                   prefWidth="223.0" promptText="User Name">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </TextField>
+                        <PasswordField fx:id="txtPassword" layoutX="113.0" layoutY="284.0" prefHeight="26.0"
+                                       prefWidth="223.0" promptText="Password">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </PasswordField>
+                    </children>
+                </AnchorPane>
+                <ImageView fitHeight="217.0" fitWidth="176.0" layoutX="642.0" layoutY="35.0"
+                           onMouseClicked="#cashierLoginOnAction" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/icons/cashier.png"/>
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </ImageView>
+                <ImageView fitHeight="176.0" fitWidth="176.0" layoutX="642.0" layoutY="289.0"
+                           onMouseClicked="#adminLoginOnAction" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/icons/admin.png"/>
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </ImageView>
+                <Label layoutX="676.0" layoutY="201.0" text="Cashier">
+                    <font>
+                        <Font name="Arial Rounded MT Bold" size="28.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="686.0" layoutY="465.0" text="Admin">
+                    <font>
+                        <Font name="Arial Rounded MT Bold" size="28.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Label layoutX="24.0" layoutY="867.0" text="Version 2023.0.0.1">
             <font>
-                <Font name="Bernard MT Condensed" size="40.0"/>
+                <Font name="Times New Roman Bold" size="18.0"/>
             </font>
-        </Button>
-        <Button layoutX="688.0" layoutY="348.0" mnemonicParsing="false" onAction="#adminloginOnAction" prefHeight="66.0"
-                prefWidth="166.0" style="-fx-background-color: lightblue;" text="Admin">
+        </Label>
+        <Label layoutX="1073.0" layoutY="868.0" styleClass="copyRight"
+               text="© 2023  All Right Reserved Designed By Kavithma Thushal">
             <font>
-                <Font name="Bernard MT Condensed" size="40.0"/>
+                <Font name="Times New Roman Bold" size="18.0"/>
             </font>
-        </Button>
+        </Label>
+        <Label layoutX="482.0" layoutY="791.0" prefHeight="34.0" prefWidth="586.0"
+               text="The best way to create your future in smart">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="28.0"/>
+            </font>
+        </Label>
     </children>
 </AnchorPane>
