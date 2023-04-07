@@ -12,7 +12,7 @@
     <children>
         <ImageView fitHeight="714.0" fitWidth="1000.0" opacity="0.77" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/splashscreen.jpg" />
+                <Image url="@../assets/img/splashscreen.jpg" />
             </image>
         </ImageView>
         <Label layoutX="90.0" layoutY="84.0" opacity="0.84" prefHeight="394.0" prefWidth="819.0" style="-fx-background-radius: 25;" styleClass="dashboard" />

@@ -13,7 +13,7 @@
     <children>
         <ImageView fitHeight="640.0" fitWidth="1207.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/forms.jpg" />
+                <Image url="@../assets/img/forms.jpg" />
             </image>
         </ImageView>
         <Label layoutX="441.0" layoutY="97.0" prefHeight="62.0" prefWidth="325.0" text="Welcome Cashier" textFill="WHITE">

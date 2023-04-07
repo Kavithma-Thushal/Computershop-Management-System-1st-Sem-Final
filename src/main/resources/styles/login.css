@@ -5,3 +5,15 @@
 .lblTop{
     -fx-background-color:linear-gradient(to right,#808080,#000000);
 }
+
+.loginDashboard{
+    -fx-background-color:linear-gradient(to right,#808080,#ffffff);
+}
+
+.loginCashierAdmin{
+    -fx-background-color:linear-gradient(to right,#808080,#808080);
+    -fx-background-radius: 25;
+    -fx-border-color: #5c5c5c;
+    -fx-border-width: 5;
+    -fx-border-radius: 25;
+}
