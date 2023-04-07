@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="385.0" styleClass="loginDetails"
+            stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.computershop.controller.CashierFormController">
+    <children>
+        <Label layoutX="65.0" layoutY="56.0" text="Welcome Cashier">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="30.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="txtUsername" layoutX="65.0" layoutY="168.0" prefHeight="26.0" prefWidth="256.0"
+                   promptText="User Name">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </TextField>
+        <PasswordField fx:id="txtPassword" layoutX="64.0" layoutY="233.0" prefHeight="26.0" prefWidth="256.0"
+                       promptText="Password">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </PasswordField>
+        <ImageView fitHeight="43.0" fitWidth="102.0" layoutX="141.0" layoutY="307.0"
+                   onMouseClicked="#cashierLoginOnAction" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../assets/icons/login.png"/>
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>

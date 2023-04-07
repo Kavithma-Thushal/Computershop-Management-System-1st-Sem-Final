@@ -28,3 +28,9 @@
     -fx-background-color:#7599e7;
     -fx-background-radius: 30;
 }
+
+.loginDetails{
+    -fx-background-color:#CCCCFF;
+    -fx-border-color: #7878cf;
+    -fx-border-width: 5;
+}
