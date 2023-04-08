@@ -29,7 +29,7 @@ public class UILoader {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
 
-        stage.setX(390);
+        stage.setX(388);
         stage.setY(252);
     }
 
