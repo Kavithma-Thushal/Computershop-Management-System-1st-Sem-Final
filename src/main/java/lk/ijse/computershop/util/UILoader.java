@@ -20,17 +20,6 @@ public class UILoader {
         anchorPane.getChildren().add(FXMLLoader.load(UILoader.class.getResource("/view/" + location + ".fxml")));
     }
 
-    public static void loadUiDashBoard(AnchorPane anchorPane, String location) throws IOException {
-        anchorPane.getChildren().clear();
-        anchorPane.getChildren().add(FXMLLoader.load(UILoader.class.getResource("/view/" + location + ".fxml")));
-    }
-
-    public static void BtnLogOut(AnchorPane anchorPane, String location) throws IOException {
-        Stage stage = (Stage) anchorPane.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(UILoader.class.getResource("/view/" + location + ".fxml"))));
-        stage.centerOnScreen();
-    }
-
     public static void aboutOnAction(String location) throws IOException {
         Stage stage = new Stage();
         stage.setScene(new Scene(FXMLLoader.load(UILoader.class.getResource("/view/" + location + ".fxml"))));
@@ -44,7 +33,19 @@ public class UILoader {
     }
 
     public static void LoginOnAction(AnchorPane anchorPane, String location) throws IOException, SQLException {
-        Stage window = (Stage) anchorPane.getScene().getWindow();
-        window.setScene(new Scene(FXMLLoader.load(UILoader.class.getResource("/view/" + location + ".fxml"))));
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(UILoader.class.getResource("/view/" + location + ".fxml"))));
+        stage.centerOnScreen();
+    }
+
+    public static void loadUiDashBoard(AnchorPane anchorPane, String location) throws IOException {
+        anchorPane.getChildren().clear();
+        anchorPane.getChildren().add(FXMLLoader.load(UILoader.class.getResource("/view/" + location + ".fxml")));
+    }
+
+    public static void BtnLogOut(AnchorPane anchorPane, String location) throws IOException {
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(UILoader.class.getResource("/view/" + location + ".fxml"))));
+        stage.centerOnScreen();
     }
 }

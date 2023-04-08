@@ -10,8 +10,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.computershop.util.UILoader;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class AdminFormController {
 
@@ -23,13 +25,9 @@ public class AdminFormController {
     private PasswordField txtPassword;
 
     @FXML
-    private void adminLoginOnAction(MouseEvent mouseEvent) throws IOException {
+    private void adminLoginOnAction(MouseEvent mouseEvent) throws IOException, SQLException {
         if (txtUsername.getText().equals("admin") && txtPassword.getText().equals("1234")) {
-            Parent parent = FXMLLoader.load(getClass().getResource("/view/admindashboard_form.fxml"));
-            Stage stage = (Stage) root.getScene().getWindow();
-            Scene scene = new Scene(parent);
-            stage.setScene(scene);
-            stage.centerOnScreen();
+            UILoader.LoginOnAction(root,"admindashboard_form");
         } else {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
