@@ -16,12 +16,11 @@ public class UILoader {
         stage.close();
     }
 
-    public static void loadUiDashBoard(AnchorPane anchorPane, String location) throws IOException {
-        anchorPane.getChildren().clear();
+    public static void loadUiHalfDashBoard(AnchorPane anchorPane, String location) throws IOException {
         anchorPane.getChildren().add(FXMLLoader.load(UILoader.class.getResource("/view/" + location + ".fxml")));
     }
 
-    public static void loadUiHalfDashBoard(AnchorPane anchorPane, String location) throws IOException {
+    public static void loadUiDashBoard(AnchorPane anchorPane, String location) throws IOException {
         anchorPane.getChildren().clear();
         anchorPane.getChildren().add(FXMLLoader.load(UILoader.class.getResource("/view/" + location + ".fxml")));
     }
@@ -39,6 +38,9 @@ public class UILoader {
         stage.setResizable(true);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
+
+        stage.setX(390);
+        stage.setY(252);
     }
 
     public static void LoginOnAction(AnchorPane anchorPane, String location) throws IOException, SQLException {

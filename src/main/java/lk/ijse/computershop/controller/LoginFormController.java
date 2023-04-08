@@ -39,12 +39,17 @@ public class LoginFormController implements Initializable {
 
     @FXML
     private void cashierLoginOnAction(MouseEvent mouseEvent) throws IOException {
-        root.getChildren().add(FXMLLoader.load(UILoader.class.getResource("/view/cashier_form.fxml")));
+        UILoader.loadUiHalfDashBoard(root, "cashier_form");
     }
 
     @FXML
     private void adminLoginOnAction(MouseEvent mouseEvent) throws IOException {
-        root.getChildren().add(FXMLLoader.load(UILoader.class.getResource("/view/admin_form.fxml")));
+        UILoader.loadUiHalfDashBoard(root, "admin_form");
+    }
+
+    @FXML
+    private void infoOnAction(MouseEvent mouseEvent) throws IOException {
+        UILoader.aboutOnAction("info_form");
     }
 
     @FXML
@@ -76,19 +81,6 @@ public class LoginFormController implements Initializable {
             scaleT.play();
             icon.setEffect(null);
         }
-    }
-
-    @FXML
-    private void infoOnAction(MouseEvent mouseEvent) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/view/info_form.fxml"));
-        Stage stage = new Stage();
-        Scene scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.show();
-
-        stage.setX(390);
-        stage.setY(252);
     }
 
     @FXML

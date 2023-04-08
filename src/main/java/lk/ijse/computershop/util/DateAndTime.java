@@ -27,7 +27,7 @@ public class DateAndTime {
             }
 
             int hour = Integer.parseInt(String.valueOf(currentTime.getHour()));
-            if (hour >= 12) {
+            if (hour > 12) {
                 hour -= 12;
             }
 
