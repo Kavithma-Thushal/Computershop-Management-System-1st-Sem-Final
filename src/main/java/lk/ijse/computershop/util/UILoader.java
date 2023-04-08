@@ -11,13 +11,14 @@ import java.sql.SQLException;
 
 public class UILoader {
 
-    public static void CloseStage(AnchorPane anchorPane) throws IOException {
-        Stage stage = (Stage) anchorPane.getScene().getWindow();
-        stage.close();
-    }
-
     public static void loadUiHalfDashBoard(AnchorPane anchorPane, String location) throws IOException {
         anchorPane.getChildren().add(FXMLLoader.load(UILoader.class.getResource("/view/" + location + ".fxml")));
+    }
+
+    public static void LoginOnAction(AnchorPane anchorPane, String location) throws IOException, SQLException {
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(UILoader.class.getResource("/view/" + location + ".fxml"))));
+        stage.centerOnScreen();
     }
 
     public static void aboutOnAction(String location) throws IOException {
@@ -32,10 +33,9 @@ public class UILoader {
         stage.setY(252);
     }
 
-    public static void LoginOnAction(AnchorPane anchorPane, String location) throws IOException, SQLException {
+    public static void CloseStage(AnchorPane anchorPane) throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(UILoader.class.getResource("/view/" + location + ".fxml"))));
-        stage.centerOnScreen();
+        stage.close();
     }
 
     public static void loadUiDashBoard(AnchorPane anchorPane, String location) throws IOException {
