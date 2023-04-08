@@ -51,7 +51,15 @@ public class LoginFormController implements Initializable {
 
     @FXML
     private void adminLoginOnAction(MouseEvent mouseEvent) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("/view/admin_form.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.show();
 
+        stage.setX(385);
+        stage.setY(263);
     }
 
     @FXML
