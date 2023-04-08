@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import lk.ijse.computershop.util.DateAndTime;
+import lk.ijse.computershop.util.UILoader;
 
 import java.io.IOException;
 import java.net.URL;
@@ -38,28 +39,12 @@ public class LoginFormController implements Initializable {
 
     @FXML
     private void cashierLoginOnAction(MouseEvent mouseEvent) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/view/cashier_form.fxml"));
-        Stage stage = new Stage();
-        Scene scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.show();
-
-        stage.setX(385);
-        stage.setY(263);
+        root.getChildren().add(FXMLLoader.load(UILoader.class.getResource("/view/cashier_form.fxml")));
     }
 
     @FXML
     private void adminLoginOnAction(MouseEvent mouseEvent) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/view/admin_form.fxml"));
-        Stage stage = new Stage();
-        Scene scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.show();
-
-        stage.setX(385);
-        stage.setY(263);
+        root.getChildren().add(FXMLLoader.load(UILoader.class.getResource("/view/admin_form.fxml")));
     }
 
     @FXML

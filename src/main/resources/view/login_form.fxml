@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="900.0" prefWidth="1550.0" styleClass="dashboard" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.LoginFormController">
+<AnchorPane prefHeight="900.0" prefWidth="1550.0" styleClass="dashboard" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.LoginFormController">
     <children>
         <Label prefHeight="98.0" prefWidth="1550.0" styleClass="lblTop" />
         <Label layoutX="555.0" layoutY="28.0" prefHeight="67.0" prefWidth="440.0" text="Bashi Computers" textFill="WHITE">
@@ -37,6 +37,7 @@
                         <Font name="Arial Rounded MT Bold" size="32.0" />
                      </font>
                   </Label>
+                  <AnchorPane fx:id="root" layoutX="35.0" layoutY="29.0" prefHeight="393.0" prefWidth="378.0" />
                </children></AnchorPane>
                 <ImageView fitHeight="217.0" fitWidth="176.0" layoutX="642.0" layoutY="35.0" onMouseClicked="#cashierLoginOnAction" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                     <image>
