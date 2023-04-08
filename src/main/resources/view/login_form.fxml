@@ -25,7 +25,19 @@
         </ImageView>
         <AnchorPane layoutX="312.0" layoutY="228.0" prefHeight="530.0" prefWidth="934.0" style="-fx-background-radius: 25;" styleClass="loginDashboard">
             <children>
-                <AnchorPane layoutX="46.0" layoutY="37.0" prefHeight="458.0" prefWidth="450.0" styleClass="loginCashierAdmin" />
+                <AnchorPane layoutX="46.0" layoutY="37.0" prefHeight="458.0" prefWidth="450.0" styleClass="loginCashierAdmin">
+               <children>
+                  <ImageView fitHeight="271.0" fitWidth="346.0" layoutX="54.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/laptop.gif" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="80.0" layoutY="51.0" text="Warmly Welcome...!" textFill="#303b73">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="32.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
                 <ImageView fitHeight="217.0" fitWidth="176.0" layoutX="642.0" layoutY="35.0" onMouseClicked="#cashierLoginOnAction" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../assets/icons/cashier.png" />
