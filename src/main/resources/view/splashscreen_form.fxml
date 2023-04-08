@@ -8,22 +8,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="592.0" prefWidth="1000.0" styleClass="dashboard" stylesheets="@../styles/splashScreen.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.SplashscreenFormController">
+<AnchorPane fx:id="root" prefHeight="592.0" prefWidth="1000.0" styleClass="dashboard"
+            stylesheets="@../styles/splashScreen.css" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.computershop.controller.SplashscreenFormController">
     <children>
         <ImageView fitHeight="714.0" fitWidth="1000.0" opacity="0.77" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../assets/img/splashscreen.jpg" />
+                <Image url="@../assets/img/splashscreen.jpg"/>
             </image>
         </ImageView>
-        <Label layoutX="90.0" layoutY="84.0" opacity="0.84" prefHeight="394.0" prefWidth="819.0" style="-fx-background-radius: 25;" styleClass="dashboard" />
-        <Label layoutX="329.0" layoutY="196.0" prefHeight="129.0" prefWidth="342.0" styleClass="welcome" text="WELCOME TO&#10;BASHI&#10;COMPUTER SHOP" textAlignment="CENTER">
+        <Label layoutX="90.0" layoutY="84.0" opacity="0.84" prefHeight="394.0" prefWidth="819.0"
+               style="-fx-background-radius: 25;" styleClass="dashboard"/>
+        <Label layoutX="329.0" layoutY="196.0" prefHeight="129.0" prefWidth="342.0" styleClass="welcome"
+               text="WELCOME TO&#10;BASHI&#10;COMPUTER SHOP" textAlignment="CENTER">
             <font>
-                <Font name="Arial Rounded MT Bold" size="50.0" />
+                <Font name="Arial Rounded MT Bold" size="50.0"/>
             </font>
         </Label>
-        <ProgressBar fx:id="progressBar" layoutX="167.0" layoutY="406.0" prefHeight="23.0" prefWidth="666.0" progress="0.0" />
-        <ProgressIndicator fx:id="progressIndicator" layoutX="846.0" layoutY="408.0" prefHeight="20.0" prefWidth="37.0" progress="0.0" styleClass="progressIndicator" />
-        <Label layoutX="7.0" layoutY="567.0" styleClass="version" text="Version 2023.0.0.1" />
-        <Label layoutX="537.0" layoutY="567.0" styleClass="copyRight" text="© 2023  All Right Reserved Designed By Kavithma Thushal" />
+        <ProgressBar fx:id="progressBar" layoutX="167.0" layoutY="406.0" prefHeight="23.0" prefWidth="666.0"
+                     progress="0.0"/>
+        <ProgressIndicator fx:id="progressIndicator" layoutX="846.0" layoutY="408.0" prefHeight="20.0" prefWidth="37.0"
+                           progress="0.0" styleClass="progressIndicator"/>
+        <Label layoutX="7.0" layoutY="567.0" styleClass="version" text="Version 2023.0.0.1"/>
+        <Label layoutX="537.0" layoutY="567.0" styleClass="copyRight"
+               text="© 2023  All Right Reserved Designed By Kavithma Thushal"/>
     </children>
 </AnchorPane>
