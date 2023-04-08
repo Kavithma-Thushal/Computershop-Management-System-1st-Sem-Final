@@ -1,5 +1,6 @@
 package lk.ijse.computershop.controller;
 
+import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,6 +23,8 @@ import java.util.ResourceBundle;
 public class LoginFormController implements Initializable {
 
     @FXML
+    private AnchorPane mainRoot;
+    @FXML
     private AnchorPane root;
     @FXML
     private Label lblDate;
@@ -31,6 +34,14 @@ public class LoginFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         DateAndTime.loadDateAndTime(lblDate, lblTime);
+        fadeScreen();
+    }
+
+    private void fadeScreen(){
+        FadeTransition fadeIn = new FadeTransition(Duration.millis(500), mainRoot);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
     }
 
     @FXML
