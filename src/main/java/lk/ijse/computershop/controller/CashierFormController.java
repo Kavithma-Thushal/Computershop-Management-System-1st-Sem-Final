@@ -22,7 +22,7 @@ public class CashierFormController {
 
     public void cashierLoginOnAction(MouseEvent mouseEvent) throws IOException, SQLException {
         if (txtUsername.getText().equals("cashier") && txtPassword.getText().equals("1234")) {
-            UILoader.LoginOnAction(root,"cashierdashboard_form");
+            UILoader.LoginOnAction(root, "cashierdashboard_form");
         } else {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
