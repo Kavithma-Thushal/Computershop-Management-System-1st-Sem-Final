@@ -94,8 +94,8 @@ public class LoginFormController implements Initializable {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
 
-        stage.setX(350);
-        stage.setY(215);
+        stage.setX(400);
+        stage.setY(252);
     }
 
     @FXML
