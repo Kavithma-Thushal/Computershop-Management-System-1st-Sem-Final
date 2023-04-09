@@ -1,0 +1,7 @@
+.root{
+    -fx-background-color:linear-gradient(to right,#3168df,rgba(235, 59, 90,1.0));
+}
+
+.lblTop{
+    -fx-background-color:linear-gradient(to right,#808080,#000000);
+}

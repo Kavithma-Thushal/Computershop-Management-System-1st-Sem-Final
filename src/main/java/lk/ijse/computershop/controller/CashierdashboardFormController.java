@@ -7,13 +7,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.computershop.util.DateAndTime;
+import lk.ijse.computershop.util.UILoader;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class CashierdashboardFormController implements Initializable {
@@ -21,13 +22,13 @@ public class CashierdashboardFormController implements Initializable {
     @FXML
     private AnchorPane root;
     @FXML
-    private Label lbldateandtime;
+    private Label lblDate;
+    @FXML
+    private Label lblTime;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd      hh:mm");
-        Date date = new Date();
-        lbldateandtime.setText(simpleDateFormat.format(date));
+        DateAndTime.loadDateAndTime(lblDate, lblTime);
     }
 
     @FXML
@@ -60,16 +61,21 @@ public class CashierdashboardFormController implements Initializable {
         setUI("managerepair_form");
     }
 
-    @FXML
-    private void logoutOnAction(ActionEvent event) {
-        System.exit(0);
-    }
-
     private void setUI(String URL) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("/view/" + URL + ".fxml"));
         Stage stage = (Stage) root.getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.centerOnScreen();
+    }
+
+    @FXML
+    private void backOnAction(MouseEvent mouseEvent) throws IOException {
+        UILoader.BtnLogOut(root, "login_form");
+    }
+
+    @FXML
+    private void logoutOnAction(MouseEvent event) {
+        System.exit(0);
     }
 }
