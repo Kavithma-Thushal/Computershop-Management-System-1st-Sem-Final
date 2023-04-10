@@ -2,14 +2,10 @@ package lk.ijse.computershop.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import lk.ijse.computershop.util.DateAndTime;
 import lk.ijse.computershop.util.UILoader;
 
@@ -40,35 +36,27 @@ public class CashierdashboardFormController implements Initializable {
 
     @FXML
     private void manageitemsOnAction(ActionEvent event) throws IOException {
-        setUI("manageitems_form");
+        UILoader.loadUiDashBoard(manageFormsRoot,"manageitems_form");
     }
 
     @FXML
     private void manageordersOnAction(ActionEvent event) throws IOException {
-        setUI("manageorders_form");
+        UILoader.loadUiDashBoard(manageFormsRoot,"manageorders_form");
     }
 
     @FXML
     private void deliveryOnAction(ActionEvent event) throws IOException {
-        setUI("managedelivery_form");
+        UILoader.loadUiDashBoard(manageFormsRoot,"managedelivery_form");
     }
 
     @FXML
     private void custombuildOnAction(ActionEvent event) throws IOException {
-        setUI("managecustombuild_form");
+        UILoader.loadUiDashBoard(manageFormsRoot,"managecustombuild_form");
     }
 
     @FXML
     private void repairOnAction(ActionEvent event) throws IOException {
-        setUI("managerepair_form");
-    }
-
-    private void setUI(String URL) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/view/" + URL + ".fxml"));
-        Stage stage = (Stage) manageFormsRoot.getScene().getWindow();
-        Scene scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.centerOnScreen();
+        UILoader.loadUiDashBoard(manageFormsRoot,"managerepair_form");
     }
 
     @FXML
