@@ -23,6 +23,8 @@ public class ManagecustomersFormController implements Initializable {
     @FXML
     private AnchorPane root;
     @FXML
+    private TextField txtSearch;
+    @FXML
     private TextField txtId;
     @FXML
     private TextField txtName;
@@ -115,8 +117,9 @@ public class ManagecustomersFormController implements Initializable {
     private void searchOnAction(ActionEvent event) {
 
         try {
-            Customer customer = CustomerModel.search(txtId.getText());
+            Customer customer = CustomerModel.search(txtSearch.getText());
             if (customer != null) {
+                txtId.setText(customer.getId());
                 txtName.setText(customer.getName());
                 txtNic.setText(customer.getNic());
                 txtEmail.setText(customer.getEmail());

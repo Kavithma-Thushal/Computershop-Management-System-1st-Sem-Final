@@ -65,12 +65,12 @@
                 <Font name="Arial Rounded MT Bold" size="32.0" />
             </font>
         </Label>
-        <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="44.0" layoutY="818.0" onMouseClicked="#backOnAction" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="44.0" layoutY="814.0" onMouseClicked="#backOnAction" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../assets/icons/back.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="201.0" layoutY="813.0" onMouseClicked="#logoutOnAction" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="201.0" layoutY="809.0" onMouseClicked="#logoutOnAction" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../assets/icons/logout.png" />
             </image>

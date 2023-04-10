@@ -51,11 +51,6 @@
                 <Font name="Times New Roman Bold" size="17.0" />
             </font>
         </Button>
-        <Button layoutX="491.0" layoutY="108.0" mnemonicParsing="false" onAction="#searchOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Search">
-            <font>
-                <Font name="Times New Roman Bold" size="17.0" />
-            </font>
-        </Button>
         <Button layoutX="717.0" layoutY="109.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Update">
             <font>
                 <Font name="Times New Roman Bold" size="17.0" />
@@ -76,5 +71,10 @@
                 <TableColumn fx:id="colAddress" prefWidth="182.0" text="Address" />
             </columns>
         </TableView>
+      <TextField fx:id="txtSearch" layoutX="491.0" layoutY="108.0" onAction="#searchOnAction" prefHeight="0.0" prefWidth="187.0" promptText="Search Here" style="-fx-background-color: lightblue;">
+         <font>
+            <Font name="Times New Roman" size="17.0" />
+         </font>
+      </TextField>
     </children>
 </AnchorPane>
