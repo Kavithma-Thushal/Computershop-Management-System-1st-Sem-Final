@@ -4,29 +4,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import lk.ijse.computershop.dto.Supplier;
 import lk.ijse.computershop.dto.tm.SupplierTM;
 import lk.ijse.computershop.model.SupplierModel;
 
-import java.io.IOException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ManagesuppliersFormController implements Initializable {
 
     @FXML
-    private AnchorPane root;
+    private TextField txtSearch;
     @FXML
     private TextField txtId;
     @FXML
@@ -45,15 +38,9 @@ public class ManagesuppliersFormController implements Initializable {
     private TableColumn colContact;
     @FXML
     private TableColumn colAddress;
-    @FXML
-    private Label lbldateandtime;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd      hh:mm");
-        Date date = new Date();
-        lbldateandtime.setText(simpleDateFormat.format(date));
-
         getAll();
         setCellValueFactory();
     }
@@ -80,7 +67,7 @@ public class ManagesuppliersFormController implements Initializable {
             }
             tblsupplier.setItems(observableList);
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 
@@ -95,20 +82,22 @@ public class ManagesuppliersFormController implements Initializable {
             );
 
             if (SupplierModel.save(supplier) > 0) {
-
-                new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully...!").show();
+                new Alert(Alert.AlertType.INFORMATION, "Saved Successfully...!").show();
+                tblsupplier.refresh();
+                getAll();
             }
 
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 
     @FXML
     private void searchOnAction(ActionEvent event) {
         try {
-            Supplier supplier = SupplierModel.search(txtId.getText());
+            Supplier supplier = SupplierModel.search(txtSearch.getText());
             if (supplier != null) {
+                txtId.setText(supplier.getId());
                 txtName.setText(supplier.getName());
                 txtContact.setText(supplier.getContact());
                 txtAddress.setText(supplier.getAddress());
@@ -130,7 +119,9 @@ public class ManagesuppliersFormController implements Initializable {
             );
 
             if (SupplierModel.update(supplier) > 0) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Updated Successfully...!").show();
+                new Alert(Alert.AlertType.INFORMATION, "Updated Successfully...!").show();
+                tblsupplier.refresh();
+                getAll();
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
@@ -140,23 +131,22 @@ public class ManagesuppliersFormController implements Initializable {
     @FXML
     private void deleteOnAction(ActionEvent event) {
         try {
-            if (SupplierModel.delete(txtId.getText()) > 0) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Deleted Successfully...!").show();
+            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+            Optional<ButtonType> buttonType = new Alert(Alert.AlertType.WARNING, "Are you sure...?", yes, no).showAndWait();
+
+            if (buttonType.orElse(yes) == yes) {
+                if (SupplierModel.delete(txtId.getText()) > 0) {
+                    new Alert(Alert.AlertType.INFORMATION, "Deleted Successfully...!").show();
+                    tblsupplier.refresh();
+                    getAll();
+                }
             }
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 
-    @FXML
-    private void backOnAction(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/view/admindashboard_form.fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
-        Scene scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("Admin Dashboard");
-        stage.setResizable(false);
-        stage.show();
-    }
+
 }
