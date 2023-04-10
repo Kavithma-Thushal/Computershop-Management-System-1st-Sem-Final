@@ -4,29 +4,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import lk.ijse.computershop.dto.Repair;
 import lk.ijse.computershop.dto.tm.RepairTM;
 import lk.ijse.computershop.model.RepairModel;
 
-import java.io.IOException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ManagerepairFormController implements Initializable {
 
     @FXML
-    private AnchorPane root;
+    private TextField txtSearch;
     @FXML
     private TextField txtCode;
     @FXML
@@ -53,15 +46,9 @@ public class ManagerepairFormController implements Initializable {
     private TableColumn colGetdatetime;
     @FXML
     private TableColumn colAcceptdatetime;
-    @FXML
-    private Label lbldateandtime;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd      hh:mm");
-        Date date = new Date();
-        lbldateandtime.setText(simpleDateFormat.format(date));
-
         getAll();
         setCellValueFactory();
     }
@@ -109,7 +96,9 @@ public class ManagerepairFormController implements Initializable {
             );
 
             if (RepairModel.save(repair) > 0) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully...!").show();
+                new Alert(Alert.AlertType.INFORMATION, "Saved Successfully...!").show();
+                tblRepair.refresh();
+                getAll();
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
@@ -119,8 +108,9 @@ public class ManagerepairFormController implements Initializable {
     @FXML
     private void searchOnAction(ActionEvent event) {
         try {
-            Repair repair = RepairModel.search(txtCode.getText());
+            Repair repair = RepairModel.search(txtSearch.getText());
             if (repair != null) {
+                txtCode.setText(repair.getCode());
                 txtEmployeeid.setText(repair.getEmployeeid());
                 txtCustomerid.setText(repair.getCustomerid());
                 txtDetails.setText(repair.getDetails());
@@ -145,7 +135,9 @@ public class ManagerepairFormController implements Initializable {
             );
 
             if (RepairModel.update(repair) > 0) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Updated Successfully...!").show();
+                new Alert(Alert.AlertType.INFORMATION, "Updated Successfully...!").show();
+                tblRepair.refresh();
+                getAll();
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
@@ -155,23 +147,20 @@ public class ManagerepairFormController implements Initializable {
     @FXML
     private void deleteOnAction(ActionEvent event) {
         try {
-            if (RepairModel.delete(txtCode.getText()) > 0) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Deleted Successfully...!").show();
+            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+            Optional<ButtonType> buttonType = new Alert(Alert.AlertType.WARNING, "Are you sure...?", yes, no).showAndWait();
+
+            if (buttonType.orElse(yes) == yes) {
+                if (RepairModel.delete(txtCode.getText()) > 0) {
+                    new Alert(Alert.AlertType.INFORMATION, "Deleted Successfully...!").show();
+                    tblRepair.refresh();
+                    getAll();
+                }
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
-    }
-
-    @FXML
-    private void backOnAction(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/view/cashierdashboard_form.fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
-        Scene scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("Cashier Dashboard");
-        stage.setResizable(false);
-        stage.show();
     }
 }
