@@ -20,7 +20,8 @@ public class CashierFormController {
     @FXML
     private PasswordField txtPassword;
 
-    public void cashierLoginOnAction(MouseEvent mouseEvent) throws IOException, SQLException {
+    @FXML
+    private void cashierLoginOnAction(MouseEvent mouseEvent) throws IOException, SQLException {
         if (txtUsername.getText().equals("cashier") && txtPassword.getText().equals("1234")) {
             UILoader.LoginOnAction(root, "cashierdashboard_form");
         } else {
