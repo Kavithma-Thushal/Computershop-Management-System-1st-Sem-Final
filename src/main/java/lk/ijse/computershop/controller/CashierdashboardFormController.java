@@ -22,6 +22,8 @@ public class CashierdashboardFormController implements Initializable {
     @FXML
     private AnchorPane root;
     @FXML
+    private AnchorPane manageFormsRoot;
+    @FXML
     private Label lblDate;
     @FXML
     private Label lblTime;
@@ -33,7 +35,7 @@ public class CashierdashboardFormController implements Initializable {
 
     @FXML
     private void managecustomersOnAction(ActionEvent event) throws IOException {
-        setUI("managecustomers_form");
+        UILoader.loadUiDashBoard(manageFormsRoot,"managecustomers_form");
     }
 
     @FXML
@@ -63,7 +65,7 @@ public class CashierdashboardFormController implements Initializable {
 
     private void setUI(String URL) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("/view/" + URL + ".fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
+        Stage stage = (Stage) manageFormsRoot.getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.centerOnScreen();

@@ -5,3 +5,7 @@
 .lblTop{
     -fx-background-color:linear-gradient(to right,#808080,#000000);
 }
+
+.manageFormsRoot{
+    -fx-background-color:linear-gradient(to right,#808080,#ffffff);
+}
