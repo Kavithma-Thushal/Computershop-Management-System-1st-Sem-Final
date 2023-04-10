@@ -9,72 +9,84 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="638.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.ManagecustomersFormController">
+<AnchorPane prefHeight="638.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.computershop.controller.ManagecustomersFormController">
     <children>
         <ImageView fitHeight="670.0" fitWidth="1190.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../assets/img/customers.jpg" />
+                <Image url="@../assets/img/customers.jpg"/>
             </image>
         </ImageView>
-        <TextField fx:id="txtId" layoutX="45.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0" promptText="Customer ID">
+        <TextField fx:id="txtId" layoutX="45.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0"
+                   promptText="Customer ID">
             <font>
-                <Font name="Times New Roman" size="17.0" />
+                <Font name="Times New Roman" size="17.0"/>
             </font>
         </TextField>
-        <TextField fx:id="txtName" layoutX="271.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0" promptText="Customer Name">
+        <TextField fx:id="txtName" layoutX="271.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0"
+                   promptText="Customer Name">
             <font>
-                <Font name="Times New Roman" size="17.0" />
+                <Font name="Times New Roman" size="17.0"/>
             </font>
         </TextField>
-        <TextField fx:id="txtContact" layoutX="952.0" layoutY="38.0" prefHeight="0.0" prefWidth="187.0" promptText="Customer Contact">
+        <TextField fx:id="txtContact" layoutX="271.0" layoutY="108.0" prefHeight="0.0" prefWidth="187.0"
+                   promptText="Customer Contact">
             <font>
-                <Font name="Times New Roman" size="17.0" />
+                <Font name="Times New Roman" size="17.0"/>
             </font>
         </TextField>
-        <TextField fx:id="txtEmail" layoutX="717.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0" promptText="Customer Email">
+        <TextField fx:id="txtEmail" layoutX="45.0" layoutY="108.0" prefHeight="0.0" prefWidth="187.0"
+                   promptText="Customer Email">
             <font>
-                <Font name="Times New Roman" size="17.0" />
+                <Font name="Times New Roman" size="17.0"/>
             </font>
         </TextField>
-        <TextField fx:id="txtAddress" layoutX="45.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0" promptText="Customer Address">
+        <TextField fx:id="txtAddress" layoutX="491.0" layoutY="108.0" prefHeight="0.0" prefWidth="187.0"
+                   promptText="Customer Address">
             <font>
-                <Font name="Times New Roman" size="17.0" />
+                <Font name="Times New Roman" size="17.0"/>
             </font>
         </TextField>
-        <TextField fx:id="txtNic" layoutX="491.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0" promptText="Customer NIC">
+        <TextField fx:id="txtNic" layoutX="491.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0"
+                   promptText="Customer NIC">
             <font>
-                <Font name="Times New Roman" size="17.0" />
+                <Font name="Times New Roman" size="17.0"/>
             </font>
         </TextField>
-        <Button layoutX="271.0" layoutY="108.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Save">
+        <Button layoutX="717.0" layoutY="37.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="0.0"
+                prefWidth="187.0" style="-fx-background-color: lightblue;" text="Save">
             <font>
-                <Font name="Times New Roman Bold" size="17.0" />
+                <Font name="Times New Roman Bold" size="17.0"/>
             </font>
         </Button>
-        <Button layoutX="717.0" layoutY="109.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Update">
+        <Button layoutX="717.0" layoutY="109.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="0.0"
+                prefWidth="187.0" style="-fx-background-color: lightblue;" text="Update">
             <font>
-                <Font name="Times New Roman Bold" size="17.0" />
+                <Font name="Times New Roman Bold" size="17.0"/>
             </font>
         </Button>
-        <Button layoutX="952.0" layoutY="109.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Delete">
+        <Button layoutX="952.0" layoutY="109.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="0.0"
+                prefWidth="187.0" style="-fx-background-color: lightblue;" text="Delete">
             <font>
-                <Font name="Times New Roman Bold" size="17.0" />
+                <Font name="Times New Roman Bold" size="17.0"/>
             </font>
         </Button>
         <TableView fx:id="tblCustomer" layoutX="44.0" layoutY="182.0" prefHeight="448.0" prefWidth="1096.0">
             <columns>
-                <TableColumn fx:id="colId" prefWidth="182.0" text="ID" />
-                <TableColumn fx:id="colName" prefWidth="182.0" text="Name" />
-                <TableColumn fx:id="colNic" prefWidth="182.0" text="NIC" />
-                <TableColumn fx:id="colEmail" prefWidth="182.0" text="Email" />
-                <TableColumn fx:id="colContact" prefWidth="182.0" text="Contact" />
-                <TableColumn fx:id="colAddress" prefWidth="182.0" text="Address" />
+                <TableColumn fx:id="colId" prefWidth="182.0" text="ID"/>
+                <TableColumn fx:id="colName" prefWidth="182.0" text="Name"/>
+                <TableColumn fx:id="colNic" prefWidth="182.0" text="NIC"/>
+                <TableColumn fx:id="colEmail" prefWidth="182.0" text="Email"/>
+                <TableColumn fx:id="colContact" prefWidth="182.0" text="Contact"/>
+                <TableColumn fx:id="colAddress" prefWidth="182.0" text="Address"/>
             </columns>
         </TableView>
-      <TextField fx:id="txtSearch" layoutX="491.0" layoutY="108.0" onAction="#searchOnAction" prefHeight="0.0" prefWidth="187.0" promptText="Search Here" style="-fx-background-color: lightblue;">
-         <font>
-            <Font name="Times New Roman" size="17.0" />
-         </font>
-      </TextField>
+        <TextField fx:id="txtSearch" layoutX="952.0" layoutY="37.0" onAction="#searchOnAction" prefHeight="0.0"
+                   prefWidth="187.0" promptText="Search Here" style="-fx-background-color: lightblue;">
+            <font>
+                <Font name="Times New Roman" size="17.0"/>
+            </font>
+        </TextField>
     </children>
 </AnchorPane>

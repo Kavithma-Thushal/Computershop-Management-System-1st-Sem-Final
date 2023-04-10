@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import lk.ijse.computershop.dto.Customer;
 import lk.ijse.computershop.dto.tm.CustomerTM;
 import lk.ijse.computershop.model.CustomerModel;
@@ -20,8 +19,6 @@ import java.util.ResourceBundle;
 
 public class ManagecustomersFormController implements Initializable {
 
-    @FXML
-    private AnchorPane root;
     @FXML
     private TextField txtSearch;
     @FXML
