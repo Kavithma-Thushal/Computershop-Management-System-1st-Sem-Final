@@ -65,11 +65,6 @@
             <Image url="@../assets/icons/back.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="201.0" layoutY="809.0" onMouseClicked="#logoutOnAction" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/icons/logout.png" />
-         </image>
-      </ImageView>
       <AnchorPane fx:id="manageFormsRoot" layoutX="317.0" layoutY="183.0" prefHeight="666.0" prefWidth="1187.0">
          <children>
             <ImageView fitHeight="749.0" fitWidth="1187.0" pickOnBounds="true" preserveRatio="true">
@@ -89,5 +84,10 @@
             <Font name="Times New Roman Bold" size="22.0" />
          </font>
       </Button>
+      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="202.0" layoutY="808.0" onMouseClicked="#logoutOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons/logout.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

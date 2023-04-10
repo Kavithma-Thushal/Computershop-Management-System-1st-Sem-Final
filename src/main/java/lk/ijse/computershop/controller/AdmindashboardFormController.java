@@ -65,11 +65,6 @@ public class AdmindashboardFormController implements Initializable {
     }
 
     @FXML
-    private void logoutOnAction(ActionEvent event) {
-        System.exit(0);
-    }
-
-    @FXML
     private void backOnAction(MouseEvent mouseEvent) throws IOException {
         UILoader.BtnLogOut(root, "login_form");
     }
