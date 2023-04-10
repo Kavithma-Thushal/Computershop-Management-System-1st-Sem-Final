@@ -102,6 +102,8 @@ public class ManagecustomersFormController implements Initializable {
 
             if (CustomerModel.save(customer) > 0) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully...!").show();
+                tblCustomer.refresh();
+                getAll();
             }
 
         } catch (Exception e) {
@@ -142,6 +144,8 @@ public class ManagecustomersFormController implements Initializable {
 
             if (CustomerModel.update(customer) > 0) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Updated Successfully...!").show();
+                tblCustomer.refresh();
+                getAll();
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
@@ -159,6 +163,8 @@ public class ManagecustomersFormController implements Initializable {
             if (buttonType.orElse(yes) == yes) {
                 if (CustomerModel.delete(txtId.getText()) > 0) {
                     new Alert(Alert.AlertType.INFORMATION, "Deleted Successfully...!").show();
+                    tblCustomer.refresh();
+                    getAll();
                 }
             }
         } catch (Exception e) {
