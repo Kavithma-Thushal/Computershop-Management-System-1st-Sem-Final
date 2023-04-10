@@ -22,11 +22,6 @@
                 <Font name="Bernard MT Condensed" size="43.0" />
             </font>
         </Label>
-        <Label fx:id="lbldateandtime" layoutX="785.0" layoutY="44.0" prefHeight="54.0" prefWidth="382.0" textFill="WHITE">
-            <font>
-                <Font name="Bernard MT Condensed" size="43.0" />
-            </font>
-        </Label>
         <TextField fx:id="txtId" layoutX="52.0" layoutY="159.0" prefHeight="25.0" prefWidth="187.0" promptText="Customer ID">
             <font>
                 <Font name="Bernard MT Condensed" size="17.0" />
@@ -87,10 +82,5 @@
                 <TableColumn fx:id="colAddress" prefWidth="151.0" text="Address" />
             </columns>
         </TableView>
-        <Button layoutX="1088.0" layoutY="580.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: grey;" text="Back">
-            <font>
-                <Font name="Bernard MT Condensed" size="17.0" />
-            </font>
-        </Button>
     </children>
 </AnchorPane>
