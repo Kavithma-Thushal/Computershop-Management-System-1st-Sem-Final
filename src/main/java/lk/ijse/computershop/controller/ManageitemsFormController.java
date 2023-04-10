@@ -84,7 +84,7 @@ public class ManageitemsFormController implements Initializable {
             );
 
             if (ItemModel.save(item) > 0) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully...!").show();
+                new Alert(Alert.AlertType.INFORMATION, "Saved Successfully...!").show();
                 tblItem.refresh();
                 getAll();
             }
@@ -119,7 +119,7 @@ public class ManageitemsFormController implements Initializable {
             );
 
             if (ItemModel.update(item) > 0) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Updated Successfully...!").show();
+                new Alert(Alert.AlertType.INFORMATION, "Updated Successfully...!").show();
                 tblItem.refresh();
                 getAll();
             }
@@ -138,7 +138,7 @@ public class ManageitemsFormController implements Initializable {
 
             if (buttonType.orElse(yes) == yes) {
                 if (ItemModel.delete(txtCode.getText()) > 0) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "Deleted Successfully...!").show();
+                    new Alert(Alert.AlertType.INFORMATION, "Deleted Successfully...!").show();
                     tblItem.refresh();
                     getAll();
                 }

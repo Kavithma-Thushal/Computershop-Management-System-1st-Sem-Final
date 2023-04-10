@@ -14,7 +14,7 @@
             <Font name="Times New Roman Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="52.0" layoutY="481.0" mnemonicParsing="false" onAction="#manageitemsOnAction" prefHeight="6.0" prefWidth="214.0" text="Manage Items">
+      <Button layoutX="52.0" layoutY="481.0" mnemonicParsing="false" onAction="#manageitemsOnAction" prefHeight="6.0" prefWidth="214.0" text="Manage Store">
          <font>
             <Font name="Times New Roman Bold" size="22.0" />
          </font>

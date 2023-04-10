@@ -100,7 +100,7 @@ public class ManagecustomersFormController implements Initializable {
             );
 
             if (CustomerModel.save(customer) > 0) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully...!").show();
+                new Alert(Alert.AlertType.INFORMATION, "Saved Successfully...!").show();
                 tblCustomer.refresh();
                 getAll();
             }
@@ -143,7 +143,7 @@ public class ManagecustomersFormController implements Initializable {
             );
 
             if (CustomerModel.update(customer) > 0) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Updated Successfully...!").show();
+                new Alert(Alert.AlertType.INFORMATION, "Updated Successfully...!").show();
                 tblCustomer.refresh();
                 getAll();
             }
