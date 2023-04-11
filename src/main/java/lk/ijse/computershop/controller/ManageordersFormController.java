@@ -13,6 +13,7 @@ import lk.ijse.computershop.model.OrderModel;
 
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -40,6 +41,8 @@ public class ManageordersFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getAll();
         setCellValueFactory();
+        generateNextOrderId();
+        setOrderDate();
     }
 
     private void setCellValueFactory() {
@@ -136,5 +139,18 @@ public class ManageordersFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
+    }
+
+    private void generateNextOrderId() {
+        try {
+            String id = OrderModel.getNextOrderId();
+            txtId.setText(id);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
+    }
+
+    private void setOrderDate() {
+        txtDate.setText(String.valueOf(LocalDate.now()));
     }
 }

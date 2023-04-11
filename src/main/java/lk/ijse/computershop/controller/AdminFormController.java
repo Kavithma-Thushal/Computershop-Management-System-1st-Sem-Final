@@ -22,7 +22,7 @@ public class AdminFormController {
 
     @FXML
     private void adminLoginOnAction(MouseEvent mouseEvent) throws IOException, SQLException {
-        if (txtUsername.getText().equals("admin") && txtPassword.getText().equals("1234")) {
+        if (txtUsername.getText().equals("") && txtPassword.getText().equals("")) {
             UILoader.LoginOnAction(root,"admindashboard_form");
         } else {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();

@@ -16,7 +16,7 @@
                 <Image url="@../assets/img/customers.jpg" />
             </image>
         </ImageView>
-        <TextField fx:id="txtId" layoutX="45.0" layoutY="37.0" prefHeight="19.0" prefWidth="187.0" promptText="Order ID">
+        <TextField fx:id="txtId" editable="false" layoutX="45.0" layoutY="37.0" prefHeight="19.0" prefWidth="187.0" promptText="Order ID">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
@@ -26,7 +26,7 @@
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtDate" layoutX="45.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0" promptText="Date">
+        <TextField fx:id="txtDate" editable="false" layoutX="45.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0" promptText="Date">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
