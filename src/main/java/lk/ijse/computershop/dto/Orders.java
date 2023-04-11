@@ -8,6 +8,5 @@ import lombok.Data;
 public class Orders {
     private String id;
     private String customerid;
-    private Integer qty;
-    private String datetime;
+    private String date;
 }

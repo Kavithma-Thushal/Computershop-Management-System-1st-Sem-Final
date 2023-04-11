@@ -26,7 +26,7 @@
             <Font name="Times New Roman" size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtDatetime" layoutX="271.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0" promptText="Date &amp; Time">
+      <TextField fx:id="txtDatetime" layoutX="271.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0" promptText="Date">
          <font>
             <Font name="Times New Roman" size="17.0" />
          </font>
@@ -56,7 +56,7 @@
             <TableColumn fx:id="colCode" prefWidth="274.0" text="Code" />
             <TableColumn fx:id="colEmployeeid" prefWidth="274.0" text="Paying Employee ID" />
             <TableColumn fx:id="colAmount" prefWidth="274.0" text="Amount" />
-            <TableColumn fx:id="colDatetime" prefWidth="272.0" text="Date &amp; Time" />
+            <TableColumn fx:id="colDatetime" prefWidth="272.0" text="Date" />
          </columns>
       </TableView>
       <TextField fx:id="txtSearch" layoutX="952.0" layoutY="37.0" onAction="#searchOnAction" prefHeight="0.0" prefWidth="187.0" promptText="Search Here" style="-fx-background-color: lightblue;">

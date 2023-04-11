@@ -26,7 +26,7 @@
             <Font name="Times New Roman" size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtGetdatetime" layoutX="271.0" layoutY="108.0" prefHeight="0.0" prefWidth="187.0" promptText="Getting Date &amp; Time">
+      <TextField fx:id="txtGetdatetime" layoutX="271.0" layoutY="108.0" prefHeight="0.0" prefWidth="187.0" promptText="Getting Date">
          <font>
             <Font name="Times New Roman" size="17.0" />
          </font>
@@ -36,7 +36,7 @@
             <Font name="Times New Roman" size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtAcceptdatetime" layoutX="491.0" layoutY="108.0" prefHeight="0.0" prefWidth="187.0" promptText="Accepting Date &amp; Time">
+      <TextField fx:id="txtAcceptdatetime" layoutX="491.0" layoutY="108.0" prefHeight="0.0" prefWidth="187.0" promptText="Accepting Date">
          <font>
             <Font name="Times New Roman" size="17.0" />
          </font>
@@ -67,8 +67,8 @@
             <TableColumn fx:id="colEmployeeid" prefWidth="182.0" text="Employee ID" />
             <TableColumn fx:id="colCustomerid" prefWidth="182.0" text="Customer ID" />
             <TableColumn fx:id="colDetails" prefWidth="182.0" text="Details" />
-            <TableColumn fx:id="colGetdatetime" prefWidth="182.0" text="Getting Date &amp; Time" />
-            <TableColumn fx:id="colAcceptdatetime" prefWidth="182.0" text="Accepting Date &amp; Time" />
+            <TableColumn fx:id="colGetdatetime" prefWidth="182.0" text="Getting Date" />
+            <TableColumn fx:id="colAcceptdatetime" prefWidth="182.0" text="Accepting Date" />
          </columns>
       </TableView>
       <TextField fx:id="txtSearch" layoutX="952.0" layoutY="37.0" onAction="#searchOnAction" prefHeight="0.0" prefWidth="187.0" promptText="Search Here" style="-fx-background-color: lightblue;">

@@ -11,13 +11,12 @@ import java.util.List;
 public class OrderModel {
 
     public static int save(Orders orders) throws SQLException {
-        String sql = "INSERT INTO orders VALUES (?,?,?,?)";
+        String sql = "INSERT INTO orders VALUES (?,?,?)";
         return CrudUtil.execute(
                 sql,
                 orders.getId(),
                 orders.getCustomerid(),
-                orders.getQty(),
-                orders.getDatetime()
+                orders.getDate()
         );
     }
 
@@ -30,8 +29,7 @@ public class OrderModel {
             return new Orders(
                     resultSet.getString(1),
                     resultSet.getString(2),
-                    resultSet.getInt(3),
-                    resultSet.getString(4)
+                    resultSet.getString(3)
             );
         }
         return null;
@@ -39,12 +37,11 @@ public class OrderModel {
 
     public static int update(Orders orders) throws SQLException {
 
-        String sql = "UPDATE orders SET customerid=? , qty=? , datetime=? WHERE id=?";
+        String sql = "UPDATE orders SET customerid=?, date=? WHERE id=?";
         return CrudUtil.execute(
                 sql,
                 orders.getCustomerid(),
-                orders.getQty(),
-                orders.getDatetime(),
+                orders.getDate(),
                 orders.getId()
         );
     }
@@ -64,8 +61,7 @@ public class OrderModel {
             Orders orders = new Orders(
                     resultSet.getString(1),
                     resultSet.getString(2),
-                    resultSet.getInt(3),
-                    resultSet.getString(4)
+                    resultSet.getString(3)
             );
             ordersList.add(orders);
         }

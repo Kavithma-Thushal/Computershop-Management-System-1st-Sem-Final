@@ -26,12 +26,7 @@
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtDatetime" layoutX="271.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0" promptText="Date &amp; Time">
-            <font>
-                <Font name="Times New Roman" size="17.0" />
-            </font>
-        </TextField>
-        <TextField fx:id="txtQty" layoutX="45.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0" promptText="Quantity">
+        <TextField fx:id="txtDate" layoutX="45.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0" promptText="Date">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
@@ -53,10 +48,9 @@
         </Button>
         <TableView fx:id="tblOrders" layoutX="44.0" layoutY="182.0" prefHeight="448.0" prefWidth="1096.0">
             <columns>
-                <TableColumn fx:id="colId" prefWidth="274.0" text="Order ID" />
-                <TableColumn fx:id="colCustomerid" prefWidth="274.0" text="Customer ID" />
-                <TableColumn fx:id="colQty" prefWidth="274.0" text="Quantity" />
-                <TableColumn fx:id="colDatetime" prefWidth="272.0" text="Date &amp; Time" />
+                <TableColumn fx:id="colId" prefWidth="365.0" text="Order ID" />
+                <TableColumn fx:id="colCustomerid" prefWidth="365.0" text="Customer ID" />
+                <TableColumn fx:id="colDate" prefWidth="364.0" text="Date" />
             </columns>
         </TableView>
         <TextField fx:id="txtSearch" layoutX="952.0" layoutY="37.0" onAction="#searchOnAction" prefHeight="0.0" prefWidth="187.0" promptText="Search Here" style="-fx-background-color: lightblue;">

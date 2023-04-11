@@ -26,9 +26,7 @@ public class ManageordersFormController implements Initializable {
     @FXML
     private TextField txtCustomerid;
     @FXML
-    private TextField txtQty;
-    @FXML
-    private TextField txtDatetime;
+    private TextField txtDate;
     @FXML
     private TableView tblOrders;
     @FXML
@@ -36,9 +34,7 @@ public class ManageordersFormController implements Initializable {
     @FXML
     private TableColumn colCustomerid;
     @FXML
-    private TableColumn colQty;
-    @FXML
-    private TableColumn colDatetime;
+    private TableColumn colDate;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -49,8 +45,7 @@ public class ManageordersFormController implements Initializable {
     private void setCellValueFactory() {
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colCustomerid.setCellValueFactory(new PropertyValueFactory<>("customerid"));
-        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
-        colDatetime.setCellValueFactory(new PropertyValueFactory<>("datetime"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
     }
 
     private void getAll() {
@@ -62,8 +57,7 @@ public class ManageordersFormController implements Initializable {
                 observableList.add(new OrdersTM(
                         orders.getId(),
                         orders.getCustomerid(),
-                        orders.getQty(),
-                        orders.getDatetime()
+                        orders.getDate()
                 ));
             }
             tblOrders.setItems(observableList);
@@ -78,8 +72,7 @@ public class ManageordersFormController implements Initializable {
             Orders orders = new Orders(
                     txtId.getText(),
                     txtCustomerid.getText(),
-                    Integer.parseInt(txtQty.getText()),
-                    txtDatetime.getText()
+                    txtDate.getText()
             );
 
             if (OrderModel.save(orders) > 0) {
@@ -99,8 +92,7 @@ public class ManageordersFormController implements Initializable {
             if (orders != null) {
                 txtId.setText(orders.getId());
                 txtCustomerid.setText(orders.getCustomerid());
-                txtQty.setText(String.valueOf(orders.getQty()));
-                txtDatetime.setText(String.valueOf(orders.getDatetime()));
+                txtDate.setText(String.valueOf(orders.getDate()));
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
@@ -113,8 +105,7 @@ public class ManageordersFormController implements Initializable {
             Orders orders = new Orders(
                     txtId.getText(),
                     txtCustomerid.getText(),
-                    Integer.parseInt(txtQty.getText()),
-                    txtDatetime.getText()
+                    txtDate.getText()
             );
 
             if (OrderModel.update(orders) > 0) {
