@@ -7,13 +7,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.computershop.dto.Customer;
+import lk.ijse.computershop.dto.Item;
 import lk.ijse.computershop.dto.Orders;
 import lk.ijse.computershop.dto.tm.OrdersTM;
 import lk.ijse.computershop.model.CustomerModel;
+import lk.ijse.computershop.model.ItemModel;
 import lk.ijse.computershop.model.OrderModel;
 
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -26,6 +30,16 @@ public class ManageordersFormController implements Initializable {
     private TextField txtDate;
     @FXML
     private ComboBox<String> cmbCustomerID;
+    @FXML
+    private ComboBox<String> cmbItemCode;
+    @FXML
+    private TextField txtCustomerName;
+    @FXML
+    private TextField txtItemDescription;
+    @FXML
+    private TextField txtItemQty;
+    @FXML
+    private TextField txtItemUnitPrice;
     @FXML
     private TableView tblOrders;
     @FXML
@@ -42,6 +56,7 @@ public class ManageordersFormController implements Initializable {
         generateNextOrderId();
         setOrderDate();
         loadCustomerIds();
+        loadItemCodes();
     }
 
     private void setCellValueFactory() {
@@ -112,5 +127,52 @@ public class ManageordersFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
+    }
+
+    private void loadItemCodes() {
+        try {
+            ObservableList<String> observableList = FXCollections.observableArrayList();
+            List<String> itemcodes = ItemModel.loadCodes();
+
+            for (String code : itemcodes) {
+                observableList.add(code);
+            }
+            cmbItemCode.setItems(observableList);
+
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
+    }
+
+    @FXML
+    private void cmbCustomerIDOnAction(ActionEvent event) {
+        String id = cmbCustomerID.getValue();
+
+        try {
+            Customer customer = CustomerModel.searchById(id);
+            txtCustomerName.setText(customer.getName());
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
+    }
+
+    @FXML
+    private void cmbItemCodeOnAction(ActionEvent event) {
+        String code = cmbItemCode.getValue();
+
+        try {
+            Item item = ItemModel.searchById(code);
+            fillItemFields(item);
+
+            //txtQty.requestFocus();
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
+    }
+
+    private void fillItemFields(Item item) {
+        txtItemDescription.setText(item.getDescription());
+        txtItemUnitPrice.setText(String.valueOf(item.getUnitprice()));
+        txtItemQty.setText(String.valueOf(item.getQtyonhand()));
     }
 }

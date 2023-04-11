@@ -71,4 +71,30 @@ public class ItemModel {
         }
         return itemList;
     }
+
+    public static List<String> loadCodes() throws SQLException {
+        String sql = "SELECT code FROM items";
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        List<String> data = new ArrayList<>();
+        while (resultSet.next()) {
+            data.add(resultSet.getString(1));
+        }
+        return data;
+    }
+
+    public static Item searchById(String code) throws SQLException {
+        String sql = "SELECT * FROM items WHERE code = ?";
+        ResultSet resultSet = CrudUtil.execute(sql, code);
+
+        if (resultSet.next()) {
+            return new Item(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getDouble(3),
+                    resultSet.getInt(4)
+            );
+        }
+        return null;
+    }
 }

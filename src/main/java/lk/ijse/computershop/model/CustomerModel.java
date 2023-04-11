@@ -93,4 +93,21 @@ public class CustomerModel {
         }
         return data;
     }
+
+    public static Customer searchById(String id) throws SQLException {
+        String sql = "SELECT * FROM Customers WHERE id = ?";
+        ResultSet resultSet = CrudUtil.execute(sql, id);
+
+        if (resultSet.next()) {
+            return new Customer(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5),
+                    resultSet.getString(6)
+            );
+        }
+        return null;
+    }
 }
