@@ -29,7 +29,7 @@
                 <Font name="Times New Roman" size="17.0"/>
             </font>
         </TextField>
-        <Button layoutX="952.0" layoutY="37.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="0.0"
+        <Button layoutX="952.0" layoutY="37.0" mnemonicParsing="false" onAction="#addToCartOnAction" prefHeight="0.0"
                 prefWidth="187.0" style="-fx-background-color: lightblue;" text="Add to Cart">
             <font>
                 <Font name="Times New Roman Bold" size="17.0"/>
