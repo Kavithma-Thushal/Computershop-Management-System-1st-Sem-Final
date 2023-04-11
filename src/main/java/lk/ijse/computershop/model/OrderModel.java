@@ -5,8 +5,6 @@ import lk.ijse.computershop.util.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class OrderModel {
 
@@ -18,23 +16,6 @@ public class OrderModel {
                 orders.getCustomerid(),
                 orders.getDate()
         );
-    }
-
-    public static List<Orders> getAll() throws SQLException {
-
-        List<Orders> ordersList = new ArrayList<>();
-        String sql = "SELECT * FROM orders";
-        ResultSet resultSet = CrudUtil.execute(sql);
-
-        while (resultSet.next()) {
-            Orders orders = new Orders(
-                    resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3)
-            );
-            ordersList.add(orders);
-        }
-        return ordersList;
     }
 
     public static String getNextOrderId() throws SQLException {

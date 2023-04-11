@@ -6,11 +6,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.computershop.dto.Customer;
 import lk.ijse.computershop.dto.Item;
 import lk.ijse.computershop.dto.Orders;
-import lk.ijse.computershop.dto.tm.OrdersTM;
 import lk.ijse.computershop.model.CustomerModel;
 import lk.ijse.computershop.model.ItemModel;
 import lk.ijse.computershop.model.OrderModel;
@@ -53,36 +51,10 @@ public class ManageordersFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        getAll();
-        setCellValueFactory();
         generateNextOrderId();
         setOrderDate();
         loadCustomerIds();
         loadItemCodes();
-    }
-
-    private void setCellValueFactory() {
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colCustomerid.setCellValueFactory(new PropertyValueFactory<>("customerid"));
-        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-    }
-
-    private void getAll() {
-        try {
-            ObservableList<OrdersTM> observableList = FXCollections.observableArrayList();
-            List<Orders> ordersList = OrderModel.getAll();
-
-            for (Orders orders : ordersList) {
-                observableList.add(new OrdersTM(
-                        orders.getId(),
-                        orders.getCustomerid(),
-                        orders.getDate()
-                ));
-            }
-            tblOrders.setItems(observableList);
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
-        }
     }
 
     @FXML
@@ -97,7 +69,6 @@ public class ManageordersFormController implements Initializable {
             if (OrderModel.save(orders) > 0) {
                 new Alert(Alert.AlertType.INFORMATION, "Saved Successfully...!").show();
                 tblOrders.refresh();
-                getAll();
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
