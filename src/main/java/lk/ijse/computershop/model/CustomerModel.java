@@ -82,4 +82,15 @@ public class CustomerModel {
         }
         return customerList;
     }
+
+    public static List<String> loadIds() throws SQLException {
+        String sql = "SELECT id FROM customers ORDER BY id ASC";
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        List<String> data = new ArrayList<>();
+        while (resultSet.next()) {
+            data.add(resultSet.getString(1));
+        }
+        return data;
+    }
 }

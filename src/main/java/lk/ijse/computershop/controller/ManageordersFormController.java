@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.computershop.dto.Orders;
 import lk.ijse.computershop.dto.tm.OrdersTM;
+import lk.ijse.computershop.model.CustomerModel;
 import lk.ijse.computershop.model.OrderModel;
 
 
@@ -29,6 +30,8 @@ public class ManageordersFormController implements Initializable {
     @FXML
     private TextField txtDate;
     @FXML
+    private ComboBox<String> cmbCustomerID;
+    @FXML
     private TableView tblOrders;
     @FXML
     private TableColumn colId;
@@ -43,6 +46,7 @@ public class ManageordersFormController implements Initializable {
         setCellValueFactory();
         generateNextOrderId();
         setOrderDate();
+        loadCustomerIds();
     }
 
     private void setCellValueFactory() {
@@ -74,7 +78,7 @@ public class ManageordersFormController implements Initializable {
         try {
             Orders orders = new Orders(
                     txtId.getText(),
-                    txtCustomerid.getText(),
+                    cmbCustomerID.getSelectionModel().getSelectedItem(),
                     txtDate.getText()
             );
 
@@ -152,5 +156,19 @@ public class ManageordersFormController implements Initializable {
 
     private void setOrderDate() {
         txtDate.setText(String.valueOf(LocalDate.now()));
+    }
+
+    private void loadCustomerIds() {
+        try {
+            ObservableList<String> observableList = FXCollections.observableArrayList();
+            List<String> customerid = CustomerModel.loadIds();
+
+            for (String id : customerid) {
+                observableList.add(id);
+            }
+            cmbCustomerID.setItems(observableList);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
     }
 }
