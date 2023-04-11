@@ -37,18 +37,6 @@
                 <Font name="Times New Roman Bold" size="17.0"/>
             </font>
         </Button>
-        <Button layoutX="717.0" layoutY="109.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="0.0"
-                prefWidth="187.0" style="-fx-background-color: lightblue;" text="Update">
-            <font>
-                <Font name="Times New Roman Bold" size="17.0"/>
-            </font>
-        </Button>
-        <Button layoutX="952.0" layoutY="109.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="0.0"
-                prefWidth="187.0" style="-fx-background-color: lightblue;" text="Delete">
-            <font>
-                <Font name="Times New Roman Bold" size="17.0"/>
-            </font>
-        </Button>
         <TableView fx:id="tblOrders" layoutX="44.0" layoutY="182.0" prefHeight="448.0" prefWidth="1096.0">
             <columns>
                 <TableColumn fx:id="colId" prefWidth="365.0" text="Order ID"/>
@@ -56,12 +44,6 @@
                 <TableColumn fx:id="colDate" prefWidth="364.0" text="Date"/>
             </columns>
         </TableView>
-        <TextField fx:id="txtSearch" layoutX="952.0" layoutY="37.0" onAction="#searchOnAction" prefHeight="0.0"
-                   prefWidth="187.0" promptText="Search Here" style="-fx-background-color: lightblue;">
-            <font>
-                <Font name="Times New Roman" size="17.0"/>
-            </font>
-        </TextField>
         <ComboBox fx:id="cmbCustomerID" layoutX="271.0" layoutY="37.0" prefHeight="31.0" prefWidth="187.0"
                   promptText="Customer ID"/>
     </children>

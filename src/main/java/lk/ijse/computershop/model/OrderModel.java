@@ -20,37 +20,6 @@ public class OrderModel {
         );
     }
 
-    public static Orders search(String id) throws SQLException {
-
-        String sql = "SELECT * FROM orders WHERE id=?";
-        ResultSet resultSet = CrudUtil.execute(sql, id);
-
-        if (resultSet.next()) {
-            return new Orders(
-                    resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3)
-            );
-        }
-        return null;
-    }
-
-    public static int update(Orders orders) throws SQLException {
-
-        String sql = "UPDATE orders SET customerid=?, date=? WHERE id=?";
-        return CrudUtil.execute(
-                sql,
-                orders.getCustomerid(),
-                orders.getDate(),
-                orders.getId()
-        );
-    }
-
-    public static int delete(String id) throws SQLException {
-        String sql = "DELETE FROM orders WHERE id=?";
-        return CrudUtil.execute(sql, id);
-    }
-
     public static List<Orders> getAll() throws SQLException {
 
         List<Orders> ordersList = new ArrayList<>();
