@@ -36,7 +36,7 @@ public class CashierdashboardFormController implements Initializable {
 
     @FXML
     private void manageitemsOnAction(ActionEvent event) throws IOException {
-        UILoader.loadUiDashBoard(manageFormsRoot,"manageitems_form");
+        UILoader.loadUiDashBoard(manageFormsRoot,"itemsview_form");
     }
 
     @FXML
