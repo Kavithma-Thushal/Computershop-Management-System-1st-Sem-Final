@@ -41,6 +41,8 @@ public class ManageordersFormController implements Initializable {
     @FXML
     private TextField txtItemUnitPrice;
     @FXML
+    private TextField txtOrderedQty;
+    @FXML
     private TableView tblOrders;
     @FXML
     private TableColumn colId;
@@ -164,7 +166,7 @@ public class ManageordersFormController implements Initializable {
             Item item = ItemModel.searchById(code);
             fillItemFields(item);
 
-            //txtQty.requestFocus();
+            txtOrderedQty.requestFocus();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
