@@ -5,68 +5,95 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.computershop.dto.CartDTO;
 import lk.ijse.computershop.dto.Customer;
 import lk.ijse.computershop.dto.Item;
+import lk.ijse.computershop.dto.tm.CartTM;
 import lk.ijse.computershop.model.CustomerModel;
 import lk.ijse.computershop.model.ItemModel;
 import lk.ijse.computershop.model.OrderModel;
+import lk.ijse.computershop.model.PlaceOrderModel;
 
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ManageordersFormController implements Initializable {
 
     @FXML
-    private TextField txtId;
+    private TextField txtOrderId;
     @FXML
-    private TextField txtDate;
+    private TextField txtOrderDate;
     @FXML
-    private ComboBox<String> cmbCustomerID;
-    @FXML
-    private ComboBox<String> cmbItemCode;
+    private ComboBox<String> cmbCustomerId;
     @FXML
     private TextField txtCustomerName;
     @FXML
-    private TextField txtItemDescription;
+    private ComboBox<String> cmbItemCode;
     @FXML
-    private TextField txtItemQty;
+    private TextField txtDescription;
     @FXML
-    private TextField txtItemUnitPrice;
+    private TextField txtQtyOnHand;
     @FXML
-    private TextField txtOrderedQty;
+    private TextField txtUnitPrice;
     @FXML
-    private TableView tblOrders;
+    private TextField txtQty;
     @FXML
-    private TableColumn colId;
+    private TextField txtNetTotal;
     @FXML
-    private TableColumn colCustomerid;
+    private TableView tblOrderCart;
     @FXML
-    private TableColumn colDate;
+    private TableColumn colCode;
+    @FXML
+    private TableColumn colDescription;
+    @FXML
+    private TableColumn colQty;
+    @FXML
+    private TableColumn colUnitPrice;
+    @FXML
+    private TableColumn colTotal;
+    @FXML
+    private TableColumn colAction;
+
+    private ObservableList<CartTM> observableList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        generateNextOrderId();
         setOrderDate();
+        generateNextOrderId();
+        setCellValueFactory();
         loadCustomerIds();
         loadItemCodes();
     }
 
     private void setOrderDate() {
-        txtDate.setText(String.valueOf(LocalDate.now()));
+        txtOrderDate.setText(String.valueOf(LocalDate.now()));
     }
 
     private void generateNextOrderId() {
         try {
             String id = OrderModel.getNextOrderId();
-            txtId.setText(id);
+            txtOrderId.setText(id);
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
+    }
+
+    private void setCellValueFactory() {
+        colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+        colAction.setCellValueFactory(new PropertyValueFactory<>("btn"));
     }
 
     private void loadCustomerIds() {
@@ -77,7 +104,7 @@ public class ManageordersFormController implements Initializable {
             for (String id : customerid) {
                 observableList.add(id);
             }
-            cmbCustomerID.setItems(observableList);
+            cmbCustomerId.setItems(observableList);
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
@@ -99,8 +126,8 @@ public class ManageordersFormController implements Initializable {
     }
 
     @FXML
-    private void cmbCustomerIDOnAction(ActionEvent event) {
-        String id = cmbCustomerID.getValue();
+    private void cmbCustomerIdOnAction(ActionEvent event) {
+        String id = cmbCustomerId.getValue();
 
         try {
             Customer customer = CustomerModel.searchById(id);
@@ -118,20 +145,116 @@ public class ManageordersFormController implements Initializable {
             Item item = ItemModel.searchById(code);
             fillItemFields(item);
 
-            txtOrderedQty.requestFocus();
+            txtQty.requestFocus();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 
     private void fillItemFields(Item item) {
-        txtItemDescription.setText(item.getDescription());
-        txtItemUnitPrice.setText(String.valueOf(item.getUnitprice()));
-        txtItemQty.setText(String.valueOf(item.getQtyonhand()));
+        txtDescription.setText(item.getDescription());
+        txtUnitPrice.setText(String.valueOf(item.getUnitprice()));
+        txtQtyOnHand.setText(String.valueOf(item.getQtyonhand()));
     }
 
     @FXML
     private void addToCartOnAction(ActionEvent event) {
+        try {
+            String code = cmbItemCode.getValue();
+            String description = txtDescription.getText();
+            int qty = Integer.parseInt(txtQty.getText());
+            double unitPrice = Double.parseDouble(txtUnitPrice.getText());
 
+            double total = qty * unitPrice;
+            Button btnRemove = new Button("Remove");
+            btnRemove.setCursor(Cursor.HAND);
+
+            setRemoveBtnOnAction(btnRemove);    //set action to the btnRemove
+
+            if (!observableList.isEmpty()) {
+                for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
+                    if (colCode.getCellData(i).equals(code)) {
+                        qty += (int) colQty.getCellData(i);
+                        total = qty * unitPrice;
+
+                        observableList.get(i).setQty(qty);
+                        observableList.get(i).setTotal(total);
+
+                        tblOrderCart.refresh();
+                        calculateNetTotal();
+                        return;
+                    }
+                }
+            }
+
+            CartTM tm = new CartTM(code, description, qty, unitPrice, total, btnRemove);
+
+            observableList.add(tm);
+            tblOrderCart.setItems(observableList);
+            calculateNetTotal();
+
+            txtQty.setText("");
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
+    }
+
+    private void setRemoveBtnOnAction(Button btn) {
+        btn.setOnAction((e) -> {
+            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+            Optional<ButtonType> result = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
+
+            if (result.orElse(no) == yes) {
+
+                int index = tblOrderCart.getSelectionModel().getSelectedIndex();
+                observableList.remove(index);
+
+                tblOrderCart.refresh();
+                calculateNetTotal();
+            }
+
+        });
+    }
+
+    private void calculateNetTotal() {
+        double netTotal = 0.0;
+        for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
+            double total = (double) colTotal.getCellData(i);
+            netTotal += total;
+        }
+        txtNetTotal.setText(String.valueOf(netTotal));
+    }
+
+    @FXML
+    private void placeOrderOnAction(ActionEvent event) {
+        String oId = txtOrderId.getText();
+        String cusId = cmbCustomerId.getValue();
+
+        List<CartDTO> cartDTOList = new ArrayList<>();
+
+        for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
+            CartTM cartTM = observableList.get(i);
+
+            CartDTO dto = new CartDTO(
+                    cartTM.getCode(),
+                    cartTM.getQty(),
+                    cartTM.getUnitPrice()
+            );
+            cartDTOList.add(dto);
+        }
+
+        boolean isPlaced = false;
+        try {
+            isPlaced = PlaceOrderModel.placeOrder(oId, cusId, cartDTOList);
+            if (isPlaced) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Order Placed...!").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Order is Not Placed...!").show();
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!r").show();
+        }
     }
 }

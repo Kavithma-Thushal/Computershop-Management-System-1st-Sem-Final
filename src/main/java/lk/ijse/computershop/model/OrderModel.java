@@ -2,8 +2,10 @@ package lk.ijse.computershop.model;
 
 import lk.ijse.computershop.util.CrudUtil;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class OrderModel {
 
@@ -25,5 +27,11 @@ public class OrderModel {
             return "Or0" + id;
         }
         return "Or01";
+    }
+
+    public static boolean save(String oId, String cusId, LocalDate date) throws SQLException {
+        String sql = "INSERT INTO Orders(id, customerId, date) VALUES(?, ?, ?)";
+        Integer affectedRows = CrudUtil.execute(sql, oId, cusId, Date.valueOf(date));
+        return affectedRows > 0;
     }
 }

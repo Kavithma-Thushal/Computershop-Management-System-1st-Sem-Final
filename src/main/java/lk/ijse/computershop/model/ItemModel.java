@@ -1,5 +1,6 @@
 package lk.ijse.computershop.model;
 
+import lk.ijse.computershop.dto.CartDTO;
 import lk.ijse.computershop.dto.Item;
 import lk.ijse.computershop.util.CrudUtil;
 
@@ -96,5 +97,20 @@ public class ItemModel {
             );
         }
         return null;
+    }
+
+    public static boolean updateQty(List<CartDTO> cartDTOList) throws SQLException {
+        for (CartDTO dto : cartDTOList) {
+            if (!updateQty(dto)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean updateQty(CartDTO dto) throws SQLException {
+        String sql = "UPDATE items SET qtyOnHand = (qtyOnHand - ?) WHERE code = ?";
+        Integer affectedRows = CrudUtil.execute(sql, dto.getQty(), dto.getCode());
+        return affectedRows > 0;
     }
 }
