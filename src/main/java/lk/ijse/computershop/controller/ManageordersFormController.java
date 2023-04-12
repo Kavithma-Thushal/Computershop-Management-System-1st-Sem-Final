@@ -249,7 +249,7 @@ public class ManageordersFormController implements Initializable {
         try {
             isPlaced = PlaceOrderModel.placeOrder(oId, cusId, cartDTOList);
             if (isPlaced) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Order Placed...!").show();
+                new Alert(Alert.AlertType.INFORMATION, "Order Placed...!").show();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Order is Not Placed...!").show();
             }
