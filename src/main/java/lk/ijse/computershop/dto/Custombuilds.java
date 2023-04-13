@@ -7,7 +7,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class Custombuilds {
     private String code;
-    private String customerid;
-    private String description;
-    private String datetime;
+    private Integer qty;
 }

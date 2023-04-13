@@ -1,5 +1,6 @@
 package lk.ijse.computershop.dto.tm;
 
+import javafx.scene.control.Button;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -7,7 +8,9 @@ import lombok.Data;
 @AllArgsConstructor
 public class CustombuildsTM {
     private String code;
-    private String customerid;
     private String description;
-    private String datetime;
+    private Integer qty;
+    private Double unitPrice;
+    private Double total;
+    private Button remove;
 }

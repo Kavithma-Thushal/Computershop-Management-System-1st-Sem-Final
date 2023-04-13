@@ -1,5 +1,6 @@
 package lk.ijse.computershop.model;
 
+import lk.ijse.computershop.dto.Custombuilds;
 import lk.ijse.computershop.dto.Order;
 import lk.ijse.computershop.dto.Item;
 import lk.ijse.computershop.util.CrudUtil;
@@ -111,6 +112,22 @@ public class ItemModel {
     private static boolean updateQty(Order orderDetails) throws SQLException {
         String sql = "UPDATE items SET qtyOnHand = (qtyOnHand - ?) WHERE code = ?";
         Integer affectedRows = CrudUtil.execute(sql, orderDetails.getQty(), orderDetails.getCode());
+        return affectedRows > 0;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    public static boolean updateBuildQty(List<Custombuilds> custombuildsList) throws SQLException {
+        for (Custombuilds custombuilds : custombuildsList) {
+            if (!updateBuildQty(custombuilds)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean updateBuildQty(Custombuilds custombuildsList) throws SQLException {
+        String sql = "UPDATE items SET qtyOnHand = (qtyOnHand - ?) WHERE code = ?";
+        Integer affectedRows = CrudUtil.execute(sql, custombuildsList.getQty(), custombuildsList.getCode());
         return affectedRows > 0;
     }
 }

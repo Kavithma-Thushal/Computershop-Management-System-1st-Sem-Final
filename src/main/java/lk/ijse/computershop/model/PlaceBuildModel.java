@@ -1,6 +1,7 @@
 package lk.ijse.computershop.model;
 
 import lk.ijse.computershop.db.DBConnection;
+import lk.ijse.computershop.dto.Custombuilds;
 import lk.ijse.computershop.dto.Order;
 
 import java.sql.Connection;
@@ -8,19 +9,19 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
-public class PlaceOrderModel {
+public class PlaceBuildModel {
 
-    public static boolean placeOrder(String orderId, String customerId, List<Order> orderList) throws SQLException {
+    public static boolean placeOrder(String orderId, String customerId, List<Custombuilds> buildList) throws SQLException {
         Connection connection = null;
         try {
             connection = DBConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
 
-            boolean isSaved = OrderModel.save(orderId, customerId);     //orders
+            boolean isSaved = CustombuildsModel.save(orderId, customerId);     //orders
             if (isSaved) {
-                boolean isUpdated = ItemModel.updateQty(orderList);     //items update
+                boolean isUpdated = ItemModel.updateBuildQty(buildList);     //items update
                 if (isUpdated) {
-                    boolean isOrdered = OrderDetailModel.save(orderId, orderList,LocalDate.now());      //order_details
+                    boolean isOrdered = BuildDetailsModel.saveBuild(orderId, buildList, LocalDate.now());      //order_details
                     if (isOrdered) {
                         connection.commit();
                         return true;
