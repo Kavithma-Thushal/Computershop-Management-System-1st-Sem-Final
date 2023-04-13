@@ -16,11 +16,11 @@ public class PlaceOrderModel {
             connection = DBConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
 
-            boolean isSaved = OrderModel.save(orderId, customerId);
+            boolean isSaved = OrderModel.save(orderId, customerId);     //orders
             if (isSaved) {
-                boolean isUpdated = ItemModel.updateQty(orderList);
+                boolean isUpdated = ItemModel.updateQty(orderList);     //items update
                 if (isUpdated) {
-                    boolean isOrdered = OrderDetailModel.save(orderId, orderList,LocalDate.now());
+                    boolean isOrdered = OrderDetailModel.save(orderId, orderList,LocalDate.now());      //order_details
                     if (isOrdered) {
                         connection.commit();
                         return true;

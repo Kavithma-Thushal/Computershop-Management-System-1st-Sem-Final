@@ -237,8 +237,7 @@ public class ManageordersFormController implements Initializable {
 
             Order orderDetails = new Order(
                     orderTM.getCode(),
-                    orderTM.getQty(),
-                    orderTM.getUnitPrice()
+                    orderTM.getQty()
             );
             orderList.add(orderDetails);
         }
