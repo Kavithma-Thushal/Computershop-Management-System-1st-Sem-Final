@@ -1,23 +1,24 @@
-CREATE DATABASE IF NOT EXISTS computershop;
+DROP DATABASE IF EXISTS computershop;
+CREATE DATABASE computershop;
 USE computershop;
 
 CREATE TABLE customers
 (
-    id      VARCHAR(20),
-    name    VARCHAR(20) NOT NULL,
-    nic     VARCHAR(20) NOT NULL UNIQUE,
-    email   VARCHAR(20),
-    contact VARCHAR(20),
-    address VARCHAR(20) NOT NULL,
+    id      VARCHAR(5),
+    name    VARCHAR(50) NOT NULL,
+    nic     VARCHAR(12) NOT NULL UNIQUE,
+    email   VARCHAR(50),
+    contact VARCHAR(12),
+    address VARCHAR(50) NOT NULL,
     CONSTRAINT PRIMARY KEY (id)
 );
 
 CREATE TABLE employees
 (
-    id       VARCHAR(20),
-    name     VARCHAR(20) NOT NULL,
-    contact  VARCHAR(20) NOT NULL,
-    jobrole  VARCHAR(20) NOT NULL,
+    id       VARCHAR(5),
+    name     VARCHAR(50) NOT NULL,
+    contact  VARCHAR(12) NOT NULL,
+    jobRole  VARCHAR(20) NOT NULL,
     username VARCHAR(20) NOT NULL UNIQUE,
     password VARCHAR(20) NOT NULL UNIQUE,
     CONSTRAINT PRIMARY KEY (id)
@@ -25,107 +26,105 @@ CREATE TABLE employees
 
 CREATE TABLE suppliers
 (
-    id      VARCHAR(20),
-    name    VARCHAR(20) NOT NULL,
-    contact VARCHAR(20) NOT NULL,
-    address VARCHAR(20) NOT NULL,
+    id      VARCHAR(5),
+    name    VARCHAR(50) NOT NULL,
+    contact VARCHAR(12) NOT NULL,
+    address VARCHAR(50) NOT NULL,
     CONSTRAINT PRIMARY KEY (id)
 );
 
 CREATE TABLE items
 (
-    code        VARCHAR(20),
-    description VARCHAR(20),
-    unitprice   DECIMAL NOT NULL,
-    qtyonhand   INT NOT NULL,
+    code        VARCHAR(5),
+    description VARCHAR(100),
+    unitPrice   DECIMAL NOT NULL,
+    qtyOnHand   INT     NOT NULL,
     CONSTRAINT PRIMARY KEY (code)
 );
 
 CREATE TABLE salary
 (
-    code       VARCHAR(20),
-    employeeid VARCHAR(20),
+    code       VARCHAR(5),
+    employeeId VARCHAR(5),
     amount     DECIMAL NOT NULL,
-    datetime   DATETIME,
+    date       DATE,
     CONSTRAINT PRIMARY KEY (code),
-    CONSTRAINT FOREIGN KEY (employeeid) REFERENCES employees (id) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT FOREIGN KEY (employeeId) REFERENCES employees (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE orders
 (
-    id          VARCHAR(20),
-    customerid  VARCHAR(20),
-    qty         INT,
-    datetime    DATETIME,
+    id         VARCHAR(5),
+    customerId VARCHAR(5),
     CONSTRAINT PRIMARY KEY (id),
-    CONSTRAINT FOREIGN KEY (customerid) REFERENCES customers (id) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT FOREIGN KEY (customerId) REFERENCES customers (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE custombuilds
 (
-    code        VARCHAR(20),
-    customerid  VARCHAR(20),
-    description VARCHAR(20) NOT NULL,
-    datetime    DATETIME,
+    code        VARCHAR(5),
+    customerId  VARCHAR(5),
+    description VARCHAR(100) NOT NULL,
+    date        DATE,
     CONSTRAINT PRIMARY KEY (code),
-    CONSTRAINT FOREIGN KEY (customerid) REFERENCES customers (id) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT FOREIGN KEY (customerId) REFERENCES customers (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE repairs
 (
-    code           VARCHAR(20),
-    employeeid     VARCHAR(20),
-    customerid     VARCHAR(20),
-    details        VARCHAR(20),
-    getdatetime    DATETIME NOT NULL,
-    acceptdatetime DATETIME,
+    code       VARCHAR(5),
+    employeeId VARCHAR(5),
+    customerId VARCHAR(5),
+    details    VARCHAR(100),
+    getDate    DATE NOT NULL,
+    acceptDate DATE,
     CONSTRAINT PRIMARY KEY (code),
-    CONSTRAINT FOREIGN KEY (employeeid) REFERENCES employees (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT FOREIGN KEY (customerid) REFERENCES customers (id) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT FOREIGN KEY (employeeId) REFERENCES employees (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FOREIGN KEY (customerId) REFERENCES customers (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE delivery
 (
-    code       VARCHAR(20),
-    employeeid VARCHAR(20),
-    customerid VARCHAR(20),
-    orderid    VARCHAR(20),
-    details    VARCHAR(20),
-    location   VARCHAR(20) NOT NULL,
+    code       VARCHAR(5),
+    employeeId VARCHAR(5),
+    customerId VARCHAR(5),
+    orderId    VARCHAR(5),
+    details    VARCHAR(100),
+    location   VARCHAR(50) NOT NULL,
     CONSTRAINT PRIMARY KEY (code),
-    CONSTRAINT FOREIGN KEY (employeeid) REFERENCES employees (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT FOREIGN KEY (customerid) REFERENCES customers (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT FOREIGN KEY (orderid) REFERENCES orders (id) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT FOREIGN KEY (employeeId) REFERENCES employees (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FOREIGN KEY (customerId) REFERENCES customers (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FOREIGN KEY (orderId) REFERENCES orders (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE order_details
 (
-    orderid   VARCHAR(20),
-    itemcode  VARCHAR(20),
-    unitprice DECIMAL NOT NULL,
-    qty       INT NOT NULL,
-    CONSTRAINT PRIMARY KEY (orderid, itemcode),
-    CONSTRAINT FOREIGN KEY (orderid) REFERENCES orders (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT FOREIGN KEY (itemcode) REFERENCES items (code) ON DELETE CASCADE ON UPDATE CASCADE
+    orderId  VARCHAR(5),
+    itemCode VARCHAR(5),
+    qty      INT NOT NULL,
+    date     DATE,
+    CONSTRAINT PRIMARY KEY (orderId, itemCode),
+    CONSTRAINT FOREIGN KEY (orderId) REFERENCES orders (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FOREIGN KEY (itemCode) REFERENCES items (code) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE supplier_details
 (
-    supplierid VARCHAR(20),
-    itemcode   VARCHAR(20),
+    supplierId VARCHAR(5),
+    itemCode   VARCHAR(5),
     qty        INT,
-    CONSTRAINT PRIMARY KEY (supplierid, itemcode),
-    CONSTRAINT FOREIGN KEY (supplierid) REFERENCES suppliers (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT FOREIGN KEY (itemcode) REFERENCES items (code) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT PRIMARY KEY (supplierId, itemCode),
+    CONSTRAINT FOREIGN KEY (supplierId) REFERENCES suppliers (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FOREIGN KEY (itemCode) REFERENCES items (code) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE build_details
 (
-    buildcode   VARCHAR(20),
-    itemcode    VARCHAR(20),
-    description VARCHAR(20),
+    buildCode   VARCHAR(5),
+    itemCode    VARCHAR(5),
+    description VARCHAR(100),
     qty         INT,
-    CONSTRAINT PRIMARY KEY (buildcode, itemcode),
-    CONSTRAINT FOREIGN KEY (buildcode) REFERENCES custombuilds (code) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT FOREIGN KEY (itemcode) REFERENCES items (code) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT PRIMARY KEY (buildCode, itemCode),
+    CONSTRAINT FOREIGN KEY (buildCode) REFERENCES custombuilds (code) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FOREIGN KEY (itemCode) REFERENCES items (code) ON DELETE CASCADE ON UPDATE CASCADE
 );
