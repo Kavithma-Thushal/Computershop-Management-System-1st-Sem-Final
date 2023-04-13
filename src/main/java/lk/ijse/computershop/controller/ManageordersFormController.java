@@ -209,7 +209,7 @@ public class ManageordersFormController implements Initializable {
             if (result.orElse(no) == yes) {
 
                 int index = tblOrderCart.getSelectionModel().getSelectedIndex();
-                observableList.remove(index);
+                observableList.remove(index+1);
 
                 tblOrderCart.refresh();
                 calculateNetTotal();
