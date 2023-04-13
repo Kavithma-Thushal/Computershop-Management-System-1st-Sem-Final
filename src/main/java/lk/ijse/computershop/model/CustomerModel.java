@@ -94,9 +94,9 @@ public class CustomerModel {
         return data;
     }
 
-    public static Customer searchById(String id) throws SQLException {
+    public static Customer searchById(String customerId) throws SQLException {
         String sql = "SELECT * FROM Customers WHERE id = ?";
-        ResultSet resultSet = CrudUtil.execute(sql, id);
+        ResultSet resultSet = CrudUtil.execute(sql, customerId);
 
         if (resultSet.next()) {
             return new Customer(

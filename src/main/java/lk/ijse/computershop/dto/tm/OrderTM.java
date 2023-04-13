@@ -12,5 +12,5 @@ public class OrderTM {
     private Integer qty;
     private Double unitPrice;
     private Double total;
-    private Button btn;
+    private Button remove;
 }

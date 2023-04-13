@@ -48,7 +48,7 @@ public class ManageordersFormController implements Initializable {
     @FXML
     private TextField txtNetTotal;
     @FXML
-    private TableView tblOrderCart;
+    private TableView tblOrder;
     @FXML
     private TableColumn colCode;
     @FXML
@@ -60,7 +60,7 @@ public class ManageordersFormController implements Initializable {
     @FXML
     private TableColumn colTotal;
     @FXML
-    private TableColumn colAction;
+    private TableColumn colRemove;
 
     private ObservableList<OrderTM> observableList = FXCollections.observableArrayList();
 
@@ -92,15 +92,15 @@ public class ManageordersFormController implements Initializable {
         colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
-        colAction.setCellValueFactory(new PropertyValueFactory<>("btn"));
+        colRemove.setCellValueFactory(new PropertyValueFactory<>("remove"));
     }
 
     private void loadCustomerIds() {
         try {
             ObservableList<String> observableList = FXCollections.observableArrayList();
-            List<String> customerid = CustomerModel.loadIds();
+            List<String> customerId = CustomerModel.loadIds();
 
-            for (String id : customerid) {
+            for (String id : customerId) {
                 observableList.add(id);
             }
             cmbCustomerId.setItems(observableList);
@@ -112,9 +112,9 @@ public class ManageordersFormController implements Initializable {
     private void loadItemCodes() {
         try {
             ObservableList<String> observableList = FXCollections.observableArrayList();
-            List<String> itemcodes = ItemModel.loadCodes();
+            List<String> itemCode = ItemModel.loadCodes();
 
-            for (String code : itemcodes) {
+            for (String code : itemCode) {
                 observableList.add(code);
             }
             cmbItemCode.setItems(observableList);
@@ -126,10 +126,10 @@ public class ManageordersFormController implements Initializable {
 
     @FXML
     private void cmbCustomerIdOnAction(ActionEvent event) {
-        String id = cmbCustomerId.getValue();
+        String customerId = cmbCustomerId.getValue();
 
         try {
-            Customer customer = CustomerModel.searchById(id);
+            Customer customer = CustomerModel.searchById(customerId);
             txtCustomerName.setText(customer.getName());
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
@@ -138,13 +138,13 @@ public class ManageordersFormController implements Initializable {
 
     @FXML
     private void cmbItemCodeOnAction(ActionEvent event) {
-        String code = cmbItemCode.getValue();
+        String itemCode = cmbItemCode.getValue();
 
         try {
-            Item item = ItemModel.searchById(code);
+            Item item = ItemModel.searchById(itemCode);
             fillItemFields(item);
 
-            txtQty.requestFocus();
+            //txtQty.requestFocus();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
@@ -168,10 +168,10 @@ public class ManageordersFormController implements Initializable {
             Button btnRemove = new Button("Remove");
             btnRemove.setCursor(Cursor.HAND);
 
-            setRemoveBtnOnAction(btnRemove);    //set action to the btnRemove
+            setRemoveBtnOnAction(btnRemove);
 
             if (!observableList.isEmpty()) {
-                for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
+                for (int i = 0; i < tblOrder.getItems().size(); i++) {
                     if (colCode.getCellData(i).equals(code)) {
                         qty += (int) colQty.getCellData(i);
                         total = qty * unitPrice;
@@ -179,7 +179,7 @@ public class ManageordersFormController implements Initializable {
                         observableList.get(i).setQty(qty);
                         observableList.get(i).setTotal(total);
 
-                        tblOrderCart.refresh();
+                        tblOrder.refresh();
                         calculateNetTotal();
                         return;
                     }
@@ -187,12 +187,11 @@ public class ManageordersFormController implements Initializable {
             }
 
             OrderTM tm = new OrderTM(code, description, qty, unitPrice, total, btnRemove);
-
             observableList.add(tm);
-            tblOrderCart.setItems(observableList);
+            tblOrder.setItems(observableList);
             calculateNetTotal();
+            //txtQty.setText("");
 
-            txtQty.setText("");
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
@@ -207,10 +206,10 @@ public class ManageordersFormController implements Initializable {
 
             if (result.orElse(no) == yes) {
 
-                int index = tblOrderCart.getSelectionModel().getSelectedIndex();
+                int index = tblOrder.getSelectionModel().getSelectedIndex();
                 observableList.remove(index+1);
 
-                tblOrderCart.refresh();
+                tblOrder.refresh();
                 calculateNetTotal();
             }
 
@@ -219,7 +218,7 @@ public class ManageordersFormController implements Initializable {
 
     private void calculateNetTotal() {
         double netTotal = 0.0;
-        for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
+        for (int i = 0; i < tblOrder.getItems().size(); i++) {
             double total = (double) colTotal.getCellData(i);
             netTotal += total;
         }
@@ -228,25 +227,25 @@ public class ManageordersFormController implements Initializable {
 
     @FXML
     private void placeOrderOnAction(ActionEvent event) {
-        String oId = txtOrderId.getText();
-        String cusId = cmbCustomerId.getValue();
+        String orderId = txtOrderId.getText();
+        String customerId = cmbCustomerId.getValue();
 
         List<Order> orderList = new ArrayList<>();
 
-        for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
+        for (int i = 0; i < tblOrder.getItems().size(); i++) {
             OrderTM orderTM = observableList.get(i);
 
-            Order dto = new Order(
+            Order orderDetails = new Order(
                     orderTM.getCode(),
                     orderTM.getQty(),
                     orderTM.getUnitPrice()
             );
-            orderList.add(dto);
+            orderList.add(orderDetails);
         }
 
         boolean isPlaced = false;
         try {
-            isPlaced = PlaceOrderModel.placeOrder(oId, cusId, orderList);
+            isPlaced = PlaceOrderModel.placeOrder(orderId, customerId, orderList);
             if (isPlaced) {
                 new Alert(Alert.AlertType.INFORMATION, "Order Placed...!").show();
             } else {

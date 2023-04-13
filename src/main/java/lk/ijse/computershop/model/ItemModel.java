@@ -84,9 +84,9 @@ public class ItemModel {
         return data;
     }
 
-    public static Item searchById(String code) throws SQLException {
+    public static Item searchById(String itemCode) throws SQLException {
         String sql = "SELECT * FROM items WHERE code = ?";
-        ResultSet resultSet = CrudUtil.execute(sql, code);
+        ResultSet resultSet = CrudUtil.execute(sql, itemCode);
 
         if (resultSet.next()) {
             return new Item(
@@ -100,17 +100,17 @@ public class ItemModel {
     }
 
     public static boolean updateQty(List<Order> orderList) throws SQLException {
-        for (Order dto : orderList) {
-            if (!updateQty(dto)) {
+        for (Order orderDetails : orderList) {
+            if (!updateQty(orderDetails)) {
                 return false;
             }
         }
         return true;
     }
 
-    private static boolean updateQty(Order dto) throws SQLException {
+    private static boolean updateQty(Order orderDetails) throws SQLException {
         String sql = "UPDATE items SET qtyOnHand = (qtyOnHand - ?) WHERE code = ?";
-        Integer affectedRows = CrudUtil.execute(sql, dto.getQty(), dto.getCode());
+        Integer affectedRows = CrudUtil.execute(sql, orderDetails.getQty(), orderDetails.getCode());
         return affectedRows > 0;
     }
 }

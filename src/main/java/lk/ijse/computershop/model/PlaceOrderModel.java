@@ -10,17 +10,17 @@ import java.util.List;
 
 public class PlaceOrderModel {
 
-    public static boolean placeOrder(String oId, String cusId, List<Order> orderList) throws SQLException {
+    public static boolean placeOrder(String orderId, String customerId, List<Order> orderList) throws SQLException {
         Connection connection = null;
         try {
             connection = DBConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
 
-            boolean isSaved = OrderModel.save(oId, cusId);
+            boolean isSaved = OrderModel.save(orderId, customerId);
             if (isSaved) {
                 boolean isUpdated = ItemModel.updateQty(orderList);
                 if (isUpdated) {
-                    boolean isOrdered = OrderDetailModel.save(oId, orderList,LocalDate.now());
+                    boolean isOrdered = OrderDetailModel.save(orderId, orderList,LocalDate.now());
                     if (isOrdered) {
                         connection.commit();
                         return true;
@@ -28,7 +28,7 @@ public class PlaceOrderModel {
                 }
             }
             return false;
-        } catch (Exception er) {
+        } catch (Exception e) {
             connection.rollback();
             return false;
         } finally {

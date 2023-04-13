@@ -10,18 +10,18 @@ import java.util.List;
 
 public class OrderDetailModel {
 
-    public static boolean save(String oId, List<Order> orderList, LocalDate date) throws SQLException {
+    public static boolean save(String orderId, List<Order> orderList, LocalDate date) throws SQLException {
         for (Order dto : orderList) {
-            if (!save(oId, dto,LocalDate.now())) {
+            if (!save(orderId, dto,LocalDate.now())) {
                 return false;
             }
         }
         return true;
     }
 
-    private static boolean save(String oId, Order dto, LocalDate date) throws SQLException {
+    private static boolean save(String orderId, Order orderDetails, LocalDate date) throws SQLException {
         String sql = "INSERT INTO order_details VALUES(?, ?, ?, ?)";
-        Integer affectedRows = CrudUtil.execute(sql, oId, dto.getCode(), dto.getQty(), Date.valueOf(date));
+        Integer affectedRows = CrudUtil.execute(sql, orderId, orderDetails.getCode(), orderDetails.getQty(), Date.valueOf(date));
         return affectedRows > 0;
     }
 }
