@@ -27,9 +27,9 @@ public class OrderModel {
         return "Or01";
     }
 
-    public static boolean save(String oId, String cusId) throws SQLException {
+    public static boolean save(String orderId, String customerId) throws SQLException {
         String sql = "INSERT INTO Orders(id, customerId) VALUES(?, ?)";
-        Integer affectedRows = CrudUtil.execute(sql, oId, cusId);
+        Integer affectedRows = CrudUtil.execute(sql, orderId, customerId);
         return affectedRows > 0;
     }
 }

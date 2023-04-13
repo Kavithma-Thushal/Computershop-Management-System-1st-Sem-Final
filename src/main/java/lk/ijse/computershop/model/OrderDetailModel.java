@@ -11,8 +11,8 @@ import java.util.List;
 public class OrderDetailModel {
 
     public static boolean save(String orderId, List<Order> orderList, LocalDate date) throws SQLException {
-        for (Order dto : orderList) {
-            if (!save(orderId, dto,LocalDate.now())) {
+        for (Order orderDetails : orderList) {
+            if (!save(orderId, orderDetails,LocalDate.now())) {
                 return false;
             }
         }
