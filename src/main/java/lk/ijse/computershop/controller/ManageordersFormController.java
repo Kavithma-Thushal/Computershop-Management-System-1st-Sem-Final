@@ -8,15 +8,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lk.ijse.computershop.dto.CartDTO;
+import lk.ijse.computershop.dto.Order;
 import lk.ijse.computershop.dto.Customer;
 import lk.ijse.computershop.dto.Item;
-import lk.ijse.computershop.dto.tm.CartTM;
+import lk.ijse.computershop.dto.tm.OrderTM;
 import lk.ijse.computershop.model.CustomerModel;
 import lk.ijse.computershop.model.ItemModel;
 import lk.ijse.computershop.model.OrderModel;
 import lk.ijse.computershop.model.PlaceOrderModel;
-
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -63,7 +62,7 @@ public class ManageordersFormController implements Initializable {
     @FXML
     private TableColumn colAction;
 
-    private ObservableList<CartTM> observableList = FXCollections.observableArrayList();
+    private ObservableList<OrderTM> observableList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -187,7 +186,7 @@ public class ManageordersFormController implements Initializable {
                 }
             }
 
-            CartTM tm = new CartTM(code, description, qty, unitPrice, total, btnRemove);
+            OrderTM tm = new OrderTM(code, description, qty, unitPrice, total, btnRemove);
 
             observableList.add(tm);
             tblOrderCart.setItems(observableList);
@@ -232,22 +231,22 @@ public class ManageordersFormController implements Initializable {
         String oId = txtOrderId.getText();
         String cusId = cmbCustomerId.getValue();
 
-        List<CartDTO> cartDTOList = new ArrayList<>();
+        List<Order> orderList = new ArrayList<>();
 
         for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
-            CartTM cartTM = observableList.get(i);
+            OrderTM orderTM = observableList.get(i);
 
-            CartDTO dto = new CartDTO(
-                    cartTM.getCode(),
-                    cartTM.getQty(),
-                    cartTM.getUnitPrice()
+            Order dto = new Order(
+                    orderTM.getCode(),
+                    orderTM.getQty(),
+                    orderTM.getUnitPrice()
             );
-            cartDTOList.add(dto);
+            orderList.add(dto);
         }
 
         boolean isPlaced = false;
         try {
-            isPlaced = PlaceOrderModel.placeOrder(oId, cusId, cartDTOList);
+            isPlaced = PlaceOrderModel.placeOrder(oId, cusId, orderList);
             if (isPlaced) {
                 new Alert(Alert.AlertType.INFORMATION, "Order Placed...!").show();
             } else {

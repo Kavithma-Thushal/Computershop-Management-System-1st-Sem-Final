@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class CartDTO {
+public class Order {
     private String code;
     private Integer qty;
     private Double unitPrice;

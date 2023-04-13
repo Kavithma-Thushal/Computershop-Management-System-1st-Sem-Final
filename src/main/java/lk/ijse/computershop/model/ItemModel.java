@@ -1,6 +1,6 @@
 package lk.ijse.computershop.model;
 
-import lk.ijse.computershop.dto.CartDTO;
+import lk.ijse.computershop.dto.Order;
 import lk.ijse.computershop.dto.Item;
 import lk.ijse.computershop.util.CrudUtil;
 
@@ -99,8 +99,8 @@ public class ItemModel {
         return null;
     }
 
-    public static boolean updateQty(List<CartDTO> cartDTOList) throws SQLException {
-        for (CartDTO dto : cartDTOList) {
+    public static boolean updateQty(List<Order> orderList) throws SQLException {
+        for (Order dto : orderList) {
             if (!updateQty(dto)) {
                 return false;
             }
@@ -108,7 +108,7 @@ public class ItemModel {
         return true;
     }
 
-    private static boolean updateQty(CartDTO dto) throws SQLException {
+    private static boolean updateQty(Order dto) throws SQLException {
         String sql = "UPDATE items SET qtyOnHand = (qtyOnHand - ?) WHERE code = ?";
         Integer affectedRows = CrudUtil.execute(sql, dto.getQty(), dto.getCode());
         return affectedRows > 0;

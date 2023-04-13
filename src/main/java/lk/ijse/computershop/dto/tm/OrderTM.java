@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class CartTM {
+public class OrderTM {
     private String code;
     private String description;
     private Integer qty;
