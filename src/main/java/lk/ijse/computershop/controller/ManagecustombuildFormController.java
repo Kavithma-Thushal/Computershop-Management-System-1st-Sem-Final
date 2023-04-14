@@ -112,7 +112,7 @@ public class ManagecustombuildFormController implements Initializable {
         }
     }
 
-    private void loadEmployeeIds(){
+    private void loadEmployeeIds() {
         try {
             ObservableList<String> observableList = FXCollections.observableArrayList();
             List<String> employeeId = EmployeeModel.loadIds();
@@ -232,7 +232,7 @@ public class ManagecustombuildFormController implements Initializable {
         }
     }
 
-    private void setUpdateBtnOnAction(Button update){
+    private void setUpdateBtnOnAction(Button update) {
         update.setOnAction((e) -> {
             ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
             ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
@@ -240,8 +240,27 @@ public class ManagecustombuildFormController implements Initializable {
             Optional<ButtonType> result = new Alert(Alert.AlertType.INFORMATION, "Are you sure to update?", yes, no).showAndWait();
 
             if (result.orElse(no) == yes) {
-                /*int index = tblCustomBuild.getSelectionModel().getSelectedIndex();
-                observableList.remove(index+1);*/
+                int index = tblCustomBuild.getSelectionModel().getSelectedIndex();
+                observableList.remove(index + 1);
+
+                String code = cmbItemCode.getValue();
+                String description = txtDescription.getText();
+                int qty = Integer.parseInt(txtQty.getText());
+                double unitPrice = Double.parseDouble(txtUnitPrice.getText());
+
+                double total = qty * unitPrice;
+
+                Button btnUpdate = new Button("Update");
+                btnUpdate.setCursor(Cursor.HAND);
+                setUpdateBtnOnAction(btnUpdate);
+
+                Button btnRemove = new Button("Remove");
+                btnRemove.setCursor(Cursor.HAND);
+                setRemoveBtnOnAction(btnRemove);
+
+                CustombuildsTM tm = new CustombuildsTM(code, description, qty, unitPrice, total, btnUpdate, btnRemove);
+                observableList.add(tm);
+                tblCustomBuild.setItems(observableList);
 
                 tblCustomBuild.refresh();
                 calculateNetTotal();
@@ -259,7 +278,7 @@ public class ManagecustombuildFormController implements Initializable {
 
             if (result.orElse(no) == yes) {
                 int index = tblCustomBuild.getSelectionModel().getSelectedIndex();
-                observableList.remove(index+1);
+                observableList.remove(index + 1);
 
                 tblCustomBuild.refresh();
                 calculateNetTotal();
@@ -297,7 +316,7 @@ public class ManagecustombuildFormController implements Initializable {
 
         boolean isPlaced = false;
         try {
-            isPlaced = PlaceBuildModel.placeOrder(buildCode, customerId,employeeId, custombuildsList);
+            isPlaced = PlaceBuildModel.placeOrder(buildCode, customerId, employeeId, custombuildsList);
             if (isPlaced) {
                 new Alert(Alert.AlertType.INFORMATION, "Order Placed...!").show();
             } else {
