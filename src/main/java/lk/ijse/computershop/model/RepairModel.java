@@ -1,5 +1,6 @@
 package lk.ijse.computershop.model;
 
+import lk.ijse.computershop.dto.Customer;
 import lk.ijse.computershop.dto.Repair;
 import lk.ijse.computershop.util.CrudUtil;
 
@@ -28,6 +29,25 @@ public class RepairModel {
             repairList.add(repair);
         }
         return repairList;
+    }
+
+    public static Repair search(String code) throws SQLException {
+
+        String sql = "SELECT * FROM repairs WHERE code=?";
+
+        ResultSet resultSet = CrudUtil.execute(sql, code);
+
+        if (resultSet.next()) {
+            return new Repair(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5),
+                    resultSet.getString(6)
+            );
+        }
+        return null;
     }
 
     public static String getNextRepairCode() throws SQLException {

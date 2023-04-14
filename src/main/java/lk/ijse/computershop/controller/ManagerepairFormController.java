@@ -167,7 +167,19 @@ public class ManagerepairFormController implements Initializable {
 
     @FXML
     private void searchOnAction(ActionEvent event) {
-
+        try {
+            Repair repair = RepairModel.search(txtSearch.getText());
+            if (repair != null) {
+                txtRepairCode.setText(repair.getCode());
+                txtCustomerName.setText(repair.getCustomerId());
+                txtEmployeeName.setText(repair.getEmployeeId());
+                txtDetails.setText(repair.getDetails());
+                txtRepairDate.setText(repair.getGettingDate());
+                txtAcceptingDate.setText(repair.getAcceptingDate());
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+        }
     }
 
     @FXML

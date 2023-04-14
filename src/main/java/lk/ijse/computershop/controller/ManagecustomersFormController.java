@@ -112,7 +112,6 @@ public class ManagecustomersFormController implements Initializable {
 
     @FXML
     private void searchOnAction(ActionEvent event) {
-
         try {
             Customer customer = CustomerModel.search(txtSearch.getText());
             if (customer != null) {
