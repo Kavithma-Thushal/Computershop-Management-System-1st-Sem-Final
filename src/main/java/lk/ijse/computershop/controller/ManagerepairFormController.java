@@ -6,161 +6,136 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import lk.ijse.computershop.dto.Repair;
-import lk.ijse.computershop.dto.tm.RepairTM;
+import lk.ijse.computershop.dto.Customer;
+import lk.ijse.computershop.dto.Employee;
+import lk.ijse.computershop.model.CustomerModel;
+import lk.ijse.computershop.model.EmployeeModel;
 import lk.ijse.computershop.model.RepairModel;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ManagerepairFormController implements Initializable {
 
     @FXML
-    private TextField txtSearch;
+    private TextField txtRepairCode;
     @FXML
-    private TextField txtCode;
+    private TextField txtRepairDate;
     @FXML
-    private TextField txtEmployeeid;
+    private ComboBox<String> cmbCustomerId;
     @FXML
-    private TextField txtCustomerid;
+    private TextField txtCustomerName;
+    @FXML
+    private ComboBox<String> cmbEmployeeId;
+    @FXML
+    private TextField txtEmployeeName;
     @FXML
     private TextField txtDetails;
     @FXML
-    private TextField txtGetdatetime;
+    private TextField txtAcceptingDate;
     @FXML
-    private TextField txtAcceptdatetime;
+    private TextField txtSearch;
     @FXML
     private TableView tblRepair;
     @FXML
     private TableColumn colCode;
     @FXML
-    private TableColumn colEmployeeid;
+    private TableColumn colCustomerId;
     @FXML
-    private TableColumn colCustomerid;
+    private TableColumn colEmployeeId;
     @FXML
     private TableColumn colDetails;
     @FXML
-    private TableColumn colGetdatetime;
+    private TableColumn colDatetime;
     @FXML
-    private TableColumn colAcceptdatetime;
+    private TableColumn colAccentuated;
+    @FXML
+    private TableColumn colRemove;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        getAll();
-        setCellValueFactory();
+        setRepairDate();
+        generateNextRepairCode();
+        loadCustomerIds();
+        loadEmployeeIds();
     }
 
-    private void setCellValueFactory() {
-        colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
-        colEmployeeid.setCellValueFactory(new PropertyValueFactory<>("employeeid"));
-        colCustomerid.setCellValueFactory(new PropertyValueFactory<>("customerid"));
-        colDetails.setCellValueFactory(new PropertyValueFactory<>("details"));
-        colGetdatetime.setCellValueFactory(new PropertyValueFactory<>("getdatetime"));
-        colAcceptdatetime.setCellValueFactory(new PropertyValueFactory<>("acceptdatetime"));
+    private void setRepairDate() {
+        txtRepairDate.setText(String.valueOf(LocalDate.now()));
     }
 
-    private void getAll() {
+    private void generateNextRepairCode() {
         try {
-            ObservableList<RepairTM> observableList = FXCollections.observableArrayList();
-            List<Repair> repairList = RepairModel.getAll();
-
-            for (Repair repair : repairList) {
-                observableList.add(new RepairTM(
-                        repair.getCode(),
-                        repair.getEmployeeid(),
-                        repair.getCustomerid(),
-                        repair.getDetails(),
-                        repair.getGetdatetime(),
-                        repair.getAcceptdatetime()
-                ));
-            }
-            tblRepair.setItems(observableList);
+            String code = RepairModel.getNextRepairCode();
+            txtRepairCode.setText(code);
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
+    }
+
+    private void loadCustomerIds() {
+        try {
+            ObservableList<String> observableList = FXCollections.observableArrayList();
+            List<String> customerId = CustomerModel.loadIds();
+
+            for (String id : customerId) {
+                observableList.add(id);
+            }
+            cmbCustomerId.setItems(observableList);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
+    }
+
+    private void loadEmployeeIds() {
+        try {
+            ObservableList<String> observableList = FXCollections.observableArrayList();
+            List<String> employeeId = EmployeeModel.loadIds();
+
+            for (String id : employeeId) {
+                observableList.add(id);
+            }
+            cmbEmployeeId.setItems(observableList);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 
     @FXML
-    private void saveOnAction(ActionEvent event) {
-        try {
-            Repair repair = new Repair(
-                    txtCode.getText(),
-                    txtEmployeeid.getText(),
-                    txtCustomerid.getText(),
-                    txtDetails.getText(),
-                    txtGetdatetime.getText(),
-                    txtAcceptdatetime.getText()
-            );
+    private void cmbCustomerIdOnAction(ActionEvent event) {
+        String customerId = cmbCustomerId.getValue();
+        cmbCustomerId.setDisable(true);
 
-            if (RepairModel.save(repair) > 0) {
-                new Alert(Alert.AlertType.INFORMATION, "Saved Successfully...!").show();
-                tblRepair.refresh();
-                getAll();
-            }
+        try {
+            Customer customer = CustomerModel.searchById(customerId);
+            txtCustomerName.setText(customer.getName());
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
+    }
+
+    @FXML
+    private void cmbEmployeeIdOnAction(ActionEvent event) {
+        String employeeId = cmbEmployeeId.getValue();
+        cmbEmployeeId.setDisable(true);
+
+        try {
+            Employee employee = EmployeeModel.searchById(employeeId);
+            txtEmployeeName.setText(employee.getName());
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 
     @FXML
     private void searchOnAction(ActionEvent event) {
-        try {
-            Repair repair = RepairModel.search(txtSearch.getText());
-            if (repair != null) {
-                txtCode.setText(repair.getCode());
-                txtEmployeeid.setText(repair.getEmployeeid());
-                txtCustomerid.setText(repair.getCustomerid());
-                txtDetails.setText(repair.getDetails());
-                txtGetdatetime.setText(repair.getGetdatetime());
-                txtAcceptdatetime.setText(repair.getAcceptdatetime());
-            }
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
-        }
+
     }
 
     @FXML
-    private void updateOnAction(ActionEvent event) {
-        try {
-            Repair repair = new Repair(
-                    txtCode.getText(),
-                    txtEmployeeid.getText(),
-                    txtCustomerid.getText(),
-                    txtDetails.getText(),
-                    txtGetdatetime.getText(),
-                    txtAcceptdatetime.getText()
-            );
-
-            if (RepairModel.update(repair) > 0) {
-                new Alert(Alert.AlertType.INFORMATION, "Updated Successfully...!").show();
-                tblRepair.refresh();
-                getAll();
-            }
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
-        }
-    }
-
-    @FXML
-    private void deleteOnAction(ActionEvent event) {
-        try {
-            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
-            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
-
-            Optional<ButtonType> buttonType = new Alert(Alert.AlertType.WARNING, "Are you sure...?", yes, no).showAndWait();
-
-            if (buttonType.orElse(yes) == yes) {
-                if (RepairModel.delete(txtCode.getText()) > 0) {
-                    new Alert(Alert.AlertType.INFORMATION, "Deleted Successfully...!").show();
-                    tblRepair.refresh();
-                    getAll();
-                }
-            }
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
-        }
+    private void repairOnAction(ActionEvent event) {
+        
     }
 }

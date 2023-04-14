@@ -76,8 +76,8 @@ CREATE TABLE custombuilds
 CREATE TABLE repairs
 (
     code       VARCHAR(5),
-    employeeId VARCHAR(5),
     customerId VARCHAR(5),
+    employeeId VARCHAR(5),
     details    VARCHAR(100),
     getDate    DATE NOT NULL,
     acceptDate DATE,
