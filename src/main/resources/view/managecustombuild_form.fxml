@@ -10,86 +10,79 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="638.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="lk.ijse.computershop.controller.ManagecustombuildFormController">
+<AnchorPane prefHeight="638.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.ManagecustombuildFormController">
     <children>
         <ImageView fitHeight="670.0" fitWidth="1190.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../assets/img/customers.jpg"/>
+                <Image url="@../assets/img/customers.jpg" />
             </image>
         </ImageView>
-        <TextField fx:id="txtBuildCode" editable="false" layoutX="48.0" layoutY="28.0" prefHeight="19.0"
-                   prefWidth="187.0">
+        <TextField fx:id="txtBuildCode" editable="false" layoutX="48.0" layoutY="28.0" prefHeight="31.0" prefWidth="155.0">
             <font>
-                <Font name="Times New Roman" size="17.0"/>
+                <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtBuildDate" editable="false" layoutX="48.0" layoutY="100.0" prefHeight="0.0"
-                   prefWidth="187.0">
+        <TextField fx:id="txtBuildDate" editable="false" layoutX="48.0" layoutY="100.0" prefHeight="31.0" prefWidth="155.0">
             <font>
-                <Font name="Times New Roman" size="17.0"/>
+                <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <Button layoutX="955.0" layoutY="28.0" mnemonicParsing="false" onAction="#addToCartOnAction" prefHeight="0.0"
-                prefWidth="187.0" style="-fx-background-color: lightblue;" text="Add to Cart">
+        <Button layoutX="986.0" layoutY="28.0" mnemonicParsing="false" onAction="#addToCartOnAction" prefHeight="0.0" prefWidth="155.0" style="-fx-background-color: lightblue;" text="Add to Cart">
             <font>
-                <Font name="Times New Roman Bold" size="17.0"/>
+                <Font name="Times New Roman Bold" size="17.0" />
             </font>
         </Button>
         <TableView fx:id="tblCustomBuild" layoutX="47.0" layoutY="173.0" prefHeight="418.0" prefWidth="1096.0">
             <columns>
-                <TableColumn fx:id="colCode" prefWidth="183.0" text="Code"/>
-                <TableColumn fx:id="colDescription" prefWidth="183.0" text="Description"/>
-                <TableColumn fx:id="colQty" prefWidth="183.0" text="Quantity"/>
-                <TableColumn fx:id="colUnitPrice" prefWidth="183.0" text="Unit Price"/>
-                <TableColumn fx:id="colTotal" prefWidth="183.0" text="Total"/>
-                <TableColumn fx:id="colRemove" prefWidth="179.20001220703125" text="Action"/>
+                <TableColumn fx:id="colCode" prefWidth="183.0" text="Code" />
+                <TableColumn fx:id="colDescription" prefWidth="183.0" text="Description" />
+                <TableColumn fx:id="colQty" prefWidth="183.0" text="Quantity" />
+                <TableColumn fx:id="colUnitPrice" prefWidth="183.0" text="Unit Price" />
+                <TableColumn fx:id="colTotal" prefWidth="183.0" text="Total" />
+                <TableColumn fx:id="colRemove" prefWidth="179.20001220703125" text="Action" />
             </columns>
         </TableView>
-        <ComboBox fx:id="cmbCustomerId" layoutX="274.0" layoutY="28.0" onAction="#cmbCustomerIdOnAction"
-                  prefHeight="31.0" prefWidth="187.0" promptText="Customer ID"/>
-        <ComboBox fx:id="cmbItemCode" layoutX="494.0" layoutY="28.0" onAction="#cmbItemCodeOnAction" prefHeight="31.0"
-                  prefWidth="187.0" promptText="Item Code"/>
-        <TextField fx:id="txtCustomerName" editable="false" layoutX="274.0" layoutY="100.0" prefHeight="0.0"
-                   prefWidth="187.0">
+        <ComboBox fx:id="cmbCustomerId" layoutX="235.0" layoutY="28.0" onAction="#cmbCustomerIdOnAction" prefHeight="31.0" prefWidth="155.0" promptText="Customer ID" />
+        <ComboBox fx:id="cmbItemCode" layoutX="618.0" layoutY="28.0" onAction="#cmbItemCodeOnAction" prefHeight="31.0" prefWidth="155.0" promptText="Item Code" />
+        <TextField fx:id="txtCustomerName" editable="false" layoutX="235.0" layoutY="100.0" prefHeight="0.0" prefWidth="155.0">
             <font>
-                <Font name="Times New Roman" size="17.0"/>
+                <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtDescription" editable="false" layoutX="494.0" layoutY="100.0" prefHeight="0.0"
-                   prefWidth="187.0">
+        <TextField fx:id="txtDescription" editable="false" layoutX="618.0" layoutY="100.0" prefHeight="0.0" prefWidth="155.0">
             <font>
-                <Font name="Times New Roman" size="17.0"/>
+                <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtUnitPrice" editable="false" layoutX="720.0" layoutY="100.0" prefHeight="0.0"
-                   prefWidth="187.0">
+        <TextField fx:id="txtUnitPrice" editable="false" layoutX="804.0" layoutY="100.0" prefHeight="0.0" prefWidth="155.0">
             <font>
-                <Font name="Times New Roman" size="17.0"/>
+                <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtQtyOnHand" editable="false" layoutX="720.0" layoutY="28.0" prefHeight="0.0"
-                   prefWidth="187.0">
+        <TextField fx:id="txtQtyOnHand" editable="false" layoutX="804.0" layoutY="28.0" prefHeight="0.0" prefWidth="155.0">
             <font>
-                <Font name="Times New Roman" size="17.0"/>
+                <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtQty" layoutX="955.0" layoutY="100.0" prefHeight="0.0" prefWidth="187.0">
+        <TextField fx:id="txtQty" layoutX="986.0" layoutY="100.0" prefHeight="0.0" prefWidth="155.0">
             <font>
-                <Font name="Times New Roman" size="17.0"/>
+                <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <Button layoutX="955.0" layoutY="614.0" mnemonicParsing="false" onAction="#placeOrderOnAction" prefHeight="0.0"
-                prefWidth="187.0" style="-fx-background-color: #34495e;" text="Place Order" textFill="WHITE">
+        <Button layoutX="955.0" layoutY="614.0" mnemonicParsing="false" onAction="#placeOrderOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: #34495e;" text="Place Order" textFill="WHITE">
             <font>
-                <Font name="Times New Roman Bold" size="17.0"/>
+                <Font name="Times New Roman Bold" size="17.0" />
             </font>
         </Button>
-        <TextField fx:id="txtNetTotal" editable="false" layoutX="48.0" layoutY="614.0" prefHeight="0.0"
-                   prefWidth="187.0">
+        <TextField fx:id="txtNetTotal" editable="false" layoutX="48.0" layoutY="614.0" prefHeight="0.0" prefWidth="187.0">
             <font>
-                <Font name="Times New Roman" size="17.0"/>
+                <Font name="Times New Roman" size="17.0" />
+            </font>
+        </TextField>
+        <ComboBox fx:id="cmbEmployeeId" focusTraversable="false" layoutX="428.0" layoutY="28.0" onAction="#cmbEmployeeIdOnAction" prefHeight="31.0" prefWidth="155.0" promptText="Employee ID" />
+        <TextField fx:id="txtEmployeeName" editable="false" focusTraversable="false" layoutX="428.0" layoutY="100.0" prefHeight="0.0" prefWidth="155.0">
+            <font>
+                <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
     </children>

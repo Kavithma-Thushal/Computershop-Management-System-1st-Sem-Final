@@ -8,10 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lk.ijse.computershop.dto.Custombuilds;
-import lk.ijse.computershop.dto.Customer;
-import lk.ijse.computershop.dto.Item;
-import lk.ijse.computershop.dto.Order;
+import lk.ijse.computershop.dto.*;
 import lk.ijse.computershop.dto.tm.CustombuildsTM;
 import lk.ijse.computershop.model.*;
 
@@ -33,6 +30,10 @@ public class ManagecustombuildFormController implements Initializable {
     private ComboBox<String> cmbCustomerId;
     @FXML
     private TextField txtCustomerName;
+    @FXML
+    private ComboBox<String> cmbEmployeeId;
+    @FXML
+    private TextField txtEmployeeName;
     @FXML
     private ComboBox<String> cmbItemCode;
     @FXML
@@ -68,6 +69,7 @@ public class ManagecustombuildFormController implements Initializable {
         generateNextBuildCode();
         setCellValueFactory();
         loadCustomerIds();
+        loadEmployeeIds();
         loadItemCodes();
     }
 
@@ -107,6 +109,20 @@ public class ManagecustombuildFormController implements Initializable {
         }
     }
 
+    private void loadEmployeeIds(){
+        try {
+            ObservableList<String> observableList = FXCollections.observableArrayList();
+            List<String> employeeId = EmployeeModel.loadIds();
+
+            for (String id : employeeId) {
+                observableList.add(id);
+            }
+            cmbEmployeeId.setItems(observableList);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
+    }
+
     private void loadItemCodes() {
         try {
             ObservableList<String> observableList = FXCollections.observableArrayList();
@@ -130,6 +146,19 @@ public class ManagecustombuildFormController implements Initializable {
         try {
             Customer customer = CustomerModel.searchById(customerId);
             txtCustomerName.setText(customer.getName());
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
+    }
+
+    @FXML
+    private void cmbEmployeeIdOnAction(ActionEvent event) {
+        String employeeId = cmbEmployeeId.getValue();
+        cmbEmployeeId.setDisable(true);
+
+        try {
+            Employee employee = EmployeeModel.searchById(employeeId);
+            txtEmployeeName.setText(employee.getName());
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }

@@ -1,5 +1,6 @@
 package lk.ijse.computershop.model;
 
+import lk.ijse.computershop.dto.Customer;
 import lk.ijse.computershop.dto.Employee;
 import lk.ijse.computershop.util.CrudUtil;
 
@@ -83,5 +84,33 @@ public class EmployeeModel {
             employeeList.add(employee);
         }
         return employeeList;
+    }
+
+    public static List<String> loadIds() throws SQLException {
+        String sql = "SELECT id FROM employees ORDER BY id ASC";
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        List<String> data = new ArrayList<>();
+        while (resultSet.next()) {
+            data.add(resultSet.getString(1));
+        }
+        return data;
+    }
+
+    public static Employee searchById(String employeeId) throws SQLException {
+        String sql = "SELECT * FROM employees WHERE id = ?";
+        ResultSet resultSet = CrudUtil.execute(sql, employeeId);
+
+        if (resultSet.next()) {
+            return new Employee(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5),
+                    resultSet.getString(6)
+            );
+        }
+        return null;
     }
 }
