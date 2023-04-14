@@ -1,9 +1,14 @@
 package lk.ijse.computershop.model;
 
+import lk.ijse.computershop.dto.Employee;
+import lk.ijse.computershop.dto.Order;
+import lk.ijse.computershop.dto.tm.OrderTM;
 import lk.ijse.computershop.util.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderModel {
 
@@ -31,5 +36,16 @@ public class OrderModel {
         String sql = "INSERT INTO Orders(id, customerId) VALUES(?, ?)";
         Integer affectedRows = CrudUtil.execute(sql, orderId, customerId);
         return affectedRows > 0;
+    }
+
+    public static List<String> loadIds() throws SQLException {
+        String sql = "SELECT id FROM orders ORDER BY id ASC";
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        List<String> data = new ArrayList<>();
+        while (resultSet.next()) {
+            data.add(resultSet.getString(1));
+        }
+        return data;
     }
 }
