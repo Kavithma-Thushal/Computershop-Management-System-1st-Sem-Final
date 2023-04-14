@@ -6,17 +6,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import lk.ijse.computershop.dto.Custombuilds;
+import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.computershop.dto.Customer;
 import lk.ijse.computershop.dto.Employee;
+import lk.ijse.computershop.dto.Repair;
+import lk.ijse.computershop.dto.tm.RepairTM;
 import lk.ijse.computershop.model.CustomerModel;
 import lk.ijse.computershop.model.EmployeeModel;
 import lk.ijse.computershop.model.RepairModel;
 import lk.ijse.computershop.util.CrudUtil;
 
 import java.net.URL;
-import java.sql.Date;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -52,16 +52,50 @@ public class ManagerepairFormController implements Initializable {
     @FXML
     private TableColumn colDetails;
     @FXML
-    private TableColumn colDatetime;
+    private TableColumn colGettingDate;
     @FXML
-    private TableColumn colAccentuated;
+    private TableColumn colAcceptingDate;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setRepairDate();
         generateNextRepairCode();
+        getAll();
+        setCellValueFactory();
         loadCustomerIds();
         loadEmployeeIds();
+    }
+
+    private void setCellValueFactory() {
+        colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
+        colCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+        colEmployeeId.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
+        colDetails.setCellValueFactory(new PropertyValueFactory<>("details"));
+        colGettingDate.setCellValueFactory(new PropertyValueFactory<>("gettingDate"));
+        colAcceptingDate.setCellValueFactory(new PropertyValueFactory<>("acceptingDate"));
+    }
+
+    private void getAll() {
+        try {
+            ObservableList<RepairTM> observableList = FXCollections.observableArrayList();
+            List<Repair> repairList = RepairModel.getAll();
+
+            for (Repair repair : repairList) {
+                RepairTM repairTM = new RepairTM(
+                        repair.getCode(),
+                        repair.getCustomerId(),
+                        repair.getEmployeeId(),
+                        repair.getDetails(),
+                        repair.getGettingDate(),
+                        repair.getAcceptingDate()
+                );
+                observableList.add(repairTM);
+            }
+            tblRepair.setItems(observableList);
+
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+        }
     }
 
     private void setRepairDate() {
@@ -137,14 +171,23 @@ public class ManagerepairFormController implements Initializable {
     }
 
     @FXML
-    private void repairOnAction(ActionEvent event) throws SQLException {
+    private void repairOnAction(ActionEvent event) {
         String repairCode = txtRepairCode.getText();
         String customerId = cmbCustomerId.getValue();
         String employeeId = cmbEmployeeId.getValue();
         String details = txtDetails.getText();
         String acceptDate = txtAcceptingDate.getText();
 
-        String sql = "INSERT INTO repairs VALUES(?, ?, ?, ?, ?, ?)";
-        CrudUtil.execute(sql,repairCode,customerId,employeeId,details,String.valueOf(LocalDate.now()),acceptDate);
+        try {
+            String sql = "INSERT INTO repairs VALUES(?, ?, ?, ?, ?, ?)";
+            int affectedRows = CrudUtil.execute(sql, repairCode, customerId, employeeId, details, String.valueOf(LocalDate.now()), acceptDate);
+            if (affectedRows > 0) {
+                new Alert(Alert.AlertType.INFORMATION, "Added Successfully...!").show();
+                tblRepair.refresh();
+                getAll();
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
     }
 }
