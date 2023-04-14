@@ -6,13 +6,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import lk.ijse.computershop.dto.Custombuilds;
 import lk.ijse.computershop.dto.Customer;
 import lk.ijse.computershop.dto.Employee;
 import lk.ijse.computershop.model.CustomerModel;
 import lk.ijse.computershop.model.EmployeeModel;
 import lk.ijse.computershop.model.RepairModel;
+import lk.ijse.computershop.util.CrudUtil;
 
 import java.net.URL;
+import java.sql.Date;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -133,7 +137,14 @@ public class ManagerepairFormController implements Initializable {
     }
 
     @FXML
-    private void repairOnAction(ActionEvent event) {
-        
+    private void repairOnAction(ActionEvent event) throws SQLException {
+        String repairCode = txtRepairCode.getText();
+        String customerId = cmbCustomerId.getValue();
+        String employeeId = cmbEmployeeId.getValue();
+        String details = txtDetails.getText();
+        String acceptDate = txtAcceptingDate.getText();
+
+        String sql = "INSERT INTO repairs VALUES(?, ?, ?, ?, ?, ?)";
+        CrudUtil.execute(sql,repairCode,customerId,employeeId,details,String.valueOf(LocalDate.now()),acceptDate);
     }
 }
