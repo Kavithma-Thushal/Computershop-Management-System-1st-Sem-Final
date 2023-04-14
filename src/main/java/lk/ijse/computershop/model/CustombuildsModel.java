@@ -27,9 +27,9 @@ public class CustombuildsModel {
         return "B001";
     }
 
-    public static boolean save(String buildCode, String customerId) throws SQLException {
-        String sql = "INSERT INTO custombuilds(code, customerId) VALUES(?, ?)";
-        Integer affectedRows = CrudUtil.execute(sql, buildCode, customerId);
+    public static boolean save(String buildCode, String customerId, String employeeId) throws SQLException {
+        String sql = "INSERT INTO custombuilds(code, customerId, employeeId) VALUES(?, ? ,?)";
+        Integer affectedRows = CrudUtil.execute(sql, buildCode, customerId, employeeId);
         return affectedRows > 0;
     }
 }

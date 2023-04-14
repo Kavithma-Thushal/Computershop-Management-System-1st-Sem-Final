@@ -1,6 +1,9 @@
-DROP DATABASE IF EXISTS computershop;
-CREATE DATABASE computershop;
-USE computershop;
+DROP
+DATABASE IF EXISTS computershop;
+CREATE
+DATABASE computershop;
+USE
+computershop;
 
 CREATE TABLE customers
 (
@@ -62,12 +65,12 @@ CREATE TABLE orders
 
 CREATE TABLE custombuilds
 (
-    code        VARCHAR(5),
-    customerId  VARCHAR(5),
-    description VARCHAR(100) NOT NULL,
-    date        DATE,
+    code       VARCHAR(5),
+    customerId VARCHAR(5),
+    employeeId VARCHAR(5),
     CONSTRAINT PRIMARY KEY (code),
-    CONSTRAINT FOREIGN KEY (customerId) REFERENCES customers (id) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT FOREIGN KEY (customerId) REFERENCES customers (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FOREIGN KEY (employeeId) REFERENCES employees (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE repairs
@@ -120,10 +123,10 @@ CREATE TABLE supplier_details
 
 CREATE TABLE build_details
 (
-    buildCode   VARCHAR(5),
-    itemCode    VARCHAR(5),
-    description VARCHAR(100),
-    qty         INT,
+    buildCode VARCHAR(5),
+    itemCode  VARCHAR(5),
+    qty       INT,
+    date      DATE,
     CONSTRAINT PRIMARY KEY (buildCode, itemCode),
     CONSTRAINT FOREIGN KEY (buildCode) REFERENCES custombuilds (code) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FOREIGN KEY (itemCode) REFERENCES items (code) ON DELETE CASCADE ON UPDATE CASCADE

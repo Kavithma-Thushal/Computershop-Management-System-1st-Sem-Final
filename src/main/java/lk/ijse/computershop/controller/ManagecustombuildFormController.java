@@ -257,6 +257,7 @@ public class ManagecustombuildFormController implements Initializable {
     private void placeOrderOnAction(ActionEvent event) {
         String buildCode = txtBuildCode.getText();
         String customerId = cmbCustomerId.getValue();
+        String employeeId = cmbEmployeeId.getValue();
 
         List<Custombuilds> custombuildsList = new ArrayList<>();
 
@@ -272,7 +273,7 @@ public class ManagecustombuildFormController implements Initializable {
 
         boolean isPlaced = false;
         try {
-            isPlaced = PlaceBuildModel.placeOrder(buildCode, customerId, custombuildsList);
+            isPlaced = PlaceBuildModel.placeOrder(buildCode, customerId,employeeId, custombuildsList);
             if (isPlaced) {
                 new Alert(Alert.AlertType.INFORMATION, "Order Placed...!").show();
             } else {
