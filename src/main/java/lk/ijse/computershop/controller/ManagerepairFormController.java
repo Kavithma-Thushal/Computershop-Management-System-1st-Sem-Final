@@ -51,8 +51,6 @@ public class ManagerepairFormController implements Initializable {
     private TableColumn colDatetime;
     @FXML
     private TableColumn colAccentuated;
-    @FXML
-    private TableColumn colRemove;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
