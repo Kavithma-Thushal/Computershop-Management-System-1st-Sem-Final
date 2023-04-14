@@ -39,7 +39,7 @@
                 <TableColumn fx:id="colQty" prefWidth="183.0" text="Quantity" />
                 <TableColumn fx:id="colUnitPrice" prefWidth="183.0" text="Unit Price" />
                 <TableColumn fx:id="colTotal" prefWidth="183.0" text="Total" />
-                <TableColumn fx:id="colRemove" prefWidth="179.20001220703125" text="Action" />
+                <TableColumn fx:id="colRemove" prefWidth="179.20001220703125" text="Remove" />
             </columns>
         </TableView>
         <ComboBox fx:id="cmbCustomerId" layoutX="271.0" layoutY="37.0" onAction="#cmbCustomerIdOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Customer ID" />

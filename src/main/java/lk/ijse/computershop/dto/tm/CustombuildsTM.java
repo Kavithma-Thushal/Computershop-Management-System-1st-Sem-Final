@@ -12,5 +12,6 @@ public class CustombuildsTM {
     private Integer qty;
     private Double unitPrice;
     private Double total;
+    private Button update;
     private Button remove;
 }

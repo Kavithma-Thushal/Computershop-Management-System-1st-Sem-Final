@@ -59,6 +59,8 @@ public class ManagecustombuildFormController implements Initializable {
     @FXML
     private TableColumn colTotal;
     @FXML
+    private TableColumn colUpdate;
+    @FXML
     private TableColumn colRemove;
 
     private ObservableList<CustombuildsTM> observableList = FXCollections.observableArrayList();
@@ -92,6 +94,7 @@ public class ManagecustombuildFormController implements Initializable {
         colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+        colUpdate.setCellValueFactory(new PropertyValueFactory<>("update"));
         colRemove.setCellValueFactory(new PropertyValueFactory<>("remove"));
     }
 
@@ -193,9 +196,13 @@ public class ManagecustombuildFormController implements Initializable {
             double unitPrice = Double.parseDouble(txtUnitPrice.getText());
 
             double total = qty * unitPrice;
+
+            Button btnUpdate = new Button("Update");
+            btnUpdate.setCursor(Cursor.HAND);
+            setUpdateBtnOnAction(btnUpdate);
+
             Button btnRemove = new Button("Remove");
             btnRemove.setCursor(Cursor.HAND);
-
             setRemoveBtnOnAction(btnRemove);
 
             if (!observableList.isEmpty()) {
@@ -214,7 +221,7 @@ public class ManagecustombuildFormController implements Initializable {
                 }
             }
 
-            CustombuildsTM tm = new CustombuildsTM(code, description, qty, unitPrice, total, btnRemove);
+            CustombuildsTM tm = new CustombuildsTM(code, description, qty, unitPrice, total, btnUpdate, btnRemove);
             observableList.add(tm);
             tblCustomBuild.setItems(observableList);
             calculateNetTotal();
@@ -225,15 +232,32 @@ public class ManagecustombuildFormController implements Initializable {
         }
     }
 
-    private void setRemoveBtnOnAction(Button btn) {
-        btn.setOnAction((e) -> {
+    private void setUpdateBtnOnAction(Button update){
+        update.setOnAction((e) -> {
+            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+            Optional<ButtonType> result = new Alert(Alert.AlertType.INFORMATION, "Are you sure to update?", yes, no).showAndWait();
+
+            if (result.orElse(no) == yes) {
+                /*int index = tblCustomBuild.getSelectionModel().getSelectedIndex();
+                observableList.remove(index+1);*/
+
+                tblCustomBuild.refresh();
+                calculateNetTotal();
+            }
+
+        });
+    }
+
+    private void setRemoveBtnOnAction(Button remove) {
+        remove.setOnAction((e) -> {
             ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
             ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
 
             Optional<ButtonType> result = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
 
             if (result.orElse(no) == yes) {
-
                 int index = tblCustomBuild.getSelectionModel().getSelectedIndex();
                 observableList.remove(index+1);
 
