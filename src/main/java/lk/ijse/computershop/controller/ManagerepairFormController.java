@@ -104,7 +104,7 @@ public class ManagerepairFormController implements Initializable {
 
     private void generateNextRepairCode() {
         try {
-            String code = RepairModel.getNextRepairCode();
+            String code = RepairModel.getNextDeliveryCode();
             txtRepairCode.setText(code);
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();

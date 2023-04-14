@@ -89,11 +89,11 @@ CREATE TABLE repairs
 CREATE TABLE delivery
 (
     code       VARCHAR(5),
-    employeeId VARCHAR(5),
     customerId VARCHAR(5),
+    employeeId VARCHAR(5),
     orderId    VARCHAR(5),
-    details    VARCHAR(100),
     location   VARCHAR(50) NOT NULL,
+    date       DATE        NOT NULL,
     CONSTRAINT PRIMARY KEY (code),
     CONSTRAINT FOREIGN KEY (employeeId) REFERENCES employees (id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FOREIGN KEY (customerId) REFERENCES customers (id) ON DELETE CASCADE ON UPDATE CASCADE,

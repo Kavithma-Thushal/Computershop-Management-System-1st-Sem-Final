@@ -6,30 +6,33 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import lk.ijse.computershop.dto.Delivery;
-import lk.ijse.computershop.dto.tm.DeliveryTM;
+import lk.ijse.computershop.model.CustomerModel;
 import lk.ijse.computershop.model.DeliveryModel;
+import lk.ijse.computershop.model.EmployeeModel;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ManagedeliveryFormController implements Initializable {
 
     @FXML
-    private TextField txtSearch;
+    private TextField txtDeliveryCode;
     @FXML
-    private TextField txtCode;
+    private TextField txtDeliveryDate;
     @FXML
-    private TextField txtEmployeeid;
+    private ComboBox cmbCustomerId;
     @FXML
-    private TextField txtCustomerid;
+    private TextField txtCustomerName;
     @FXML
-    private TextField txtOrderid;
+    private ComboBox cmbEmployeeId;
     @FXML
-    private TextField txtDetails;
+    private TextField txtEmployeeName;
+    @FXML
+    private ComboBox cmbOrderId;
+    @FXML
+    private TextField txtOrderDescription;
     @FXML
     private TextField txtLocation;
     @FXML
@@ -37,130 +40,82 @@ public class ManagedeliveryFormController implements Initializable {
     @FXML
     private TableColumn colCode;
     @FXML
-    private TableColumn colEmployeeid;
+    private TableColumn colCustomerId;
     @FXML
-    private TableColumn colCustomerid;
+    private TableColumn colEmployeeId;
     @FXML
-    private TableColumn colOrderid;
-    @FXML
-    private TableColumn colDetails;
+    private TableColumn colOrderId;
     @FXML
     private TableColumn colLocation;
+    @FXML
+    private TableColumn colDate;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        getAll();
-        setCellValueFactory();
+        setDeliveryDate();
+        generateNextDeliveryCode();
+        loadCustomerIds();
+        loadEmployeeIds();
     }
 
-    private void setCellValueFactory() {
-        colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
-        colEmployeeid.setCellValueFactory(new PropertyValueFactory<>("employeeid"));
-        colCustomerid.setCellValueFactory(new PropertyValueFactory<>("customerid"));
-        colOrderid.setCellValueFactory(new PropertyValueFactory<>("orderid"));
-        colDetails.setCellValueFactory(new PropertyValueFactory<>("details"));
-        colLocation.setCellValueFactory(new PropertyValueFactory<>("location"));
+    private void setDeliveryDate() {
+        txtDeliveryDate.setText(String.valueOf(LocalDate.now()));
     }
 
-    private void getAll() {
+    private void generateNextDeliveryCode() {
         try {
-            ObservableList<DeliveryTM> observableList = FXCollections.observableArrayList();
-            List<Delivery> deliveryList = DeliveryModel.getAll();
-
-            for (Delivery delivery : deliveryList) {
-                observableList.add(new DeliveryTM(
-                        delivery.getCode(),
-                        delivery.getEmployeeid(),
-                        delivery.getCustomerid(),
-                        delivery.getOrderid(),
-                        delivery.getDetails(),
-                        delivery.getLocation()
-                ));
-            }
-            tblDelivery.setItems(observableList);
+            String code = DeliveryModel.getNextDeliveryCode();
+            txtDeliveryCode.setText(code);
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
+    }
+
+    private void loadCustomerIds() {
+        try {
+            ObservableList<String> observableList = FXCollections.observableArrayList();
+            List<String> customerId = CustomerModel.loadIds();
+
+            for (String id : customerId) {
+                observableList.add(id);
+            }
+            cmbCustomerId.setItems(observableList);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
+    }
+
+    private void loadEmployeeIds() {
+        try {
+            ObservableList<String> observableList = FXCollections.observableArrayList();
+            List<String> employeeId = EmployeeModel.loadIds();
+
+            for (String id : employeeId) {
+                observableList.add(id);
+            }
+            cmbEmployeeId.setItems(observableList);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 
     @FXML
-    private void saveOnAction(ActionEvent event) {
-        try {
-            Delivery delivery = new Delivery(
-                    txtCode.getText(),
-                    txtEmployeeid.getText(),
-                    txtCustomerid.getText(),
-                    txtOrderid.getText(),
-                    txtDetails.getText(),
-                    txtLocation.getText()
-            );
+    private void cmbCustomerIdOnAction(ActionEvent event) {
 
-            if (DeliveryModel.save(delivery) > 0) {
-                new Alert(Alert.AlertType.INFORMATION, "Saved Successfully...!").show();
-                tblDelivery.refresh();
-                getAll();
-            }
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
-        }
     }
 
     @FXML
-    private void searchOnAction(ActionEvent event) {
-        try {
-            Delivery delivery = DeliveryModel.search(txtSearch.getText());
-            if (delivery != null) {
-                txtCode.setText(delivery.getCode());
-                txtEmployeeid.setText(delivery.getEmployeeid());
-                txtCustomerid.setText(delivery.getCustomerid());
-                txtOrderid.setText(delivery.getOrderid());
-                txtDetails.setText(delivery.getDetails());
-                txtLocation.setText(delivery.getLocation());
-            }
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
-        }
+    private void cmbEmployeeIdOnAction(ActionEvent event) {
+
     }
 
     @FXML
-    private void updateOnAction(ActionEvent event) {
-        try {
-            Delivery delivery = new Delivery(
-                    txtCode.getText(),
-                    txtEmployeeid.getText(),
-                    txtCustomerid.getText(),
-                    txtOrderid.getText(),
-                    txtDetails.getText(),
-                    txtLocation.getText()
-            );
+    private void cmbOrderIdOnAction(ActionEvent event) {
 
-            if (DeliveryModel.update(delivery) > 0) {
-                new Alert(Alert.AlertType.INFORMATION, "Updated Successfully...!").show();
-                tblDelivery.refresh();
-                getAll();
-            }
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
-        }
     }
 
     @FXML
-    private void deleteOnAction(ActionEvent event) {
-        try {
-            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
-            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+    private void deliverOnAction(ActionEvent event) {
 
-            Optional<ButtonType> buttonType = new Alert(Alert.AlertType.WARNING, "Are you sure...?", yes, no).showAndWait();
-
-            if (buttonType.orElse(yes) == yes) {
-                if (DeliveryModel.delete(txtCode.getText()) > 0) {
-                    new Alert(Alert.AlertType.INFORMATION, "Deleted Successfully...!").show();
-                    tblDelivery.refresh();
-                    getAll();
-                }
-            }
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
-        }
     }
 }

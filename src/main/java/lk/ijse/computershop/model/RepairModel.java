@@ -50,7 +50,7 @@ public class RepairModel {
         return null;
     }
 
-    public static String getNextRepairCode() throws SQLException {
+    public static String getNextDeliveryCode() throws SQLException {
         String sql = "SELECT code FROM repairs ORDER BY code DESC LIMIT 1";
         ResultSet resultSet = CrudUtil.execute(sql);
 

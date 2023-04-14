@@ -4,7 +4,6 @@ import lk.ijse.computershop.util.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 public class OrderModel {
 
     public static String getNextOrderId() throws SQLException {

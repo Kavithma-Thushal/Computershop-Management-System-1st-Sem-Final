@@ -7,9 +7,9 @@ import lombok.Data;
 @AllArgsConstructor
 public class DeliveryTM {
     private String code;
-    private String employeeid;
-    private String customerid;
-    private String orderid;
-    private String details;
+    private String customerId;
+    private String employeeId;
+    private String orderId;
     private String location;
+    private String date;
 }
