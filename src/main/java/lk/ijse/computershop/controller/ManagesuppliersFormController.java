@@ -148,6 +148,8 @@ public class ManagesuppliersFormController implements Initializable {
             isPlaced = AddSupplyModel.addSupplier(supplierId, supplyDate, name, contact, address, itemCode, supplyQty);
             if (isPlaced) {
                 new Alert(Alert.AlertType.INFORMATION, "Supplier added...!").show();
+                tblsupplier.refresh();
+                getAll();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Supplier is not added...!").show();
             }
