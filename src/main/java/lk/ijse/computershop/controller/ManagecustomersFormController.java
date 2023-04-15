@@ -48,7 +48,6 @@ public class ManagecustomersFormController implements Initializable {
     @FXML
     private TableColumn colAddress;
 
-    @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getAll();
