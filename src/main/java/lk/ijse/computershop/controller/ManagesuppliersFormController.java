@@ -114,12 +114,11 @@ public class ManagesuppliersFormController implements Initializable {
         String contact = txtSupplyContact.getText();
         String address = txtSupplyAddress.getText();
         String itemCode = cmbItemCode.getValue();
-        String itemDescription = txtItemDescription.getText();
         String supplyQty = txtQty.getText();
 
         boolean isPlaced = false;
         try {
-            isPlaced = AddSupplyModel.addSupplier(supplierId, supplyDate, name, contact, address, itemCode, itemDescription, supplyQty);
+            isPlaced = AddSupplyModel.addSupplier(supplierId, supplyDate, name, contact, address, itemCode, supplyQty);
             if (isPlaced) {
                 new Alert(Alert.AlertType.INFORMATION, "Supplier added...!").show();
             } else {

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class AddSupplyModel {
 
-    public static boolean addSupplier(String supplierId,String supplyDate,String name,String contact,String address,String itemCode,String itemDescription,String supplyQty) throws SQLException {
+    public static boolean addSupplier(String supplierId,String supplyDate,String name,String contact,String address,String itemCode,String supplyQty) throws SQLException {
         Connection connection = null;
         try {
             connection = DBConnection.getInstance().getConnection();
