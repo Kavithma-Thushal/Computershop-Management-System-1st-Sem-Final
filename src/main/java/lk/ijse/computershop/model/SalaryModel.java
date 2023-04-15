@@ -10,17 +10,6 @@ import java.util.List;
 
 public class SalaryModel {
 
-    public static int save(Salary salary) throws SQLException {
-        String sql = "INSERT INTO salary VALUES (?,?,?,?)";
-        return CrudUtil.execute(
-                sql,
-                salary.getCode(),
-                salary.getEmployeeid(),
-                salary.getAmount(),
-                salary.getDatetime()
-        );
-    }
-
     public static Salary search(String code) throws SQLException {
 
         String sql = "SELECT * FROM salary WHERE code=?";
@@ -35,23 +24,6 @@ public class SalaryModel {
             );
         }
         return null;
-    }
-
-    public static int update(Salary salary) throws SQLException {
-
-        String sql = "UPDATE salary SET employeeid=? , amount=? , datetime=? WHERE code=?";
-        return CrudUtil.execute(
-                sql,
-                salary.getEmployeeid(),
-                salary.getAmount(),
-                salary.getDatetime(),
-                salary.getCode()
-        );
-    }
-
-    public static int delete(String code) throws SQLException {
-        String sql = "DELETE FROM salary WHERE code=?";
-        return CrudUtil.execute(sql, code);
     }
 
     public static List<Salary> getAll() throws SQLException {
@@ -70,5 +42,25 @@ public class SalaryModel {
             salaryList.add(salary);
         }
         return salaryList;
+    }
+
+    public static String getNextSalaryCode() throws SQLException {
+        String sql = "SELECT code FROM salary ORDER BY code DESC LIMIT 1";
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        if (resultSet.next()) {
+            return splitSalaryCode(resultSet.getString(1));
+        }
+        return splitSalaryCode(null);
+    }
+
+    private static String splitSalaryCode(String currentId) {
+        if (currentId != null) {
+            String[] strings = currentId.split("Sl0");
+            int id = Integer.parseInt(strings[1]);
+            id++;
+            return "Sl0" + id;
+        }
+        return "Sl01";
     }
 }

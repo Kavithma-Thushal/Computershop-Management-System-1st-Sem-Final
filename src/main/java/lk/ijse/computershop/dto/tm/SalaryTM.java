@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class SalaryTM {
     private String code;
-    private String employeeid;
+    private String employeeName;
     private Double amount;
-    private String datetime;
+    private String date;
 }

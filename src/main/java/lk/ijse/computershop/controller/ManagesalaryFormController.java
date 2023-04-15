@@ -7,23 +7,26 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.computershop.dto.Employee;
 import lk.ijse.computershop.dto.Salary;
 import lk.ijse.computershop.dto.tm.SalaryTM;
+import lk.ijse.computershop.model.EmployeeModel;
 import lk.ijse.computershop.model.SalaryModel;
+import lk.ijse.computershop.util.CrudUtil;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ManagesalaryFormController implements Initializable {
 
     @FXML
-    private TextField txtSearch;
-    @FXML
     private TextField txtCode;
     @FXML
-    private TextField txtEmployeeid;
+    private ComboBox<String> cmbEmployeeId;
+    @FXML
+    private TextField txtEmployeeName;
     @FXML
     private TextField txtAmount;
     @FXML
@@ -38,18 +41,36 @@ public class ManagesalaryFormController implements Initializable {
     private TableColumn colAmount;
     @FXML
     private TableColumn colDatetime;
+    @FXML
+    private TextField txtSearch;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getAll();
         setCellValueFactory();
+        setSalaryDate();
+        generateNextSalaryCode();
+        loadEmployeeIds();
     }
 
     private void setCellValueFactory() {
         colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
-        colEmployeeid.setCellValueFactory(new PropertyValueFactory<>("employeeid"));
+        colEmployeeid.setCellValueFactory(new PropertyValueFactory<>("employeeName"));
         colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
-        colDatetime.setCellValueFactory(new PropertyValueFactory<>("datetime"));
+        colDatetime.setCellValueFactory(new PropertyValueFactory<>("date"));
+    }
+
+    private void setSalaryDate() {
+        txtDatetime.setText(String.valueOf(LocalDate.now()));
+    }
+
+    private void generateNextSalaryCode() {
+        try {
+            String code = SalaryModel.getNextSalaryCode();
+            txtCode.setText(code);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
     }
 
     private void getAll() {
@@ -60,32 +81,12 @@ public class ManagesalaryFormController implements Initializable {
             for (Salary salary : salaryList) {
                 observableList.add(new SalaryTM(
                         salary.getCode(),
-                        salary.getEmployeeid(),
+                        salary.getEmployeeName(),
                         salary.getAmount(),
-                        salary.getDatetime()
+                        salary.getDate()
                 ));
             }
             tblSalary.setItems(observableList);
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
-        }
-    }
-
-    @FXML
-    private void saveOnAction(ActionEvent event) {
-        try {
-            Salary salary = new Salary(
-                    txtCode.getText(),
-                    txtEmployeeid.getText(),
-                    Double.parseDouble(txtAmount.getText()),
-                    txtDatetime.getText()
-            );
-
-            if (SalaryModel.save(salary) > 0) {
-                new Alert(Alert.AlertType.INFORMATION, "Saved Successfully...!").show();
-                tblSalary.refresh();
-                getAll();
-            }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
@@ -97,52 +98,58 @@ public class ManagesalaryFormController implements Initializable {
             Salary salary = SalaryModel.search(txtSearch.getText());
             if (salary != null) {
                 txtCode.setText(salary.getCode());
-                txtEmployeeid.setText(salary.getEmployeeid());
+                txtEmployeeName.setText(salary.getEmployeeName());
                 txtAmount.setText(String.valueOf(salary.getAmount()));
-                txtDatetime.setText(String.valueOf(salary.getDatetime()));
+                txtDatetime.setText(String.valueOf(salary.getDate()));
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
     }
 
-    @FXML
-    private void updateOnAction(ActionEvent event) {
+    private void loadEmployeeIds() {
         try {
-            Salary salary = new Salary(
-                    txtCode.getText(),
-                    txtEmployeeid.getText(),
-                    Double.parseDouble(txtAmount.getText()),
-                    txtDatetime.getText()
-            );
+            ObservableList<String> observableList = FXCollections.observableArrayList();
+            List<String> employeeId = EmployeeModel.loadIds();
 
-            if (SalaryModel.update(salary) > 0) {
-                new Alert(Alert.AlertType.INFORMATION, "Updated Successfully...!").show();
+            for (String id : employeeId) {
+                observableList.add(id);
+            }
+            cmbEmployeeId.setItems(observableList);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
+    }
+
+    @FXML
+    private void cmbEmployeeIdOnAction(ActionEvent event) {
+        String employeeId = cmbEmployeeId.getValue();
+        cmbEmployeeId.setDisable(true);
+
+        try {
+            Employee employee = EmployeeModel.searchById(employeeId);
+            txtEmployeeName.setText(employee.getName());
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
+    }
+
+    @FXML
+    private void payOnAction(ActionEvent event) {
+        String salaryCode = txtCode.getText();
+        String employeeId = cmbEmployeeId.getValue();
+        String amount = txtAmount.getText();
+
+        try {
+            String sql = "INSERT INTO salary VALUES(?, ?, ?, ?)";
+            int affectedRows = CrudUtil.execute(sql, salaryCode, employeeId, amount, String.valueOf(LocalDate.now()));
+            if (affectedRows > 0) {
+                new Alert(Alert.AlertType.INFORMATION, "Paid Successfully...!").show();
                 tblSalary.refresh();
                 getAll();
             }
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
-        }
-    }
-
-    @FXML
-    private void deleteOnAction(ActionEvent event) {
-        try {
-            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
-            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
-
-            Optional<ButtonType> buttonType = new Alert(Alert.AlertType.WARNING, "Are you sure...?", yes, no).showAndWait();
-
-            if (buttonType.orElse(yes) == yes) {
-                if (SalaryModel.delete(txtCode.getText()) > 0) {
-                    new Alert(Alert.AlertType.INFORMATION, "Deleted Successfully...!").show();
-                    tblSalary.refresh();
-                    getAll();
-                }
-            }
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 }
