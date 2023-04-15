@@ -63,7 +63,8 @@
                     </font>
                 </Label>
                 <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="885.0" layoutY="14.0"
-                           onMouseClicked="#infoOnAction" pickOnBounds="true" preserveRatio="true">
+                           onMouseClicked="#infoOnAction" onMouseEntered="#playMouseEnterAnimationlogo"
+                           onMouseExited="#playMouseExitAnimationlogo" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../assets/icons/info.png"/>
                     </image>
@@ -87,7 +88,8 @@
                     </font>
                 </Label>
                 <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="885.0" layoutY="60.0"
-                           onMouseClicked="#goToFacebookOnAction" pickOnBounds="true" preserveRatio="true">
+                           onMouseClicked="#goToFacebookOnAction" onMouseEntered="#playMouseEnterAnimationlogo"
+                           onMouseExited="#playMouseExitAnimationlogo" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../assets/icons/facebook.png"/>
                     </image>
@@ -96,7 +98,8 @@
                     </cursor>
                 </ImageView>
                 <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="885.0" layoutY="108.0"
-                           onMouseClicked="#goToGoogleOnAction" pickOnBounds="true" preserveRatio="true">
+                           onMouseClicked="#goToGoogleOnAction" onMouseEntered="#playMouseEnterAnimationlogo"
+                           onMouseExited="#playMouseExitAnimationlogo" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../assets/icons/google.png"/>
                     </image>

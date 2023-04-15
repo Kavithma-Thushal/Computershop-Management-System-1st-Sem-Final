@@ -94,6 +94,37 @@ public class LoginFormController implements Initializable {
     }
 
     @FXML
+    private void playMouseEnterAnimationlogo(MouseEvent mouseEvent) {
+        if (mouseEvent.getSource() instanceof ImageView) {
+            ImageView icon = (ImageView) mouseEvent.getSource();
+
+            ScaleTransition scaleT = new ScaleTransition(Duration.millis(200), icon);
+            scaleT.setToX(1.07);
+            scaleT.setToY(1.07);
+            scaleT.play();
+
+            DropShadow glow = new DropShadow();
+            glow.setColor(Color.BLACK);
+            glow.setWidth(5);
+            glow.setHeight(5);
+            glow.setRadius(5);
+            icon.setEffect(glow);
+        }
+    }
+
+    @FXML
+    private void playMouseExitAnimationlogo(MouseEvent mouseEvent) {
+        if (mouseEvent.getSource() instanceof ImageView) {
+            ImageView icon = (ImageView) mouseEvent.getSource();
+            ScaleTransition scaleT = new ScaleTransition(Duration.millis(200), icon);
+            scaleT.setToX(1);
+            scaleT.setToY(1);
+            scaleT.play();
+            icon.setEffect(null);
+        }
+    }
+
+    @FXML
     private void minimizeOnAction(MouseEvent mouseEvent) {
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         stage.setIconified(true);
