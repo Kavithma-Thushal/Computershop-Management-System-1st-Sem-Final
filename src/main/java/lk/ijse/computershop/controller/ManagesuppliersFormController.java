@@ -6,7 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.computershop.dto.Item;
+import lk.ijse.computershop.dto.Supply;
+import lk.ijse.computershop.dto.tm.SupplyTM;
 import lk.ijse.computershop.model.*;
 
 import java.net.URL;
@@ -45,16 +48,42 @@ public class ManagesuppliersFormController implements Initializable {
     private TableColumn colContact;
     @FXML
     private TableColumn colAddress;
-    @FXML
-    private TableColumn colItemDescription;
-    @FXML
-    private TableColumn colQty;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setSupplyDate();
+        setCellValueFactory();
+        getAll();
         generateNextSupplyId();
         loadItemCodes();
+    }
+
+    private void setCellValueFactory() {
+        colSupplyId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+    }
+
+    private void getAll() {
+        try {
+            ObservableList<SupplyTM> observableList = FXCollections.observableArrayList();
+            List<Supply> supplyList = SupplierModel.getAll();
+
+            for (Supply supply : supplyList) {
+                SupplyTM supplyTM = new SupplyTM(
+                        supply.getId(),
+                        supply.getName(),
+                        supply.getContact(),
+                        supply.getAddress()
+                );
+                observableList.add(supplyTM);
+            }
+            tblsupplier.setItems(observableList);
+
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+        }
     }
 
     private void setSupplyDate() {
