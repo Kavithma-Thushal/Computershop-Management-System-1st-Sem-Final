@@ -46,8 +46,6 @@ public class ManagesuppliersFormController implements Initializable {
     @FXML
     private TableColumn colAddress;
     @FXML
-    private TableColumn colItemCode;
-    @FXML
     private TableColumn colItemDescription;
     @FXML
     private TableColumn colQty;
