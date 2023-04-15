@@ -100,6 +100,7 @@ public class ItemModel {
         return null;
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////Orders
     public static boolean updateQty(List<Order> orderList) throws SQLException {
         for (Order orderDetails : orderList) {
             if (!updateQty(orderDetails)) {
@@ -115,7 +116,7 @@ public class ItemModel {
         return affectedRows > 0;
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////Custom Build
     public static boolean updateBuildQty(List<Custombuilds> custombuildsList) throws SQLException {
         for (Custombuilds custombuilds : custombuildsList) {
             if (!updateBuildQty(custombuilds)) {
@@ -128,6 +129,13 @@ public class ItemModel {
     private static boolean updateBuildQty(Custombuilds custombuildsList) throws SQLException {
         String sql = "UPDATE items SET qtyOnHand = (qtyOnHand - ?) WHERE code = ?";
         Integer affectedRows = CrudUtil.execute(sql, custombuildsList.getQty(), custombuildsList.getCode());
+        return affectedRows > 0;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////Suppliers
+    public static boolean updateSupplyQty(String itemCode,String supplyQty) throws SQLException {
+        String sql = "UPDATE items SET qtyOnHand = (qtyOnHand + ?) WHERE code = ?";
+        Integer affectedRows = CrudUtil.execute(sql, supplyQty, itemCode);
         return affectedRows > 0;
     }
 }

@@ -1,6 +1,5 @@
 package lk.ijse.computershop.model;
 
-import lk.ijse.computershop.dto.Customer;
 import lk.ijse.computershop.dto.Repair;
 import lk.ijse.computershop.util.CrudUtil;
 

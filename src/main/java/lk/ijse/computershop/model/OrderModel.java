@@ -1,8 +1,5 @@
 package lk.ijse.computershop.model;
 
-import lk.ijse.computershop.dto.Employee;
-import lk.ijse.computershop.dto.Order;
-import lk.ijse.computershop.dto.tm.OrderTM;
 import lk.ijse.computershop.util.CrudUtil;
 
 import java.sql.ResultSet;

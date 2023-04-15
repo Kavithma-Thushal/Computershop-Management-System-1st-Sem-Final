@@ -116,6 +116,7 @@ CREATE TABLE supplier_details
     supplierId VARCHAR(5),
     itemCode   VARCHAR(5),
     qty        INT,
+    date       DATE,
     CONSTRAINT PRIMARY KEY (supplierId, itemCode),
     CONSTRAINT FOREIGN KEY (supplierId) REFERENCES suppliers (id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FOREIGN KEY (itemCode) REFERENCES items (code) ON DELETE CASCADE ON UPDATE CASCADE
