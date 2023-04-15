@@ -7,116 +7,149 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainRoot" prefHeight="900.0" prefWidth="1550.0" styleClass="dashboard" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.LoginFormController">
+<AnchorPane fx:id="mainRoot" prefHeight="900.0" prefWidth="1550.0" styleClass="dashboard"
+            stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.computershop.controller.LoginFormController">
     <children>
-        <Label prefHeight="98.0" prefWidth="1550.0" styleClass="lblTop" />
-        <Label layoutX="555.0" layoutY="28.0" prefHeight="67.0" prefWidth="440.0" text="Bashi Computers" textFill="WHITE">
+        <Label prefHeight="98.0" prefWidth="1550.0" styleClass="lblTop"/>
+        <Label layoutX="555.0" layoutY="28.0" prefHeight="67.0" prefWidth="440.0" text="Bashi Computers"
+               textFill="WHITE">
             <font>
-                <Font name="Times New Roman Bold" size="59.0" />
+                <Font name="Times New Roman Bold" size="59.0"/>
             </font>
         </Label>
-        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1511.0" layoutY="38.0" onMouseClicked="#closeOnAction" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1511.0" layoutY="38.0" onMouseClicked="#closeOnAction"
+                   pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../assets/icons/close.jpg" />
+                <Image url="@../assets/icons/close.jpg"/>
             </image>
             <cursor>
-                <Cursor fx:constant="HAND" />
+                <Cursor fx:constant="HAND"/>
             </cursor>
         </ImageView>
-        <AnchorPane layoutX="312.0" layoutY="228.0" prefHeight="530.0" prefWidth="934.0" style="-fx-background-radius: 25;" styleClass="loginDashboard">
+        <AnchorPane layoutX="312.0" layoutY="228.0" prefHeight="530.0" prefWidth="934.0"
+                    style="-fx-background-radius: 25;" styleClass="loginDashboard">
             <children>
-                <AnchorPane layoutX="46.0" layoutY="37.0" prefHeight="458.0" prefWidth="450.0" styleClass="loginCashierAdmin">
+                <AnchorPane layoutX="46.0" layoutY="37.0" prefHeight="458.0" prefWidth="450.0"
+                            styleClass="loginCashierAdmin">
                     <children>
-                        <ImageView fitHeight="271.0" fitWidth="346.0" layoutX="54.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="271.0" fitWidth="346.0" layoutX="54.0" layoutY="148.0" pickOnBounds="true"
+                                   preserveRatio="true">
                             <image>
-                                <Image url="@../assets/img/laptop.gif" />
+                                <Image url="@../assets/img/laptop.gif"/>
                             </image>
                         </ImageView>
                         <Label layoutX="80.0" layoutY="51.0" text="Warmly Welcome...!" textFill="#303b73">
                             <font>
-                                <Font name="Times New Roman Bold" size="32.0" />
+                                <Font name="Times New Roman Bold" size="32.0"/>
                             </font>
                         </Label>
-                        <AnchorPane fx:id="root" layoutX="35.0" layoutY="29.0" prefHeight="393.0" prefWidth="378.0" />
+                        <AnchorPane fx:id="root" layoutX="35.0" layoutY="29.0" prefHeight="393.0" prefWidth="378.0"/>
                     </children>
                 </AnchorPane>
-                <ImageView fitHeight="217.0" fitWidth="176.0" layoutX="644.0" layoutY="295.0" onMouseClicked="#cashierLoginOnAction" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="217.0" fitWidth="176.0" layoutX="644.0" layoutY="295.0"
+                           onMouseClicked="#cashierLoginOnAction" onMouseEntered="#playMouseEnterAnimation"
+                           onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../assets/icons/cashier.png" />
+                        <Image url="@../assets/icons/cashier.png"/>
                     </image>
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                 </ImageView>
                 <Label layoutX="678.0" layoutY="461.0" text="Cashier">
                     <font>
-                        <Font name="Arial Rounded MT Bold" size="28.0" />
+                        <Font name="Arial Rounded MT Bold" size="28.0"/>
                     </font>
                 </Label>
-                <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="885.0" layoutY="14.0" onMouseClicked="#infoOnAction" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="885.0" layoutY="14.0"
+                           onMouseClicked="#infoOnAction" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../assets/icons/info.png" />
+                        <Image url="@../assets/icons/info.png"/>
                     </image>
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                 </ImageView>
-                <ImageView fitHeight="176.0" fitWidth="176.0" layoutX="642.0" layoutY="37.0" onMouseClicked="#adminLoginOnAction" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="176.0" fitWidth="176.0" layoutX="642.0" layoutY="37.0"
+                           onMouseClicked="#adminLoginOnAction" onMouseEntered="#playMouseEnterAnimation"
+                           onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../assets/icons/admin.png" />
+                        <Image url="@../assets/icons/admin.png"/>
                     </image>
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                 </ImageView>
                 <Label layoutX="688.0" layoutY="220.0" text="Admin">
                     <font>
-                        <Font name="Arial Rounded MT Bold" size="28.0" />
+                        <Font name="Arial Rounded MT Bold" size="28.0"/>
                     </font>
                 </Label>
+                <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="885.0" layoutY="60.0"
+                           onMouseClicked="#goToFacebookOnAction" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/icons/facebook.png"/>
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </ImageView>
+                <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="885.0" layoutY="108.0"
+                           onMouseClicked="#goToGoogleOnAction" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/icons/google.png"/>
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </ImageView>
             </children>
         </AnchorPane>
         <Label layoutX="24.0" layoutY="867.0" text="Version 2023.0.0.1">
             <font>
-                <Font name="Times New Roman Bold" size="18.0" />
+                <Font name="Times New Roman Bold" size="18.0"/>
             </font>
         </Label>
-        <Label layoutX="1073.0" layoutY="868.0" styleClass="copyRight" text="© 2023  All Right Reserved Designed By Kavithma Thushal">
+        <Label layoutX="1073.0" layoutY="868.0" styleClass="copyRight"
+               text="© 2023  All Right Reserved Designed By Kavithma Thushal">
             <font>
-                <Font name="Times New Roman Bold" size="18.0" />
+                <Font name="Times New Roman Bold" size="18.0"/>
             </font>
         </Label>
-        <Label layoutX="450.0" layoutY="788.0" prefHeight="38.0" prefWidth="649.0" text="The best way to create your future in smart .......!">
+        <Label layoutX="450.0" layoutY="788.0" prefHeight="38.0" prefWidth="649.0"
+               text="The best way to create your future in smart .......!">
             <font>
-                <Font name="Times New Roman Bold" size="31.0" />
+                <Font name="Times New Roman Bold" size="31.0"/>
             </font>
         </Label>
         <Label layoutX="24.0" layoutY="114.0" text="Date : ">
             <font>
-                <Font name="Arial Rounded MT Bold" size="32.0" />
+                <Font name="Arial Rounded MT Bold" size="32.0"/>
             </font>
         </Label>
         <Label layoutX="1278.0" layoutY="114.0" text="Time : ">
             <font>
-                <Font name="Arial Rounded MT Bold" size="32.0" />
+                <Font name="Arial Rounded MT Bold" size="32.0"/>
             </font>
         </Label>
         <Label fx:id="lblDate" layoutX="123.0" layoutY="114.0" prefHeight="38.0" prefWidth="214.0">
             <font>
-                <Font name="Arial Rounded MT Bold" size="32.0" />
+                <Font name="Arial Rounded MT Bold" size="32.0"/>
             </font>
         </Label>
         <Label fx:id="lblTime" layoutX="1380.0" layoutY="114.0" prefHeight="38.0" prefWidth="149.0">
             <font>
-                <Font name="Arial Rounded MT Bold" size="32.0" />
+                <Font name="Arial Rounded MT Bold" size="32.0"/>
             </font>
         </Label>
-        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1474.0" layoutY="38.0" onMouseClicked="#minimizeOnAction" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1474.0" layoutY="38.0" onMouseClicked="#minimizeOnAction"
+                   pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../assets/icons/minimize.png" />
+                <Image url="@../assets/icons/minimize.png"/>
             </image>
             <cursor>
-                <Cursor fx:constant="HAND" />
+                <Cursor fx:constant="HAND"/>
             </cursor>
         </ImageView>
     </children>

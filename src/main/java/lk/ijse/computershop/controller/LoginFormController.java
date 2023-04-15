@@ -16,7 +16,10 @@ import javafx.util.Duration;
 import lk.ijse.computershop.util.DateAndTime;
 import lk.ijse.computershop.util.UILoader;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -37,7 +40,7 @@ public class LoginFormController implements Initializable {
         fadeScreen();
     }
 
-    private void fadeScreen(){
+    private void fadeScreen() {
         FadeTransition fadeIn = new FadeTransition(Duration.millis(500), mainRoot);
         fadeIn.setFromValue(0.0);
         fadeIn.setToValue(1.0);
@@ -99,5 +102,15 @@ public class LoginFormController implements Initializable {
     @FXML
     private void closeOnAction(MouseEvent mouseEvent) {
         System.exit(0);
+    }
+
+    @FXML
+    private void goToFacebookOnAction(MouseEvent mouseEvent) throws URISyntaxException, IOException {
+        Desktop.getDesktop().browse(new URI("https://web.facebook.com/chamacomputers.lk"));
+    }
+
+    @FXML
+    private void goToGoogleOnAction(MouseEvent mouseEvent) throws URISyntaxException, IOException {
+        Desktop.getDesktop().browse(new URI("https://www.chamacomputers.lk/"));
     }
 }
