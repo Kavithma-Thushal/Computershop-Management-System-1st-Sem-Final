@@ -147,10 +147,8 @@ public class ManagecustomersFormController implements Initializable {
 
         if (keyEvent.getCode() == KeyCode.ENTER) {
             if (response instanceof TextField) {
-                TextField errorText = (TextField) response;
-                errorText.requestFocus();
-            } else if (response instanceof Boolean) {
-                System.out.println("Work");
+                TextField txtnext = (TextField) response;
+                txtnext.requestFocus();
             }
         }
     }
