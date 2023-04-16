@@ -19,8 +19,6 @@ import java.util.ResourceBundle;
 public class ManagecustomersFormController implements Initializable {
 
     @FXML
-    private TextField txtSearch;
-    @FXML
     private TextField txtId;
     @FXML
     private TextField txtName;
@@ -46,6 +44,8 @@ public class ManagecustomersFormController implements Initializable {
     private TableColumn colContact;
     @FXML
     private TableColumn colAddress;
+    @FXML
+    private TextField txtSearch;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -95,6 +95,15 @@ public class ManagecustomersFormController implements Initializable {
         }
     }
 
+    private void allTextClear(){
+        txtId.clear();
+        txtName.clear();
+        txtNic.clear();
+        txtEmail.clear();
+        txtContact.clear();
+        txtAddress.clear();
+    }
+
     @FXML
     private void saveOnAction(ActionEvent event) {
         try {
@@ -111,6 +120,8 @@ public class ManagecustomersFormController implements Initializable {
                 new Alert(Alert.AlertType.INFORMATION, "Saved Successfully...!").show();
                 tblCustomer.refresh();
                 getAll();
+                allTextClear();
+                txtId.requestFocus();
             }
 
         } catch (Exception e) {
