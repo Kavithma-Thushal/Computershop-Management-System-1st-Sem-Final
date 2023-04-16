@@ -129,7 +129,7 @@ public class ManagecustomersFormController implements Initializable {
         }
     }
 
-    private void allTextClear() {
+    private void clearAllTxt() {
         txtId.clear();
         txtName.clear();
         txtNic.clear();
@@ -177,7 +177,7 @@ public class ManagecustomersFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
-        allTextClear();
+        clearAllTxt();
         generateNextOrderId();
         txtName.requestFocus();
     }
