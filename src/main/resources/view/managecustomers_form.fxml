@@ -36,7 +36,7 @@
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtAddress" layoutX="491.0" layoutY="108.0" prefHeight="0.0" prefWidth="187.0" promptText="Customer Address">
+        <TextField fx:id="txtAddress" layoutX="491.0" layoutY="108.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Customer Address">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>

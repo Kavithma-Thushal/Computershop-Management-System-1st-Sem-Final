@@ -70,7 +70,7 @@ public class ManagecustomersFormController implements Initializable {
         getAll();
         setCellValueFactory();
         generateNextOrderId();
-        //disableButtons();
+        disableButtons();
         storeValidations();
     }
 
@@ -136,11 +136,14 @@ public class ManagecustomersFormController implements Initializable {
         txtEmail.clear();
         txtContact.clear();
         txtAddress.clear();
+
+        disableButtons();
+        txtName.requestFocus();
     }
 
     @FXML
     private void txtKeyRelease(KeyEvent keyEvent) {
-        Object response = Validation.validate(map);
+        Object response = Validation.validate(map,btnSave);
 
         if (keyEvent.getCode() == KeyCode.ENTER) {
             if (response instanceof TextField) {
