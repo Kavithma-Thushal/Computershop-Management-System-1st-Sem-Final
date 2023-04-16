@@ -193,8 +193,11 @@ public class ManagecustomersFormController implements Initializable {
                 txtEmail.setText(customer.getEmail());
                 txtContact.setText(customer.getContact());
                 txtAddress.setText(customer.getAddress());
-            }
 
+                btnSave.setDisable(true);
+                btnUpdate.setDisable(false);
+                btnDelete.setDisable(false);
+            }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
@@ -220,6 +223,7 @@ public class ManagecustomersFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
+        clearAllTxt();
     }
 
     @FXML
@@ -240,5 +244,6 @@ public class ManagecustomersFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
+        clearAllTxt();
     }
 }
