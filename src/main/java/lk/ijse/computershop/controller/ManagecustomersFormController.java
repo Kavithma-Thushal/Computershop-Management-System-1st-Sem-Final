@@ -7,14 +7,19 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.computershop.dto.Customer;
 import lk.ijse.computershop.dto.tm.CustomerTM;
 import lk.ijse.computershop.model.CustomerModel;
+import lk.ijse.computershop.util.Validation;
 
 import java.net.URL;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class ManagecustomersFormController implements Initializable {
 
@@ -53,12 +58,20 @@ public class ManagecustomersFormController implements Initializable {
     @FXML
     private TextField txtSearch;
 
+    LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
+    Pattern name = Pattern.compile("^([A-Z a-z]{5,40})$");
+    Pattern nic = Pattern.compile("^([0-9]{12}|[0-9V]{10})$");
+    Pattern email=Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$");
+    Pattern contact = Pattern.compile("^(07(0|1|2|4|5|6|7|8)[0-9]{7})$");
+    Pattern address = Pattern.compile("^([A-Za-z]{4,10})$");
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getAll();
         setCellValueFactory();
         generateNextOrderId();
         //disableButtons();
+        storeValidations();
     }
 
     private void disableButtons() {
@@ -83,6 +96,14 @@ public class ManagecustomersFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
+    }
+
+    private void storeValidations() {
+        map.put(txtName, name);
+        map.put(txtNic, nic);
+        map.put(txtEmail, email);
+        map.put(txtContact, contact);
+        map.put(txtAddress, address);
     }
 
     private void getAll() {
@@ -115,6 +136,20 @@ public class ManagecustomersFormController implements Initializable {
         txtEmail.clear();
         txtContact.clear();
         txtAddress.clear();
+    }
+
+    @FXML
+    private void txtKeyRelease(KeyEvent keyEvent) {
+        Object response = Validation.validate(map);
+
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            if (response instanceof TextField) {
+                TextField errorText = (TextField) response;
+                errorText.requestFocus();
+            } else if (response instanceof Boolean) {
+                System.out.println("Work");
+            }
+        }
     }
 
     @FXML
