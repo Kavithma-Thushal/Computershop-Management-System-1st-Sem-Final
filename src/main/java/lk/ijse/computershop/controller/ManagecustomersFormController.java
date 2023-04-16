@@ -10,7 +10,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.computershop.dto.Customer;
 import lk.ijse.computershop.dto.tm.CustomerTM;
 import lk.ijse.computershop.model.CustomerModel;
-import lombok.SneakyThrows;
 
 import java.net.URL;
 import java.util.List;
