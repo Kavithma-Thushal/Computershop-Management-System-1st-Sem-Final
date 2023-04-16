@@ -45,6 +45,12 @@ public class ManagecustomersFormController implements Initializable {
     @FXML
     private TableColumn colAddress;
     @FXML
+    private Button btnSave;
+    @FXML
+    private Button btnUpdate;
+    @FXML
+    private Button btnDelete;
+    @FXML
     private TextField txtSearch;
 
     @Override
@@ -52,6 +58,13 @@ public class ManagecustomersFormController implements Initializable {
         getAll();
         setCellValueFactory();
         generateNextOrderId();
+        //disableButtons();
+    }
+
+    private void disableButtons() {
+        btnSave.setDisable(true);
+        btnUpdate.setDisable(true);
+        btnDelete.setDisable(true);
     }
 
     private void setCellValueFactory() {
@@ -95,7 +108,7 @@ public class ManagecustomersFormController implements Initializable {
         }
     }
 
-    private void allTextClear(){
+    private void allTextClear() {
         txtId.clear();
         txtName.clear();
         txtNic.clear();
@@ -107,26 +120,30 @@ public class ManagecustomersFormController implements Initializable {
     @FXML
     private void saveOnAction(ActionEvent event) {
         try {
-            Customer customer = new Customer(
-                    txtId.getText(),
-                    txtName.getText(),
-                    txtNic.getText(),
-                    txtEmail.getText(),
-                    txtContact.getText(),
-                    txtAddress.getText()
-            );
+            Customer customer = null;
+            if (!txtName.getText().isEmpty() && !txtNic.getText().isEmpty() && !txtEmail.getText().isEmpty() && !txtContact.getText().isEmpty() && !txtAddress.getText().isEmpty()) {
+                customer = new Customer(
+                        txtId.getText(),
+                        txtName.getText(),
+                        txtNic.getText(),
+                        txtEmail.getText(),
+                        txtContact.getText(),
+                        txtAddress.getText()
+                );
+            }
 
             if (CustomerModel.save(customer) > 0) {
                 new Alert(Alert.AlertType.INFORMATION, "Saved Successfully...!").show();
                 tblCustomer.refresh();
                 getAll();
-                allTextClear();
-                txtId.requestFocus();
             }
 
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
+        allTextClear();
+        generateNextOrderId();
+        txtName.requestFocus();
     }
 
     @FXML

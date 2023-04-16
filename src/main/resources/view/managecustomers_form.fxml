@@ -53,20 +53,20 @@
                 <Font name="Times New Roman" size="17.0"/>
             </font>
         </TextField>
-        <Button layoutX="717.0" layoutY="37.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="0.0"
-                prefWidth="187.0" style="-fx-background-color: lightblue;" text="Save">
+        <Button fx:id="btnSave" layoutX="717.0" layoutY="37.0" mnemonicParsing="false" onAction="#saveOnAction"
+                prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Save">
             <font>
                 <Font name="Times New Roman Bold" size="17.0"/>
             </font>
         </Button>
-        <Button layoutX="717.0" layoutY="109.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="0.0"
-                prefWidth="187.0" style="-fx-background-color: lightblue;" text="Update">
+        <Button fx:id="btnUpdate" layoutX="717.0" layoutY="109.0" mnemonicParsing="false" onAction="#updateOnAction"
+                prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Update">
             <font>
                 <Font name="Times New Roman Bold" size="17.0"/>
             </font>
         </Button>
-        <Button layoutX="952.0" layoutY="109.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="0.0"
-                prefWidth="187.0" style="-fx-background-color: lightblue;" text="Delete">
+        <Button fx:id="btnDelete" layoutX="952.0" layoutY="109.0" mnemonicParsing="false" onAction="#deleteOnAction"
+                prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Delete">
             <font>
                 <Font name="Times New Roman Bold" size="17.0"/>
             </font>
