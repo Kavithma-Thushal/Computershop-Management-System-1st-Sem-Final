@@ -202,7 +202,6 @@ public class ManagecustomersFormController implements Initializable {
 
     @FXML
     private void updateOnAction(ActionEvent event) {
-
         try {
             Customer customer = new Customer(
                     txtId.getText(),
