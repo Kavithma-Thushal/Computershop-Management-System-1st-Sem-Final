@@ -10,6 +10,26 @@ import java.util.List;
 
 public class CustomerModel {
 
+    public static String getNextCustomerId() throws SQLException {
+        String sql = "SELECT id FROM customers ORDER BY id DESC LIMIT 1";
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        if (resultSet.next()) {
+            return splitCustomerId(resultSet.getString(1));
+        }
+        return splitCustomerId(null);
+    }
+
+    private static String splitCustomerId(String currentId) {
+        if (currentId != null) {
+            String[] strings = currentId.split("C");
+            int id = Integer.parseInt(strings[1]);
+            id++;
+            return "C" + id;
+        }
+        return "C1";
+    }
+
     public static int save(Customer customer) throws SQLException {
         String sql = "INSERT INTO customers VALUES (?,?,?,?,?,?)";
 
