@@ -59,11 +59,11 @@ public class ManagecustomersFormController implements Initializable {
     private TextField txtSearch;
 
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
-    Pattern name = Pattern.compile("^([A-Z a-z]{5,40})$");
+    Pattern name = Pattern.compile("^([A-Z a-z]{4,40})$");
     Pattern nic = Pattern.compile("^([0-9]{12}|[0-9V]{10})$");
-    Pattern email = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$");
+    Pattern email = Pattern.compile("^[a-z A-Z 0-9 ._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$");
     Pattern contact = Pattern.compile("^(07(0|1|2|4|5|6|7|8)[0-9]{7})$");
-    Pattern address = Pattern.compile("^([A-Za-z]{4,10})$");
+    Pattern address = Pattern.compile("^([A-Z a-z]{4,40})$");
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
