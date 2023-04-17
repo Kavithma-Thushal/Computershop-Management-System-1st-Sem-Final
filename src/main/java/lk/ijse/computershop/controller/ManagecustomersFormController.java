@@ -99,6 +99,13 @@ public class ManagecustomersFormController implements Initializable {
 
         disableButtons();
         txtName.requestFocus();
+        setBorders(txtId, txtName, txtNic, txtEmail, txtContact, txtAddress);
+    }
+
+    public void setBorders(TextField... textFields) {
+        for (TextField textField : textFields) {
+            textField.setStyle("-fx-border-color: transparent");
+        }
     }
 
     private void generateNextOrderId() {

@@ -7,19 +7,22 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.computershop.dto.Employee;
 import lk.ijse.computershop.dto.tm.EmployeeTM;
 import lk.ijse.computershop.model.EmployeeModel;
+import lk.ijse.computershop.util.Validation;
 
 import java.net.URL;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class ManageemployeesFormController implements Initializable {
 
-    @FXML
-    private TextField txtSearch;
     @FXML
     private TextField txtId;
     @FXML
@@ -46,12 +49,29 @@ public class ManageemployeesFormController implements Initializable {
     private TableColumn colUsername;
     @FXML
     private TableColumn colPassword;
+    @FXML
+    private Button btnSave;
+    @FXML
+    private Button btnUpdate;
+    @FXML
+    private Button btnDelete;
+    @FXML
+    private TextField txtSearch;
+
+    private LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
+    Pattern name = Pattern.compile("^([A-Z a-z]{4,40})$");
+    Pattern contact = Pattern.compile("^(07(0|1|2|4|5|6|7|8)[0-9]{7})$");
+    Pattern jobRole = Pattern.compile("^([A-Z a-z]{4,40})$");
+    Pattern userName = Pattern.compile("^([A-Z a-z]{4,40})$");
+    Pattern password = Pattern.compile("^[a-z A-Z 0-9 ._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$");
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getAll();
         setCellValueFactory();
         generateNextOrderId();
+        disableButtons();
+        storeValidations();
     }
 
     private void setCellValueFactory() {
@@ -63,12 +83,57 @@ public class ManageemployeesFormController implements Initializable {
         colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
     }
 
+    private void disableButtons() {
+        btnSave.setDisable(true);
+        btnUpdate.setDisable(true);
+        btnDelete.setDisable(true);
+    }
+
+    private void clearAllTxt() {
+        txtId.clear();
+        txtName.clear();
+        txtContact.clear();
+        txtJobrole.clear();
+        txtUsername.clear();
+        txtPassword.clear();
+
+        disableButtons();
+        txtName.requestFocus();
+        setBorders(txtId, txtName, txtContact, txtJobrole, txtUsername, txtPassword);
+    }
+
+    public void setBorders(TextField... textFields) {
+        for (TextField textField : textFields) {
+            textField.setStyle("-fx-border-color: transparent");
+        }
+    }
+
     private void generateNextOrderId() {
         try {
             String id = EmployeeModel.getNextEmployeeId();
             txtId.setText(id);
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
+    }
+
+    private void storeValidations() {
+        map.put(txtName, name);
+        map.put(txtContact, contact);
+        map.put(txtJobrole, jobRole);
+        map.put(txtUsername, userName);
+        map.put(txtPassword, password);
+    }
+
+    @FXML
+    private void txtKeyRelease(KeyEvent keyEvent) {
+        Object response = Validation.validate(map, btnSave);
+
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            if (response instanceof TextField) {
+                TextField txtnext = (TextField) response;
+                txtnext.requestFocus();
+            }
         }
     }
 
@@ -116,6 +181,9 @@ public class ManageemployeesFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
+        clearAllTxt();
+        generateNextOrderId();
+        txtName.requestFocus();
     }
 
     @FXML
@@ -129,6 +197,10 @@ public class ManageemployeesFormController implements Initializable {
                 txtJobrole.setText(employee.getJobrole());
                 txtUsername.setText(employee.getUsername());
                 txtPassword.setText(employee.getPassword());
+
+                btnSave.setDisable(true);
+                btnUpdate.setDisable(false);
+                btnDelete.setDisable(false);
             }
 
         } catch (Exception e) {
@@ -156,6 +228,10 @@ public class ManageemployeesFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
+        clearAllTxt();
+        txtSearch.clear();
+        generateNextOrderId();
+        txtName.requestFocus();
     }
 
     @FXML
@@ -176,5 +252,9 @@ public class ManageemployeesFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
+        clearAllTxt();
+        txtSearch.clear();
+        generateNextOrderId();
+        txtName.requestFocus();
     }
 }
