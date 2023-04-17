@@ -5,7 +5,7 @@ DATABASE computershop;
 USE
 computershop;
 
-CREATE TABLE customers
+CREATE TABLE customer
 (
     id      VARCHAR(5),
     name    VARCHAR(50) NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE customers
     CONSTRAINT PRIMARY KEY (id)
 );
 
-CREATE TABLE employees
+CREATE TABLE employee
 (
     id       VARCHAR(5),
     name     VARCHAR(50) NOT NULL,

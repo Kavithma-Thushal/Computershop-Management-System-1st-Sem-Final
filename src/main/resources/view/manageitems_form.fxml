@@ -16,42 +16,42 @@
                 <Image url="@../assets/img/customers.jpg" />
             </image>
         </ImageView>
-        <TextField fx:id="txtCode" editable="false" layoutX="45.0" layoutY="37.0" prefHeight="19.0" prefWidth="187.0">
+        <TextField fx:id="txtCode" editable="false" focusTraversable="false" layoutX="45.0" layoutY="37.0" prefHeight="19.0" prefWidth="187.0">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtDescription" layoutX="271.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0" promptText="Description">
+        <TextField fx:id="txtDescription" layoutX="271.0" layoutY="37.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Description">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtQtyonhand" layoutX="271.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0" promptText="Quantity On Hand">
+        <TextField fx:id="txtQtyonhand" focusTraversable="false" layoutX="271.0" layoutY="109.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Quantity On Hand">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtUnitprice" layoutX="45.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0" promptText="Unit Price">
+        <TextField fx:id="txtUnitprice" focusTraversable="false" layoutX="45.0" layoutY="109.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Unit Price">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <Button layoutX="717.0" layoutY="37.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Save">
+        <Button fx:id="btnSave" layoutX="717.0" layoutY="37.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Save">
             <font>
                 <Font name="Times New Roman Bold" size="17.0" />
             </font>
         </Button>
-        <Button layoutX="717.0" layoutY="109.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Update">
+        <Button fx:id="btnUpdate" layoutX="717.0" layoutY="109.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Update">
             <font>
                 <Font name="Times New Roman Bold" size="17.0" />
             </font>
         </Button>
-        <Button layoutX="952.0" layoutY="109.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Delete">
+        <Button fx:id="btnDelete" layoutX="952.0" layoutY="109.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Delete">
             <font>
                 <Font name="Times New Roman Bold" size="17.0" />
             </font>
         </Button>
-        <TableView fx:id="tblItem" layoutX="44.0" layoutY="182.0" prefHeight="448.0" prefWidth="1096.0">
+        <TableView fx:id="tblItem" focusTraversable="false" layoutX="44.0" layoutY="182.0" prefHeight="448.0" prefWidth="1096.0">
             <columns>
                 <TableColumn fx:id="colCode" prefWidth="274.0" text="Code" />
                 <TableColumn fx:id="colDescription" prefWidth="274.0" text="Description" />
@@ -59,7 +59,7 @@
                 <TableColumn fx:id="colQtyonhand" prefWidth="272.0" text="Quantity On Hand" />
             </columns>
         </TableView>
-        <TextField fx:id="txtSearch" layoutX="952.0" layoutY="37.0" onAction="#searchOnAction" prefHeight="0.0" prefWidth="187.0" promptText="Search Here" style="-fx-background-color: lightblue;">
+        <TextField fx:id="txtSearch" focusTraversable="false" layoutX="952.0" layoutY="37.0" onAction="#searchOnAction" prefHeight="0.0" prefWidth="187.0" promptText="Search Here" style="-fx-background-color: lightblue;">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
