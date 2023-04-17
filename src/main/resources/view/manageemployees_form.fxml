@@ -16,42 +16,42 @@
             <Image url="@../assets/img/customers.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="txtId" editable="false" layoutX="45.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0">
+      <TextField fx:id="txtId" editable="false" focusTraversable="false" layoutX="45.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0">
          <font>
             <Font name="Times New Roman" size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtName" layoutX="271.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0" promptText="Name">
+      <TextField fx:id="txtName" focusTraversable="false" layoutX="270.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0" promptText="Name">
          <font>
             <Font name="Times New Roman" size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtUsername" layoutX="271.0" layoutY="108.0" prefHeight="0.0" prefWidth="187.0" promptText="Username">
+      <TextField fx:id="txtUsername" focusTraversable="false" layoutX="270.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0" promptText="Username">
          <font>
             <Font name="Times New Roman" size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtJobrole" layoutX="45.0" layoutY="108.0" prefHeight="0.0" prefWidth="187.0" promptText="Job Role">
+      <TextField fx:id="txtJobrole" focusTraversable="false" layoutX="45.0" layoutY="108.0" prefHeight="0.0" prefWidth="187.0" promptText="Job Role">
          <font>
             <Font name="Times New Roman" size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtPassword" layoutX="491.0" layoutY="108.0" prefHeight="0.0" prefWidth="187.0" promptText="Password">
+      <TextField fx:id="txtPassword" focusTraversable="false" layoutX="493.0" layoutY="108.0" prefHeight="0.0" prefWidth="187.0" promptText="Password">
          <font>
             <Font name="Times New Roman" size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtContact" layoutX="491.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0" promptText="Contact">
+      <TextField fx:id="txtContact" focusTraversable="false" layoutX="493.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0" promptText="Contact">
          <font>
             <Font name="Times New Roman" size="17.0" />
          </font>
       </TextField>
-      <Button layoutX="717.0" layoutY="37.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Save">
+      <Button layoutX="723.0" layoutY="37.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Save">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
       </Button>
-      <Button layoutX="717.0" layoutY="109.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Update">
+      <Button layoutX="723.0" layoutY="109.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Update">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
@@ -63,12 +63,12 @@
       </Button>
       <TableView fx:id="tblemployee" layoutX="44.0" layoutY="182.0" prefHeight="448.0" prefWidth="1096.0">
          <columns>
-            <TableColumn fx:id="colId" prefWidth="182.0" text="ID" />
-            <TableColumn fx:id="colName" prefWidth="182.0" text="Name" />
-            <TableColumn fx:id="colContact" prefWidth="182.0" text="Contact" />
-            <TableColumn fx:id="colJobrole" prefWidth="182.0" text="Job Role" />
-            <TableColumn fx:id="colUsername" prefWidth="182.0" text="Username" />
-            <TableColumn fx:id="colPassword" prefWidth="182.0" text="Password" />
+            <TableColumn fx:id="colId" prefWidth="182.0" resizable="false" text="ID" />
+            <TableColumn fx:id="colName" prefWidth="182.0" resizable="false" text="Name" />
+            <TableColumn fx:id="colContact" prefWidth="182.0" resizable="false" text="Contact" />
+            <TableColumn fx:id="colJobrole" prefWidth="182.0" resizable="false" text="Job Role" />
+            <TableColumn fx:id="colUsername" prefWidth="182.0" resizable="false" text="Username" />
+            <TableColumn fx:id="colPassword" prefWidth="182.0" resizable="false" text="Password" />
          </columns>
       </TableView>
       <TextField fx:id="txtSearch" layoutX="952.0" layoutY="37.0" onAction="#searchOnAction" prefHeight="0.0" prefWidth="187.0" promptText="Search Here" style="-fx-background-color: lightblue;">

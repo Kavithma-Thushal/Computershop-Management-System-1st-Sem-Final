@@ -9,22 +9,22 @@
 
 <AnchorPane fx:id="root" prefHeight="900.0" prefWidth="1550.0" styleClass="root" stylesheets="@../styles/manageforms.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.CashierdashboardFormController">
     <children>
-        <Button layoutX="52.0" layoutY="233.0" mnemonicParsing="false" onAction="#managecustomersOnAction" prefHeight="6.0" prefWidth="214.0" text="Manage Customers">
+        <Button focusTraversable="false" layoutX="52.0" layoutY="233.0" mnemonicParsing="false" onAction="#managecustomersOnAction" prefHeight="6.0" prefWidth="214.0" text="Manage Customers">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
         </Button>
-        <Button layoutX="52.0" layoutY="330.0" mnemonicParsing="false" onAction="#manageordersOnAction" prefHeight="6.0" prefWidth="214.0" text="Manage Orders">
+        <Button focusTraversable="false" layoutX="52.0" layoutY="330.0" mnemonicParsing="false" onAction="#manageordersOnAction" prefHeight="6.0" prefWidth="214.0" text="Manage Orders">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
         </Button>
-        <Button layoutX="52.0" layoutY="531.0" mnemonicParsing="false" onAction="#deliveryOnAction" prefHeight="6.0" prefWidth="214.0" text="Delivery">
+        <Button focusTraversable="false" layoutX="52.0" layoutY="531.0" mnemonicParsing="false" onAction="#deliveryOnAction" prefHeight="6.0" prefWidth="214.0" text="Delivery">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
         </Button>
-        <Button layoutX="52.0" layoutY="731.0" mnemonicParsing="false" onAction="#custombuildOnAction" prefHeight="6.0" prefWidth="214.0" text="Custom Build">
+        <Button focusTraversable="false" layoutX="52.0" layoutY="731.0" mnemonicParsing="false" onAction="#custombuildOnAction" prefHeight="6.0" prefWidth="214.0" text="Custom Build">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
@@ -69,12 +69,12 @@
                 </ImageView>
             </children>
         </AnchorPane>
-        <Button layoutX="52.0" layoutY="430.0" mnemonicParsing="false" onAction="#manageitemsOnAction" prefHeight="6.0" prefWidth="214.0" text="View Store">
+        <Button focusTraversable="false" layoutX="52.0" layoutY="430.0" mnemonicParsing="false" onAction="#manageitemsOnAction" prefHeight="6.0" prefWidth="214.0" text="View Store">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
         </Button>
-        <Button layoutX="52.0" layoutY="635.0" mnemonicParsing="false" onAction="#repairOnAction" prefHeight="6.0" prefWidth="214.0" text="Repair">
+        <Button focusTraversable="false" layoutX="52.0" layoutY="635.0" mnemonicParsing="false" onAction="#repairOnAction" prefHeight="6.0" prefWidth="214.0" text="Repair">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
