@@ -15,12 +15,12 @@
                 <Font name="Arial Rounded MT Bold" size="30.0" />
             </font>
         </Label>
-        <TextField fx:id="txtUsername" layoutX="64.0" layoutY="203.0" prefHeight="26.0" prefWidth="256.0" promptText="User Name">
+        <TextField fx:id="txtUsername" focusTraversable="false" layoutX="64.0" layoutY="203.0" prefHeight="26.0" prefWidth="256.0" promptText="User Name">
             <font>
                 <Font size="15.0" />
             </font>
         </TextField>
-        <PasswordField fx:id="txtPassword" layoutX="64.0" layoutY="263.0" prefHeight="26.0" prefWidth="256.0" promptText="Password">
+        <PasswordField fx:id="txtPassword" focusTraversable="false" layoutX="64.0" layoutY="263.0" prefHeight="26.0" prefWidth="256.0" promptText="Password">
             <font>
                 <Font size="15.0" />
             </font>
