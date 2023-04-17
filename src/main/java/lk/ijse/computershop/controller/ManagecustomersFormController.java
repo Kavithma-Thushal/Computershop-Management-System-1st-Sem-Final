@@ -58,7 +58,7 @@ public class ManagecustomersFormController implements Initializable {
     @FXML
     private TextField txtSearch;
 
-    LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
+    private LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
     Pattern name = Pattern.compile("^([A-Z a-z]{4,40})$");
     Pattern nic = Pattern.compile("^([0-9]{12}|[0-9V]{10})$");
     Pattern email = Pattern.compile("^[a-z A-Z 0-9 ._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$");
