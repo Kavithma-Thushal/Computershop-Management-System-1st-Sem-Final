@@ -21,12 +21,12 @@ public class OrderModel {
 
     private static String splitOrderId(String currentId) {
         if (currentId != null) {
-            String[] strings = currentId.split("Or0");
+            String[] strings = currentId.split("O");
             int id = Integer.parseInt(strings[1]);
             id++;
-            return "Or0" + id;
+            return "O" + id;
         }
-        return "Or01";
+        return "O1";
     }
 
     public static boolean save(String orderId, String customerId) throws SQLException {
