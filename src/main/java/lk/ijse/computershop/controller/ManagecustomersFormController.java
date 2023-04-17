@@ -74,12 +74,6 @@ public class ManagecustomersFormController implements Initializable {
         storeValidations();
     }
 
-    private void disableButtons() {
-        btnSave.setDisable(true);
-        btnUpdate.setDisable(true);
-        btnDelete.setDisable(true);
-    }
-
     private void setCellValueFactory() {
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -87,6 +81,24 @@ public class ManagecustomersFormController implements Initializable {
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+    }
+
+    private void disableButtons() {
+        btnSave.setDisable(true);
+        btnUpdate.setDisable(true);
+        btnDelete.setDisable(true);
+    }
+
+    private void clearAllTxt() {
+        txtId.clear();
+        txtName.clear();
+        txtNic.clear();
+        txtEmail.clear();
+        txtContact.clear();
+        txtAddress.clear();
+
+        disableButtons();
+        txtName.requestFocus();
     }
 
     private void generateNextOrderId() {
@@ -104,6 +116,18 @@ public class ManagecustomersFormController implements Initializable {
         map.put(txtEmail, email);
         map.put(txtContact, contact);
         map.put(txtAddress, address);
+    }
+
+    @FXML
+    private void txtKeyRelease(KeyEvent keyEvent) {
+        Object response = Validation.validate(map, btnSave);
+
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            if (response instanceof TextField) {
+                TextField txtnext = (TextField) response;
+                txtnext.requestFocus();
+            }
+        }
     }
 
     private void getAll() {
@@ -126,30 +150,6 @@ public class ManagecustomersFormController implements Initializable {
 
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
-        }
-    }
-
-    private void clearAllTxt() {
-        txtId.clear();
-        txtName.clear();
-        txtNic.clear();
-        txtEmail.clear();
-        txtContact.clear();
-        txtAddress.clear();
-
-        disableButtons();
-        txtName.requestFocus();
-    }
-
-    @FXML
-    private void txtKeyRelease(KeyEvent keyEvent) {
-        Object response = Validation.validate(map, btnSave);
-
-        if (keyEvent.getCode() == KeyCode.ENTER) {
-            if (response instanceof TextField) {
-                TextField txtnext = (TextField) response;
-                txtnext.requestFocus();
-            }
         }
     }
 
@@ -224,6 +224,9 @@ public class ManagecustomersFormController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
         clearAllTxt();
+        txtSearch.clear();
+        generateNextOrderId();
+        txtName.requestFocus();
     }
 
     @FXML
@@ -245,5 +248,8 @@ public class ManagecustomersFormController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
         clearAllTxt();
+        txtSearch.clear();
+        generateNextOrderId();
+        txtName.requestFocus();
     }
 }

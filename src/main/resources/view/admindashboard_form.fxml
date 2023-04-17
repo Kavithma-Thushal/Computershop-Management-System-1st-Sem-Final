@@ -79,7 +79,7 @@
             <Font name="Times New Roman Bold" size="22.0" />
          </font>
       </Button>
-      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="1481.0" layoutY="30.0" onMouseClicked="#logoutOnAction" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1488.0" layoutY="39.0" onMouseClicked="#logoutOnAction" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/icons/logout.jpg" />
          </image>

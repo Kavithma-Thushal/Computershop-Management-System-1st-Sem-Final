@@ -63,12 +63,12 @@
         </Button>
         <TableView fx:id="tblCustomer" layoutX="44.0" layoutY="182.0" prefHeight="448.0" prefWidth="1096.0">
             <columns>
-                <TableColumn fx:id="colId" prefWidth="182.0" text="ID" />
-                <TableColumn fx:id="colName" prefWidth="182.0" text="Name" />
-                <TableColumn fx:id="colNic" prefWidth="182.0" text="NIC" />
-                <TableColumn fx:id="colEmail" prefWidth="182.0" text="Email" />
-                <TableColumn fx:id="colContact" prefWidth="182.0" text="Contact" />
-                <TableColumn fx:id="colAddress" prefWidth="182.0" text="Address" />
+                <TableColumn fx:id="colId" prefWidth="182.0" resizable="false" text="ID" />
+                <TableColumn fx:id="colName" prefWidth="182.0" resizable="false" text="Name" />
+                <TableColumn fx:id="colNic" prefWidth="182.0" resizable="false" text="NIC" />
+                <TableColumn fx:id="colEmail" prefWidth="182.0" resizable="false" text="Email" />
+                <TableColumn fx:id="colContact" prefWidth="182.0" resizable="false" text="Contact" />
+                <TableColumn fx:id="colAddress" prefWidth="182.0" resizable="false" text="Address" />
             </columns>
         </TableView>
         <TextField fx:id="txtSearch" layoutX="952.0" layoutY="37.0" onAction="#searchOnAction" prefHeight="0.0" prefWidth="187.0" promptText="Search Here" style="-fx-background-color: lightblue;">
