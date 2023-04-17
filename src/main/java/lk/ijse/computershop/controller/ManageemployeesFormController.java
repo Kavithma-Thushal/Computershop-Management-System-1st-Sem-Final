@@ -51,6 +51,7 @@ public class ManageemployeesFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getAll();
         setCellValueFactory();
+        generateNextOrderId();
     }
 
     private void setCellValueFactory() {
@@ -60,6 +61,15 @@ public class ManageemployeesFormController implements Initializable {
         colJobrole.setCellValueFactory(new PropertyValueFactory<>("jobrole"));
         colUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
         colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
+    }
+
+    private void generateNextOrderId() {
+        try {
+            String id = EmployeeModel.getNextEmployeeId();
+            txtId.setText(id);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
     }
 
     private void getAll() {

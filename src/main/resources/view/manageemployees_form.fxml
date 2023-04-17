@@ -16,7 +16,7 @@
             <Image url="@../assets/img/customers.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="txtId" layoutX="45.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0" promptText="Employee ID">
+      <TextField fx:id="txtId" editable="false" layoutX="45.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0">
          <font>
             <Font name="Times New Roman" size="17.0" />
          </font>
