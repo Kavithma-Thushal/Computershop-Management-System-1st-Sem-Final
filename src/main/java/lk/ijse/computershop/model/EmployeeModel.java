@@ -12,7 +12,7 @@ public class EmployeeModel {
 
     public static int save(Employee employee) throws SQLException {
 
-        String sql = "INSERT INTO employees VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO employee VALUES (?,?,?,?,?,?)";
 
         return CrudUtil.execute(
                 sql,
@@ -28,7 +28,7 @@ public class EmployeeModel {
 
     public static Employee search(String id) throws SQLException {
 
-        String sql = "SELECT * FROM employees WHERE id=?";
+        String sql = "SELECT * FROM employee WHERE id=?";
 
         ResultSet resultSet = CrudUtil.execute(sql, id);
 
@@ -47,7 +47,7 @@ public class EmployeeModel {
 
     public static int update(Employee employee) throws SQLException {
 
-        String sql = "UPDATE employees SET name=? , contact=? , jobrole=? , username=? , password=? WHERE id=?";
+        String sql = "UPDATE employee SET name=? , contact=? , jobrole=? , username=? , password=? WHERE id=?";
 
         return CrudUtil.execute(
                 sql,
@@ -61,14 +61,14 @@ public class EmployeeModel {
     }
 
     public static int delete(String id) throws SQLException {
-        String sql = "DELETE FROM employees WHERE id=?";
+        String sql = "DELETE FROM employee WHERE id=?";
         return CrudUtil.execute(sql, id);
     }
 
     public static List<Employee> getAll() throws SQLException {
 
         List<Employee> employeeList = new ArrayList<>();
-        String sql = "SELECT * FROM employees";
+        String sql = "SELECT * FROM employee";
         ResultSet resultSet = CrudUtil.execute(sql);
 
         while (resultSet.next()) {
@@ -86,7 +86,7 @@ public class EmployeeModel {
     }
 
     public static List<String> loadIds() throws SQLException {
-        String sql = "SELECT id FROM employees ORDER BY id ASC";
+        String sql = "SELECT id FROM employee ORDER BY id ASC";
         ResultSet resultSet = CrudUtil.execute(sql);
 
         List<String> data = new ArrayList<>();
@@ -97,7 +97,7 @@ public class EmployeeModel {
     }
 
     public static Employee searchById(String employeeId) throws SQLException {
-        String sql = "SELECT * FROM employees WHERE id = ?";
+        String sql = "SELECT * FROM employee WHERE id = ?";
         ResultSet resultSet = CrudUtil.execute(sql, employeeId);
 
         if (resultSet.next()) {
@@ -114,7 +114,7 @@ public class EmployeeModel {
     }
 
     public static String getNextEmployeeId() throws SQLException {
-        String sql = "SELECT id FROM employees ORDER BY id DESC LIMIT 1";
+        String sql = "SELECT id FROM employee ORDER BY id DESC LIMIT 1";
         ResultSet resultSet = CrudUtil.execute(sql);
 
         if (resultSet.next()) {
