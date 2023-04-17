@@ -11,7 +11,7 @@ import java.util.List;
 public class SupplierModel {
 
     public static String getNextSupplyId() throws SQLException {
-        String sql = "SELECT id FROM suppliers ORDER BY id DESC LIMIT 1";
+        String sql = "SELECT id FROM supplier ORDER BY id DESC LIMIT 1";
         ResultSet resultSet = CrudUtil.execute(sql);
 
         if (resultSet.next()) {
@@ -22,16 +22,16 @@ public class SupplierModel {
 
     private static String splitSupplyId(String currentId) {
         if (currentId != null) {
-            String[] strings = currentId.split("S00");
+            String[] strings = currentId.split("S");
             int id = Integer.parseInt(strings[1]);
             id++;
-            return "S00" + id;
+            return "S" + id;
         }
-        return "S001";
+        return "S1";
     }
 
     public static boolean save(String supplierId, String name,String contact,String address) throws SQLException {
-        String sql = "INSERT INTO suppliers VALUES(?, ?,?,?)";
+        String sql = "INSERT INTO supplier VALUES(?, ?,?,?)";
         Integer affectedRows = CrudUtil.execute(sql, supplierId, name,contact,address);
         return affectedRows > 0;
     }
@@ -39,7 +39,7 @@ public class SupplierModel {
     public static List<Supply> getAll() throws SQLException {
 
         List<Supply> supplyList = new ArrayList<>();
-        String sql = "SELECT * FROM suppliers";
+        String sql = "SELECT * FROM supplier";
         ResultSet resultSet = CrudUtil.execute(sql);
 
         while (resultSet.next()) {
