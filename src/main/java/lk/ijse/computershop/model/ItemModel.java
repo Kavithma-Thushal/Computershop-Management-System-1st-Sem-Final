@@ -100,6 +100,26 @@ public class ItemModel {
         return null;
     }
 
+    public static String getNextItemCode() throws SQLException {
+        String sql = "SELECT code FROM items ORDER BY code DESC LIMIT 1";
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        if (resultSet.next()) {
+            return splitItemCode(resultSet.getString(1));
+        }
+        return splitItemCode(null);
+    }
+
+    private static String splitItemCode(String currentId) {
+        if (currentId != null) {
+            String[] strings = currentId.split("P");
+            int id = Integer.parseInt(strings[1]);
+            id++;
+            return "P" + id;
+        }
+        return "P1";
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////Orders
     public static boolean updateQty(List<Order> orderList) throws SQLException {
         for (Order orderDetails : orderList) {

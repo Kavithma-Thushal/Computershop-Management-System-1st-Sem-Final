@@ -45,6 +45,7 @@ public class ManageitemsFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getAll();
         setCellValueFactory();
+        generateNextItemCode();
     }
 
     private void setCellValueFactory() {
@@ -52,6 +53,15 @@ public class ManageitemsFormController implements Initializable {
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         colUnitprice.setCellValueFactory(new PropertyValueFactory<>("unitprice"));
         colQtyonhand.setCellValueFactory(new PropertyValueFactory<>("qtyonhand"));
+    }
+
+    private void generateNextItemCode() {
+        try {
+            String id = ItemModel.getNextItemCode();
+            txtCode.setText(id);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
     }
 
     private void getAll() {
