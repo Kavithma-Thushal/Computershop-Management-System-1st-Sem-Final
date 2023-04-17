@@ -73,6 +73,15 @@ public class ManageordersFormController implements Initializable {
         loadItemCodes();
     }
 
+    private void setCellValueFactory() {
+        colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+        colRemove.setCellValueFactory(new PropertyValueFactory<>("remove"));
+    }
+
     private void setOrderDate() {
         txtOrderDate.setText(String.valueOf(LocalDate.now()));
     }
@@ -84,15 +93,6 @@ public class ManageordersFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
-    }
-
-    private void setCellValueFactory() {
-        colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
-        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
-        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
-        colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
-        colRemove.setCellValueFactory(new PropertyValueFactory<>("remove"));
     }
 
     private void loadCustomerIds() {
@@ -145,7 +145,6 @@ public class ManageordersFormController implements Initializable {
             Item item = ItemModel.searchById(itemCode);
             fillItemFields(item);
 
-            //txtQty.requestFocus();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
@@ -191,7 +190,9 @@ public class ManageordersFormController implements Initializable {
             observableList.add(tm);
             tblOrder.setItems(observableList);
             calculateNetTotal();
-            //txtQty.setText("");
+
+            txtQty.clear();
+            txtQty.requestFocus();
 
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
