@@ -21,8 +21,6 @@ import java.util.ResourceBundle;
 public class ItemsviewFormController implements Initializable {
 
     @FXML
-    private TextField txtSearch;
-    @FXML
     private TextField txtCode;
     @FXML
     private TextField txtDescription;
@@ -40,6 +38,8 @@ public class ItemsviewFormController implements Initializable {
     private TableColumn colUnitprice;
     @FXML
     private TableColumn colQtyonhand;
+    @FXML
+    private TextField txtSearch;
 
 
     @Override
@@ -87,5 +87,6 @@ public class ItemsviewFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
+        txtSearch.clear();
     }
 }
