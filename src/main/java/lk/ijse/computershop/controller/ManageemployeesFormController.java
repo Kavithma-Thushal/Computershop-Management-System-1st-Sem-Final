@@ -62,8 +62,8 @@ public class ManageemployeesFormController implements Initializable {
     Pattern name = Pattern.compile("^([A-Z a-z]{4,40})$");
     Pattern contact = Pattern.compile("^(07(0|1|2|4|5|6|7|8)[0-9]{7})$");
     Pattern jobRole = Pattern.compile("^([A-Z a-z]{4,40})$");
-    Pattern userName = Pattern.compile("^([A-Z a-z]{4,40})$");
-    Pattern password = Pattern.compile("^[a-z A-Z 0-9 ._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$");
+    Pattern userName = Pattern.compile("^([A-Z a-z 0-9]{4,40})$");
+    Pattern password = Pattern.compile("^([A-Za-z0-9\\W]{4,40})$");
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
