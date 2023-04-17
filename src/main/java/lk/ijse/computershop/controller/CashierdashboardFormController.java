@@ -31,32 +31,32 @@ public class CashierdashboardFormController implements Initializable {
 
     @FXML
     private void managecustomersOnAction(ActionEvent event) throws IOException {
-        UILoader.loadUiDashBoard(manageFormsRoot,"managecustomers_form");
+        UILoader.loadUiDashBoard(manageFormsRoot, "managecustomers_form");
     }
 
     @FXML
     private void manageitemsOnAction(ActionEvent event) throws IOException {
-        UILoader.loadUiDashBoard(manageFormsRoot,"itemsview_form");
+        UILoader.loadUiDashBoard(manageFormsRoot, "Viewitems_form");
     }
 
     @FXML
     private void manageordersOnAction(ActionEvent event) throws IOException {
-        UILoader.loadUiDashBoard(manageFormsRoot,"manageorders_form");
+        UILoader.loadUiDashBoard(manageFormsRoot, "manageorders_form");
     }
 
     @FXML
     private void deliveryOnAction(ActionEvent event) throws IOException {
-        UILoader.loadUiDashBoard(manageFormsRoot,"managedelivery_form");
+        UILoader.loadUiDashBoard(manageFormsRoot, "managedelivery_form");
     }
 
     @FXML
     private void custombuildOnAction(ActionEvent event) throws IOException {
-        UILoader.loadUiDashBoard(manageFormsRoot,"managecustombuild_form");
+        UILoader.loadUiDashBoard(manageFormsRoot, "managecustombuild_form");
     }
 
     @FXML
     private void repairOnAction(ActionEvent event) throws IOException {
-        UILoader.loadUiDashBoard(manageFormsRoot,"managerepair_form");
+        UILoader.loadUiDashBoard(manageFormsRoot, "managerepair_form");
     }
 
     @FXML
