@@ -67,8 +67,8 @@ public class ManageordersFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setOrderDate();
-        generateNextOrderId();
         setCellValueFactory();
+        generateNextOrderId();
         loadCustomerIds();
         loadItemCodes();
     }
@@ -209,7 +209,7 @@ public class ManageordersFormController implements Initializable {
             if (result.orElse(no) == yes) {
 
                 int index = tblOrder.getSelectionModel().getSelectedIndex();
-                observableList.remove(index+1);
+                observableList.remove(index + 1);
 
                 tblOrder.refresh();
                 calculateNetTotal();

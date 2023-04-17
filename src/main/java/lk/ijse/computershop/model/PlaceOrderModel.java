@@ -18,10 +18,10 @@ public class PlaceOrderModel {
 
             boolean isSaved = OrderModel.save(orderId, customerId);     //orders
             if (isSaved) {
-                boolean isUpdated = ItemModel.updateQty(orderList);     //items update
-                if (isUpdated) {
-                    boolean isOrdered = OrderDetailModel.save(orderId, orderList,LocalDate.now());      //order_details
-                    if (isOrdered) {
+                boolean isOrdered = OrderDetailModel.save(orderId, orderList, LocalDate.now());      //order_details
+                if (isOrdered) {
+                    boolean isUpdated = ItemModel.updateQty(orderList);     //items update
+                    if (isUpdated) {
                         connection.commit();
                         return true;
                     }
