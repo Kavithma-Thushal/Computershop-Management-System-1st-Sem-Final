@@ -8,7 +8,7 @@
     <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
     <property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (2)"/>
     <queryString language="SQL">
-        <![CDATA[select * from order_details]]>
+        <![CDATA[select * from order_details join items on order_details.itemCode = items.code]]>
     </queryString>
     <field name="orderId" class="java.lang.String">
         <property name="com.jaspersoft.studio.field.name" value="orderId"/>
@@ -35,6 +35,26 @@
         <property name="com.jaspersoft.studio.field.label" value="date"/>
         <property name="com.jaspersoft.studio.field.tree.path" value="order_details"/>
     </field>
+    <field name="code" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="code"/>
+        <property name="com.jaspersoft.studio.field.label" value="code"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="items"/>
+    </field>
+    <field name="description" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="description"/>
+        <property name="com.jaspersoft.studio.field.label" value="description"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="items"/>
+    </field>
+    <field name="unitPrice" class="java.math.BigDecimal">
+        <property name="com.jaspersoft.studio.field.name" value="unitPrice"/>
+        <property name="com.jaspersoft.studio.field.label" value="unitPrice"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="items"/>
+    </field>
+    <field name="qtyOnHand" class="java.lang.Integer">
+        <property name="com.jaspersoft.studio.field.name" value="qtyOnHand"/>
+        <property name="com.jaspersoft.studio.field.label" value="qtyOnHand"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="items"/>
+    </field>
     <background>
         <band splitType="Stretch"/>
     </background>
@@ -52,9 +72,10 @@
     <columnHeader>
         <band height="61" splitType="Stretch">
             <staticText>
-                <reportElement x="0" y="21" width="140" height="40" uuid="d3523148-6a3e-416f-b4c2-28f7cce52917">
+                <reportElement x="70" y="21" width="80" height="40" uuid="d3523148-6a3e-416f-b4c2-28f7cce52917">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID"
                               value="9cd36e7f-94d8-42fc-97ad-b540eb89c597"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
                 </reportElement>
                 <box>
                     <pen lineWidth="1.0"/>
@@ -65,9 +86,10 @@
                 <text><![CDATA[Date]]></text>
             </staticText>
             <staticText>
-                <reportElement x="140" y="21" width="140" height="40" uuid="9dff555f-3c10-4fdf-931b-d972b62a68f1">
+                <reportElement x="150" y="21" width="80" height="40" uuid="9dff555f-3c10-4fdf-931b-d972b62a68f1">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID"
                               value="537fca63-dee9-43d0-a388-331e3804b7cf"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
                 </reportElement>
                 <box>
                     <pen lineWidth="1.0"/>
@@ -78,7 +100,7 @@
                 <text><![CDATA[Item Code]]></text>
             </staticText>
             <staticText>
-                <reportElement x="280" y="21" width="140" height="40" uuid="c1c35323-5d0c-4f0f-a940-0e5755b2052a">
+                <reportElement x="310" y="21" width="80" height="40" uuid="c1c35323-5d0c-4f0f-a940-0e5755b2052a">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID"
                               value="f32b298c-ecb7-4773-8626-536a3359686a"/>
                     <property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -93,7 +115,7 @@
                 <text><![CDATA[Quantity]]></text>
             </staticText>
             <staticText>
-                <reportElement x="420" y="21" width="140" height="40" uuid="fd7cedf3-c524-4e94-a019-fed252f0c1c9">
+                <reportElement x="470" y="21" width="80" height="40" uuid="fd7cedf3-c524-4e94-a019-fed252f0c1c9">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID"
                               value="6c26995f-3757-4732-b4e2-16aecde86a2b"/>
                     <property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -107,14 +129,56 @@
                 </textElement>
                 <text><![CDATA[Total]]></text>
             </staticText>
+            <staticText>
+                <reportElement x="-10" y="21" width="80" height="40" uuid="7fb5ebe3-9d87-486f-9323-946b799f479a">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="fd64dd1b-ad48-4726-ad77-0f624727bd58"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Times New Roman" size="15" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Order ID]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="230" y="21" width="80" height="40" uuid="2041a3b4-7481-4178-9a80-c6becf13e7c1">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="88c752c9-ff2b-4f75-8aa4-3ac3c77940ec"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Times New Roman" size="15" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Description]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="390" y="21" width="80" height="40" uuid="5afb0f0b-fb8e-40ca-98ac-03f659856bac">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="31461310-5f7f-4e74-b54b-fd9a41ca5231"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Times New Roman" size="15" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Unit Price]]></text>
+            </staticText>
         </band>
     </columnHeader>
     <detail>
         <band height="40" splitType="Stretch">
             <textField>
-                <reportElement x="0" y="0" width="140" height="40" uuid="260bb57b-e15d-4107-b1c5-f16e42395df7">
+                <reportElement x="70" y="0" width="80" height="40" uuid="260bb57b-e15d-4107-b1c5-f16e42395df7">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID"
                               value="9cd36e7f-94d8-42fc-97ad-b540eb89c597"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
                 </reportElement>
                 <box>
                     <pen lineWidth="1.0"/>
@@ -125,7 +189,7 @@
                 <textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="140" y="0" width="140" height="40" uuid="da49445a-95ee-4240-85e7-4021ce2059bc">
+                <reportElement x="150" y="0" width="80" height="40" uuid="da49445a-95ee-4240-85e7-4021ce2059bc">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID"
                               value="537fca63-dee9-43d0-a388-331e3804b7cf"/>
                     <property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -139,7 +203,7 @@
                 <textFieldExpression><![CDATA[$F{itemCode}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="280" y="0" width="140" height="40" uuid="3d647e4a-6003-41c5-9e83-31a430be50e5">
+                <reportElement x="310" y="0" width="80" height="40" uuid="3d647e4a-6003-41c5-9e83-31a430be50e5">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID"
                               value="f32b298c-ecb7-4773-8626-536a3359686a"/>
                     <property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -154,7 +218,7 @@
                 <textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="420" y="0" width="140" height="40" uuid="77f0a38e-8b91-4fc4-9076-583912d43e4b">
+                <reportElement x="470" y="0" width="80" height="40" uuid="77f0a38e-8b91-4fc4-9076-583912d43e4b">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID"
                               value="6c26995f-3757-4732-b4e2-16aecde86a2b"/>
                     <property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -167,6 +231,47 @@
                     <font size="12"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="-10" y="0" width="80" height="40" uuid="7bf8298d-5c4b-42db-8476-5692fa383b18">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="fd64dd1b-ad48-4726-ad77-0f624727bd58"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{orderId}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="230" y="0" width="80" height="40" uuid="304dadc8-2913-448d-a736-76ae02211a50">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="88c752c9-ff2b-4f75-8aa4-3ac3c77940ec"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="390" y="0" width="80" height="40" uuid="71f9bb16-4ed7-42c1-8058-d580b405807d">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="31461310-5f7f-4e74-b54b-fd9a41ca5231"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{unitPrice}]]></textFieldExpression>
             </textField>
         </band>
     </detail>
