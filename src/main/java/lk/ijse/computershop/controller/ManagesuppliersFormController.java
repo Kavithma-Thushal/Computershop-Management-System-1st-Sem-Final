@@ -52,8 +52,8 @@ public class ManagesuppliersFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setSupplyDate();
-        setCellValueFactory();
         getAll();
+        setCellValueFactory();
         generateNextSupplyId();
         loadItemCodes();
     }
