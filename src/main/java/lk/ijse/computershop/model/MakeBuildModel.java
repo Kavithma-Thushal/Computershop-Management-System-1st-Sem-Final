@@ -8,20 +8,20 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
-public class PlaceBuildModel {
+public class MakeBuildModel {
 
-    public static boolean placeOrder(String orderId, String customerId, String employeeId, List<Custombuilds> buildList) throws SQLException {
+    public static boolean makeBuild(String buildCode, String customerId, String employeeId, List<Custombuilds> buildList) throws SQLException {
         Connection connection = null;
         try {
             connection = DBConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
 
-            boolean isSaved = CustombuildsModel.save(orderId, customerId,employeeId);     //orders
+            boolean isSaved = CustombuildsModel.save(buildCode, customerId, employeeId);     //orders
             if (isSaved) {
-                boolean isUpdated = ItemModel.updateBuildQty(buildList);     //items update
-                if (isUpdated) {
-                    boolean isBuild = BuildDetailsModel.saveBuild(orderId, buildList, LocalDate.now());      //order_details
-                    if (isBuild) {
+                boolean isBuild = BuildDetailsModel.saveBuild(buildCode, buildList, LocalDate.now());      //order_details
+                if (isBuild) {
+                    boolean isUpdated = ItemModel.updateBuildQty(buildList);     //items update
+                    if (isUpdated) {
                         connection.commit();
                         return true;
                     }

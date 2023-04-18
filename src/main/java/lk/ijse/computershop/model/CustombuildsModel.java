@@ -19,12 +19,12 @@ public class CustombuildsModel {
 
     private static String splitBuildCode(String currentId) {
         if (currentId != null) {
-            String[] strings = currentId.split("B00");
+            String[] strings = currentId.split("B");
             int id = Integer.parseInt(strings[1]);
             id++;
-            return "B00" + id;
+            return "B" + id;
         }
-        return "B001";
+        return "B1";
     }
 
     public static boolean save(String buildCode, String customerId, String employeeId) throws SQLException {

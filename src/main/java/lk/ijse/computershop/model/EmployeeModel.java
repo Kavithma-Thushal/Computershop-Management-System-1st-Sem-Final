@@ -85,6 +85,26 @@ public class EmployeeModel {
         return employeeList;
     }
 
+    public static String getNextEmployeeId() throws SQLException {
+        String sql = "SELECT id FROM employee ORDER BY id DESC LIMIT 1";
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        if (resultSet.next()) {
+            return splitEmployeeId(resultSet.getString(1));
+        }
+        return splitEmployeeId(null);
+    }
+
+    private static String splitEmployeeId(String currentId) {
+        if (currentId != null) {
+            String[] strings = currentId.split("E");
+            int id = Integer.parseInt(strings[1]);
+            id++;
+            return "E" + id;
+        }
+        return "E1";
+    }
+
     public static List<String> loadIds() throws SQLException {
         String sql = "SELECT id FROM employee ORDER BY id ASC";
         ResultSet resultSet = CrudUtil.execute(sql);
@@ -111,25 +131,5 @@ public class EmployeeModel {
             );
         }
         return null;
-    }
-
-    public static String getNextEmployeeId() throws SQLException {
-        String sql = "SELECT id FROM employee ORDER BY id DESC LIMIT 1";
-        ResultSet resultSet = CrudUtil.execute(sql);
-
-        if (resultSet.next()) {
-            return splitEmployeeId(resultSet.getString(1));
-        }
-        return splitEmployeeId(null);
-    }
-
-    private static String splitEmployeeId(String currentId) {
-        if (currentId != null) {
-            String[] strings = currentId.split("E");
-            int id = Integer.parseInt(strings[1]);
-            id++;
-            return "E" + id;
-        }
-        return "E1";
     }
 }

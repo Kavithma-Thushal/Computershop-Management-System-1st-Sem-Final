@@ -75,6 +75,16 @@ public class ManagecustombuildFormController implements Initializable {
         loadItemCodes();
     }
 
+    private void setCellValueFactory() {
+        colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+        colUpdate.setCellValueFactory(new PropertyValueFactory<>("update"));
+        colRemove.setCellValueFactory(new PropertyValueFactory<>("remove"));
+    }
+
     private void setBuildDate() {
         txtBuildDate.setText(String.valueOf(LocalDate.now()));
     }
@@ -86,16 +96,6 @@ public class ManagecustombuildFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
-    }
-
-    private void setCellValueFactory() {
-        colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
-        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
-        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
-        colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
-        colUpdate.setCellValueFactory(new PropertyValueFactory<>("update"));
-        colRemove.setCellValueFactory(new PropertyValueFactory<>("remove"));
     }
 
     private void loadCustomerIds() {
@@ -175,7 +175,6 @@ public class ManagecustombuildFormController implements Initializable {
             Item item = ItemModel.searchById(itemCode);
             fillItemFields(item);
 
-            //txtQty.requestFocus();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
@@ -225,7 +224,6 @@ public class ManagecustombuildFormController implements Initializable {
             observableList.add(tm);
             tblCustomBuild.setItems(observableList);
             calculateNetTotal();
-            //txtQty.setText("");
 
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
@@ -297,7 +295,7 @@ public class ManagecustombuildFormController implements Initializable {
     }
 
     @FXML
-    private void placeOrderOnAction(ActionEvent event) {
+    private void makeBuildOnAction(ActionEvent event) {
         String buildCode = txtBuildCode.getText();
         String customerId = cmbCustomerId.getValue();
         String employeeId = cmbEmployeeId.getValue();
@@ -307,23 +305,23 @@ public class ManagecustombuildFormController implements Initializable {
         for (int i = 0; i < tblCustomBuild.getItems().size(); i++) {
             CustombuildsTM custombuildsTM = observableList.get(i);
 
-            Custombuilds custombuilds = new Custombuilds(
+            Custombuilds custombuildsDetails = new Custombuilds(
                     custombuildsTM.getCode(),
                     custombuildsTM.getQty()
             );
-            custombuildsList.add(custombuilds);
+            custombuildsList.add(custombuildsDetails);
         }
 
         boolean isPlaced = false;
         try {
-            isPlaced = PlaceBuildModel.placeOrder(buildCode, customerId, employeeId, custombuildsList);
+            isPlaced = MakeBuildModel.makeBuild(buildCode, customerId, employeeId, custombuildsList);
             if (isPlaced) {
-                new Alert(Alert.AlertType.INFORMATION, "Order Placed...!").show();
+                new Alert(Alert.AlertType.INFORMATION, "your build is making...!").show();
             } else {
-                new Alert(Alert.AlertType.ERROR, "Order is Not Placed...!").show();
+                new Alert(Alert.AlertType.ERROR, "build is not making...!").show();
             }
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "please try again...!r").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 }
