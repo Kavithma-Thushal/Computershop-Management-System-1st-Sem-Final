@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.computershop.db.DBConnection;
 import lk.ijse.computershop.dto.Order;
 import lk.ijse.computershop.dto.Customer;
 import lk.ijse.computershop.dto.Item;
@@ -16,14 +17,14 @@ import lk.ijse.computershop.model.CustomerModel;
 import lk.ijse.computershop.model.ItemModel;
 import lk.ijse.computershop.model.OrderModel;
 import lk.ijse.computershop.model.PlaceOrderModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class ManageordersFormController implements Initializable {
 
@@ -154,6 +155,19 @@ public class ManageordersFormController implements Initializable {
         txtDescription.setText(item.getDescription());
         txtUnitPrice.setText(String.valueOf(item.getUnitprice()));
         txtQtyOnHand.setText(String.valueOf(item.getQtyonhand()));
+    }
+
+    @FXML
+    private void printBillOnAction(ActionEvent event) throws SQLException, JRException {
+        HashMap<String, Object> map =new HashMap<>();
+        map.put("Customer","Thushal");
+        //map.put("Table Name",txt.getText());
+
+        InputStream resource = this.getClass().getResourceAsStream("/reports/computershop.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(resource);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,map, DBConnection.getInstance().getConnection());
+        //JasperPrintManager.printReport(jasperPrint,true);
+        JasperViewer.viewReport(jasperPrint,false);
     }
 
     @FXML

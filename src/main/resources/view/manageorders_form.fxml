@@ -10,74 +10,97 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="638.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.ManageordersFormController">
+<AnchorPane prefHeight="638.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.computershop.controller.ManageordersFormController">
     <children>
         <ImageView fitHeight="670.0" fitWidth="1190.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../assets/img/customers.jpg" />
+                <Image url="@../assets/img/customers.jpg"/>
             </image>
         </ImageView>
-        <TextField fx:id="txtOrderId" editable="false" focusTraversable="false" layoutX="45.0" layoutY="37.0" prefHeight="19.0" prefWidth="187.0">
+        <TextField fx:id="txtOrderId" editable="false" focusTraversable="false" layoutX="45.0" layoutY="37.0"
+                   prefHeight="19.0" prefWidth="187.0">
             <font>
-                <Font name="Times New Roman" size="17.0" />
+                <Font name="Times New Roman" size="17.0"/>
             </font>
         </TextField>
-        <TextField fx:id="txtOrderDate" editable="false" focusTraversable="false" layoutX="45.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
+        <TextField fx:id="txtOrderDate" editable="false" focusTraversable="false" layoutX="45.0" layoutY="109.0"
+                   prefHeight="0.0" prefWidth="187.0">
             <font>
-                <Font name="Times New Roman" size="17.0" />
+                <Font name="Times New Roman" size="17.0"/>
             </font>
         </TextField>
-        <Button focusTraversable="false" layoutX="952.0" layoutY="37.0" mnemonicParsing="false" onAction="#addToCartOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Add to Cart">
+        <Button focusTraversable="false" layoutX="952.0" layoutY="37.0" mnemonicParsing="false"
+                onAction="#addToCartOnAction" prefHeight="0.0" prefWidth="187.0"
+                style="-fx-background-color: lightblue;" text="Add to Cart">
             <font>
-                <Font name="Times New Roman Bold" size="17.0" />
+                <Font name="Times New Roman Bold" size="17.0"/>
             </font>
         </Button>
-        <TableView fx:id="tblOrder" focusTraversable="false" layoutX="44.0" layoutY="182.0" prefHeight="418.0" prefWidth="1096.0">
+        <TableView fx:id="tblOrder" focusTraversable="false" layoutX="44.0" layoutY="182.0" prefHeight="418.0"
+                   prefWidth="1096.0">
             <columns>
-                <TableColumn fx:id="colCode" prefWidth="183.0" resizable="false" text="Code" />
-                <TableColumn fx:id="colDescription" prefWidth="183.0" resizable="false" text="Description" />
-                <TableColumn fx:id="colQty" prefWidth="183.0" resizable="false" text="Quantity" />
-                <TableColumn fx:id="colUnitPrice" prefWidth="183.0" resizable="false" text="Unit Price" />
-                <TableColumn fx:id="colTotal" prefWidth="183.0" resizable="false" text="Total" />
-                <TableColumn fx:id="colRemove" prefWidth="179.20001220703125" resizable="false" text="Remove" />
+                <TableColumn fx:id="colCode" prefWidth="183.0" resizable="false" text="Code"/>
+                <TableColumn fx:id="colDescription" prefWidth="183.0" resizable="false" text="Description"/>
+                <TableColumn fx:id="colQty" prefWidth="183.0" resizable="false" text="Quantity"/>
+                <TableColumn fx:id="colUnitPrice" prefWidth="183.0" resizable="false" text="Unit Price"/>
+                <TableColumn fx:id="colTotal" prefWidth="183.0" resizable="false" text="Total"/>
+                <TableColumn fx:id="colRemove" prefWidth="179.20001220703125" resizable="false" text="Remove"/>
             </columns>
         </TableView>
-        <ComboBox fx:id="cmbCustomerId" focusTraversable="false" layoutX="271.0" layoutY="37.0" onAction="#cmbCustomerIdOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Customer ID" />
-        <ComboBox fx:id="cmbItemCode" focusTraversable="false" layoutX="491.0" layoutY="37.0" onAction="#cmbItemCodeOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Item Code" />
-        <TextField fx:id="txtCustomerName" editable="false" focusTraversable="false" layoutX="271.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
+        <ComboBox fx:id="cmbCustomerId" focusTraversable="false" layoutX="271.0" layoutY="37.0"
+                  onAction="#cmbCustomerIdOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Customer ID"/>
+        <ComboBox fx:id="cmbItemCode" focusTraversable="false" layoutX="491.0" layoutY="37.0"
+                  onAction="#cmbItemCodeOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Item Code"/>
+        <TextField fx:id="txtCustomerName" editable="false" focusTraversable="false" layoutX="271.0" layoutY="109.0"
+                   prefHeight="0.0" prefWidth="187.0">
             <font>
-                <Font name="Times New Roman" size="17.0" />
+                <Font name="Times New Roman" size="17.0"/>
             </font>
         </TextField>
-        <TextField fx:id="txtDescription" editable="false" focusTraversable="false" layoutX="491.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
+        <TextField fx:id="txtDescription" editable="false" focusTraversable="false" layoutX="491.0" layoutY="109.0"
+                   prefHeight="0.0" prefWidth="187.0">
             <font>
-                <Font name="Times New Roman" size="17.0" />
+                <Font name="Times New Roman" size="17.0"/>
             </font>
         </TextField>
-        <TextField fx:id="txtUnitPrice" editable="false" focusTraversable="false" layoutX="717.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
+        <TextField fx:id="txtUnitPrice" editable="false" focusTraversable="false" layoutX="717.0" layoutY="109.0"
+                   prefHeight="0.0" prefWidth="187.0">
             <font>
-                <Font name="Times New Roman" size="17.0" />
+                <Font name="Times New Roman" size="17.0"/>
             </font>
         </TextField>
-        <TextField fx:id="txtQtyOnHand" editable="false" focusTraversable="false" layoutX="717.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0">
+        <TextField fx:id="txtQtyOnHand" editable="false" focusTraversable="false" layoutX="717.0" layoutY="37.0"
+                   prefHeight="0.0" prefWidth="187.0">
             <font>
-                <Font name="Times New Roman" size="17.0" />
+                <Font name="Times New Roman" size="17.0"/>
             </font>
         </TextField>
         <TextField fx:id="txtQty" layoutX="952.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
             <font>
-                <Font name="Times New Roman" size="17.0" />
+                <Font name="Times New Roman" size="17.0"/>
             </font>
         </TextField>
-        <Button focusTraversable="false" layoutX="952.0" layoutY="619.0" mnemonicParsing="false" onAction="#placeOrderOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: #34495e;" text="Place Order" textFill="WHITE">
+        <Button focusTraversable="false" layoutX="952.0" layoutY="619.0" mnemonicParsing="false"
+                onAction="#placeOrderOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: #34495e;"
+                text="Place Order" textFill="WHITE">
             <font>
-                <Font name="Times New Roman Bold" size="17.0" />
+                <Font name="Times New Roman Bold" size="17.0"/>
             </font>
         </Button>
-        <TextField fx:id="txtNetTotal" editable="false" focusTraversable="false" layoutX="45.0" layoutY="619.0" prefHeight="0.0" prefWidth="187.0">
+        <TextField fx:id="txtNetTotal" editable="false" focusTraversable="false" layoutX="45.0" layoutY="619.0"
+                   prefHeight="0.0" prefWidth="187.0">
             <font>
-                <Font name="Times New Roman" size="17.0" />
+                <Font name="Times New Roman" size="17.0"/>
             </font>
         </TextField>
+        <Button focusTraversable="false" layoutX="724.0" layoutY="619.0" mnemonicParsing="false"
+                onAction="#printBillOnAction" prefHeight="0.0" prefWidth="187.0"
+                style="-fx-background-color: lightblue;" text="Print Bill">
+            <font>
+                <Font name="Times New Roman Bold" size="17.0"/>
+            </font>
+        </Button>
     </children>
 </AnchorPane>
