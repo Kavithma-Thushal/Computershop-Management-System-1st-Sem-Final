@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.computershop.dto.Item;
 import lk.ijse.computershop.dto.tm.ItemTM;
-import lk.ijse.computershop.model.ItemsViewModel;
+import lk.ijse.computershop.model.ViewItemsModel;
 
 import java.net.URL;
 import java.util.List;
@@ -58,7 +58,7 @@ public class ViewitemsFormController implements Initializable {
     private void getAll() {
         try {
             ObservableList<ItemTM> observableList = FXCollections.observableArrayList();
-            List<Item> itemList = ItemsViewModel.getAll();
+            List<Item> itemList = ViewItemsModel.getAll();
 
             for (Item item : itemList) {
                 observableList.add(new ItemTM(
@@ -77,7 +77,7 @@ public class ViewitemsFormController implements Initializable {
     @FXML
     private void searchOnAction(ActionEvent event) {
         try {
-            Item item = ItemsViewModel.search(txtSearch.getText());
+            Item item = ViewItemsModel.search(txtSearch.getText());
             if (item != null) {
                 txtCode.setText(item.getCode());
                 txtDescription.setText(item.getDescription());

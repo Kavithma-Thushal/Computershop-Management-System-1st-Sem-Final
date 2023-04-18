@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemsViewModel {
+public class ViewItemsModel {
 
     public static Item search(String code) throws SQLException {
 
