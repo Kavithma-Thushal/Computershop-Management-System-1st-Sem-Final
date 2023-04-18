@@ -120,7 +120,7 @@ public class ItemModel {
         return "P1";
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////Orders
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////    Orders
     public static boolean updateQty(List<Order> orderList) throws SQLException {
         for (Order orderDetails : orderList) {
             if (!updateQty(orderDetails)) {
@@ -136,9 +136,9 @@ public class ItemModel {
         return affectedRows > 0;
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////Custom Build
-    public static boolean updateBuildQty(List<Custombuilds> custombuildsList) throws SQLException {
-        for (Custombuilds custombuilds : custombuildsList) {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////    Custom Build
+    public static boolean updateBuildQty(List<Custombuilds> buildsList) throws SQLException {
+        for (Custombuilds custombuilds : buildsList) {
             if (!updateBuildQty(custombuilds)) {
                 return false;
             }
@@ -146,13 +146,13 @@ public class ItemModel {
         return true;
     }
 
-    private static boolean updateBuildQty(Custombuilds custombuildsList) throws SQLException {
+    private static boolean updateBuildQty(Custombuilds buildsList) throws SQLException {
         String sql = "UPDATE items SET qtyOnHand = (qtyOnHand - ?) WHERE code = ?";
-        Integer affectedRows = CrudUtil.execute(sql, custombuildsList.getQty(), custombuildsList.getCode());
+        Integer affectedRows = CrudUtil.execute(sql, buildsList.getQty(), buildsList.getCode());
         return affectedRows > 0;
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////Suppliers
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////    Suppliers
     public static boolean updateSupplyQty(String itemCode,String supplyQty) throws SQLException {
         String sql = "UPDATE items SET qtyOnHand = (qtyOnHand + ?) WHERE code = ?";
         Integer affectedRows = CrudUtil.execute(sql, supplyQty, itemCode);
