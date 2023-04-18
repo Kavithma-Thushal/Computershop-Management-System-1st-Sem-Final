@@ -127,7 +127,8 @@ CREATE TABLE build_details
 (
     buildCode VARCHAR(5),
     itemCode  VARCHAR(5),
-    qty       INT,
+    qty       INT NOT NULL,
+    total     DECIMAL,
     date      DATE,
     CONSTRAINT PRIMARY KEY (buildCode, itemCode),
     CONSTRAINT FOREIGN KEY (buildCode) REFERENCES custombuilds (code) ON DELETE CASCADE ON UPDATE CASCADE,

@@ -307,7 +307,8 @@ public class ManagecustombuildFormController implements Initializable {
 
             Custombuilds custombuildsDetails = new Custombuilds(
                     custombuildsTM.getCode(),
-                    custombuildsTM.getQty()
+                    custombuildsTM.getQty(),
+                    custombuildsTM.getTotal()
             );
             custombuildsList.add(custombuildsDetails);
         }

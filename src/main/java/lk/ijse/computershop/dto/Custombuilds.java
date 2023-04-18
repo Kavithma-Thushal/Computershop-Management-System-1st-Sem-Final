@@ -8,4 +8,5 @@ import lombok.Data;
 public class Custombuilds {
     private String code;
     private Integer qty;
+    private Double total;
 }
