@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ItemViewTM {
+public class ViewItemsTM {
     private String code;
     private String description;
     private Double unitprice;
