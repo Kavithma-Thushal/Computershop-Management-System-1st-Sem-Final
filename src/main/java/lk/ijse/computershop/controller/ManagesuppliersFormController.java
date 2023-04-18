@@ -37,8 +37,6 @@ public class ManagesuppliersFormController implements Initializable {
     @FXML
     private TextField txtQty;
     @FXML
-    private TextField txtSearch;
-    @FXML
     private TableView tblsupplier;
     @FXML
     private TableColumn colSupplyId;
@@ -48,6 +46,8 @@ public class ManagesuppliersFormController implements Initializable {
     private TableColumn colContact;
     @FXML
     private TableColumn colAddress;
+    @FXML
+    private TextField txtSearch;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
