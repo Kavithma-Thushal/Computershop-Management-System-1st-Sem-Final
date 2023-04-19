@@ -244,25 +244,6 @@ public class ManagecustombuildFormController implements Initializable {
                 int index = tblCustomBuild.getSelectionModel().getSelectedIndex();
                 observableList.remove(index + 1);
 
-                String code = cmbItemCode.getValue();
-                String description = txtDescription.getText();
-                int qty = Integer.parseInt(txtQty.getText());
-                double unitPrice = Double.parseDouble(txtUnitPrice.getText());
-
-                double total = qty * unitPrice;
-
-                Button btnUpdate = new Button("Update");
-                btnUpdate.setCursor(Cursor.HAND);
-                setUpdateBtnOnAction(btnUpdate);
-
-                Button btnRemove = new Button("Remove");
-                btnRemove.setCursor(Cursor.HAND);
-                setRemoveBtnOnAction(btnRemove);
-
-                CustombuildsTM tm = new CustombuildsTM(code, description, qty, unitPrice, total, btnUpdate, btnRemove);
-                observableList.add(tm);
-                tblCustomBuild.setItems(observableList);
-
                 tblCustomBuild.refresh();
                 calculateNetTotal();
             }
