@@ -225,6 +225,9 @@ public class ManagecustombuildFormController implements Initializable {
             tblCustomBuild.setItems(observableList);
             calculateNetTotal();
 
+            txtQty.clear();
+            txtQty.requestFocus();
+
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
