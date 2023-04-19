@@ -10,22 +10,6 @@ import java.util.List;
 
 public class SalaryModel {
 
-    public static Salary search(String code) throws SQLException {
-
-        String sql = "SELECT * FROM salary WHERE code=?";
-        ResultSet resultSet = CrudUtil.execute(sql, code);
-
-        if (resultSet.next()) {
-            return new Salary(
-                    resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getDouble(3),
-                    resultSet.getString(4)
-            );
-        }
-        return null;
-    }
-
     public static List<Salary> getAll() throws SQLException {
 
         List<Salary> salaryList = new ArrayList<>();
@@ -44,6 +28,22 @@ public class SalaryModel {
         return salaryList;
     }
 
+    public static Salary search(String code) throws SQLException {
+
+        String sql = "SELECT * FROM salary WHERE code=?";
+        ResultSet resultSet = CrudUtil.execute(sql, code);
+
+        if (resultSet.next()) {
+            return new Salary(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getDouble(3),
+                    resultSet.getString(4)
+            );
+        }
+        return null;
+    }
+
     public static String getNextSalaryCode() throws SQLException {
         String sql = "SELECT code FROM salary ORDER BY code DESC LIMIT 1";
         ResultSet resultSet = CrudUtil.execute(sql);
@@ -56,11 +56,11 @@ public class SalaryModel {
 
     private static String splitSalaryCode(String currentId) {
         if (currentId != null) {
-            String[] strings = currentId.split("Sl0");
+            String[] strings = currentId.split("S");
             int id = Integer.parseInt(strings[1]);
             id++;
-            return "Sl0" + id;
+            return "S" + id;
         }
-        return "Sl01";
+        return "S1";
     }
 }

@@ -92,21 +92,6 @@ public class ManagesalaryFormController implements Initializable {
         }
     }
 
-    @FXML
-    private void searchOnAction(ActionEvent event) {
-        try {
-            Salary salary = SalaryModel.search(txtSearch.getText());
-            if (salary != null) {
-                txtCode.setText(salary.getCode());
-                txtEmployeeName.setText(salary.getEmployeeName());
-                txtAmount.setText(String.valueOf(salary.getAmount()));
-                txtDatetime.setText(String.valueOf(salary.getDate()));
-            }
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
-        }
-    }
-
     private void loadEmployeeIds() {
         try {
             ObservableList<String> observableList = FXCollections.observableArrayList();
@@ -131,6 +116,21 @@ public class ManagesalaryFormController implements Initializable {
             txtEmployeeName.setText(employee.getName());
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
+    }
+
+    @FXML
+    private void searchOnAction(ActionEvent event) {
+        try {
+            Salary salary = SalaryModel.search(txtSearch.getText());
+            if (salary != null) {
+                txtCode.setText(salary.getCode());
+                txtEmployeeName.setText(salary.getEmployeeName());
+                txtAmount.setText(String.valueOf(salary.getAmount()));
+                txtDatetime.setText(String.valueOf(salary.getDate()));
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
     }
 
