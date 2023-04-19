@@ -203,5 +203,6 @@ public class ManagedeliveryFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
+        generateNextDeliveryCode();
     }
 }

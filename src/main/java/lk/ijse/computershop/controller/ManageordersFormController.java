@@ -270,5 +270,6 @@ public class ManageordersFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!r").show();
         }
+        generateNextOrderId();
     }
 }

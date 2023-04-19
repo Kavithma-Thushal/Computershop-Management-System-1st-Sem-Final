@@ -61,11 +61,11 @@ public class RepairModel {
 
     private static String splitRepairCode(String currentId) {
         if (currentId != null) {
-            String[] strings = currentId.split("R00");
+            String[] strings = currentId.split("R");
             int id = Integer.parseInt(strings[1]);
             id++;
-            return "R00" + id;
+            return "R" + id;
         }
-        return "R001";
+        return "R1";
     }
 }

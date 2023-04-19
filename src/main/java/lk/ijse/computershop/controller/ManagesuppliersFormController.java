@@ -156,5 +156,6 @@ public class ManagesuppliersFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!r").show();
         }
+        generateNextSupplyId();
     }
 }

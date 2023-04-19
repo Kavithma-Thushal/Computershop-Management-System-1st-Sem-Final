@@ -308,5 +308,6 @@ public class ManagecustombuildFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
+        generateNextBuildCode();
     }
 }

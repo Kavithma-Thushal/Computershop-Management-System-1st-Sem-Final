@@ -42,11 +42,11 @@ public class DeliveryModel {
 
     private static String splitDeliveryCode(String currentId) {
         if (currentId != null) {
-            String[] strings = currentId.split("D00");
+            String[] strings = currentId.split("D");
             int id = Integer.parseInt(strings[1]);
             id++;
-            return "D00" + id;
+            return "D" + id;
         }
-        return "D001";
+        return "D1";
     }
 }
