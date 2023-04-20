@@ -17,6 +17,7 @@ import lk.ijse.computershop.model.CustomerModel;
 import lk.ijse.computershop.model.ItemModel;
 import lk.ijse.computershop.model.OrderModel;
 import lk.ijse.computershop.model.PlaceOrderModel;
+import lk.ijse.computershop.util.EmailSend;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -264,6 +265,7 @@ public class ManageordersFormController implements Initializable {
             isPlaced = PlaceOrderModel.placeOrder(orderId, customerId, orderList);
             if (isPlaced) {
                 new Alert(Alert.AlertType.INFORMATION, "Order Placed...!").show();
+                EmailSend.mail();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Order is Not Placed...!").show();
             }
