@@ -7,16 +7,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.computershop.dto.Item;
 import lk.ijse.computershop.dto.Supply;
 import lk.ijse.computershop.dto.tm.SupplyTM;
 import lk.ijse.computershop.model.*;
+import lk.ijse.computershop.util.Validation;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class ManagesuppliersFormController implements Initializable {
 
@@ -48,14 +53,24 @@ public class ManagesuppliersFormController implements Initializable {
     private TableColumn colAddress;
     @FXML
     private TextField txtSearch;
+    @FXML
+    private Button btnAdd;
+
+    private LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
+    Pattern name = Pattern.compile("^([A-Z a-z]{4,40})$");
+    Pattern address = Pattern.compile("^([A-Z a-z]{4,40})$");
+    Pattern contact = Pattern.compile("^(07(0|1|2|4|5|6|7|8)[0-9]{7})$");
+    Pattern supplyQty = Pattern.compile("^([0-9]{1,6})$");
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setSupplyDate();
         getAll();
         setCellValueFactory();
+        btnAdd.setDisable(true);
         generateNextSupplyId();
         loadItemCodes();
+        storeValidations();
     }
 
     private void setCellValueFactory() {
@@ -83,6 +98,44 @@ public class ManagesuppliersFormController implements Initializable {
 
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+        }
+    }
+
+    private void clearAllTxt() {
+        //txtSupplyId.clear();
+        txtSupplyName.clear();
+        txtSupplyAddress.clear();
+        txtSupplyContact.clear();
+        txtQty.clear();
+        //txtItemDescription.clear();
+
+        btnAdd.setDisable(true);
+        txtSupplyName.requestFocus();
+        setBorders(txtSupplyName, txtSupplyAddress, txtSupplyContact, txtQty);
+    }
+
+    public void setBorders(TextField... textFields) {
+        for (TextField textField : textFields) {
+            textField.setStyle("-fx-border-color: transparent");
+        }
+    }
+
+    private void storeValidations() {
+        map.put(txtSupplyName, name);
+        map.put(txtSupplyAddress, address);
+        map.put(txtSupplyContact, contact);
+        map.put(txtQty, supplyQty);
+    }
+
+    @FXML
+    private void txtKeyRelease(KeyEvent keyEvent) {
+        Object response = Validation.validate(map, btnAdd);
+
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            if (response instanceof TextField) {
+                TextField txtnext = (TextField) response;
+                txtnext.requestFocus();
+            }
         }
     }
 
@@ -122,7 +175,6 @@ public class ManagesuppliersFormController implements Initializable {
             Item item = ItemModel.searchById(itemCode);
             txtItemDescription.setText(item.getDescription());
 
-            //txtQty.requestFocus();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
@@ -156,6 +208,8 @@ public class ManagesuppliersFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!r").show();
         }
+        clearAllTxt();
         generateNextSupplyId();
+        txtSupplyName.requestFocus();
     }
 }

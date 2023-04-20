@@ -22,7 +22,7 @@
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtSupplyName" layoutX="271.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0" promptText="Name">
+        <TextField fx:id="txtSupplyName" layoutX="271.0" layoutY="37.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Name">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
@@ -32,12 +32,12 @@
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtSupplyAddress" layoutX="498.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0" promptText="Address">
+        <TextField fx:id="txtSupplyAddress" layoutX="498.0" layoutY="37.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Address">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <Button layoutX="952.0" layoutY="109.0" mnemonicParsing="false" onAction="#supplierAddOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Add">
+        <Button fx:id="btnAdd" layoutX="952.0" layoutY="109.0" mnemonicParsing="false" onAction="#supplierAddOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Add">
             <font>
                 <Font name="Times New Roman Bold" size="17.0" />
             </font>
@@ -55,13 +55,13 @@
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtSupplyContact" layoutX="271.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0" promptText="Contact">
+        <TextField fx:id="txtSupplyContact" layoutX="271.0" layoutY="109.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Contact">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
         <ComboBox fx:id="cmbItemCode" layoutX="728.0" layoutY="37.0" onAction="#cmbItemCodeOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Item Code" />
-        <TextField fx:id="txtQty" layoutX="498.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0" promptText="Supply Quantity">
+        <TextField fx:id="txtQty" layoutX="498.0" layoutY="109.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Supply Quantity">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
