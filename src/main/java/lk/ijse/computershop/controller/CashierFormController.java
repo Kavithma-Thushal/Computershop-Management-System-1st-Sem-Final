@@ -35,7 +35,7 @@ public class CashierFormController {
                     .title("Cashier login ")
                     .text("Cashier login Successful")
                     .graphic(new ImageView(img))
-                    .hideAfter(Duration.seconds(5))
+                    .hideAfter(Duration.seconds(2))
                     .position(Pos.BOTTOM_RIGHT);
             notificationBuilder.darkStyle();
             notificationBuilder.show();
