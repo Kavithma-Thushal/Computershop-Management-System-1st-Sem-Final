@@ -164,7 +164,7 @@ public class ManageordersFormController implements Initializable {
         map.put("Customer","Thushal");
         //map.put("Table Name",txt.getText());
 
-        InputStream resource = this.getClass().getResourceAsStream("/reports/new.jrxml");
+        InputStream resource = this.getClass().getResourceAsStream("/reports/ordersReport.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(resource);
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,map, DBConnection.getInstance().getConnection());
         //JasperPrintManager.printReport(jasperPrint,true);
