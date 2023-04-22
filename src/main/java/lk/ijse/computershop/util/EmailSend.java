@@ -14,7 +14,7 @@ public class EmailSend {
         String senderPassword = "genbtmifwmmkcrsx";
 
         // Recipient's email address
-        String recipientEmail = "kavithmathushal451@gmail.com";
+        String recipientEmail = "kaviyabro9007@gmail.com";
 
         // Email properties
         Properties props = new Properties();
