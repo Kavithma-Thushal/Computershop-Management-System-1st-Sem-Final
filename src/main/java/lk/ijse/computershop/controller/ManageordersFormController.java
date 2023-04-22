@@ -159,19 +159,6 @@ public class ManageordersFormController implements Initializable {
     }
 
     @FXML
-    private void printBillOnAction(ActionEvent event) throws SQLException, JRException {
-        HashMap<String, Object> map =new HashMap<>();
-        map.put("Customer","Thushal");
-        //map.put("Table Name",txt.getText());
-
-        InputStream resource = this.getClass().getResourceAsStream("/reports/ordersReport.jrxml");
-        JasperReport jasperReport = JasperCompileManager.compileReport(resource);
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,map, DBConnection.getInstance().getConnection());
-        //JasperPrintManager.printReport(jasperPrint,true);
-        JasperViewer.viewReport(jasperPrint,false);
-    }
-
-    @FXML
     private void addToCartOnAction(ActionEvent event) {
         try {
             String code = cmbItemCode.getValue();
@@ -242,8 +229,27 @@ public class ManageordersFormController implements Initializable {
         txtNetTotal.setText(String.valueOf(netTotal));
     }
 
+    private void printBills() throws JRException, SQLException {
+        ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+        ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        Optional<ButtonType> buttonType = new Alert(Alert.AlertType.CONFIRMATION, "Do you want a bill...?", yes, no).showAndWait();
+
+        if (buttonType.orElse(yes) == yes) {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("Customer", "Thushal");
+            //map.put("Table Name",txt.getText());
+
+            InputStream resource = this.getClass().getResourceAsStream("/reports/ordersReport.jrxml");
+            JasperReport jasperReport = JasperCompileManager.compileReport(resource);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, DBConnection.getInstance().getConnection());
+            //JasperPrintManager.printReport(jasperPrint,true);
+            JasperViewer.viewReport(jasperPrint, false);
+        }
+    }
+
     @FXML
-    private void placeOrderOnAction(ActionEvent event) {
+    private void placeOrderOnAction(ActionEvent events) {
         String orderId = txtOrderId.getText();
         String customerId = cmbCustomerId.getValue();
 
@@ -264,8 +270,18 @@ public class ManageordersFormController implements Initializable {
         try {
             isPlaced = PlaceOrderModel.placeOrder(orderId, customerId, orderList);
             if (isPlaced) {
-                new Alert(Alert.AlertType.INFORMATION, "Order Placed...!").show();
+                Alert orderPlacedAlert = new Alert(Alert.AlertType.INFORMATION, "Order Placed...!");
+                orderPlacedAlert.show();
                 EmailSend.mail();
+
+                orderPlacedAlert.setOnHidden(event -> {
+                    try {
+                        printBills();
+                    } catch (Exception e) {
+                        new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+                    }
+                });
+
             } else {
                 new Alert(Alert.AlertType.ERROR, "Order is Not Placed...!").show();
             }
