@@ -10,11 +10,11 @@ public class EmailSend {
     public static void mail() {
 
         // Sender's email address and password
-        String senderEmail = "fightlife241@gmail.com";
-        String senderPassword = "genbtmifwmmkcrsx";
+        String senderEmail = "kaviyabro9007@gmail.com";
+        String senderPassword = "eydlyipacjvbfmfx";
 
         // Recipient's email address
-        String recipientEmail = "kaviyabro9007@gmail.com";
+        String recipientEmail = "kavithmathushal451@gmail.com";
 
         // Email properties
         Properties props = new Properties();
