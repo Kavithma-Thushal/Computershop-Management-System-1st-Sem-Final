@@ -36,7 +36,7 @@ public class EmailSend {
         multipart.addBodyPart(textPart);
 
         // Add the attachment
-        /*String filePath = "/D:\\IJSE\\Workspace\\bashicomputershop\\src\\main\\resources\\assets\\img\\login.jpeg";
+        /*String filePath = "/D:\\IJSE\\Workspace\\bashicomputershop\\src\\main\\resources\\assets\\img\\splashscreen.jpg";
         File attachment = new File(filePath);
         if (attachment.exists()) {
             BodyPart attachmentPart = new MimeBodyPart();
