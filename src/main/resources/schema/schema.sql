@@ -48,7 +48,7 @@ CREATE TABLE items
 CREATE TABLE salary
 (
     code       VARCHAR(5),
-    employeeId VARCHAR(5),
+    employeeId VARCHAR(5) NOT NULL,
     amount     DECIMAL NOT NULL,
     date       DATE,
     CONSTRAINT PRIMARY KEY (code),
@@ -58,7 +58,7 @@ CREATE TABLE salary
 CREATE TABLE orders
 (
     id         VARCHAR(5),
-    customerId VARCHAR(5),
+    customerId VARCHAR(5) NOT NULL,
     CONSTRAINT PRIMARY KEY (id),
     CONSTRAINT FOREIGN KEY (customerId) REFERENCES customer (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -66,8 +66,8 @@ CREATE TABLE orders
 CREATE TABLE custombuilds
 (
     code       VARCHAR(5),
-    customerId VARCHAR(5),
-    employeeId VARCHAR(5),
+    customerId VARCHAR(5) NOT NULL,
+    employeeId VARCHAR(5) NOT NULL,
     CONSTRAINT PRIMARY KEY (code),
     CONSTRAINT FOREIGN KEY (customerId) REFERENCES customer (id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FOREIGN KEY (employeeId) REFERENCES employee (id) ON DELETE CASCADE ON UPDATE CASCADE
@@ -76,8 +76,8 @@ CREATE TABLE custombuilds
 CREATE TABLE repairs
 (
     code       VARCHAR(5),
-    customerId VARCHAR(5),
-    employeeId VARCHAR(5),
+    customerId VARCHAR(5) NOT NULL,
+    employeeId VARCHAR(5) NOT NULL,
     details    VARCHAR(100),
     getDate    DATE NOT NULL,
     acceptDate DATE,
@@ -89,9 +89,9 @@ CREATE TABLE repairs
 CREATE TABLE delivery
 (
     code       VARCHAR(5),
-    customerId VARCHAR(5),
-    employeeId VARCHAR(5),
-    orderId    VARCHAR(5),
+    customerId VARCHAR(5) NOT NULL,
+    employeeId VARCHAR(5) NOT NULL,
+    orderId    VARCHAR(5) NOT NULL,
     location   VARCHAR(50) NOT NULL,
     date       DATE        NOT NULL,
     CONSTRAINT PRIMARY KEY (code),
@@ -102,8 +102,8 @@ CREATE TABLE delivery
 
 CREATE TABLE order_details
 (
-    orderId  VARCHAR(5),
-    itemCode VARCHAR(5),
+    orderId  VARCHAR(5) NOT NULL,
+    itemCode VARCHAR(5) NOT NULL,
     qty      INT NOT NULL,
     total    DECIMAL,
     date     DATE,
@@ -114,8 +114,8 @@ CREATE TABLE order_details
 
 CREATE TABLE supplier_details
 (
-    supplierId VARCHAR(5),
-    itemCode   VARCHAR(5),
+    supplierId VARCHAR(5) NOT NULL,
+    itemCode   VARCHAR(5) NOT NULL,
     qty        INT,
     date       DATE,
     CONSTRAINT PRIMARY KEY (supplierId, itemCode),
@@ -125,8 +125,8 @@ CREATE TABLE supplier_details
 
 CREATE TABLE build_details
 (
-    buildCode VARCHAR(5),
-    itemCode  VARCHAR(5),
+    buildCode VARCHAR(5) NOT NULL,
+    itemCode  VARCHAR(5) NOT NULL,
     qty       INT NOT NULL,
     total     DECIMAL,
     date      DATE,
