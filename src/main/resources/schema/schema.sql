@@ -1,9 +1,6 @@
-DROP
-DATABASE IF EXISTS computershop;
-CREATE
-DATABASE computershop;
-USE
-computershop;
+DROP DATABASE IF EXISTS computershop;
+CREATE DATABASE computershop;
+USE computershop;
 
 CREATE TABLE customer
 (
@@ -49,7 +46,7 @@ CREATE TABLE salary
 (
     code       VARCHAR(5),
     employeeId VARCHAR(5) NOT NULL,
-    amount     DECIMAL NOT NULL,
+    amount     DECIMAL    NOT NULL,
     date       DATE,
     CONSTRAINT PRIMARY KEY (code),
     CONSTRAINT FOREIGN KEY (employeeId) REFERENCES employee (id) ON DELETE CASCADE ON UPDATE CASCADE
@@ -79,7 +76,7 @@ CREATE TABLE repairs
     customerId VARCHAR(5) NOT NULL,
     employeeId VARCHAR(5) NOT NULL,
     details    VARCHAR(100),
-    getDate    DATE NOT NULL,
+    getDate    DATE       NOT NULL,
     acceptDate DATE,
     CONSTRAINT PRIMARY KEY (code),
     CONSTRAINT FOREIGN KEY (employeeId) REFERENCES employee (id) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -89,9 +86,9 @@ CREATE TABLE repairs
 CREATE TABLE delivery
 (
     code       VARCHAR(5),
-    customerId VARCHAR(5) NOT NULL,
-    employeeId VARCHAR(5) NOT NULL,
-    orderId    VARCHAR(5) NOT NULL,
+    customerId VARCHAR(5)  NOT NULL,
+    employeeId VARCHAR(5)  NOT NULL,
+    orderId    VARCHAR(5)  NOT NULL,
     location   VARCHAR(50) NOT NULL,
     date       DATE        NOT NULL,
     CONSTRAINT PRIMARY KEY (code),
@@ -104,7 +101,7 @@ CREATE TABLE order_details
 (
     orderId  VARCHAR(5) NOT NULL,
     itemCode VARCHAR(5) NOT NULL,
-    qty      INT NOT NULL,
+    qty      INT        NOT NULL,
     total    DECIMAL,
     date     DATE,
     CONSTRAINT PRIMARY KEY (orderId, itemCode),
@@ -127,7 +124,7 @@ CREATE TABLE build_details
 (
     buildCode VARCHAR(5) NOT NULL,
     itemCode  VARCHAR(5) NOT NULL,
-    qty       INT NOT NULL,
+    qty       INT        NOT NULL,
     total     DECIMAL,
     date      DATE,
     CONSTRAINT PRIMARY KEY (buildCode, itemCode),
