@@ -15,7 +15,7 @@
                 <Font name="Times New Roman Bold" size="59.0" />
             </font>
         </Label>
-        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1511.0" layoutY="38.0" onMouseClicked="#closeOnAction" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1511.0" layoutY="30.0" onMouseClicked="#closeOnAction" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../assets/icons/close.jpg" />
             </image>
@@ -127,7 +127,7 @@
                 <Font name="Arial Rounded MT Bold" size="32.0" />
             </font>
         </Label>
-        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1474.0" layoutY="38.0" onMouseClicked="#minimizeOnAction" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1474.0" layoutY="30.0" onMouseClicked="#minimizeOnAction" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../assets/icons/minimize.png" />
             </image>

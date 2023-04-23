@@ -7,94 +7,88 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="900.0" prefWidth="1550.0" stylesheets="@../styles/manageforms.css"
-            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="lk.ijse.computershop.controller.AdmindashboardFormController">
+<AnchorPane fx:id="root" prefHeight="900.0" prefWidth="1550.0" stylesheets="@../styles/manageforms.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.AdmindashboardFormController">
     <children>
-        <Button focusTraversable="false" layoutX="52.0" layoutY="223.0" mnemonicParsing="false"
-                onAction="#manageemployeesOnAction" prefHeight="6.0" prefWidth="214.0" text="Manage Employees">
+        <Button focusTraversable="false" layoutX="52.0" layoutY="223.0" mnemonicParsing="false" onAction="#manageemployeesOnAction" prefHeight="6.0" prefWidth="214.0" text="Manage Employees">
             <font>
-                <Font name="Times New Roman Bold" size="22.0"/>
+                <Font name="Times New Roman Bold" size="22.0" />
             </font>
         </Button>
-        <Button focusTraversable="false" layoutX="52.0" layoutY="524.0" mnemonicParsing="false"
-                onAction="#manageordersOnAction" prefHeight="6.0" prefWidth="214.0" text="Manage Orders">
+        <Button focusTraversable="false" layoutX="52.0" layoutY="524.0" mnemonicParsing="false" onAction="#manageordersOnAction" prefHeight="6.0" prefWidth="214.0" text="Manage Orders">
             <font>
-                <Font name="Times New Roman Bold" size="22.0"/>
+                <Font name="Times New Roman Bold" size="22.0" />
             </font>
         </Button>
-        <Button focusTraversable="false" layoutX="52.0" layoutY="723.0" mnemonicParsing="false"
-                onAction="#reportsOnAction" prefHeight="6.0" prefWidth="214.0" text="Reports">
+        <Button focusTraversable="false" layoutX="52.0" layoutY="723.0" mnemonicParsing="false" onAction="#reportsOnAction" prefHeight="6.0" prefWidth="214.0" text="Reports">
             <font>
-                <Font name="Times New Roman Bold" size="22.0"/>
+                <Font name="Times New Roman Bold" size="22.0" />
             </font>
         </Button>
-        <Button focusTraversable="false" layoutX="52.0" layoutY="624.0" mnemonicParsing="false"
-                onAction="#managesalaryOnAction" prefHeight="6.0" prefWidth="214.0" text="Manage Salary">
+        <Button focusTraversable="false" layoutX="52.0" layoutY="624.0" mnemonicParsing="false" onAction="#managesalaryOnAction" prefHeight="6.0" prefWidth="214.0" text="Manage Salary">
             <font>
-                <Font name="Times New Roman Bold" size="22.0"/>
+                <Font name="Times New Roman Bold" size="22.0" />
             </font>
         </Button>
-        <Label prefHeight="98.0" prefWidth="1550.0" styleClass="lblTop"/>
-        <Label layoutX="540.0" layoutY="30.0" prefHeight="67.0" prefWidth="470.0" text="Admin Dashboard"
-               textFill="WHITE">
+        <Label prefHeight="98.0" prefWidth="1550.0" styleClass="lblTop" />
+        <Label layoutX="540.0" layoutY="30.0" prefHeight="67.0" prefWidth="470.0" text="Admin Dashboard" textFill="WHITE">
             <font>
-                <Font name="Times New Roman Bold" size="59.0"/>
+                <Font name="Times New Roman Bold" size="59.0" />
             </font>
         </Label>
         <Label layoutX="23.0" layoutY="121.0" text="Date : ">
             <font>
-                <Font name="Arial Rounded MT Bold" size="32.0"/>
+                <Font name="Arial Rounded MT Bold" size="32.0" />
             </font>
         </Label>
         <Label layoutX="1268.0" layoutY="122.0" text="Time : ">
             <font>
-                <Font name="Arial Rounded MT Bold" size="32.0"/>
+                <Font name="Arial Rounded MT Bold" size="32.0" />
             </font>
         </Label>
         <Label fx:id="lblDate" layoutX="122.0" layoutY="121.0" prefHeight="38.0" prefWidth="214.0">
             <font>
-                <Font name="Arial Rounded MT Bold" size="32.0"/>
+                <Font name="Arial Rounded MT Bold" size="32.0" />
             </font>
         </Label>
         <Label fx:id="lblTime" layoutX="1383.0" layoutY="122.0" prefHeight="38.0" prefWidth="149.0">
             <font>
-                <Font name="Arial Rounded MT Bold" size="32.0"/>
+                <Font name="Arial Rounded MT Bold" size="32.0" />
             </font>
         </Label>
-        <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="44.0" layoutY="814.0" onMouseClicked="#backOnAction"
-                   pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="44.0" layoutY="814.0" onMouseClicked="#backOnAction" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../assets/icons/back.png"/>
+                <Image url="@../assets/icons/back.png" />
             </image>
         </ImageView>
         <AnchorPane fx:id="manageFormsRoot" layoutX="317.0" layoutY="183.0" prefHeight="666.0" prefWidth="1187.0">
             <children>
                 <ImageView fitHeight="749.0" fitWidth="1187.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../assets/img/customerDashboard.jpg"/>
+                        <Image url="@../assets/img/customerDashboard.jpg" />
                     </image>
                 </ImageView>
-                <AnchorPane fx:id="random" layoutY="1.0" prefHeight="666.0" prefWidth="1187.0"/>
+                <AnchorPane fx:id="random" layoutY="1.0" prefHeight="666.0" prefWidth="1187.0" />
             </children>
         </AnchorPane>
-        <Button focusTraversable="false" layoutX="52.0" layoutY="322.0" mnemonicParsing="false"
-                onAction="#managesuppliersOnAction" prefHeight="6.0" prefWidth="214.0" text="Manage Suppliers">
+        <Button focusTraversable="false" layoutX="52.0" layoutY="322.0" mnemonicParsing="false" onAction="#managesuppliersOnAction" prefHeight="6.0" prefWidth="214.0" text="Manage Suppliers">
             <font>
-                <Font name="Times New Roman Bold" size="22.0"/>
+                <Font name="Times New Roman Bold" size="22.0" />
             </font>
         </Button>
-        <Button focusTraversable="false" layoutX="52.0" layoutY="421.0" mnemonicParsing="false"
-                onAction="#manageitemsOnAction" prefHeight="6.0" prefWidth="214.0" text="Manage Store">
+        <Button focusTraversable="false" layoutX="52.0" layoutY="421.0" mnemonicParsing="false" onAction="#manageitemsOnAction" prefHeight="6.0" prefWidth="214.0" text="Manage Store">
             <font>
-                <Font name="Times New Roman Bold" size="22.0"/>
+                <Font name="Times New Roman Bold" size="22.0" />
             </font>
         </Button>
-        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1488.0" layoutY="39.0" onMouseClicked="#logoutOnAction"
-                   pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1511.0" layoutY="30.0" onMouseClicked="#logoutOnAction" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../assets/icons/logout.jpg"/>
+                <Image url="@../assets/icons/close.jpg" />
             </image>
         </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1474.0" layoutY="30.0" onMouseClicked="#minimizeOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons/minimize.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

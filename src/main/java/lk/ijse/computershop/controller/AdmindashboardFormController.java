@@ -3,9 +3,11 @@ package lk.ijse.computershop.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.computershop.util.DateAndTime;
 import lk.ijse.computershop.util.RandomImages;
 import lk.ijse.computershop.util.UILoader;
@@ -73,6 +75,12 @@ public class AdmindashboardFormController implements Initializable {
     @FXML
     private void backOnAction(MouseEvent mouseEvent) throws IOException {
         UILoader.BtnLogOut(root, "login_form");
+    }
+
+    @FXML
+    private void minimizeOnAction(MouseEvent mouseEvent) {
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        stage.setIconified(true);
     }
 
     @FXML
