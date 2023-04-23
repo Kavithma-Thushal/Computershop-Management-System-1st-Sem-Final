@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.computershop.util.DateAndTime;
+import lk.ijse.computershop.util.RandomImages;
 import lk.ijse.computershop.util.UILoader;
 
 import java.io.IOException;
@@ -20,13 +21,18 @@ public class CashierdashboardFormController implements Initializable {
     @FXML
     private AnchorPane manageFormsRoot;
     @FXML
+    private AnchorPane random;
+    @FXML
     private Label lblDate;
     @FXML
     private Label lblTime;
 
+    private RandomImages randomImages;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         DateAndTime.loadDateAndTime(lblDate, lblTime);
+        randomImages = new RandomImages(random);
     }
 
     @FXML
