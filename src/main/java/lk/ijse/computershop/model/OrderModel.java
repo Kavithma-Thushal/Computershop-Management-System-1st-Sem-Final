@@ -19,7 +19,7 @@ public class OrderModel {
         return splitOrderId(null);
     }
 
-    private static String splitOrderId(String currentId) {
+    /*private static String splitOrderId(String currentId) {
         if (currentId != null) {
             String[] strings = currentId.split("O");
             int id = Integer.parseInt(strings[1]);
@@ -27,6 +27,16 @@ public class OrderModel {
             return "O" + id;
         }
         return "O1";
+    }*/
+
+    private static String splitOrderId(String currentId) {
+        if (currentId != null) {
+            String[] strings = currentId.split("O");
+            int id = Integer.parseInt(strings[1]);
+            id++;
+            return "O" + String.format("%02d", id);
+        }
+        return "O01";
     }
 
     public static boolean save(String orderId, String customerId) throws SQLException {
