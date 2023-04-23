@@ -1,11 +1,40 @@
-.root{
-    -fx-background-color:linear-gradient(to right,#3168df,rgba(235, 59, 90,1.0));
+.root {
+    -fx-background-color: linear-gradient(to right, #3168df, rgba(235, 59, 90, 1.0));
 }
 
-.lblTop{
-    -fx-background-color:linear-gradient(to right,#808080,#000000);
+.lblTop {
+    -fx-background-color: linear-gradient(to right, #808080, #000000);
 }
 
-.manageFormsRoot{
-    -fx-background-color:linear-gradient(to right,#808080,#ffffff);
+.manageFormsRoot {
+    -fx-background-color: linear-gradient(to right, #808080, #ffffff);
+}
+
+.txt {
+    -fx-background-color: #2C387E;
+    //-fx-background-radius: 20;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Times New Roman";
+    -fx-padding: 10px 20px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 0);
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+.txt:hover {
+    -fx-background-color: #2C387E;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-family: "Times New Roman";
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 15, 0, 0, 0);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.lbl {
+    -fx-background-color: #4a58a7;
+    //-fx-background-radius: 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
+    -fx-transition: all 0.2s ease-in-out;
 }
