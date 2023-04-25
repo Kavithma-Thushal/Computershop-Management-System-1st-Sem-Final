@@ -15,21 +15,33 @@
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
         <Button focusTraversable="false" layoutX="52.0" layoutY="524.0" mnemonicParsing="false" onAction="#manageordersOnAction" prefHeight="6.0" prefWidth="214.0" styleClass="txt" text="Manage Orders">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
         <Button focusTraversable="false" layoutX="52.0" layoutY="723.0" mnemonicParsing="false" onAction="#reportsOnAction" prefHeight="6.0" prefWidth="214.0" styleClass="txt" text="Reports">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
         <Button focusTraversable="false" layoutX="52.0" layoutY="624.0" mnemonicParsing="false" onAction="#managesalaryOnAction" prefHeight="6.0" prefWidth="214.0" styleClass="txt" text="Manage Salary">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
         <Label prefHeight="98.0" prefWidth="1550.0" styleClass="lblTop" />
         <Label layoutX="540.0" layoutY="30.0" prefHeight="67.0" prefWidth="470.0" text="Admin Dashboard" textFill="WHITE">
@@ -79,11 +91,17 @@
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
         <Button focusTraversable="false" layoutX="52.0" layoutY="421.0" mnemonicParsing="false" onAction="#manageitemsOnAction" prefHeight="6.0" prefWidth="214.0" styleClass="txt" text="Manage Store">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1511.0" layoutY="30.0" onMouseClicked="#logoutOnAction" pickOnBounds="true" preserveRatio="true">
             <image>

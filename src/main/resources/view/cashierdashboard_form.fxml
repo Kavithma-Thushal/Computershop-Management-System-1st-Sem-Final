@@ -15,21 +15,33 @@
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
         <Button focusTraversable="false" layoutX="52.0" layoutY="330.0" mnemonicParsing="false" onAction="#manageordersOnAction" prefHeight="6.0" prefWidth="214.0" styleClass="txt" text="Manage Orders">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
         <Button focusTraversable="false" layoutX="51.0" layoutY="522.0" mnemonicParsing="false" onAction="#deliveryOnAction" prefHeight="6.0" prefWidth="214.0" styleClass="txt" text="Delivery">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
         <Button focusTraversable="false" layoutX="52.0" layoutY="719.0" mnemonicParsing="false" onAction="#custombuildOnAction" prefHeight="6.0" prefWidth="214.0" styleClass="txt" text="Custom Build">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
         <Label onMouseClicked="#minimizeOnAction" prefHeight="98.0" prefWidth="1550.0" styleClass="lblTop" />
         <Label focusTraversable="false" layoutX="528.0" layoutY="30.0" prefHeight="67.0" prefWidth="494.0" text="Cashier Dashboard" textFill="WHITE">
@@ -79,11 +91,17 @@
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
         <Button focusTraversable="false" layoutX="52.0" layoutY="620.0" mnemonicParsing="false" onAction="#repairOnAction" prefHeight="6.0" prefWidth="214.0" styleClass="txt" text="Repair">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1511.0" layoutY="30.0" onMouseClicked="#logoutOnAction" pickOnBounds="true" preserveRatio="true">
             <image>

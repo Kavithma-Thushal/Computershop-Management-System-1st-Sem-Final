@@ -38,3 +38,14 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
     -fx-transition: all 0.2s ease-in-out;
 }
+
+.crud {
+    -fx-background-color: #334193;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Times New Roman";
+    -fx-padding: 5px 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 2), 10, 0, 0, 0);
+    -fx-transition: all 0.6s ease-in-out;
+}
