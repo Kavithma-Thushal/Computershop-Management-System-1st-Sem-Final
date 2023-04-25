@@ -119,7 +119,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </ImageView>
-        <Label fx:id="lblSubtitle" alignment="CENTER" layoutX="317.0" layoutY="118.0" prefHeight="44.0" prefWidth="310.0" styleClass="lbl" text="Manage Customers" textFill="WHITE">
+        <Label fx:id="lblSubtitle" alignment="CENTER" layoutX="317.0" layoutY="118.0" prefHeight="44.0" prefWidth="310.0" styleClass="lbl" text="Welcome!" textFill="WHITE">
             <font>
                 <Font name="Times New Roman Bold" size="31.0" />
             </font>

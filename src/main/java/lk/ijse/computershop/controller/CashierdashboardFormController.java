@@ -37,7 +37,6 @@ public class CashierdashboardFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         DateAndTime.loadDateAndTime(lblDate, lblTime);
         randomImages = new RandomImages(random);
-        lblSubtitle.setText("Welcome!");
     }
 
     @FXML

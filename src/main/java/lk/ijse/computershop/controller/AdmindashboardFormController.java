@@ -28,6 +28,8 @@ public class AdmindashboardFormController implements Initializable {
     private Label lblDate;
     @FXML
     private Label lblTime;
+    @FXML
+    private Label lblSubtitle;
 
     private RandomImages randomImages;
 
@@ -39,37 +41,38 @@ public class AdmindashboardFormController implements Initializable {
 
     @FXML
     private void manageemployeesOnAction(ActionEvent event) throws IOException {
-        UILoader.loadUiDashBoard(manageFormsRoot,"manageemployee_form");
+        UILoader.loadUiDashBoard(manageFormsRoot, "manageemployee_form");
+        lblSubtitle.setText("Manage Employees");
     }
 
     @FXML
     private void managesuppliersOnAction(ActionEvent event) throws IOException {
-        UILoader.loadUiDashBoard(manageFormsRoot,"managesuppliers_form");
-    }
-
-    @FXML
-    private void managecustomersOnAction(ActionEvent event) throws IOException {
-        UILoader.loadUiDashBoard(manageFormsRoot,"managecustomers_form");
+        UILoader.loadUiDashBoard(manageFormsRoot, "managesuppliers_form");
+        lblSubtitle.setText("Manage Suppliers");
     }
 
     @FXML
     private void manageitemsOnAction(ActionEvent event) throws IOException {
-        UILoader.loadUiDashBoard(manageFormsRoot,"manageitem_form");
+        UILoader.loadUiDashBoard(manageFormsRoot, "manageitem_form");
+        lblSubtitle.setText("Manage Store");
     }
 
     @FXML
     private void manageordersOnAction(ActionEvent event) throws IOException {
-        UILoader.loadUiDashBoard(manageFormsRoot,"manageorders_form");
+        UILoader.loadUiDashBoard(manageFormsRoot, "manageorders_form");
+        lblSubtitle.setText("Manage Orders");
     }
 
     @FXML
     private void managesalaryOnAction(ActionEvent event) throws IOException {
-        UILoader.loadUiDashBoard(manageFormsRoot,"managesalary_form");
+        UILoader.loadUiDashBoard(manageFormsRoot, "managesalary_form");
+        lblSubtitle.setText("Manage Salary");
     }
 
     @FXML
     private void reportsOnAction(ActionEvent event) throws IOException {
-        UILoader.loadUiDashBoard(manageFormsRoot,"managereports_form");
+        UILoader.loadUiDashBoard(manageFormsRoot, "managereports_form");
+        lblSubtitle.setText("Reports");
     }
 
     @FXML
