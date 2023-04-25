@@ -18,8 +18,8 @@ public class ItemModel {
                 sql,
                 item.getCode(),
                 item.getDescription(),
-                item.getUnitprice(),
-                item.getQtyonhand()
+                item.getUnitPrice(),
+                item.getQtyOnHand()
         );
     }
 
@@ -45,8 +45,8 @@ public class ItemModel {
         return CrudUtil.execute(
                 sql,
                 item.getDescription(),
-                item.getUnitprice(),
-                item.getQtyonhand(),
+                item.getUnitPrice(),
+                item.getQtyOnHand(),
                 item.getCode()
         );
     }

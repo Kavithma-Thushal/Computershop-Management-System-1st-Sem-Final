@@ -182,8 +182,8 @@ public class ManagecustombuildFormController implements Initializable {
 
     private void fillItemFields(Item item) {
         txtDescription.setText(item.getDescription());
-        txtUnitPrice.setText(String.valueOf(item.getUnitprice()));
-        txtQtyOnHand.setText(String.valueOf(item.getQtyonhand()));
+        txtUnitPrice.setText(String.valueOf(item.getUnitPrice()));
+        txtQtyOnHand.setText(String.valueOf(item.getQtyOnHand()));
     }
 
     @FXML

@@ -8,6 +8,6 @@ import lombok.Data;
 public class ItemTM {
     private String code;
     private String description;
-    private Double unitprice;
-    private Integer qtyonhand;
+    private Double unitPrice;
+    private Integer qtyOnHand;
 }

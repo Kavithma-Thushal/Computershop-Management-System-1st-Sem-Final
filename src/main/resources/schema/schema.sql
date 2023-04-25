@@ -33,7 +33,7 @@ CREATE TABLE supplier
     CONSTRAINT PRIMARY KEY (id)
 );
 
-CREATE TABLE items
+CREATE TABLE item
 (
     code        VARCHAR(5),
     description VARCHAR(100),

@@ -51,8 +51,8 @@ public class ViewitemFormController implements Initializable {
     private void setCellValueFactory() {
         colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-        colUnitprice.setCellValueFactory(new PropertyValueFactory<>("unitprice"));
-        colQtyonhand.setCellValueFactory(new PropertyValueFactory<>("qtyonhand"));
+        colUnitprice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        colQtyonhand.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
     }
 
     private void getAll() {
@@ -64,8 +64,8 @@ public class ViewitemFormController implements Initializable {
                 observableList.add(new ItemTM(
                         item.getCode(),
                         item.getDescription(),
-                        item.getUnitprice(),
-                        item.getQtyonhand()
+                        item.getUnitPrice(),
+                        item.getQtyOnHand()
                 ));
             }
             tblItem.setItems(observableList);
@@ -81,8 +81,8 @@ public class ViewitemFormController implements Initializable {
             if (item != null) {
                 txtCode.setText(item.getCode());
                 txtDescription.setText(item.getDescription());
-                txtUnitprice.setText(String.valueOf(item.getUnitprice()));
-                txtQtyonhand.setText(String.valueOf(item.getQtyonhand()));
+                txtUnitprice.setText(String.valueOf(item.getUnitPrice()));
+                txtQtyonhand.setText(String.valueOf(item.getQtyOnHand()));
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
