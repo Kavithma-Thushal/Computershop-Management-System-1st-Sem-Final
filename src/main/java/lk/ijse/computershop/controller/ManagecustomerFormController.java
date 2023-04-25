@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.computershop.dto.Customer;
 import lk.ijse.computershop.dto.tm.CustomerTM;
 import lk.ijse.computershop.model.CustomerModel;
@@ -117,6 +118,12 @@ public class ManagecustomerFormController implements Initializable {
     }
 
     @FXML
+    private void reset(MouseEvent mouseEvent) {
+        clearAllTxt();
+        generateNextCustomerId();
+    }
+
+    @FXML
     private void txtKeyRelease(KeyEvent keyEvent) {
         Object response = Validation.validate(map, btnSave);
 
@@ -200,15 +207,18 @@ public class ManagecustomerFormController implements Initializable {
                 txtEmail.setText(customer.getEmail());
                 txtContact.setText(customer.getContact());
                 txtAddress.setText(customer.getAddress());
+
+                btnSave.setDisable(true);
+                btnUpdate.setDisable(false);
+                btnDelete.setDisable(false);
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Invalid Input...!").show();
             }
-            btnSave.setDisable(true);
-            btnUpdate.setDisable(false);
-            btnDelete.setDisable(false);
-            txtSearch.clear();
 
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
+        txtSearch.clear();
     }
 
     @FXML
@@ -227,7 +237,6 @@ public class ManagecustomerFormController implements Initializable {
                 new Alert(Alert.AlertType.INFORMATION, "Updated Successfully...!").show();
                 getAll();
                 clearAllTxt();
-                txtSearch.clear();
                 txtName.requestFocus();
                 generateNextCustomerId();
             }
@@ -247,16 +256,14 @@ public class ManagecustomerFormController implements Initializable {
             if (buttonType.orElse(yes) == yes) {
                 if (CustomerModel.delete(txtId.getText()) > 0) {
                     new Alert(Alert.AlertType.INFORMATION, "Deleted Successfully...!").show();
-                    tblCustomer.refresh();
                     getAll();
+                    clearAllTxt();
+                    txtName.requestFocus();
+                    generateNextCustomerId();
                 }
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
-        clearAllTxt();
-        txtSearch.clear();
-        generateNextCustomerId();
-        txtName.requestFocus();
     }
 }
