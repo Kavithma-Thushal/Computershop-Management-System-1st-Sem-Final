@@ -60,9 +60,9 @@ public class ManagecustomerFormController implements Initializable {
 
     private LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
     Pattern name = Pattern.compile("^([A-Z a-z]{4,40})$");
-    Pattern nic = Pattern.compile("^([0-9]{12}|[0-9V]{10})$");
-    Pattern email = Pattern.compile("^[a-z A-Z 0-9 ._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$");
-    Pattern contact = Pattern.compile("^(07(0|1|2|4|5|6|7|8)[0-9]{7})$");
+    Pattern nic = Pattern.compile("^([0-9]{12}|[0-9]{9}V)$");
+    Pattern email = Pattern.compile("^[A-Z a-z 0-9 !#$%&'*+/=?^_`{|}~-]+@gmail\\.[A-Z a-z]+$");
+    Pattern contact = Pattern.compile("^(07(0|1|2|4|5|6|7|8)|091)[0-9]{7}$");
     Pattern address = Pattern.compile("^([A-Z a-z]{4,40})$");
 
     @Override
@@ -70,8 +70,8 @@ public class ManagecustomerFormController implements Initializable {
         getAll();
         setCellValueFactory();
         generateNextOrderId();
-        disableButtons();
         storeValidations();
+        disableButtons();
     }
 
     private void setCellValueFactory() {
@@ -156,7 +156,7 @@ public class ManagecustomerFormController implements Initializable {
             tblCustomer.setItems(observableList);
 
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 
@@ -176,7 +176,7 @@ public class ManagecustomerFormController implements Initializable {
             }
 
             if (CustomerModel.save(customer) > 0) {
-                new Alert(Alert.AlertType.INFORMATION, "customer saved successfully...!").show();
+                new Alert(Alert.AlertType.INFORMATION, "Customer Saved Successfully...!").show();
                 //tblCustomer.refresh();
                 getAll();
                 clearAllTxt();
