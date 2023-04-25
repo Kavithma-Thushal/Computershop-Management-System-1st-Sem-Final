@@ -25,9 +25,9 @@ public class ViewitemFormController implements Initializable {
     @FXML
     private TextField txtDescription;
     @FXML
-    private TextField txtUnitprice;
+    private TextField txtUnitPrice;
     @FXML
-    private TextField txtQtyonhand;
+    private TextField txtQtyOnHand;
     @FXML
     private TableView tblItem;
     @FXML
@@ -35,12 +35,11 @@ public class ViewitemFormController implements Initializable {
     @FXML
     private TableColumn colDescription;
     @FXML
-    private TableColumn colUnitprice;
+    private TableColumn colUnitPrice;
     @FXML
-    private TableColumn colQtyonhand;
+    private TableColumn colQtyOnHand;
     @FXML
     private TextField txtSearch;
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -51,8 +50,8 @@ public class ViewitemFormController implements Initializable {
     private void setCellValueFactory() {
         colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-        colUnitprice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
-        colQtyonhand.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        colQtyOnHand.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
     }
 
     private void getAll() {
@@ -70,7 +69,7 @@ public class ViewitemFormController implements Initializable {
             }
             tblItem.setItems(observableList);
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 
@@ -81,11 +80,13 @@ public class ViewitemFormController implements Initializable {
             if (item != null) {
                 txtCode.setText(item.getCode());
                 txtDescription.setText(item.getDescription());
-                txtUnitprice.setText(String.valueOf(item.getUnitPrice()));
-                txtQtyonhand.setText(String.valueOf(item.getQtyOnHand()));
+                txtUnitPrice.setText(String.valueOf(item.getUnitPrice()));
+                txtQtyOnHand.setText(String.valueOf(item.getQtyOnHand()));
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Invalid Input...!").show();
             }
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
         txtSearch.clear();
     }
