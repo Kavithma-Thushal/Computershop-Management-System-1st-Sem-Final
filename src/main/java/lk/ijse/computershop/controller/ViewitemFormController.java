@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ViewitemsFormController implements Initializable {
+public class ViewitemFormController implements Initializable {
 
     @FXML
     private TextField txtCode;

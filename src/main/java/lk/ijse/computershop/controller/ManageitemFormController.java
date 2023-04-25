@@ -21,7 +21,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
-public class ManageitemsFormController implements Initializable {
+public class ManageitemFormController implements Initializable {
 
     @FXML
     private TextField txtCode;
