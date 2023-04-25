@@ -69,7 +69,7 @@ public class ManagecustomerFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getAll();
         setCellValueFactory();
-        generateNextOrderId();
+        generateNextCustomerId();
         storeValidations();
         disableButtons();
     }
@@ -87,6 +87,14 @@ public class ManagecustomerFormController implements Initializable {
         btnSave.setDisable(true);
         btnUpdate.setDisable(true);
         btnDelete.setDisable(true);
+    }
+
+    private void storeValidations() {
+        map.put(txtName, name);
+        map.put(txtNic, nic);
+        map.put(txtEmail, email);
+        map.put(txtContact, contact);
+        map.put(txtAddress, address);
     }
 
     private void clearAllTxt() {
@@ -108,23 +116,6 @@ public class ManagecustomerFormController implements Initializable {
         }
     }
 
-    private void generateNextOrderId() {
-        try {
-            String id = CustomerModel.getNextCustomerId();
-            txtId.setText(id);
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
-        }
-    }
-
-    private void storeValidations() {
-        map.put(txtName, name);
-        map.put(txtNic, nic);
-        map.put(txtEmail, email);
-        map.put(txtContact, contact);
-        map.put(txtAddress, address);
-    }
-
     @FXML
     private void txtKeyRelease(KeyEvent keyEvent) {
         Object response = Validation.validate(map, btnSave);
@@ -134,6 +125,15 @@ public class ManagecustomerFormController implements Initializable {
                 TextField txtnext = (TextField) response;
                 txtnext.requestFocus();
             }
+        }
+    }
+
+    private void generateNextCustomerId() {
+        try {
+            String id = CustomerModel.getNextCustomerId();
+            txtId.setText(id);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 
@@ -176,12 +176,12 @@ public class ManagecustomerFormController implements Initializable {
             }
 
             if (CustomerModel.save(customer) > 0) {
-                new Alert(Alert.AlertType.INFORMATION, "Customer Saved Successfully...!").show();
+                new Alert(Alert.AlertType.INFORMATION, "Saved Successfully...!").show();
                 //tblCustomer.refresh();
                 getAll();
                 clearAllTxt();
                 txtName.requestFocus();
-                generateNextOrderId();
+                generateNextCustomerId();
             }
 
         } catch (Exception e) {
@@ -200,15 +200,15 @@ public class ManagecustomerFormController implements Initializable {
                 txtEmail.setText(customer.getEmail());
                 txtContact.setText(customer.getContact());
                 txtAddress.setText(customer.getAddress());
-
-                btnSave.setDisable(true);
-                btnUpdate.setDisable(false);
-                btnDelete.setDisable(false);
             }
+            btnSave.setDisable(true);
+            btnUpdate.setDisable(false);
+            btnDelete.setDisable(false);
+            txtSearch.clear();
+
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
-        txtSearch.clear();
     }
 
     @FXML
@@ -225,16 +225,15 @@ public class ManagecustomerFormController implements Initializable {
 
             if (CustomerModel.update(customer) > 0) {
                 new Alert(Alert.AlertType.INFORMATION, "Updated Successfully...!").show();
-                tblCustomer.refresh();
                 getAll();
+                clearAllTxt();
+                txtSearch.clear();
+                txtName.requestFocus();
+                generateNextCustomerId();
             }
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
-        clearAllTxt();
-        txtSearch.clear();
-        generateNextOrderId();
-        txtName.requestFocus();
     }
 
     @FXML
@@ -257,7 +256,7 @@ public class ManagecustomerFormController implements Initializable {
         }
         clearAllTxt();
         txtSearch.clear();
-        generateNextOrderId();
+        generateNextCustomerId();
         txtName.requestFocus();
     }
 }

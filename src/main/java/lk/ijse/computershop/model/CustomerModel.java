@@ -25,11 +25,9 @@ public class CustomerModel {
     }
 
     public static Customer search(String id) throws SQLException {
-
         String sql = "SELECT * FROM customer WHERE id=?";
 
         ResultSet resultSet = CrudUtil.execute(sql, id);
-
         if (resultSet.next()) {
             return new Customer(
                     resultSet.getString(1),
@@ -44,7 +42,6 @@ public class CustomerModel {
     }
 
     public static int update(Customer customer) throws SQLException {
-
         String sql = "UPDATE customer SET name=? , nic=? , email=? , contact=? , address=? WHERE id=?";
 
         return CrudUtil.execute(
