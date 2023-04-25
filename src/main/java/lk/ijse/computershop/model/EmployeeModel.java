@@ -11,7 +11,6 @@ import java.util.List;
 public class EmployeeModel {
 
     public static int save(Employee employee) throws SQLException {
-
         String sql = "INSERT INTO employee VALUES (?,?,?,?,?,?)";
 
         return CrudUtil.execute(
@@ -27,11 +26,9 @@ public class EmployeeModel {
     }
 
     public static Employee search(String id) throws SQLException {
-
         String sql = "SELECT * FROM employee WHERE id=?";
 
         ResultSet resultSet = CrudUtil.execute(sql, id);
-
         if (resultSet.next()) {
             return new Employee(
                     resultSet.getString(1),
@@ -46,8 +43,7 @@ public class EmployeeModel {
     }
 
     public static int update(Employee employee) throws SQLException {
-
-        String sql = "UPDATE employee SET name=? , contact=? , jobrole=? , username=? , password=? WHERE id=?";
+        String sql = "UPDATE employee SET name=? , contact=? , jobRole=? , username=? , password=? WHERE id=?";
 
         return CrudUtil.execute(
                 sql,
@@ -100,9 +96,9 @@ public class EmployeeModel {
             String[] strings = currentId.split("E");
             int id = Integer.parseInt(strings[1]);
             id++;
-            return "E" + id;
+            return "E" + String.format("%02d", id);
         }
-        return "E1";
+        return "E01";
     }
 
     public static List<String> loadIds() throws SQLException {
