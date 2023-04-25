@@ -13,7 +13,7 @@ import java.util.List;
 public class ItemModel {
 
     public static int save(Item item) throws SQLException {
-        String sql = "INSERT INTO items VALUES (?,?,?,?)";
+        String sql = "INSERT INTO item VALUES (?,?,?,?)";
         return CrudUtil.execute(
                 sql,
                 item.getCode(),
@@ -25,7 +25,7 @@ public class ItemModel {
 
     public static Item search(String code) throws SQLException {
 
-        String sql = "SELECT * FROM items WHERE code=?";
+        String sql = "SELECT * FROM item WHERE code=?";
         ResultSet resultSet = CrudUtil.execute(sql, code);
 
         if (resultSet.next()) {
@@ -41,7 +41,7 @@ public class ItemModel {
 
     public static int update(Item item) throws SQLException {
 
-        String sql = "UPDATE items SET description=? , unitPrice=? , qtyOnHand=? WHERE code=?";
+        String sql = "UPDATE item SET description=? , unitPrice=? , qtyOnHand=? WHERE code=?";
         return CrudUtil.execute(
                 sql,
                 item.getDescription(),
@@ -52,14 +52,14 @@ public class ItemModel {
     }
 
     public static int delete(String code) throws SQLException {
-        String sql = "DELETE FROM items WHERE code=?";
+        String sql = "DELETE FROM item WHERE code=?";
         return CrudUtil.execute(sql, code);
     }
 
     public static List<Item> getAll() throws SQLException {
 
         List<Item> itemList = new ArrayList<>();
-        String sql = "SELECT * FROM items";
+        String sql = "SELECT * FROM item";
         ResultSet resultSet = CrudUtil.execute(sql);
 
         while (resultSet.next()) {
@@ -75,7 +75,7 @@ public class ItemModel {
     }
 
     public static List<String> loadCodes() throws SQLException {
-        String sql = "SELECT code FROM items";
+        String sql = "SELECT code FROM item";
         ResultSet resultSet = CrudUtil.execute(sql);
 
         List<String> data = new ArrayList<>();
@@ -86,7 +86,7 @@ public class ItemModel {
     }
 
     public static Item searchById(String itemCode) throws SQLException {
-        String sql = "SELECT * FROM items WHERE code = ?";
+        String sql = "SELECT * FROM item WHERE code = ?";
         ResultSet resultSet = CrudUtil.execute(sql, itemCode);
 
         if (resultSet.next()) {
@@ -101,7 +101,7 @@ public class ItemModel {
     }
 
     public static String getNextItemCode() throws SQLException {
-        String sql = "SELECT code FROM items ORDER BY code DESC LIMIT 1";
+        String sql = "SELECT code FROM item ORDER BY code DESC LIMIT 1";
         ResultSet resultSet = CrudUtil.execute(sql);
 
         if (resultSet.next()) {
@@ -131,7 +131,7 @@ public class ItemModel {
     }
 
     private static boolean updateQty(Order orderDetails) throws SQLException {
-        String sql = "UPDATE items SET qtyOnHand = (qtyOnHand - ?) WHERE code = ?";
+        String sql = "UPDATE item SET qtyOnHand = (qtyOnHand - ?) WHERE code = ?";
         Integer affectedRows = CrudUtil.execute(sql, orderDetails.getQty(), orderDetails.getCode());
         return affectedRows > 0;
     }
@@ -147,14 +147,14 @@ public class ItemModel {
     }
 
     private static boolean updateBuildQty(Custombuilds buildsList) throws SQLException {
-        String sql = "UPDATE items SET qtyOnHand = (qtyOnHand - ?) WHERE code = ?";
+        String sql = "UPDATE item SET qtyOnHand = (qtyOnHand - ?) WHERE code = ?";
         Integer affectedRows = CrudUtil.execute(sql, buildsList.getQty(), buildsList.getCode());
         return affectedRows > 0;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////    Suppliers
     public static boolean updateSupplyQty(String itemCode,String supplyQty) throws SQLException {
-        String sql = "UPDATE items SET qtyOnHand = (qtyOnHand + ?) WHERE code = ?";
+        String sql = "UPDATE item SET qtyOnHand = (qtyOnHand + ?) WHERE code = ?";
         Integer affectedRows = CrudUtil.execute(sql, supplyQty, itemCode);
         return affectedRows > 0;
     }
