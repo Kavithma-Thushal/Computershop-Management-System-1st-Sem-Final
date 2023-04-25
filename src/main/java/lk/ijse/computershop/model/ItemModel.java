@@ -24,10 +24,9 @@ public class ItemModel {
     }
 
     public static Item search(String code) throws SQLException {
-
         String sql = "SELECT * FROM item WHERE code=?";
-        ResultSet resultSet = CrudUtil.execute(sql, code);
 
+        ResultSet resultSet = CrudUtil.execute(sql, code);
         if (resultSet.next()) {
             return new Item(
                     resultSet.getString(1),
@@ -40,8 +39,8 @@ public class ItemModel {
     }
 
     public static int update(Item item) throws SQLException {
-
         String sql = "UPDATE item SET description=? , unitPrice=? , qtyOnHand=? WHERE code=?";
+
         return CrudUtil.execute(
                 sql,
                 item.getDescription(),
@@ -74,8 +73,28 @@ public class ItemModel {
         return itemList;
     }
 
+    public static String getNextItemCode() throws SQLException {
+        String sql = "SELECT code FROM item ORDER BY code DESC LIMIT 1";
+
+        ResultSet resultSet = CrudUtil.execute(sql);
+        if (resultSet.next()) {
+            return splitItemCode(resultSet.getString(1));
+        }
+        return splitItemCode(null);
+    }
+
+    private static String splitItemCode(String currentId) {
+        if (currentId != null) {
+            String[] strings = currentId.split("P");
+            int id = Integer.parseInt(strings[1]);
+            id++;
+            return "P" + String.format("%02d", id);
+        }
+        return "P01";
+    }
+
     public static List<String> loadCodes() throws SQLException {
-        String sql = "SELECT code FROM item";
+        String sql = "SELECT code FROM item  ORDER BY code ASC";
         ResultSet resultSet = CrudUtil.execute(sql);
 
         List<String> data = new ArrayList<>();
@@ -98,26 +117,6 @@ public class ItemModel {
             );
         }
         return null;
-    }
-
-    public static String getNextItemCode() throws SQLException {
-        String sql = "SELECT code FROM item ORDER BY code DESC LIMIT 1";
-        ResultSet resultSet = CrudUtil.execute(sql);
-
-        if (resultSet.next()) {
-            return splitItemCode(resultSet.getString(1));
-        }
-        return splitItemCode(null);
-    }
-
-    private static String splitItemCode(String currentId) {
-        if (currentId != null) {
-            String[] strings = currentId.split("P");
-            int id = Integer.parseInt(strings[1]);
-            id++;
-            return "P" + id;
-        }
-        return "P1";
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////    Orders

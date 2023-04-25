@@ -1,6 +1,9 @@
-DROP DATABASE IF EXISTS computershop;
-CREATE DATABASE computershop;
-USE computershop;
+DROP
+DATABASE IF EXISTS computershop;
+CREATE
+DATABASE computershop;
+USE
+computershop;
 
 CREATE TABLE customer
 (
@@ -36,9 +39,9 @@ CREATE TABLE supplier
 CREATE TABLE item
 (
     code        VARCHAR(5),
-    description VARCHAR(100),
-    unitPrice   DECIMAL NOT NULL,
-    qtyOnHand   INT     NOT NULL,
+    description VARCHAR(100) NOT NULL,
+    unitPrice   DECIMAL      NOT NULL,
+    qtyOnHand   INT          NOT NULL,
     CONSTRAINT PRIMARY KEY (code)
 );
 

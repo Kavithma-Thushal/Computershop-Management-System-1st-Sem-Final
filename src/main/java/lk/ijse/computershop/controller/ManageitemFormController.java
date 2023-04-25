@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.computershop.dto.Item;
 import lk.ijse.computershop.dto.tm.ItemTM;
 import lk.ijse.computershop.model.ItemModel;
@@ -28,9 +29,9 @@ public class ManageitemFormController implements Initializable {
     @FXML
     private TextField txtDescription;
     @FXML
-    private TextField txtUnitprice;
+    private TextField txtUnitPrice;
     @FXML
-    private TextField txtQtyonhand;
+    private TextField txtQtyOnHand;
     @FXML
     private TableView tblItem;
     @FXML
@@ -38,9 +39,9 @@ public class ManageitemFormController implements Initializable {
     @FXML
     private TableColumn colDescription;
     @FXML
-    private TableColumn colUnitprice;
+    private TableColumn colUnitPrice;
     @FXML
-    private TableColumn colQtyonhand;
+    private TableColumn colQtyOnHand;
     @FXML
     private Button btnSave;
     @FXML
@@ -60,15 +61,15 @@ public class ManageitemFormController implements Initializable {
         getAll();
         setCellValueFactory();
         generateNextItemCode();
-        disableButtons();
         storeValidations();
+        disableButtons();
     }
 
     private void setCellValueFactory() {
         colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-        colUnitprice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
-        colQtyonhand.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        colQtyOnHand.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
     }
 
     private void disableButtons() {
@@ -77,15 +78,21 @@ public class ManageitemFormController implements Initializable {
         btnDelete.setDisable(true);
     }
 
+    private void storeValidations() {
+        map.put(txtDescription, description);
+        map.put(txtUnitPrice, unitPrice);
+        map.put(txtQtyOnHand, qtyOnHand);
+    }
+
     private void clearAllTxt() {
         txtCode.clear();
         txtDescription.clear();
-        txtUnitprice.clear();
-        txtQtyonhand.clear();
+        txtUnitPrice.clear();
+        txtQtyOnHand.clear();
 
         disableButtons();
         txtDescription.requestFocus();
-        setBorders(txtCode, txtDescription, txtUnitprice, txtQtyonhand);
+        setBorders(txtCode, txtDescription, txtUnitPrice, txtQtyOnHand);
     }
 
     public void setBorders(TextField... textFields) {
@@ -94,19 +101,10 @@ public class ManageitemFormController implements Initializable {
         }
     }
 
-    private void generateNextItemCode() {
-        try {
-            String id = ItemModel.getNextItemCode();
-            txtCode.setText(id);
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
-        }
-    }
-
-    private void storeValidations() {
-        map.put(txtDescription, description);
-        map.put(txtUnitprice, unitPrice);
-        map.put(txtQtyonhand, qtyOnHand);
+    @FXML
+    private void reset(MouseEvent mouseEvent) {
+        clearAllTxt();
+        generateNextItemCode();
     }
 
     @FXML
@@ -118,6 +116,15 @@ public class ManageitemFormController implements Initializable {
                 TextField txtnext = (TextField) response;
                 txtnext.requestFocus();
             }
+        }
+    }
+
+    private void generateNextItemCode() {
+        try {
+            String id = ItemModel.getNextItemCode();
+            txtCode.setText(id);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 
@@ -136,32 +143,33 @@ public class ManageitemFormController implements Initializable {
             }
             tblItem.setItems(observableList);
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 
     @FXML
     private void saveOnAction(ActionEvent event) {
         try {
-            Item item = new Item(
-                    txtCode.getText(),
-                    txtDescription.getText(),
-                    Double.parseDouble(txtUnitprice.getText()),
-                    Integer.parseInt(txtQtyonhand.getText())
-            );
+            Item item = null;
+            if (!txtDescription.getText().isEmpty() && !txtUnitPrice.getText().isEmpty() && !txtQtyOnHand.getText().isEmpty()) {
+                item = new Item(
+                        txtCode.getText(),
+                        txtDescription.getText(),
+                        Double.parseDouble(txtUnitPrice.getText()),
+                        Integer.parseInt(txtQtyOnHand.getText())
+                );
+            }
 
             if (ItemModel.save(item) > 0) {
                 new Alert(Alert.AlertType.INFORMATION, "Saved Successfully...!").show();
-                tblItem.refresh();
                 getAll();
+                clearAllTxt();
+                txtDescription.requestFocus();
+                generateNextItemCode();
             }
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
-        clearAllTxt();
-        generateNextItemCode();
-        txtDescription.requestFocus();
-
     }
 
     @FXML
@@ -171,15 +179,18 @@ public class ManageitemFormController implements Initializable {
             if (item != null) {
                 txtCode.setText(item.getCode());
                 txtDescription.setText(item.getDescription());
-                txtUnitprice.setText(String.valueOf(item.getUnitPrice()));
-                txtQtyonhand.setText(String.valueOf(item.getQtyOnHand()));
+                txtUnitPrice.setText(String.valueOf(item.getUnitPrice()));
+                txtQtyOnHand.setText(String.valueOf(item.getQtyOnHand()));
 
                 btnSave.setDisable(true);
                 btnUpdate.setDisable(false);
                 btnDelete.setDisable(false);
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Invalid Input...!").show();
             }
+
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
         txtSearch.clear();
     }
@@ -190,22 +201,20 @@ public class ManageitemFormController implements Initializable {
             Item item = new Item(
                     txtCode.getText(),
                     txtDescription.getText(),
-                    Double.parseDouble(txtUnitprice.getText()),
-                    Integer.parseInt(txtQtyonhand.getText())
+                    Double.parseDouble(txtUnitPrice.getText()),
+                    Integer.parseInt(txtQtyOnHand.getText())
             );
 
             if (ItemModel.update(item) > 0) {
                 new Alert(Alert.AlertType.INFORMATION, "Updated Successfully...!").show();
-                tblItem.refresh();
                 getAll();
+                clearAllTxt();
+                txtDescription.requestFocus();
+                generateNextItemCode();
             }
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
-        clearAllTxt();
-        txtSearch.clear();
-        generateNextItemCode();
-        txtDescription.requestFocus();
     }
 
     @FXML
@@ -219,16 +228,14 @@ public class ManageitemFormController implements Initializable {
             if (buttonType.orElse(yes) == yes) {
                 if (ItemModel.delete(txtCode.getText()) > 0) {
                     new Alert(Alert.AlertType.INFORMATION, "Deleted Successfully...!").show();
-                    tblItem.refresh();
                     getAll();
+                    clearAllTxt();
+                    txtDescription.requestFocus();
+                    generateNextItemCode();
                 }
             }
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
-        clearAllTxt();
-        txtSearch.clear();
-        generateNextItemCode();
-        txtDescription.requestFocus();
     }
 }
