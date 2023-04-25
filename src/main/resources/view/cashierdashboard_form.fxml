@@ -10,38 +10,38 @@
 
 <AnchorPane fx:id="root" prefHeight="900.0" prefWidth="1550.0" styleClass="root" stylesheets="@../styles/manageforms.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.CashierdashboardFormController">
     <children>
-      <Label layoutX="30.0" layoutY="183.0" prefHeight="628.0" prefWidth="257.0" styleClass="lbl" />
+        <Label layoutX="30.0" layoutY="183.0" prefHeight="628.0" prefWidth="257.0" styleClass="lbl" />
         <Button focusTraversable="false" layoutX="52.0" layoutY="233.0" mnemonicParsing="false" onAction="#managecustomersOnAction" prefHeight="6.0" prefWidth="214.0" styleClass="txt" text="Manage Customers">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
         </Button>
         <Button focusTraversable="false" layoutX="52.0" layoutY="330.0" mnemonicParsing="false" onAction="#manageordersOnAction" prefHeight="6.0" prefWidth="214.0" styleClass="txt" text="Manage Orders">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
         </Button>
         <Button focusTraversable="false" layoutX="51.0" layoutY="522.0" mnemonicParsing="false" onAction="#deliveryOnAction" prefHeight="6.0" prefWidth="214.0" styleClass="txt" text="Delivery">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
         </Button>
         <Button focusTraversable="false" layoutX="52.0" layoutY="719.0" mnemonicParsing="false" onAction="#custombuildOnAction" prefHeight="6.0" prefWidth="214.0" styleClass="txt" text="Custom Build">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
         </Button>
         <Label onMouseClicked="#minimizeOnAction" prefHeight="98.0" prefWidth="1550.0" styleClass="lblTop" />
         <Label focusTraversable="false" layoutX="528.0" layoutY="30.0" prefHeight="67.0" prefWidth="494.0" text="Cashier Dashboard" textFill="WHITE">
@@ -73,9 +73,9 @@
             <image>
                 <Image url="@../assets/icons/back.png" />
             </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
         </ImageView>
         <AnchorPane fx:id="manageFormsRoot" layoutX="317.0" layoutY="183.0" prefHeight="666.0" prefWidth="1187.0">
             <children>
@@ -91,17 +91,17 @@
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
         </Button>
         <Button focusTraversable="false" layoutX="52.0" layoutY="620.0" mnemonicParsing="false" onAction="#repairOnAction" prefHeight="6.0" prefWidth="214.0" styleClass="txt" text="Repair">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
         </Button>
         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1511.0" layoutY="30.0" onMouseClicked="#logoutOnAction" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -119,5 +119,10 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </ImageView>
+        <Label fx:id="lblSubtitle" alignment="CENTER" layoutX="317.0" layoutY="118.0" prefHeight="44.0" prefWidth="310.0" styleClass="lbl" text="Manage Customers" textFill="WHITE">
+            <font>
+                <Font name="Times New Roman Bold" size="31.0" />
+            </font>
+        </Label>
     </children>
 </AnchorPane>

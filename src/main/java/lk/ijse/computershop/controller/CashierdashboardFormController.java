@@ -28,6 +28,8 @@ public class CashierdashboardFormController implements Initializable {
     private Label lblDate;
     @FXML
     private Label lblTime;
+    @FXML
+    private Label lblSubtitle;
 
     private RandomImages randomImages;
 
@@ -35,36 +37,43 @@ public class CashierdashboardFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         DateAndTime.loadDateAndTime(lblDate, lblTime);
         randomImages = new RandomImages(random);
+        lblSubtitle.setText("Welcome!");
     }
 
     @FXML
     private void managecustomersOnAction(ActionEvent event) throws IOException {
         UILoader.loadUiDashBoard(manageFormsRoot, "managecustomer_form");
-    }
-
-    @FXML
-    private void manageitemsOnAction(ActionEvent event) throws IOException {
-        UILoader.loadUiDashBoard(manageFormsRoot, "Viewitem_form");
+        lblSubtitle.setText("Manage Customers");
     }
 
     @FXML
     private void manageordersOnAction(ActionEvent event) throws IOException {
         UILoader.loadUiDashBoard(manageFormsRoot, "manageorders_form");
+        lblSubtitle.setText("Manage Orders");
+    }
+
+    @FXML
+    private void manageitemsOnAction(ActionEvent event) throws IOException {
+        UILoader.loadUiDashBoard(manageFormsRoot, "Viewitem_form");
+        lblSubtitle.setText("View  Store");
     }
 
     @FXML
     private void deliveryOnAction(ActionEvent event) throws IOException {
         UILoader.loadUiDashBoard(manageFormsRoot, "managedelivery_form");
-    }
-
-    @FXML
-    private void custombuildOnAction(ActionEvent event) throws IOException {
-        UILoader.loadUiDashBoard(manageFormsRoot, "managecustombuild_form");
+        lblSubtitle.setText("Delivery");
     }
 
     @FXML
     private void repairOnAction(ActionEvent event) throws IOException {
         UILoader.loadUiDashBoard(manageFormsRoot, "managerepair_form");
+        lblSubtitle.setText("Repair");
+    }
+
+    @FXML
+    private void custombuildOnAction(ActionEvent event) throws IOException {
+        UILoader.loadUiDashBoard(manageFormsRoot, "managecustombuild_form");
+        lblSubtitle.setText("Custom Build");
     }
 
     @FXML

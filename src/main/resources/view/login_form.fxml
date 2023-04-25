@@ -32,12 +32,12 @@
                                 <Image url="@../assets/img/laptop.gif" />
                             </image>
                         </ImageView>
-                        <Label layoutX="80.0" layoutY="51.0" text="Warmly Welcome...!" textFill="#303b73">
+                        <Label layoutX="94.0" layoutY="51.0" text="Warmly Welcome!" textFill="#303b73">
                             <font>
                                 <Font name="Times New Roman Bold" size="32.0" />
                             </font>
                         </Label>
-                        <AnchorPane fx:id="root" layoutX="35.0" layoutY="29.0" prefHeight="393.0" prefWidth="378.0" />
+                        <AnchorPane fx:id="root" layoutX="35.0" layoutY="32.0" prefHeight="391.0" prefWidth="378.0" />
                     </children>
                 </AnchorPane>
                 <ImageView fitHeight="217.0" fitWidth="176.0" layoutX="644.0" layoutY="295.0" onMouseClicked="#cashierLoginOnAction" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
