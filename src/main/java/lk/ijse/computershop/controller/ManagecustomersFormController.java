@@ -176,17 +176,17 @@ public class ManagecustomersFormController implements Initializable {
             }
 
             if (CustomerModel.save(customer) > 0) {
-                new Alert(Alert.AlertType.INFORMATION, "Saved Successfully...!").show();
-                tblCustomer.refresh();
+                new Alert(Alert.AlertType.INFORMATION, "customer saved successfully...!").show();
+                //tblCustomer.refresh();
                 getAll();
+                clearAllTxt();
+                txtName.requestFocus();
+                generateNextOrderId();
             }
 
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
-        clearAllTxt();
-        generateNextOrderId();
-        txtName.requestFocus();
     }
 
     @FXML

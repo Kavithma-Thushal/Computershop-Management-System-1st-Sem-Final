@@ -46,17 +46,17 @@
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <Button fx:id="btnSave" layoutX="720.0" layoutY="37.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Save">
+        <Button fx:id="btnSave" focusTraversable="false" layoutX="720.0" layoutY="37.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Save">
             <font>
                 <Font name="Times New Roman Bold" size="17.0" />
             </font>
         </Button>
-        <Button fx:id="btnUpdate" layoutX="720.0" layoutY="108.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Update">
+        <Button fx:id="btnUpdate" focusTraversable="false" layoutX="720.0" layoutY="108.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Update">
             <font>
                 <Font name="Times New Roman Bold" size="17.0" />
             </font>
         </Button>
-        <Button fx:id="btnDelete" layoutX="952.0" layoutY="109.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Delete">
+        <Button fx:id="btnDelete" focusTraversable="false" layoutX="952.0" layoutY="109.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Delete">
             <font>
                 <Font name="Times New Roman Bold" size="17.0" />
             </font>
