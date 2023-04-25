@@ -39,7 +39,7 @@
     -fx-transition: all 0.2s ease-in-out;
 }
 
-.crud {
+.reports {
     -fx-background-color: #334193;
     -fx-text-fill: white;
     -fx-font-size: 20px;

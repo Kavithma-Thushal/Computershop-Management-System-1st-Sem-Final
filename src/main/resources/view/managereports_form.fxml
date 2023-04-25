@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="638.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.ManagereportsFormController">
    <children>
@@ -11,5 +13,10 @@
             <Image url="@../assets/img/customers.jpg" />
          </image>
       </ImageView>
+      <Button focusTraversable="false" layoutX="93.0" layoutY="72.0" mnemonicParsing="false" onAction="#customerReportOnAction" prefHeight="43.0" prefWidth="186.0" styleClass="reports" stylesheets="@../styles/manageforms.css" text="Customer Report" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman" size="19.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
