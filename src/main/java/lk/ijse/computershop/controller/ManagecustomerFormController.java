@@ -170,14 +170,17 @@ public class ManagecustomerFormController implements Initializable {
     @FXML
     private void saveOnAction(ActionEvent event) {
         try {
-            Customer customer = new Customer(
-                    txtId.getText(),
-                    txtName.getText(),
-                    txtNic.getText(),
-                    txtEmail.getText(),
-                    txtContact.getText(),
-                    txtAddress.getText()
-            );
+            Customer customer = null;
+            if (!txtName.getText().isEmpty() && !txtNic.getText().isEmpty() && !txtEmail.getText().isEmpty() && !txtContact.getText().isEmpty() && !txtAddress.getText().isEmpty()) {
+                customer = new Customer(
+                        txtId.getText(),
+                        txtName.getText(),
+                        txtNic.getText(),
+                        txtEmail.getText(),
+                        txtContact.getText(),
+                        txtAddress.getText()
+                );
+            }
 
             if (CustomerModel.save(customer) > 0) {
                 new Alert(Alert.AlertType.INFORMATION, "Saved Successfully...!").show();

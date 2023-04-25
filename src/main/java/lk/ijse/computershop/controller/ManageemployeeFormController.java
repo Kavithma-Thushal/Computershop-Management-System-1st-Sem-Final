@@ -167,16 +167,18 @@ public class ManageemployeeFormController implements Initializable {
 
     @FXML
     private void saveOnAction(ActionEvent event) {
-
         try {
-            Employee employee = new Employee(
-                    txtId.getText(),
-                    txtName.getText(),
-                    txtContact.getText(),
-                    txtJobRole.getText(),
-                    txtUsername.getText(),
-                    txtPassword.getText()
-            );
+            Employee employee = null;
+            if (!txtName.getText().isEmpty() && !txtContact.getText().isEmpty() && !txtJobRole.getText().isEmpty() && !txtUsername.getText().isEmpty() && !txtPassword.getText().isEmpty()) {
+                employee = new Employee(
+                        txtId.getText(),
+                        txtName.getText(),
+                        txtContact.getText(),
+                        txtJobRole.getText(),
+                        txtUsername.getText(),
+                        txtPassword.getText()
+                );
+            }
 
             if (EmployeeModel.save(employee) > 0) {
 
