@@ -19,7 +19,7 @@ public class EmployeeModel {
                 employee.getId(),
                 employee.getName(),
                 employee.getContact(),
-                employee.getJobrole(),
+                employee.getJobRole(),
                 employee.getUsername(),
                 employee.getPassword()
         );
@@ -53,7 +53,7 @@ public class EmployeeModel {
                 sql,
                 employee.getName(),
                 employee.getContact(),
-                employee.getJobrole(),
+                employee.getJobRole(),
                 employee.getUsername(),
                 employee.getPassword(),
                 employee.getId()

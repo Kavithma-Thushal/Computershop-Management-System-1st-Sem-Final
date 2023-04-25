@@ -30,13 +30,13 @@ public class ManageemployeeFormController implements Initializable {
     @FXML
     private TextField txtContact;
     @FXML
-    private TextField txtJobrole;
+    private TextField txtJobRole;
     @FXML
     private TextField txtUsername;
     @FXML
     private TextField txtPassword;
     @FXML
-    private TableView tblemployee;
+    private TableView tblEmployee;
     @FXML
     private TableColumn colId;
     @FXML
@@ -60,25 +60,25 @@ public class ManageemployeeFormController implements Initializable {
 
     private LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
     Pattern name = Pattern.compile("^([A-Z a-z]{4,40})$");
-    Pattern contact = Pattern.compile("^(07(0|1|2|4|5|6|7|8)[0-9]{7})$");
-    Pattern jobRole = Pattern.compile("^([A-Z a-z]{4,40})$");
-    Pattern userName = Pattern.compile("^([A-Z a-z 0-9]{4,40})$");
-    Pattern password = Pattern.compile("^([A-Za-z0-9\\W]{4,40})$");
+    Pattern contact = Pattern.compile("^(07(0|1|2|4|5|6|7|8)|091)[0-9]{7}$");
+    Pattern jobRole = Pattern.compile("^(Cashier|cashier|Technician|technician)$");
+    Pattern userName = Pattern.compile("^([A-Z a-z 0-9 \\W]{4,40})$");
+    Pattern password = Pattern.compile("^([A-Z a-z 0-9 \\W]{4,40})$");
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getAll();
         setCellValueFactory();
-        generateNextOrderId();
-        disableButtons();
+        generateNextEmployeeId();
         storeValidations();
+        disableButtons();
     }
 
     private void setCellValueFactory() {
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
-        colJobrole.setCellValueFactory(new PropertyValueFactory<>("jobrole"));
+        colJobrole.setCellValueFactory(new PropertyValueFactory<>("jobRole"));
         colUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
         colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
     }
@@ -89,40 +89,31 @@ public class ManageemployeeFormController implements Initializable {
         btnDelete.setDisable(true);
     }
 
+    private void storeValidations() {
+        map.put(txtName, name);
+        map.put(txtContact, contact);
+        map.put(txtJobRole, jobRole);
+        map.put(txtUsername, userName);
+        map.put(txtPassword, password);
+    }
+
     private void clearAllTxt() {
         txtId.clear();
         txtName.clear();
         txtContact.clear();
-        txtJobrole.clear();
+        txtJobRole.clear();
         txtUsername.clear();
         txtPassword.clear();
 
         disableButtons();
         txtName.requestFocus();
-        setBorders(txtId, txtName, txtContact, txtJobrole, txtUsername, txtPassword);
+        setBorders(txtId, txtName, txtContact, txtJobRole, txtUsername, txtPassword);
     }
 
     public void setBorders(TextField... textFields) {
         for (TextField textField : textFields) {
             textField.setStyle("-fx-border-color: transparent");
         }
-    }
-
-    private void generateNextOrderId() {
-        try {
-            String id = EmployeeModel.getNextEmployeeId();
-            txtId.setText(id);
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
-        }
-    }
-
-    private void storeValidations() {
-        map.put(txtName, name);
-        map.put(txtContact, contact);
-        map.put(txtJobrole, jobRole);
-        map.put(txtUsername, userName);
-        map.put(txtPassword, password);
     }
 
     @FXML
@@ -137,6 +128,15 @@ public class ManageemployeeFormController implements Initializable {
         }
     }
 
+    private void generateNextEmployeeId() {
+        try {
+            String id = EmployeeModel.getNextEmployeeId();
+            txtId.setText(id);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+        }
+    }
+
     private void getAll() {
         try {
             ObservableList<EmployeeTM> observableList = FXCollections.observableArrayList();
@@ -147,14 +147,14 @@ public class ManageemployeeFormController implements Initializable {
                         employee.getId(),
                         employee.getName(),
                         employee.getContact(),
-                        employee.getJobrole(),
+                        employee.getJobRole(),
                         employee.getUsername(),
                         employee.getPassword()
                 ));
             }
-            tblemployee.setItems(observableList);
+            tblEmployee.setItems(observableList);
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 
@@ -166,7 +166,7 @@ public class ManageemployeeFormController implements Initializable {
                     txtId.getText(),
                     txtName.getText(),
                     txtContact.getText(),
-                    txtJobrole.getText(),
+                    txtJobRole.getText(),
                     txtUsername.getText(),
                     txtPassword.getText()
             );
@@ -174,16 +174,15 @@ public class ManageemployeeFormController implements Initializable {
             if (EmployeeModel.save(employee) > 0) {
 
                 new Alert(Alert.AlertType.INFORMATION, "Saved Successfully...!").show();
-                tblemployee.refresh();
                 getAll();
+                clearAllTxt();
+                txtName.requestFocus();
+                generateNextEmployeeId();
             }
 
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
-        clearAllTxt();
-        generateNextOrderId();
-        txtName.requestFocus();
     }
 
     @FXML
@@ -194,17 +193,19 @@ public class ManageemployeeFormController implements Initializable {
                 txtId.setText(employee.getId());
                 txtName.setText(employee.getName());
                 txtContact.setText(employee.getContact());
-                txtJobrole.setText(employee.getJobrole());
+                txtJobRole.setText(employee.getJobRole());
                 txtUsername.setText(employee.getUsername());
                 txtPassword.setText(employee.getPassword());
 
                 btnSave.setDisable(true);
                 btnUpdate.setDisable(false);
                 btnDelete.setDisable(false);
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Invalid Input...!").show();
             }
 
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
         txtSearch.clear();
     }
@@ -216,23 +217,21 @@ public class ManageemployeeFormController implements Initializable {
                     txtId.getText(),
                     txtName.getText(),
                     txtContact.getText(),
-                    txtJobrole.getText(),
+                    txtJobRole.getText(),
                     txtUsername.getText(),
                     txtPassword.getText()
             );
 
             if (EmployeeModel.update(employee) > 0) {
                 new Alert(Alert.AlertType.INFORMATION, "Updated Successfully...!").show();
-                tblemployee.refresh();
                 getAll();
+                clearAllTxt();
+                txtName.requestFocus();
+                generateNextEmployeeId();
             }
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
-        clearAllTxt();
-        txtSearch.clear();
-        generateNextOrderId();
-        txtName.requestFocus();
     }
 
     @FXML
@@ -246,16 +245,14 @@ public class ManageemployeeFormController implements Initializable {
             if (buttonType.orElse(yes) == yes) {
                 if (EmployeeModel.delete(txtId.getText()) > 0) {
                     new Alert(Alert.AlertType.INFORMATION, "Deleted Successfully...!").show();
-                    tblemployee.refresh();
                     getAll();
+                    clearAllTxt();
+                    txtName.requestFocus();
+                    generateNextEmployeeId();
                 }
             }
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
-        clearAllTxt();
-        txtSearch.clear();
-        generateNextOrderId();
-        txtName.requestFocus();
     }
 }

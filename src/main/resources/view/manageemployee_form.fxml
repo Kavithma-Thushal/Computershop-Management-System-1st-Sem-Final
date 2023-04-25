@@ -31,7 +31,7 @@
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtJobrole" focusTraversable="false" layoutX="45.0" layoutY="108.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Job Role">
+        <TextField fx:id="txtJobRole" focusTraversable="false" layoutX="45.0" layoutY="108.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Job Role">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
@@ -46,22 +46,22 @@
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <Button fx:id="btnSave" layoutX="723.0" layoutY="37.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Save">
+        <Button fx:id="btnSave" focusTraversable="false" layoutX="723.0" layoutY="37.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Save">
             <font>
                 <Font name="Times New Roman Bold" size="17.0" />
             </font>
         </Button>
-        <Button fx:id="btnUpdate" layoutX="723.0" layoutY="109.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Update">
+        <Button fx:id="btnUpdate" focusTraversable="false" layoutX="723.0" layoutY="109.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Update">
             <font>
                 <Font name="Times New Roman Bold" size="17.0" />
             </font>
         </Button>
-        <Button fx:id="btnDelete" layoutX="952.0" layoutY="109.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Delete">
+        <Button fx:id="btnDelete" focusTraversable="false" layoutX="952.0" layoutY="109.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Delete">
             <font>
                 <Font name="Times New Roman Bold" size="17.0" />
             </font>
         </Button>
-        <TableView fx:id="tblemployee" focusTraversable="false" layoutX="44.0" layoutY="182.0" prefHeight="448.0" prefWidth="1096.0">
+        <TableView fx:id="tblEmployee" focusTraversable="false" layoutX="44.0" layoutY="182.0" prefHeight="448.0" prefWidth="1096.0">
             <columns>
                 <TableColumn fx:id="colId" prefWidth="182.0" resizable="false" text="ID" />
                 <TableColumn fx:id="colName" prefWidth="182.0" resizable="false" text="Name" />
