@@ -21,7 +21,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
-public class ManagecustomersFormController implements Initializable {
+public class ManagecustomerFormController implements Initializable {
 
     @FXML
     private TextField txtId;
@@ -38,9 +38,9 @@ public class ManagecustomersFormController implements Initializable {
     @FXML
     private TableView tblCustomer;
     @FXML
-    private TableColumn colName;
-    @FXML
     private TableColumn colId;
+    @FXML
+    private TableColumn colName;
     @FXML
     private TableColumn colNic;
     @FXML

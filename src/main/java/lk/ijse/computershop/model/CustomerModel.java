@@ -98,9 +98,9 @@ public class CustomerModel {
             String[] strings = currentId.split("C");
             int id = Integer.parseInt(strings[1]);
             id++;
-            return "C" + id;
+            return "C" + String.format("%02d", id);
         }
-        return "C1";
+        return "C01";
     }
 
     public static List<String> loadIds() throws SQLException {
