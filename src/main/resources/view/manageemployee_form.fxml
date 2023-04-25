@@ -71,10 +71,15 @@
                 <TableColumn fx:id="colPassword" prefWidth="182.0" resizable="false" text="Password" />
             </columns>
         </TableView>
-        <TextField fx:id="txtSearch" focusTraversable="false" layoutX="952.0" layoutY="37.0" onAction="#searchOnAction" prefHeight="0.0" prefWidth="187.0" promptText="Search Here" style="-fx-background-color: lightblue;">
+        <TextField fx:id="txtSearch" focusTraversable="false" layoutX="952.0" layoutY="37.0" onAction="#searchOnAction" prefHeight="0.0" prefWidth="143.0" promptText="Search Here" style="-fx-background-color: lightblue;">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
+      <ImageView fitHeight="31.0" fitWidth="88.0" layoutX="1108.0" layoutY="37.0" onMouseClicked="#reset" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons/reset.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

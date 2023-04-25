@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.computershop.dto.Employee;
 import lk.ijse.computershop.dto.tm.EmployeeTM;
 import lk.ijse.computershop.model.EmployeeModel;
@@ -114,6 +115,12 @@ public class ManageemployeeFormController implements Initializable {
         for (TextField textField : textFields) {
             textField.setStyle("-fx-border-color: transparent");
         }
+    }
+
+    @FXML
+    private void reset(MouseEvent mouseEvent) {
+        clearAllTxt();
+        generateNextEmployeeId();
     }
 
     @FXML
