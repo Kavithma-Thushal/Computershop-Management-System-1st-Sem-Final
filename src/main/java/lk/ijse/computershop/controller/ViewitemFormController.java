@@ -54,6 +54,13 @@ public class ViewitemFormController implements Initializable {
         colQtyOnHand.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
     }
 
+    private void clearAllTxt() {
+        txtCode.clear();
+        txtDescription.clear();
+        txtUnitPrice.clear();
+        txtQtyOnHand.clear();
+    }
+
     private void getAll() {
         try {
             ObservableList<ItemTM> observableList = FXCollections.observableArrayList();
@@ -84,6 +91,7 @@ public class ViewitemFormController implements Initializable {
                 txtQtyOnHand.setText(String.valueOf(item.getQtyOnHand()));
             } else {
                 new Alert(Alert.AlertType.ERROR, "Invalid Input...!").show();
+                clearAllTxt();
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();

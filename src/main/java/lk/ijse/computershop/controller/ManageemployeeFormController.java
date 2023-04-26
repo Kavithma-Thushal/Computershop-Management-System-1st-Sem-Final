@@ -211,6 +211,8 @@ public class ManageemployeeFormController implements Initializable {
                 btnDelete.setDisable(false);
             } else {
                 new Alert(Alert.AlertType.ERROR, "Invalid Input...!").show();
+                clearAllTxt();
+                generateNextEmployeeId();
             }
 
         } catch (Exception e) {

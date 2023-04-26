@@ -187,6 +187,8 @@ public class ManageitemFormController implements Initializable {
                 btnDelete.setDisable(false);
             } else {
                 new Alert(Alert.AlertType.ERROR, "Invalid Input...!").show();
+                clearAllTxt();
+                generateNextItemCode();
             }
 
         } catch (Exception e) {
