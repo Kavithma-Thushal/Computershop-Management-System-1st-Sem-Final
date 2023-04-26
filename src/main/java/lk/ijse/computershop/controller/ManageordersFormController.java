@@ -251,7 +251,7 @@ public class ManageordersFormController implements Initializable {
         txtNetTotal.clear();
         tblOrder.getItems().clear();
         //cmbCustomerId.setValue("");
-        //cmbItemCode.setValue(" ");
+        //cmbItemCode.setValue("");
     }
 
     @FXML
