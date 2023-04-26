@@ -8,7 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lk.ijse.computershop.db.DBConnection;
 import lk.ijse.computershop.dto.Order;
 import lk.ijse.computershop.dto.Customer;
 import lk.ijse.computershop.dto.Item;
@@ -19,9 +18,7 @@ import lk.ijse.computershop.model.OrderModel;
 import lk.ijse.computershop.model.PlaceOrderModel;
 import lk.ijse.computershop.util.EmailSend;
 import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.view.JasperViewer;
 
-import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -286,7 +283,7 @@ public class ManageordersFormController implements Initializable {
                 new Alert(Alert.AlertType.ERROR, "Order is Not Placed...!").show();
             }
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "please try again...!r").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
         generateNextOrderId();
     }
