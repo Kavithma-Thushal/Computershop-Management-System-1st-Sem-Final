@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -34,7 +35,7 @@
         </Button>
         <TableView fx:id="tblOrder" focusTraversable="false" layoutX="44.0" layoutY="182.0" prefHeight="418.0" prefWidth="1096.0">
             <columns>
-                <TableColumn fx:id="colCode" prefWidth="183.0" resizable="false" text="Code" />
+                <TableColumn fx:id="colCode" prefWidth="183.0" resizable="false" text="Item Code" />
                 <TableColumn fx:id="colDescription" prefWidth="183.0" resizable="false" text="Description" />
                 <TableColumn fx:id="colQty" prefWidth="183.0" resizable="false" text="Quantity" />
                 <TableColumn fx:id="colUnitPrice" prefWidth="183.0" resizable="false" text="Unit Price" />
@@ -43,28 +44,28 @@
             </columns>
         </TableView>
         <ComboBox fx:id="cmbCustomerId" focusTraversable="false" layoutX="271.0" layoutY="37.0" onAction="#cmbCustomerIdOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Customer ID" />
-        <ComboBox fx:id="cmbItemCode" focusTraversable="false" layoutX="491.0" layoutY="37.0" onAction="#cmbItemCodeOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Item Code" />
+        <ComboBox fx:id="cmbItemCode" focusTraversable="false" layoutX="498.0" layoutY="37.0" onAction="#cmbItemCodeOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Item Code" />
         <TextField fx:id="txtCustomerName" editable="false" focusTraversable="false" layoutX="271.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtDescription" editable="false" focusTraversable="false" layoutX="491.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
+        <TextField fx:id="txtDescription" editable="false" focusTraversable="false" layoutX="498.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtUnitPrice" editable="false" focusTraversable="false" layoutX="717.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
+        <TextField fx:id="txtUnitPrice" editable="false" focusTraversable="false" layoutX="727.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtQtyOnHand" editable="false" focusTraversable="false" layoutX="717.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0">
+        <TextField fx:id="txtQtyOnHand" editable="false" focusTraversable="false" layoutX="727.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtQty" layoutX="952.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
+        <TextField fx:id="txtQty" layoutX="1073.0" layoutY="109.0" prefHeight="31.0" prefWidth="66.0">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
@@ -74,10 +75,20 @@
                 <Font name="Times New Roman Bold" size="17.0" />
             </font>
         </Button>
-        <TextField fx:id="txtNetTotal" editable="false" focusTraversable="false" layoutX="45.0" layoutY="619.0" prefHeight="0.0" prefWidth="187.0">
+        <TextField fx:id="txtNetTotal" editable="false" focusTraversable="false" layoutX="147.0" layoutY="619.0" prefHeight="0.0" prefWidth="187.0">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
+      <Label alignment="CENTER" layoutX="44.0" layoutY="619.0" prefHeight="31.0" prefWidth="88.0" style="-fx-background-color: white;" text="Net Total :">
+         <font>
+            <Font name="Times New Roman Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="952.0" layoutY="109.0" prefHeight="31.0" prefWidth="106.0" style="-fx-background-color: white;" text="Quantity :">
+         <font>
+            <Font name="Times New Roman Bold" size="17.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

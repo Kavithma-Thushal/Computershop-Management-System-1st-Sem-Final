@@ -87,7 +87,7 @@
                 <AnchorPane fx:id="random" layoutY="1.0" prefHeight="666.0" prefWidth="1187.0" />
             </children>
         </AnchorPane>
-        <Button focusTraversable="false" layoutX="52.0" layoutY="422.0" mnemonicParsing="false" onAction="#manageitemsOnAction" prefHeight="6.0" prefWidth="214.0" styleClass="txt" text="View Store">
+        <Button focusTraversable="false" layoutX="52.0" layoutY="425.0" mnemonicParsing="false" onAction="#manageitemsOnAction" prefHeight="6.0" prefWidth="214.0" styleClass="txt" text="View Store">
             <font>
                 <Font name="Times New Roman Bold" size="22.0" />
             </font>
