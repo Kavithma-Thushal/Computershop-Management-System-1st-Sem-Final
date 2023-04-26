@@ -189,9 +189,7 @@ public class ManageordersFormController implements Initializable {
             observableList.add(tm);
             tblOrder.setItems(observableList);
             calculateNetTotal();
-
             txtQty.clear();
-            txtQty.requestFocus();
 
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
@@ -245,6 +243,17 @@ public class ManageordersFormController implements Initializable {
         }
     }
 
+    private void placeOrderReset(){
+        txtCustomerName.clear();
+        txtDescription.clear();
+        txtUnitPrice.clear();
+        txtQtyOnHand.clear();
+        txtNetTotal.clear();
+        tblOrder.getItems().clear();
+        //cmbCustomerId.setValue("");
+        //cmbItemCode.setValue(" ");
+    }
+
     @FXML
     private void placeOrderOnAction(ActionEvent events) {
         String orderId = txtOrderId.getText();
@@ -269,7 +278,7 @@ public class ManageordersFormController implements Initializable {
             if (isPlaced) {
                 Alert orderPlacedAlert = new Alert(Alert.AlertType.INFORMATION, "Order Placed...!");
                 orderPlacedAlert.show();
-                EmailSend.mail();
+                //EmailSend.mail();
 
                 orderPlacedAlert.setOnHidden(event -> {
                     try {
@@ -285,6 +294,7 @@ public class ManageordersFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
+        placeOrderReset();
         generateNextOrderId();
     }
 }

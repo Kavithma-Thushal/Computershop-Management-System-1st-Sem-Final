@@ -1,9 +1,6 @@
-DROP
-DATABASE IF EXISTS computershop;
-CREATE
-DATABASE computershop;
-USE
-computershop;
+DROP DATABASE IF EXISTS computershop;
+CREATE DATABASE computershop;
+USE computershop;
 
 CREATE TABLE customer
 (
@@ -36,12 +33,12 @@ CREATE TABLE supplier
     CONSTRAINT PRIMARY KEY (id)
 );
 
-CREATE TABLE item
+CREATE TABLE items
 (
     code        VARCHAR(5),
-    description VARCHAR(100) NOT NULL,
-    unitPrice   DECIMAL      NOT NULL,
-    qtyOnHand   INT          NOT NULL,
+    description VARCHAR(100),
+    unitPrice   DECIMAL NOT NULL,
+    qtyOnHand   INT     NOT NULL,
     CONSTRAINT PRIMARY KEY (code)
 );
 
@@ -57,9 +54,9 @@ CREATE TABLE salary
 
 CREATE TABLE orders
 (
-    id         VARCHAR(5),
+    orderId    VARCHAR(5),
     customerId VARCHAR(5) NOT NULL,
-    CONSTRAINT PRIMARY KEY (id),
+    CONSTRAINT PRIMARY KEY (orderId),
     CONSTRAINT FOREIGN KEY (customerId) REFERENCES customer (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -97,7 +94,7 @@ CREATE TABLE delivery
     CONSTRAINT PRIMARY KEY (code),
     CONSTRAINT FOREIGN KEY (employeeId) REFERENCES employee (id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FOREIGN KEY (customerId) REFERENCES customer (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT FOREIGN KEY (orderId) REFERENCES orders (id) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT FOREIGN KEY (orderId) REFERENCES orders (orderId) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE order_details
@@ -108,7 +105,7 @@ CREATE TABLE order_details
     total    DECIMAL,
     date     DATE,
     CONSTRAINT PRIMARY KEY (orderId, itemCode),
-    CONSTRAINT FOREIGN KEY (orderId) REFERENCES orders (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FOREIGN KEY (orderId) REFERENCES orders (orderId) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FOREIGN KEY (itemCode) REFERENCES items (code) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
