@@ -58,7 +58,7 @@ public class ManagesuppliersFormController implements Initializable {
     Pattern name = Pattern.compile("^([A-Z a-z]{4,40})$");
     Pattern address = Pattern.compile("^([A-Z a-z]{4,40})$");
     Pattern contact = Pattern.compile("^(07(0|1|2|4|5|6|7|8)|091)[0-9]{7}$");
-    Pattern supplyQty = Pattern.compile("^([0-9]{1,6})$");
+    Pattern supplyQty = Pattern.compile("^([0-9]{2,6})$");
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
