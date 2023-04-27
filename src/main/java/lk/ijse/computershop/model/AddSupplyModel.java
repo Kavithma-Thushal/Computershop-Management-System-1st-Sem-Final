@@ -7,17 +7,17 @@ import java.sql.SQLException;
 
 public class AddSupplyModel {
 
-    public static boolean addSupplier(String supplierId,String supplyDate,String name,String contact,String address,String itemCode,String supplyQty) throws SQLException {
+    public static boolean addSupplier(String supplierId, String supplyDate, String name, String contact, String address, String itemCode, String supplyQty) throws SQLException {
         Connection connection = null;
         try {
             connection = DBConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
 
-            boolean isSaved = SupplierModel.save(supplierId, name,contact,address);     //suppliers
-            if (isSaved) {
-                boolean isUpdated = ItemModel.updateSupplyQty(itemCode,supplyQty);     //items update
-                if (isUpdated) {
-                    boolean isOrdered = SupplierDetailModel.save(supplierId, itemCode, supplyQty,supplyDate);      //supplier_details
+            boolean isUpdated = ItemModel.updateSupplyQty(itemCode, supplyQty);     //items update
+            if (isUpdated) {
+                boolean isSaved = SupplierModel.save(supplierId, name, contact, address);     //suppliers
+                if (isSaved) {
+                    boolean isOrdered = SupplierDetailModel.save(supplierId, itemCode, supplyQty, supplyDate);      //supplier_details
                     if (isOrdered) {
                         connection.commit();
                         return true;
