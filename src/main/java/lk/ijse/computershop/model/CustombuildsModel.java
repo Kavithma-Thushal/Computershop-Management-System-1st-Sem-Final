@@ -22,9 +22,9 @@ public class CustombuildsModel {
             String[] strings = currentId.split("B");
             int id = Integer.parseInt(strings[1]);
             id++;
-            return "B" + id;
+            return "B" + String.format("%02d", id);
         }
-        return "B1";
+        return "B01";
     }
 
     public static boolean save(String buildCode, String customerId, String employeeId) throws SQLException {

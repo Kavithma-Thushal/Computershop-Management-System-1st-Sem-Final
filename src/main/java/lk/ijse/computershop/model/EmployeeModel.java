@@ -102,7 +102,7 @@ public class EmployeeModel {
     }
 
     public static List<String> loadIds() throws SQLException {
-        String sql = "SELECT id FROM employee ORDER BY id ASC";
+        String sql = "SELECT id FROM employee WHERE   jobRole IN ('Technician','technician') ORDER BY id ASC";
         ResultSet resultSet = CrudUtil.execute(sql);
 
         List<String> data = new ArrayList<>();
