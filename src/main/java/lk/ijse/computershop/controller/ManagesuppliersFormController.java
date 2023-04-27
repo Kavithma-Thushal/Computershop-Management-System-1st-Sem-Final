@@ -59,14 +59,14 @@ public class ManagesuppliersFormController implements Initializable {
     private LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
     Pattern name = Pattern.compile("^([A-Z a-z]{4,40})$");
     Pattern address = Pattern.compile("^([A-Z a-z]{4,40})$");
-    Pattern contact = Pattern.compile("^(07(0|1|2|4|5|6|7|8)[0-9]{7})$");
+    Pattern contact = Pattern.compile("^(07(0|1|2|4|5|6|7|8)|091)[0-9]{7}$");
     Pattern supplyQty = Pattern.compile("^([0-9]{1,6})$");
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setSupplyDate();
         getAll();
         setCellValueFactory();
+        setSupplyDate();
         btnAdd.setDisable(true);
         generateNextSupplyId();
         loadItemCodes();
@@ -102,12 +102,11 @@ public class ManagesuppliersFormController implements Initializable {
     }
 
     private void clearAllTxt() {
-        //txtSupplyId.clear();
         txtSupplyName.clear();
         txtSupplyAddress.clear();
         txtSupplyContact.clear();
         txtQty.clear();
-        //txtItemDescription.clear();
+        txtItemDescription.clear();
 
         btnAdd.setDisable(true);
         txtSupplyName.requestFocus();
@@ -210,6 +209,5 @@ public class ManagesuppliersFormController implements Initializable {
         }
         clearAllTxt();
         generateNextSupplyId();
-        txtSupplyName.requestFocus();
     }
 }
