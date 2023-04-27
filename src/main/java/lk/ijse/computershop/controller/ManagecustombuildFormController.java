@@ -8,17 +8,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.computershop.db.DBConnection;
 import lk.ijse.computershop.dto.*;
 import lk.ijse.computershop.dto.tm.CustombuildsTM;
 import lk.ijse.computershop.model.*;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class ManagecustombuildFormController implements Initializable {
 
@@ -68,8 +69,8 @@ public class ManagecustombuildFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setBuildDate();
-        generateNextBuildCode();
         setCellValueFactory();
+        generateNextBuildCode();
         loadCustomerIds();
         loadEmployeeIds();
         loadItemCodes();
@@ -278,8 +279,37 @@ public class ManagecustombuildFormController implements Initializable {
         txtNetTotal.setText(String.valueOf(netTotal));
     }
 
+    private void printBills() throws JRException, SQLException {
+        ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+        ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        Optional<ButtonType> buttonType = new Alert(Alert.AlertType.CONFIRMATION, "Do you want a bill?", yes, no).showAndWait();
+
+        if (buttonType.orElse(yes) == yes) {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("Customer", "Thushal");
+            InputStream resource = this.getClass().getResourceAsStream("");
+            JasperReport jasperReport = JasperCompileManager.compileReport(resource);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, DBConnection.getInstance().getConnection());
+            JasperViewer.viewReport(jasperPrint, false);
+        }
+    }
+
+    private void makeBuildReset(){
+        txtCustomerName.clear();
+        txtEmployeeName.clear();
+        txtDescription.clear();
+        txtUnitPrice.clear();
+        txtQtyOnHand.clear();
+        txtNetTotal.clear();
+        tblCustomBuild.getItems().clear();
+        //cmbCustomerId.setValue("");
+        //cmbEmployeeId.setValue("");
+        //cmbItemCode.setValue("");
+    }
+
     @FXML
-    private void makeBuildOnAction(ActionEvent event) {
+    private void makeBuildOnAction(ActionEvent events) {
         String buildCode = txtBuildCode.getText();
         String customerId = cmbCustomerId.getValue();
         String employeeId = cmbEmployeeId.getValue();
@@ -301,13 +331,25 @@ public class ManagecustombuildFormController implements Initializable {
         try {
             isPlaced = MakeBuildModel.makeBuild(buildCode, customerId, employeeId, custombuildsList);
             if (isPlaced) {
-                new Alert(Alert.AlertType.INFORMATION, "your build is making...!").show();
+                Alert makeBuildAlert=new Alert(Alert.AlertType.INFORMATION, "your build is in progress...!");
+                makeBuildAlert.show();
+                //EmailSend.mail();
+
+                makeBuildAlert.setOnHidden(event -> {
+                    try {
+                        printBills();
+                    } catch (Exception e) {
+                        new Alert(Alert.AlertType.ERROR, "please try again...!").show();
+                    }
+                });
+
             } else {
-                new Alert(Alert.AlertType.ERROR, "build is not making...!").show();
+                new Alert(Alert.AlertType.ERROR, "your build is not in progress...!").show();
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
+        makeBuildReset();
         generateNextBuildCode();
     }
 }

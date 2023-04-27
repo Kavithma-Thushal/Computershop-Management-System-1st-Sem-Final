@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.computershop.db.DBConnection;
 import lk.ijse.computershop.dto.Order;
 import lk.ijse.computershop.dto.Customer;
 import lk.ijse.computershop.dto.Item;
@@ -18,7 +19,9 @@ import lk.ijse.computershop.model.OrderModel;
 import lk.ijse.computershop.model.PlaceOrderModel;
 import lk.ijse.computershop.util.EmailSend;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -231,15 +234,12 @@ public class ManageordersFormController implements Initializable {
         Optional<ButtonType> buttonType = new Alert(Alert.AlertType.CONFIRMATION, "Do you want a bill?", yes, no).showAndWait();
 
         if (buttonType.orElse(yes) == yes) {
-            /*HashMap<String, Object> map = new HashMap<>();
+            HashMap<String, Object> map = new HashMap<>();
             map.put("Customer", "Thushal");
-            //map.put("Table Name",txt.getText());
-
             InputStream resource = this.getClass().getResourceAsStream("");
             JasperReport jasperReport = JasperCompileManager.compileReport(resource);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, DBConnection.getInstance().getConnection());
-            //JasperPrintManager.printReport(jasperPrint,true);
-            JasperViewer.viewReport(jasperPrint, false);*/
+            JasperViewer.viewReport(jasperPrint, false);
         }
     }
 
