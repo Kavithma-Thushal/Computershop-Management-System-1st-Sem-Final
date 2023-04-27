@@ -1,22 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="638.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.ManagereportsFormController">
-   <children>
-      <ImageView fitHeight="670.0" fitWidth="1190.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/img/customers.jpg" />
-         </image>
-      </ImageView>
-      <Button focusTraversable="false" layoutX="93.0" layoutY="72.0" mnemonicParsing="false" onAction="#customerReportOnAction" prefHeight="43.0" prefWidth="186.0" styleClass="reports" stylesheets="@../styles/manageforms.css" text="Customer Report" textFill="WHITE">
-         <font>
-            <Font name="Times New Roman" size="19.0" />
-         </font>
-      </Button>
-   </children>
+<AnchorPane prefHeight="638.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.computershop.controller.ManagereportsFormController">
+    <children>
+        <ImageView fitHeight="670.0" fitWidth="1190.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../assets/img/report.jpg"/>
+            </image>
+        </ImageView>
+        <Button focusTraversable="false" layoutX="635.0" layoutY="67.0" mnemonicParsing="false" prefHeight="43.0"
+                prefWidth="186.0" styleClass="reports" stylesheets="@../styles/manageforms.css" text="Customer Report"
+                textFill="WHITE">
+            <font>
+                <Font name="Times New Roman" size="19.0"/>
+            </font>
+        </Button>
+        <Label layoutX="109.0" layoutY="67.0" opacity="0.7" prefHeight="444.0" prefWidth="328.0" styleClass="reports"
+               stylesheets="@../styles/manageforms.css"/>
+        <ImageView fitHeight="314.0" fitWidth="222.0" layoutX="168.0" layoutY="110.0" onMouseClicked="#customerReport"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../assets/icons/report.png"/>
+            </image>
+        </ImageView>
+        <Label layoutX="201.0" layoutY="410.0" prefHeight="94.0" prefWidth="143.0" text="Customer&#10;Report"
+               textAlignment="CENTER">
+            <font>
+                <Font name="Times New Roman Bold" size="33.0"/>
+            </font>
+        </Label>
+    </children>
 </AnchorPane>

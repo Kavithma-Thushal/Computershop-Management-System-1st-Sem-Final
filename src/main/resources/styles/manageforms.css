@@ -40,8 +40,9 @@
 }
 
 .reports {
-    -fx-background-color: #334193;
+    -fx-background-color:  #A9A9A9;
     -fx-text-fill: white;
+    -fx-background-radius: 20;
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-font-family: "Times New Roman";
