@@ -228,7 +228,7 @@ public class ManageordersFormController implements Initializable {
         ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
         ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
 
-        Optional<ButtonType> buttonType = new Alert(Alert.AlertType.CONFIRMATION, "Do you want a bill...?", yes, no).showAndWait();
+        Optional<ButtonType> buttonType = new Alert(Alert.AlertType.CONFIRMATION, "Do you want a bill?", yes, no).showAndWait();
 
         if (buttonType.orElse(yes) == yes) {
             /*HashMap<String, Object> map = new HashMap<>();
