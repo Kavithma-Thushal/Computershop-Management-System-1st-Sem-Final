@@ -15,10 +15,20 @@ public class ManagereportsFormController {
     @FXML
     private void customerReport(MouseEvent mouseEvent) throws JRException, SQLException {
         HashMap<String, Object> map = new HashMap<>();
-        map.put("Customer", "Thushal");
+        map.put("Customer", "Customer");
         InputStream resource = this.getClass().getResourceAsStream("/reports/customerReport.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(resource);
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, DBConnection.getInstance().getConnection());
         JasperViewer.viewReport(jasperPrint, false);
+    }
+
+    @FXML
+    private void employeeReport(MouseEvent mouseEvent) {
+
+    }
+
+    @FXML
+    private void supplierReport(MouseEvent mouseEvent) {
+
     }
 }

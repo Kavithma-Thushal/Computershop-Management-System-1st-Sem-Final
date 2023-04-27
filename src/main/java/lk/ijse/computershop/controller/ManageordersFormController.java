@@ -235,7 +235,7 @@ public class ManageordersFormController implements Initializable {
 
         if (buttonType.orElse(yes) == yes) {
             HashMap<String, Object> map = new HashMap<>();
-            map.put("Customer", "Thushal");
+            map.put("Bill", "Bill");
             InputStream resource = this.getClass().getResourceAsStream("/reports/orderBill.jrxml");
             JasperReport jasperReport = JasperCompileManager.compileReport(resource);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, DBConnection.getInstance().getConnection());
