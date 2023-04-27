@@ -52,8 +52,6 @@ public class ManagesuppliersFormController implements Initializable {
     @FXML
     private TableColumn colAddress;
     @FXML
-    private TextField txtSearch;
-    @FXML
     private Button btnAdd;
 
     private LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();

@@ -37,7 +37,7 @@
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <Button fx:id="btnAdd" focusTraversable="false" layoutX="952.0" layoutY="109.0" mnemonicParsing="false" onAction="#supplierAddOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Add">
+        <Button fx:id="btnAdd" focusTraversable="false" layoutX="952.0" layoutY="37.0" mnemonicParsing="false" onAction="#supplierAddOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Add">
             <font>
                 <Font name="Times New Roman Bold" size="17.0" />
             </font>
@@ -50,11 +50,6 @@
                 <TableColumn fx:id="colAddress" prefWidth="272.0" resizable="false" text="Address" />
             </columns>
         </TableView>
-        <TextField fx:id="txtSearch" focusTraversable="false" layoutX="952.0" layoutY="37.0" onAction="#searchOnAction" prefHeight="0.0" prefWidth="187.0" promptText="Search Here" style="-fx-background-color: lightblue;">
-            <font>
-                <Font name="Times New Roman" size="17.0" />
-            </font>
-        </TextField>
         <TextField fx:id="txtSupplyContact" focusTraversable="false" layoutX="271.0" layoutY="109.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Contact">
             <font>
                 <Font name="Times New Roman" size="17.0" />
