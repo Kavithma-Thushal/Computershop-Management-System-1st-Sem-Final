@@ -23,12 +23,22 @@ public class ManagereportsFormController {
     }
 
     @FXML
-    private void employeeReport(MouseEvent mouseEvent) {
-
+    private void employeeReport(MouseEvent mouseEvent) throws JRException, SQLException {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("Employee", "Employee");
+        InputStream resource = this.getClass().getResourceAsStream("/reports/employeeReport.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(resource);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, DBConnection.getInstance().getConnection());
+        JasperViewer.viewReport(jasperPrint, false);
     }
 
     @FXML
-    private void supplierReport(MouseEvent mouseEvent) {
-
+    private void supplierReport(MouseEvent mouseEvent) throws JRException, SQLException {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("Employee", "Employee");
+        InputStream resource = this.getClass().getResourceAsStream("/reports/supplierReport.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(resource);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, DBConnection.getInstance().getConnection());
+        JasperViewer.viewReport(jasperPrint, false);
     }
 }
