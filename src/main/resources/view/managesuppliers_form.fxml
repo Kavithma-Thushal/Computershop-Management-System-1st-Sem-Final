@@ -17,7 +17,7 @@
                 <Image url="@../assets/img/customers.jpg" />
             </image>
         </ImageView>
-        <TextField fx:id="txtSupplyId" editable="false" layoutX="45.0" layoutY="37.0" prefHeight="19.0" prefWidth="187.0">
+        <TextField fx:id="txtSupplyId" editable="false" focusTraversable="false" layoutX="45.0" layoutY="37.0" prefHeight="19.0" prefWidth="187.0">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
@@ -27,46 +27,46 @@
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtSupplyDate" editable="false" layoutX="45.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
+        <TextField fx:id="txtSupplyDate" editable="false" focusTraversable="false" layoutX="45.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtSupplyAddress" layoutX="498.0" layoutY="37.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Address">
+        <TextField fx:id="txtSupplyAddress" focusTraversable="false" layoutX="498.0" layoutY="37.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Address">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <Button fx:id="btnAdd" layoutX="952.0" layoutY="109.0" mnemonicParsing="false" onAction="#supplierAddOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Add">
+        <Button fx:id="btnAdd" focusTraversable="false" layoutX="952.0" layoutY="109.0" mnemonicParsing="false" onAction="#supplierAddOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Add">
             <font>
                 <Font name="Times New Roman Bold" size="17.0" />
             </font>
         </Button>
-        <TableView fx:id="tblsupplier" layoutX="44.0" layoutY="182.0" prefHeight="448.0" prefWidth="1096.0">
+        <TableView fx:id="tblsupplier" focusTraversable="false" layoutX="44.0" layoutY="182.0" prefHeight="448.0" prefWidth="1096.0">
             <columns>
-                <TableColumn fx:id="colSupplyId" prefWidth="274.0" text="Supply ID" />
-                <TableColumn fx:id="colName" prefWidth="274.0" text="Name" />
-                <TableColumn fx:id="colContact" prefWidth="274.0" text="Contact" />
-                <TableColumn fx:id="colAddress" prefWidth="272.0" text="Address" />
+                <TableColumn fx:id="colSupplyId" prefWidth="274.0" resizable="false" text="Supply ID" />
+                <TableColumn fx:id="colName" prefWidth="274.0" resizable="false" text="Name" />
+                <TableColumn fx:id="colContact" prefWidth="274.0" resizable="false" text="Contact" />
+                <TableColumn fx:id="colAddress" prefWidth="272.0" resizable="false" text="Address" />
             </columns>
         </TableView>
-        <TextField fx:id="txtSearch" layoutX="952.0" layoutY="37.0" onAction="#searchOnAction" prefHeight="0.0" prefWidth="187.0" promptText="Search Here" style="-fx-background-color: lightblue;">
+        <TextField fx:id="txtSearch" focusTraversable="false" layoutX="952.0" layoutY="37.0" onAction="#searchOnAction" prefHeight="0.0" prefWidth="187.0" promptText="Search Here" style="-fx-background-color: lightblue;">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtSupplyContact" layoutX="271.0" layoutY="109.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Contact">
+        <TextField fx:id="txtSupplyContact" focusTraversable="false" layoutX="271.0" layoutY="109.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Contact">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <ComboBox fx:id="cmbItemCode" layoutX="728.0" layoutY="37.0" onAction="#cmbItemCodeOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Item Code" />
-        <TextField fx:id="txtQty" layoutX="498.0" layoutY="109.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Supply Quantity">
+        <ComboBox fx:id="cmbItemCode" focusTraversable="false" layoutX="728.0" layoutY="37.0" onAction="#cmbItemCodeOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Item Code" />
+        <TextField fx:id="txtQty" focusTraversable="false" layoutX="498.0" layoutY="109.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Supply Quantity">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtItemDescription" editable="false" layoutX="728.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
+        <TextField fx:id="txtItemDescription" editable="false" focusTraversable="false" layoutX="728.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
