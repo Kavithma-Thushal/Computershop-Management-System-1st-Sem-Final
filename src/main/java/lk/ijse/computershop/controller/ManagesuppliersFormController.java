@@ -95,7 +95,7 @@ public class ManagesuppliersFormController implements Initializable {
             tblsupplier.setItems(observableList);
 
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 
@@ -178,11 +178,6 @@ public class ManagesuppliersFormController implements Initializable {
     }
 
     @FXML
-    private void searchOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     private void supplierAddOnAction(ActionEvent event) {
         String supplierId = txtSupplyId.getText();
         String supplyDate = txtSupplyDate.getText();
@@ -197,7 +192,6 @@ public class ManagesuppliersFormController implements Initializable {
             isPlaced = AddSupplyModel.addSupplier(supplierId, supplyDate, name, contact, address, itemCode, supplyQty);
             if (isPlaced) {
                 new Alert(Alert.AlertType.INFORMATION, "Supplier added...!").show();
-                tblsupplier.refresh();
                 getAll();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Supplier is not added...!").show();

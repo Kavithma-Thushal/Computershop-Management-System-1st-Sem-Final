@@ -13,11 +13,11 @@ public class AddSupplyModel {
             connection = DBConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
 
-            boolean isSaved = SupplierModel.save(supplierId, name,contact,address);     //orders
+            boolean isSaved = SupplierModel.save(supplierId, name,contact,address);     //suppliers
             if (isSaved) {
                 boolean isUpdated = ItemModel.updateSupplyQty(itemCode,supplyQty);     //items update
                 if (isUpdated) {
-                    boolean isOrdered = SupplierDetailModel.save(supplierId, itemCode, supplyQty,supplyDate);      //order_details
+                    boolean isOrdered = SupplierDetailModel.save(supplierId, itemCode, supplyQty,supplyDate);      //supplier_details
                     if (isOrdered) {
                         connection.commit();
                         return true;
