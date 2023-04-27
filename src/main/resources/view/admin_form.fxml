@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -8,31 +9,41 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="385.0" styleClass="loginDetails" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.AdminFormController">
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="385.0" styleClass="loginDetails"
+            stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.computershop.controller.AdminFormController">
     <children>
         <Label layoutX="74.0" layoutY="37.0" text="Welcome Admin">
             <font>
-                <Font name="Arial Rounded MT Bold" size="30.0" />
+                <Font name="Arial Rounded MT Bold" size="30.0"/>
             </font>
         </Label>
-        <TextField fx:id="txtUsername" focusTraversable="false" layoutX="64.0" layoutY="202.0" prefHeight="26.0" prefWidth="256.0" promptText="User Name">
+        <TextField fx:id="txtUsername" focusTraversable="false" layoutX="64.0" layoutY="202.0" prefHeight="26.0"
+                   prefWidth="256.0" promptText="User Name">
             <font>
-                <Font size="15.0" />
+                <Font size="15.0"/>
             </font>
         </TextField>
-        <PasswordField fx:id="txtPassword" focusTraversable="false" layoutX="64.0" layoutY="262.0" prefHeight="26.0" prefWidth="256.0" promptText="Password">
+        <PasswordField fx:id="txtPassword" focusTraversable="false" layoutX="64.0" layoutY="262.0" prefHeight="26.0"
+                       prefWidth="256.0" promptText="Password">
             <font>
-                <Font size="15.0" />
+                <Font size="15.0"/>
             </font>
         </PasswordField>
-        <ImageView fitHeight="43.0" fitWidth="102.0" layoutX="141.0" layoutY="323.0" onMouseClicked="#adminLoginOnAction" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="43.0" fitWidth="102.0" layoutX="141.0" layoutY="323.0"
+                   onMouseClicked="#adminLoginOnAction" onMouseEntered="#playMouseEnterAnimation"
+                   onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../assets/icons/login.png" />
+                <Image url="@../assets/icons/login.png"/>
             </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
         </ImageView>
-        <ImageView fitHeight="72.0" fitWidth="81.0" layoutX="160.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="72.0" fitWidth="81.0" layoutX="160.0" layoutY="96.0" pickOnBounds="true"
+                   preserveRatio="true">
             <image>
-                <Image url="@../assets/icons/admin1.png" />
+                <Image url="@../assets/icons/admin1.png"/>
             </image>
         </ImageView>
     </children>

@@ -1,11 +1,6 @@
 package lk.ijse.computershop.util;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Properties;
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
@@ -18,7 +13,7 @@ public class EmailSend {
         String senderPassword = "eydlyipacjvbfmfx";
         String recipientEmail = "kavithmathushal451@gmail.com";
         String subject = "Bashi Computer Shop";
-        String body = "Your order placed successfully...!";
+        String body = "Order has been placed";
 
         Session session = Session.getInstance(getEmailProperties(), getAuthenticator(senderEmail, senderPassword));
 
