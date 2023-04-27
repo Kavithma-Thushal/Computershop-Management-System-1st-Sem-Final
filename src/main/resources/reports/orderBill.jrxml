@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.1.final using JasperReports Library version 6.20.1-7584acb244139816654f64e2fd57a00d3e31921e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="orderBill" pageWidth="595" pageHeight="495" columnWidth="555" leftMargin="20" rightMargin="20"
+              topMargin="20" bottomMargin="20" uuid="848c1016-5171-4660-8cd7-226f7da73380">
+    <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (2)"/>
+    <queryString language="SQL">
+        <![CDATA[SELECT *
+FROM order_details 
+JOIN item 
+ON order_details.itemCode = item.code 
+WHERE orderId = (SELECT MAX(orderId) FROM order_details)
+ORDER BY orderId DESC]]>
+    </queryString>
+    <field name="orderId" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="orderId"/>
+        <property name="com.jaspersoft.studio.field.label" value="orderId"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="order_details"/>
+    </field>
+    <field name="itemCode" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="itemCode"/>
+        <property name="com.jaspersoft.studio.field.label" value="itemCode"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="order_details"/>
+    </field>
+    <field name="qty" class="java.lang.Integer">
+        <property name="com.jaspersoft.studio.field.name" value="qty"/>
+        <property name="com.jaspersoft.studio.field.label" value="qty"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="order_details"/>
+    </field>
+    <field name="total" class="java.math.BigDecimal">
+        <property name="com.jaspersoft.studio.field.name" value="total"/>
+        <property name="com.jaspersoft.studio.field.label" value="total"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="order_details"/>
+    </field>
+    <field name="date" class="java.sql.Date">
+        <property name="com.jaspersoft.studio.field.name" value="date"/>
+        <property name="com.jaspersoft.studio.field.label" value="date"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="order_details"/>
+    </field>
+    <field name="code" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="code"/>
+        <property name="com.jaspersoft.studio.field.label" value="code"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+    </field>
+    <field name="description" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="description"/>
+        <property name="com.jaspersoft.studio.field.label" value="description"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+    </field>
+    <field name="unitPrice" class="java.math.BigDecimal">
+        <property name="com.jaspersoft.studio.field.name" value="unitPrice"/>
+        <property name="com.jaspersoft.studio.field.label" value="unitPrice"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+    </field>
+    <field name="qtyOnHand" class="java.lang.Integer">
+        <property name="com.jaspersoft.studio.field.name" value="qtyOnHand"/>
+        <property name="com.jaspersoft.studio.field.label" value="qtyOnHand"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+    </field>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="48" splitType="Stretch">
+            <staticText>
+                <reportElement x="80" y="0" width="400" height="48" uuid="d0dd7ef2-2c8a-43a5-a069-d4b4142a8623"/>
+                <textElement textAlignment="Center" verticalAlignment="Top">
+                    <font fontName="Times New Roman" size="40" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Bashi Computers]]></text>
+            </staticText>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="49" splitType="Stretch">
+            <staticText>
+                <reportElement x="80" y="0" width="400" height="15" uuid="4193ee6b-6c33-4e87-b352-169f6050bff0">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement textAlignment="Center" verticalAlignment="Top">
+                    <font fontName="Times New Roman" size="12"/>
+                </textElement>
+                <text><![CDATA[Wellawatta Road, Borella, Colombo 7]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="80" y="15" width="400" height="15" uuid="7413fe21-01f7-48c3-8caf-9a5785420e35">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement textAlignment="Center" verticalAlignment="Top"/>
+                <text><![CDATA[Tel - 0779434600 / 0778238080]]></text>
+            </staticText>
+        </band>
+    </pageHeader>
+    <columnHeader>
+        <band height="30" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="80" height="30" uuid="a01be5d3-f310-42fd-91f2-2cd9cebbdb16">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="37cf2b71-2824-4410-b7d5-8d0a24731c32"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Times New Roman" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Item Code]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="80" y="0" width="100" height="30" uuid="dba029ee-4f0e-47e8-ad8e-939f22b07624">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="687a1cbf-0b86-4a63-bbdb-f5a014fef42e"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Times New Roman" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Description]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="180" y="0" width="80" height="30" uuid="116b5260-553e-4947-9bbd-1a3d76e40f83">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="72a61309-b237-4301-9b19-2dbcfa084b85"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Times New Roman" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Quantity]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="260" y="0" width="100" height="30" uuid="668ad4d2-34a1-4db8-a659-97525f8dea79">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="994bd7ca-9839-411d-8414-031c971d5862"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Times New Roman" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Unit Price]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="360" y="0" width="100" height="30" uuid="a195ebcf-95df-4752-8487-44efc38b858b">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="03dd6c06-b5a9-4757-92ee-46ea5057cf20"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Times New Roman" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Total]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="460" y="0" width="100" height="30" uuid="2cfc6eef-01ea-4b27-83b2-f5f3d197f7b0">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="f577358e-8291-4658-8f24-f329749b9413"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Times New Roman" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Date]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="30" splitType="Stretch">
+            <textField>
+                <reportElement x="0" y="0" width="80" height="30" uuid="de9926c8-c2de-45ac-9b9e-cd7ec715952b">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="37cf2b71-2824-4410-b7d5-8d0a24731c32"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{itemCode}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="80" y="0" width="100" height="30" uuid="6024236d-95d9-4132-9dff-935d258a16b7">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="687a1cbf-0b86-4a63-bbdb-f5a014fef42e"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="180" y="0" width="80" height="30" uuid="53df1ef2-caa3-4840-82a3-37870d57ceda">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="72a61309-b237-4301-9b19-2dbcfa084b85"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="260" y="0" width="100" height="30" uuid="8e941844-b498-4f04-8a10-fb1cc3a94323">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="994bd7ca-9839-411d-8414-031c971d5862"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{unitPrice}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="360" y="0" width="100" height="30" uuid="bbcb8a4e-e903-4e77-936c-2ccfb35dbf65">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="03dd6c06-b5a9-4757-92ee-46ea5057cf20"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="460" y="0" width="100" height="30" uuid="c010aa15-b358-48b0-a28d-43fd9b610845">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="f577358e-8291-4658-8f24-f329749b9413"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <summary>
+        <band height="70" splitType="Stretch">
+            <staticText>
+                <reportElement x="80" y="20" width="400" height="20" uuid="618c7486-f6c8-4bf9-b67e-a31f01d480d9"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Times New Roman" size="15" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Thank you & Come Again...!]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="80" y="40" width="400" height="15" uuid="d22d6e22-bf62-41ca-87f0-be4ba8cbb974">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Software Designed by KT Solutions (PVT) Ltd]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="80" y="55" width="400" height="15" uuid="36d662bc-65be-405a-8136-2fcb0776e495">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Tel - 0774519007]]></text>
+            </staticText>
+        </band>
+    </summary>
+</jasperReport>
