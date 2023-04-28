@@ -45,8 +45,8 @@ public class DeliveryModel {
             String[] strings = currentId.split("D");
             int id = Integer.parseInt(strings[1]);
             id++;
-            return "D" + id;
+            return "D" + String.format("%02d", id);
         }
-        return "D1";
+        return "D01";
     }
 }

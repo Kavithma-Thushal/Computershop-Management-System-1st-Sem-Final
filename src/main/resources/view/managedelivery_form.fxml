@@ -10,71 +10,59 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="638.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="lk.ijse.computershop.controller.ManagedeliveryFormController">
+<AnchorPane prefHeight="638.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.computershop.controller.ManagedeliveryFormController">
     <children>
         <ImageView fitHeight="670.0" fitWidth="1190.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../assets/img/customers.jpg"/>
+                <Image url="@../assets/img/customers.jpg" />
             </image>
         </ImageView>
-        <TextField fx:id="txtDeliveryCode" editable="false" layoutX="45.0" layoutY="37.0" prefHeight="0.0"
-                   prefWidth="187.0">
+        <TextField fx:id="txtDeliveryCode" editable="false" focusTraversable="false" layoutX="45.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0">
             <font>
-                <Font name="Times New Roman" size="17.0"/>
+                <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtCustomerName" editable="false" layoutX="269.0" layoutY="108.0" prefHeight="31.0"
-                   prefWidth="187.0">
+        <TextField fx:id="txtCustomerName" editable="false" focusTraversable="false" layoutX="269.0" layoutY="108.0" prefHeight="31.0" prefWidth="187.0">
             <font>
-                <Font name="Times New Roman" size="17.0"/>
+                <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtDeliveryDate" editable="false" layoutX="45.0" layoutY="108.0" prefHeight="31.0"
-                   prefWidth="187.0">
+        <TextField fx:id="txtDeliveryDate" editable="false" focusTraversable="false" layoutX="45.0" layoutY="108.0" prefHeight="31.0" prefWidth="187.0">
             <font>
-                <Font name="Times New Roman" size="17.0"/>
+                <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtEmployeeName" editable="false" layoutX="498.0" layoutY="108.0" prefHeight="0.0"
-                   prefWidth="187.0">
+        <TextField fx:id="txtEmployeeName" editable="false" focusTraversable="false" layoutX="498.0" layoutY="108.0" prefHeight="0.0" prefWidth="187.0">
             <font>
-                <Font name="Times New Roman" size="17.0"/>
+                <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TableView fx:id="tblDelivery" layoutX="44.0" layoutY="182.0" prefHeight="448.0" prefWidth="1096.0">
+        <TableView fx:id="tblDelivery" focusTraversable="false" layoutX="44.0" layoutY="182.0" prefHeight="448.0" prefWidth="1096.0">
             <columns>
-                <TableColumn fx:id="colCode" prefWidth="182.0" text="Delivery Code"/>
-                <TableColumn fx:id="colCustomerId" prefWidth="182.0" text="Customer ID"/>
-                <TableColumn fx:id="colEmployeeId" prefWidth="182.0" text="Employee ID"/>
-                <TableColumn fx:id="colOrderId" prefWidth="182.0" text="Order ID"/>
-                <TableColumn fx:id="colLocation" prefWidth="182.0" text="Location"/>
-                <TableColumn fx:id="colDate" prefWidth="182.0" text="Date"/>
+                <TableColumn fx:id="colCode" prefWidth="182.0" resizable="false" text="Delivery Code" />
+                <TableColumn fx:id="colCustomerId" prefWidth="182.0" resizable="false" text="Customer ID" />
+                <TableColumn fx:id="colEmployeeId" prefWidth="182.0" resizable="false" text="Employee ID" />
+                <TableColumn fx:id="colOrderId" prefWidth="182.0" resizable="false" text="Order ID" />
+                <TableColumn fx:id="colLocation" prefWidth="182.0" resizable="false" text="Location" />
+                <TableColumn fx:id="colDate" prefWidth="182.0" resizable="false" text="Date" />
             </columns>
         </TableView>
-        <ComboBox fx:id="cmbCustomerId" layoutX="269.0" layoutY="37.0" onAction="#cmbCustomerIdOnAction"
-                  prefHeight="31.0" prefWidth="187.0" promptText="Customer ID"/>
-        <ComboBox fx:id="cmbEmployeeId" layoutX="498.0" layoutY="37.0" onAction="#cmbEmployeeIdOnAction"
-                  prefHeight="31.0" prefWidth="187.0" promptText="Employee ID"/>
-        <ComboBox fx:id="cmbOrderId" layoutX="727.0" layoutY="37.0" onAction="#cmbOrderIdOnAction" prefHeight="31.0"
-                  prefWidth="187.0" promptText="Order ID"/>
-        <TextField fx:id="txtOrderDescription" editable="false" layoutX="727.0" layoutY="108.0" prefHeight="0.0"
-                   prefWidth="187.0">
+        <ComboBox fx:id="cmbCustomerId" focusTraversable="false" layoutX="269.0" layoutY="37.0" onAction="#cmbCustomerIdOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Customer ID" />
+        <ComboBox fx:id="cmbEmployeeId" focusTraversable="false" layoutX="498.0" layoutY="37.0" onAction="#cmbEmployeeIdOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Employee ID" />
+        <ComboBox fx:id="cmbOrderId" focusTraversable="false" layoutX="727.0" layoutY="37.0" onAction="#cmbOrderIdOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Order ID" />
+        <TextField fx:id="txtOrderDescription" editable="false" focusTraversable="false" layoutX="727.0" layoutY="108.0" prefHeight="0.0" prefWidth="187.0">
             <font>
-                <Font name="Times New Roman" size="17.0"/>
+                <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <Button layoutX="952.0" layoutY="108.0" mnemonicParsing="false" onAction="#deliverOnAction" prefHeight="0.0"
-                prefWidth="187.0" style="-fx-background-color: lightblue;" text="Deliver">
+        <Button focusTraversable="false" layoutX="952.0" layoutY="108.0" mnemonicParsing="false" onAction="#deliverOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Deliver">
             <font>
-                <Font name="Times New Roman Bold" size="17.0"/>
+                <Font name="Times New Roman Bold" size="17.0" />
             </font>
         </Button>
-        <TextField fx:id="txtLocation" layoutX="952.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0"
-                   promptText="Location">
+        <TextField fx:id="txtLocation" layoutX="952.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0" promptText="Location">
             <font>
-                <Font name="Times New Roman" size="17.0"/>
+                <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
     </children>
