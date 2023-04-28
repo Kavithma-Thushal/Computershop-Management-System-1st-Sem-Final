@@ -8,12 +8,12 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 public class EmailSend {
-    public static void mail() throws MessagingException{
+    public static void mail(String msg) throws MessagingException{
         String senderEmail = "kaviyabro9007@gmail.com";
         String senderPassword = "eydlyipacjvbfmfx";
         String recipientEmail = "kavithmathushal451@gmail.com";
         String subject = "Bashi Computer Shop";
-        String body = "Order has been placed";
+        String body = msg;
 
         Session session = Session.getInstance(getEmailProperties(), getAuthenticator(senderEmail, senderPassword));
 

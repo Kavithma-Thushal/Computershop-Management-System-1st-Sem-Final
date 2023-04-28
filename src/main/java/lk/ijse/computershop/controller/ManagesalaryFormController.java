@@ -15,6 +15,7 @@ import lk.ijse.computershop.dto.tm.SalaryTM;
 import lk.ijse.computershop.model.EmployeeModel;
 import lk.ijse.computershop.model.SalaryModel;
 import lk.ijse.computershop.util.CrudUtil;
+import lk.ijse.computershop.util.EmailSend;
 import lk.ijse.computershop.util.Validation;
 
 import java.net.URL;
@@ -171,6 +172,7 @@ public class ManagesalaryFormController implements Initializable {
                 int affectedRows = CrudUtil.execute(sql, salaryCode, employeeId, amount, String.valueOf(LocalDate.now()));
                 if (affectedRows > 0) {
                     new Alert(Alert.AlertType.INFORMATION, "Paid Successfully...!").show();
+                    EmailSend.mail("Your Salary is Deposited to the Bank...!");
                     getAll();
                     txtEmployeeName.clear();
                     txtAmount.clear();

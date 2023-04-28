@@ -18,6 +18,7 @@ import lk.ijse.computershop.model.EmployeeModel;
 import lk.ijse.computershop.model.RepairModel;
 import lk.ijse.computershop.model.SalaryModel;
 import lk.ijse.computershop.util.CrudUtil;
+import lk.ijse.computershop.util.EmailSend;
 import lk.ijse.computershop.util.Validation;
 
 import java.net.URL;
@@ -243,6 +244,7 @@ public class ManagerepairFormController implements Initializable {
                 int affectedRows = CrudUtil.execute(sql, repairCode, customerId, employeeId, details, String.valueOf(LocalDate.now()), acceptDate);
                 if (affectedRows > 0) {
                     new Alert(Alert.AlertType.INFORMATION, "Added Successfully...!").show();
+                    EmailSend.mail("New Repair Available...!");
                     getAll();
                     clearAllTxt();
                     txtDetails.requestFocus();
