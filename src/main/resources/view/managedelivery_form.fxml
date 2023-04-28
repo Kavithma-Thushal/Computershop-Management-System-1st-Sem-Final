@@ -50,11 +50,6 @@
         <ComboBox fx:id="cmbCustomerId" focusTraversable="false" layoutX="269.0" layoutY="37.0" onAction="#cmbCustomerIdOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Customer ID" />
         <ComboBox fx:id="cmbEmployeeId" focusTraversable="false" layoutX="498.0" layoutY="37.0" onAction="#cmbEmployeeIdOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Employee ID" />
         <ComboBox fx:id="cmbOrderId" focusTraversable="false" layoutX="727.0" layoutY="37.0" onAction="#cmbOrderIdOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Order ID" />
-        <TextField fx:id="txtOrderDescription" editable="false" focusTraversable="false" layoutX="727.0" layoutY="108.0" prefHeight="0.0" prefWidth="187.0">
-            <font>
-                <Font name="Times New Roman" size="17.0" />
-            </font>
-        </TextField>
         <Button fx:id="btnDeliver" focusTraversable="false" layoutX="952.0" layoutY="108.0" mnemonicParsing="false" onAction="#deliverOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Deliver">
             <font>
                 <Font name="Times New Roman Bold" size="17.0" />

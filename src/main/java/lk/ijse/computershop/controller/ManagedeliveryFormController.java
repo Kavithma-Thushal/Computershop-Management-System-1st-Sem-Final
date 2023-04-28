@@ -40,8 +40,6 @@ public class ManagedeliveryFormController implements Initializable {
     @FXML
     private ComboBox<String> cmbOrderId;
     @FXML
-    private TextField txtOrderDescription;
-    @FXML
     private TextField txtLocation;
     @FXML
     private TableView tblDelivery;
@@ -94,7 +92,6 @@ public class ManagedeliveryFormController implements Initializable {
     private void clearAllTxt() {
         txtCustomerName.clear();
         txtEmployeeName.clear();
-        txtOrderDescription.clear();
         txtLocation.clear();
 
         btnDeliver.setDisable(true);

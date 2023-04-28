@@ -12,6 +12,7 @@ import lk.ijse.computershop.db.DBConnection;
 import lk.ijse.computershop.dto.*;
 import lk.ijse.computershop.dto.tm.CustombuildsTM;
 import lk.ijse.computershop.model.*;
+import lk.ijse.computershop.util.EmailSend;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -333,7 +334,7 @@ public class ManagecustombuildFormController implements Initializable {
             if (isPlaced) {
                 Alert makeBuildAlert=new Alert(Alert.AlertType.INFORMATION, "your build is in progress...!");
                 makeBuildAlert.show();
-                //EmailSend.mail();
+                EmailSend.mail("Your Build is in Progress...!");
 
                 makeBuildAlert.setOnHidden(event -> {
                     try {

@@ -228,6 +228,7 @@ public class ManagerepairFormController implements Initializable {
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
         }
+        txtSearch.clear();
     }
 
     @FXML
