@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.computershop.dto.Customer;
 import lk.ijse.computershop.dto.Employee;
 import lk.ijse.computershop.dto.Repair;
@@ -14,12 +16,16 @@ import lk.ijse.computershop.dto.tm.RepairTM;
 import lk.ijse.computershop.model.CustomerModel;
 import lk.ijse.computershop.model.EmployeeModel;
 import lk.ijse.computershop.model.RepairModel;
+import lk.ijse.computershop.model.SalaryModel;
 import lk.ijse.computershop.util.CrudUtil;
+import lk.ijse.computershop.util.Validation;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class ManagerepairFormController implements Initializable {
 
@@ -55,6 +61,12 @@ public class ManagerepairFormController implements Initializable {
     private TableColumn colGettingDate;
     @FXML
     private TableColumn colAcceptingDate;
+    @FXML
+    private Button btnRepair;
+
+    private LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
+    Pattern details = Pattern.compile("^([A-Z a-z]{4,40})$");
+    Pattern acceptingDate = Pattern.compile("^\\d{4}[-./](0[1-9]|1[012])[-./](0[1-9]|[12][0-9]|3[01])$");
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -64,6 +76,8 @@ public class ManagerepairFormController implements Initializable {
         setCellValueFactory();
         loadCustomerIds();
         loadEmployeeIds();
+        storeValidations();
+        btnRepair.setDisable(true);
     }
 
     private void setCellValueFactory() {
@@ -73,6 +87,39 @@ public class ManagerepairFormController implements Initializable {
         colDetails.setCellValueFactory(new PropertyValueFactory<>("details"));
         colGettingDate.setCellValueFactory(new PropertyValueFactory<>("gettingDate"));
         colAcceptingDate.setCellValueFactory(new PropertyValueFactory<>("acceptingDate"));
+    }
+
+    private void storeValidations() {
+        map.put(txtDetails, details);
+        map.put(txtAcceptingDate, acceptingDate);
+    }
+
+    private void clearAllTxt() {
+        txtCustomerName.clear();
+        txtEmployeeName.clear();
+        txtDetails.clear();
+        txtAcceptingDate.clear();
+
+        btnRepair.setDisable(true);
+        setBorders(txtDetails,txtAcceptingDate);
+    }
+
+    public void setBorders(TextField... textFields) {
+        for (TextField textField : textFields) {
+            textField.setStyle("-fx-border-color: transparent");
+        }
+    }
+
+    @FXML
+    private void txtKeyRelease(KeyEvent keyEvent) {
+        Object response = Validation.validate(map, btnRepair);
+
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            if (response instanceof TextField) {
+                TextField txtnext = (TextField) response;
+                txtnext.requestFocus();
+            }
+        }
     }
 
     private void getAll() {
@@ -191,12 +238,18 @@ public class ManagerepairFormController implements Initializable {
         String acceptDate = txtAcceptingDate.getText();
 
         try {
-            String sql = "INSERT INTO repairs VALUES(?, ?, ?, ?, ?, ?)";
-            int affectedRows = CrudUtil.execute(sql, repairCode, customerId, employeeId, details, String.valueOf(LocalDate.now()), acceptDate);
-            if (affectedRows > 0) {
-                new Alert(Alert.AlertType.INFORMATION, "Added Successfully...!").show();
-                tblRepair.refresh();
-                getAll();
+            if(!txtCustomerName.getText().isEmpty() && !txtEmployeeName.getText().isEmpty() && !txtDetails.getText().isEmpty() && !txtAcceptingDate.getText().isEmpty()){
+                String sql = "INSERT INTO repairs VALUES(?, ?, ?, ?, ?, ?)";
+                int affectedRows = CrudUtil.execute(sql, repairCode, customerId, employeeId, details, String.valueOf(LocalDate.now()), acceptDate);
+                if (affectedRows > 0) {
+                    new Alert(Alert.AlertType.INFORMATION, "Added Successfully...!").show();
+                    getAll();
+                    clearAllTxt();
+                    txtDetails.requestFocus();
+                    generateNextRepairCode();
+                }
+            }else {
+                new Alert(Alert.AlertType.ERROR, "please try again...!").show();
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
