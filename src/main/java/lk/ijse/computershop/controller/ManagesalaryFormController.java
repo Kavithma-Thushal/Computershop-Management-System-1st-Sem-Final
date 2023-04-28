@@ -41,8 +41,6 @@ public class ManagesalaryFormController implements Initializable {
     private TableColumn colAmount;
     @FXML
     private TableColumn colDatetime;
-    @FXML
-    private TextField txtSearch;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -88,14 +86,14 @@ public class ManagesalaryFormController implements Initializable {
             }
             tblSalary.setItems(observableList);
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
+            new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
     }
 
     private void loadEmployeeIds() {
         try {
             ObservableList<String> observableList = FXCollections.observableArrayList();
-            List<String> employeeId = EmployeeModel.loadIds();
+            List<String> employeeId = EmployeeModel.loadEmployeeIds();
 
             for (String id : employeeId) {
                 observableList.add(id);
@@ -120,21 +118,6 @@ public class ManagesalaryFormController implements Initializable {
     }
 
     @FXML
-    private void searchOnAction(ActionEvent event) {
-        try {
-            Salary salary = SalaryModel.search(txtSearch.getText());
-            if (salary != null) {
-                txtCode.setText(salary.getCode());
-                txtEmployeeName.setText(salary.getEmployeeName());
-                txtAmount.setText(String.valueOf(salary.getAmount()));
-                txtDatetime.setText(String.valueOf(salary.getDate()));
-            }
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Please try again...!").show();
-        }
-    }
-
-    @FXML
     private void payOnAction(ActionEvent event) {
         String salaryCode = txtCode.getText();
         String employeeId = cmbEmployeeId.getValue();
@@ -145,12 +128,13 @@ public class ManagesalaryFormController implements Initializable {
             int affectedRows = CrudUtil.execute(sql, salaryCode, employeeId, amount, String.valueOf(LocalDate.now()));
             if (affectedRows > 0) {
                 new Alert(Alert.AlertType.INFORMATION, "Paid Successfully...!").show();
-                tblSalary.refresh();
                 getAll();
+                txtEmployeeName.clear();
+                txtAmount.clear();
+                generateNextSalaryCode();
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "please try again...!").show();
         }
-        generateNextSalaryCode();
     }
 }

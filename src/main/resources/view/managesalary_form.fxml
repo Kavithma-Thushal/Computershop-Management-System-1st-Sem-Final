@@ -17,12 +17,12 @@
                 <Image url="@../assets/img/customers.jpg" />
             </image>
         </ImageView>
-        <TextField fx:id="txtCode" editable="false" layoutX="45.0" layoutY="37.0" prefHeight="19.0" prefWidth="187.0">
+        <TextField fx:id="txtCode" editable="false" focusTraversable="false" layoutX="45.0" layoutY="37.0" prefHeight="19.0" prefWidth="187.0">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TextField fx:id="txtDatetime" editable="false" layoutX="45.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
+        <TextField fx:id="txtDatetime" editable="false" focusTraversable="false" layoutX="45.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
@@ -32,26 +32,21 @@
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <TableView fx:id="tblSalary" layoutX="44.0" layoutY="182.0" prefHeight="448.0" prefWidth="1096.0">
+        <TableView fx:id="tblSalary" focusTraversable="false" layoutX="44.0" layoutY="182.0" prefHeight="448.0" prefWidth="1096.0">
             <columns>
-                <TableColumn fx:id="colCode" prefWidth="274.0" text="Code" />
-                <TableColumn fx:id="colEmployeeid" prefWidth="274.0" text="Paying Employee ID" />
-                <TableColumn fx:id="colAmount" prefWidth="274.0" text="Amount" />
-                <TableColumn fx:id="colDatetime" prefWidth="272.0" text="Date" />
+                <TableColumn fx:id="colCode" prefWidth="274.0" resizable="false" text="Code" />
+                <TableColumn fx:id="colEmployeeid" prefWidth="274.0" resizable="false" text="Paying Employee ID" />
+                <TableColumn fx:id="colAmount" prefWidth="274.0" resizable="false" text="Amount" />
+                <TableColumn fx:id="colDatetime" prefWidth="272.0" resizable="false" text="Date" />
             </columns>
         </TableView>
-        <TextField fx:id="txtSearch" layoutX="952.0" layoutY="37.0" onAction="#searchOnAction" prefHeight="0.0" prefWidth="187.0" promptText="Search Here" style="-fx-background-color: lightblue;">
-            <font>
-                <Font name="Times New Roman" size="17.0" />
-            </font>
-        </TextField>
-        <ComboBox fx:id="cmbEmployeeId" layoutX="270.0" layoutY="37.0" onAction="#cmbEmployeeIdOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Employee ID" />
+        <ComboBox fx:id="cmbEmployeeId" focusTraversable="false" layoutX="270.0" layoutY="37.0" onAction="#cmbEmployeeIdOnAction" prefHeight="31.0" prefWidth="187.0" promptText="Employee ID" />
         <TextField fx:id="txtEmployeeName" editable="false" focusTraversable="false" layoutX="270.0" layoutY="109.0" prefHeight="0.0" prefWidth="187.0">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <Button layoutX="952.0" layoutY="109.0" mnemonicParsing="false" onAction="#payOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Pay">
+        <Button focusTraversable="false" layoutX="952.0" layoutY="37.0" mnemonicParsing="false" onAction="#payOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Pay">
             <font>
                 <Font name="Times New Roman Bold" size="17.0" />
             </font>

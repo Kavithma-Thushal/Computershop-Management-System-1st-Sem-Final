@@ -28,22 +28,6 @@ public class SalaryModel {
         return salaryList;
     }
 
-    public static Salary search(String code) throws SQLException {
-
-        String sql = "SELECT * FROM salary WHERE code=?";
-        ResultSet resultSet = CrudUtil.execute(sql, code);
-
-        if (resultSet.next()) {
-            return new Salary(
-                    resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getDouble(3),
-                    resultSet.getString(4)
-            );
-        }
-        return null;
-    }
-
     public static String getNextSalaryCode() throws SQLException {
         String sql = "SELECT code FROM salary ORDER BY code DESC LIMIT 1";
         ResultSet resultSet = CrudUtil.execute(sql);
@@ -59,8 +43,8 @@ public class SalaryModel {
             String[] strings = currentId.split("S");
             int id = Integer.parseInt(strings[1]);
             id++;
-            return "S" + id;
+            return "S" + String.format("%02d", id);
         }
-        return "S1";
+        return "S01";
     }
 }

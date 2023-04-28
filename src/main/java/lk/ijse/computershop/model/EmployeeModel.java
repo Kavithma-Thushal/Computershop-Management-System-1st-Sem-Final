@@ -112,6 +112,17 @@ public class EmployeeModel {
         return data;
     }
 
+    public static List<String> loadEmployeeIds() throws SQLException {
+        String sql = "SELECT id FROM employee ORDER BY id ASC";
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        List<String> data = new ArrayList<>();
+        while (resultSet.next()) {
+            data.add(resultSet.getString(1));
+        }
+        return data;
+    }
+
     public static Employee searchById(String employeeId) throws SQLException {
         String sql = "SELECT * FROM employee WHERE id = ?";
         ResultSet resultSet = CrudUtil.execute(sql, employeeId);
