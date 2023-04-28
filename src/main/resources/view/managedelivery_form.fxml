@@ -55,12 +55,12 @@
                 <Font name="Times New Roman" size="17.0" />
             </font>
         </TextField>
-        <Button focusTraversable="false" layoutX="952.0" layoutY="108.0" mnemonicParsing="false" onAction="#deliverOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Deliver">
+        <Button fx:id="btnDeliver" focusTraversable="false" layoutX="952.0" layoutY="108.0" mnemonicParsing="false" onAction="#deliverOnAction" prefHeight="0.0" prefWidth="187.0" style="-fx-background-color: lightblue;" text="Deliver">
             <font>
                 <Font name="Times New Roman Bold" size="17.0" />
             </font>
         </Button>
-        <TextField fx:id="txtLocation" layoutX="952.0" layoutY="37.0" prefHeight="0.0" prefWidth="187.0" promptText="Location">
+        <TextField fx:id="txtLocation" layoutX="952.0" layoutY="37.0" onKeyReleased="#txtKeyRelease" prefHeight="0.0" prefWidth="187.0" promptText="Location">
             <font>
                 <Font name="Times New Roman" size="17.0" />
             </font>
