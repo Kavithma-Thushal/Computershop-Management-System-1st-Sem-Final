@@ -64,8 +64,8 @@ public class RepairModel {
             String[] strings = currentId.split("R");
             int id = Integer.parseInt(strings[1]);
             id++;
-            return "R" + id;
+            return "R" + String.format("%02d", id);
         }
-        return "R1";
+        return "R01";
     }
 }

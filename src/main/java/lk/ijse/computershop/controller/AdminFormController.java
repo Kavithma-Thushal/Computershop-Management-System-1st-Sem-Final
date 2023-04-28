@@ -30,7 +30,7 @@ public class AdminFormController {
 
     @FXML
     private void adminLoginOnAction(MouseEvent mouseEvent) throws IOException, SQLException {
-        if (txtUsername.getText().equals("") && txtPassword.getText().equals("")) {
+        if (txtUsername.getText().equals("Admin") && txtPassword.getText().equals("1234")) {
             UILoader.LoginOnAction(root, "admindashboard_form");
 
             Image img = new Image("/assets/icons/tick.gif", 90, 90, false, false);
