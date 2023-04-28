@@ -14,8 +14,8 @@
                 <Image url="@../assets/img/report.jpg" />
             </image>
         </ImageView>
-        <Label layoutX="105.0" layoutY="51.0" opacity="0.7" prefHeight="349.0" prefWidth="254.0" styleClass="reports" stylesheets="@../styles/manageforms.css" />
-        <ImageView fitHeight="193.0" fitWidth="179.0" layoutX="169.0" layoutY="96.0" onMouseClicked="#customerReport" pickOnBounds="true" preserveRatio="true">
+        <Label layoutX="107.0" layoutY="249.0" opacity="0.7" prefHeight="349.0" prefWidth="254.0" styleClass="reports" stylesheets="@../styles/manageforms.css" />
+        <ImageView fitHeight="193.0" fitWidth="179.0" layoutX="171.0" layoutY="294.0" onMouseClicked="#customerReport" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../assets/icons/report.png" />
             </image>
@@ -23,16 +23,15 @@
             <Cursor fx:constant="HAND" />
          </cursor>
         </ImageView>
-        <Label layoutX="177.0" layoutY="300.0" prefHeight="82.0" prefWidth="125.0" text="Customer&#10;Report" textAlignment="CENTER">
+        <Label layoutX="179.0" layoutY="498.0" prefHeight="82.0" prefWidth="125.0" text="Customer&#10;Report" textAlignment="CENTER">
             <font>
                 <Font name="Times New Roman Bold" size="29.0" />
             </font>
         </Label>
-      <Label layoutX="467.0" layoutY="51.0" opacity="0.7" prefHeight="349.0" prefWidth="254.0" styleClass="reports" stylesheets="@../styles/manageforms.css" />
-      <Label layoutX="832.0" layoutY="51.0" opacity="0.7" prefHeight="349.0" prefWidth="254.0" styleClass="reports" stylesheets="@../styles/manageforms.css" />
-      <Label layoutX="105.0" layoutY="450.0" opacity="0.7" prefHeight="194.0" prefWidth="450.0" styleClass="reports" stylesheets="@../styles/manageforms.css" />
-      <Label layoutX="635.0" layoutY="450.0" opacity="0.7" prefHeight="194.0" prefWidth="450.0" styleClass="reports" stylesheets="@../styles/manageforms.css" />
-      <ImageView fitHeight="193.0" fitWidth="179.0" layoutX="528.0" layoutY="96.0" onMouseClicked="#employeeReport" pickOnBounds="true" preserveRatio="true">
+      <Label layoutX="468.0" layoutY="249.0" opacity="0.7" prefHeight="349.0" prefWidth="254.0" styleClass="reports" stylesheets="@../styles/manageforms.css" />
+      <Label layoutX="833.0" layoutY="249.0" opacity="0.7" prefHeight="349.0" prefWidth="254.0" styleClass="reports" stylesheets="@../styles/manageforms.css" />
+      <Label layoutX="109.0" layoutY="69.0" prefHeight="120.0" prefWidth="972.0" style="-fx-background-color: #253fcd; -fx-background-radius: 20;" />
+      <ImageView fitHeight="193.0" fitWidth="179.0" layoutX="529.0" layoutY="294.0" onMouseClicked="#employeeReport" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/icons/report.png" />
          </image>
@@ -40,7 +39,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fitHeight="193.0" fitWidth="179.0" layoutX="896.0" layoutY="96.0" onMouseClicked="#supplierReport" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="193.0" fitWidth="179.0" layoutX="897.0" layoutY="294.0" onMouseClicked="#supplierReport" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/icons/report.png" />
          </image>
@@ -48,14 +47,19 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="536.0" layoutY="293.0" prefHeight="82.0" prefWidth="125.0" text="Employee&#10;Report" textAlignment="CENTER">
+      <Label layoutX="537.0" layoutY="491.0" prefHeight="82.0" prefWidth="125.0" text="Employee&#10;Report" textAlignment="CENTER">
          <font>
             <Font name="Times New Roman Bold" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="911.0" layoutY="293.0" prefHeight="82.0" prefWidth="112.0" text="Supplier&#10;Report" textAlignment="CENTER">
+      <Label layoutX="912.0" layoutY="491.0" prefHeight="82.0" prefWidth="112.0" text="Supplier&#10;Report" textAlignment="CENTER">
          <font>
             <Font name="Times New Roman Bold" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="442.0" layoutY="91.0" prefHeight="75.0" prefWidth="306.0" text="Your Reports">
+         <font>
+            <Font name="Times New Roman Bold" size="51.0" />
          </font>
       </Label>
     </children>

@@ -283,12 +283,12 @@ public class ManagecustombuildFormController implements Initializable {
         ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
         ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
 
-        Optional<ButtonType> buttonType = new Alert(Alert.AlertType.CONFIRMATION, "Do you want a bill?", yes, no).showAndWait();
+        Optional<ButtonType> buttonType = new Alert(Alert.AlertType.CONFIRMATION, "Do you want a quotation?", yes, no).showAndWait();
 
         if (buttonType.orElse(yes) == yes) {
             HashMap<String, Object> map = new HashMap<>();
-            map.put("Customer", "Thushal");
-            InputStream resource = this.getClass().getResourceAsStream("");
+            map.put("CustomBuild", "CustomBuild");
+            InputStream resource = this.getClass().getResourceAsStream("/reports/customBuild.jrxml");
             JasperReport jasperReport = JasperCompileManager.compileReport(resource);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, DBConnection.getInstance().getConnection());
             JasperViewer.viewReport(jasperPrint, false);

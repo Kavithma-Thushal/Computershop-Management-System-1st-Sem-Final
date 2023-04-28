@@ -35,7 +35,7 @@ public class ManagereportsFormController {
     @FXML
     private void supplierReport(MouseEvent mouseEvent) throws JRException, SQLException {
         HashMap<String, Object> map = new HashMap<>();
-        map.put("Employee", "Employee");
+        map.put("Supplier", "Supplier");
         InputStream resource = this.getClass().getResourceAsStream("/reports/supplierReport.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(resource);
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, DBConnection.getInstance().getConnection());
