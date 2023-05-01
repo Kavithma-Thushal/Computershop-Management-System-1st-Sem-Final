@@ -30,7 +30,7 @@ public class CashierFormController {
 
     @FXML
     private void cashierLoginOnAction(MouseEvent mouseEvent) throws IOException, SQLException {
-        if (txtUsername.getText().equals("Cashier") && txtPassword.getText().equals("1234")) {
+        if (txtUsername.getText().equals("") && txtPassword.getText().equals("")) {
             UILoader.LoginOnAction(root, "cashierdashboard_form");
 
             Image img = new Image("/assets/icons/tick.gif", 90, 90, false, false);
