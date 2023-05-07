@@ -1,10 +1,10 @@
 <component name="libraryTable">
   <library name="lib">
     <CLASSES>
-      <root url="file://C:/Program Files/javafx 19.0.2.1/lib" />
+      <root url="file://$PROJECT_DIR$/.idea/lib/javafx 19.0.2.1/lib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
-    <jarDirectory url="file://C:/Program Files/javafx 19.0.2.1/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/.idea/lib/javafx 19.0.2.1/lib" recursive="false" />
   </library>
 </component>
