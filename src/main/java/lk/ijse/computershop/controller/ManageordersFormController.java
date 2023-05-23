@@ -278,7 +278,7 @@ public class ManageordersFormController implements Initializable {
             if (isPlaced) {
                 Alert orderPlacedAlert = new Alert(Alert.AlertType.INFORMATION, "Order Placed...!");
                 orderPlacedAlert.show();
-                EmailSend.mail("Order has been placed...!");
+                //EmailSend.mail("Order has been placed...!");
 
                 orderPlacedAlert.setOnHidden(event -> {
                     try {
