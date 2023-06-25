@@ -334,7 +334,7 @@ public class ManagecustombuildFormController implements Initializable {
             if (isPlaced) {
                 Alert makeBuildAlert=new Alert(Alert.AlertType.INFORMATION, "your build is in progress...!");
                 makeBuildAlert.show();
-                //EmailSend.mail("Your Build is in Progress...!");
+                EmailSend.mail("Your Build is in Progress...!");
 
                 makeBuildAlert.setOnHidden(event -> {
                     try {

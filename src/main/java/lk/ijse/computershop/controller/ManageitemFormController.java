@@ -53,7 +53,7 @@ public class ManageitemFormController implements Initializable {
 
     private LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
     Pattern description = Pattern.compile("^([A-Z a-z 0-9 \\W]{4,40})$");
-    Pattern unitPrice = Pattern.compile("^(?!00)[0-9]{2,8}(?:\\.[0-9]{2})?$");
+    Pattern unitPrice = Pattern.compile("^(?!00)[0-9]{2,8}(?:\\.[0-9]{1,2})?$");
     Pattern qtyOnHand = Pattern.compile("^([0-9]{1,6})$");
 
     @Override

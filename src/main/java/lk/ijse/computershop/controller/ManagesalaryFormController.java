@@ -172,7 +172,7 @@ public class ManagesalaryFormController implements Initializable {
                 int affectedRows = CrudUtil.execute(sql, salaryCode, employeeId, amount, String.valueOf(LocalDate.now()));
                 if (affectedRows > 0) {
                     new Alert(Alert.AlertType.INFORMATION, "Paid Successfully...!").show();
-                    //EmailSend.mail("Your Salary is Deposited to the Bank...!");
+                    EmailSend.mail("Your Salary is Deposited to the Bank...!");
                     getAll();
                     txtEmployeeName.clear();
                     txtAmount.clear();
