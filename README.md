@@ -1,4 +1,4 @@
-# Bashicomputershop-1st_Sem_Final
+# ✌️Bashicomputershop-1st_Sem_Final
 Computershop using java 11, javafx &amp; maven<br/>
 My 1st Semester Final Software
 
@@ -22,13 +22,13 @@ Functions :-<br/>
 * Run the Application
 
 ### Version
-2023.0.0.1
+1.0.0
 
 ### License
-© 2023 All Right Reserved Designed By Kavithma Thushal<br/>
+⭐️© 2023 All Right Reserved Designed By Kavithma Thushal<br/>
 This project is licensed under the [MIT](LICENSE) license.
 
-If you hava any bugs or issues ,If you want to explain code pleace contact me on :<br/> 
+⭐️If you hava any bugs or issues ,If you want to explain code pleace contact me on :<br/> 
 [kavithmathushal9007@gmail.com](https://www.kavithmathushal9007@gmail.com)
 
 ![Screenshot 2023-07-02 215542](https://github.com/Thushal2001/Bashicomputershop-1st_Sem_Final/assets/125787087/9ee161a9-95ea-4375-a851-f6fbd8e30e55)
