@@ -1,4 +1,4 @@
-# ✌️Bashicomputershop-1st_Sem_Final
+# ✌️Bashicomputershop-1st-Sem-Final
 Computershop using java 11, javafx &amp; maven<br/>
 My 1st Semester Final Software
 
@@ -16,8 +16,8 @@ Functions :-<br/>
 ✅Cashier can Manage Customers, Orders, Delivery, Repair, Custom Build and only view the store
 
 ### How to use
-* Clone this repo https://github.com/Thushal2001/Bashicomputershop-1st_Sem_Final.git
-* Add project database [Project Database](https://github.com/Thushal2001/Bashicomputershop-1st_Sem_Final/blob/master/Project%20Database)
+* Clone this repo https://github.com/Thushal2001/Bashicomputershop-1st-Sem-Final.git
+* Add project database [Project Database](https://github.com/Thushal2001/Bashicomputershop-1st-Sem-Final/blob/master/src/main/resources/schema/schema.sql)
 * Reload the `pom.xml`
 * Run the Application
 
